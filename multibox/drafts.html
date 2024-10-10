@@ -80,9 +80,17 @@
                         const filename = `${assignmentId}_antworten.txt`;
                         const blob = new Blob([text], { type: 'text/plain' });
                         const link = document.createElement("a");
-                        link.href = window.URL.createObjectURL(blob);
+                        const url = window.URL.createObjectURL(blob);
+                        link.href = url;
                         link.download = filename;
+                        // Append link to the body
+                        document.body.appendChild(link);
+                        // Trigger click
                         link.click();
+                        // Remove link from the body
+                        document.body.removeChild(link);
+                        // Revoke the object URL
+                        window.URL.revokeObjectURL(url);
                     });
                     draftDiv.appendChild(downloadButton);
                     
@@ -109,9 +117,17 @@
                 
                 const blob = new Blob([allTexts], { type: 'text/plain' });
                 const link = document.createElement("a");
-                link.href = window.URL.createObjectURL(blob);
+                const url = window.URL.createObjectURL(blob);
+                link.href = url;
                 link.download = "alle_antworten.txt";
+                // Append link to the body
+                document.body.appendChild(link);
+                // Trigger click
                 link.click();
+                // Remove link from the body
+                document.body.removeChild(link);
+                // Revoke the object URL
+                window.URL.revokeObjectURL(url);
             });
         });
     </script>
