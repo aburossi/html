@@ -36,6 +36,13 @@
         a:hover {
             text-decoration: underline;
         }
+        #debugInfo {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -48,8 +55,18 @@
     <br>
     <button onclick="downloadTxtFile()">Antwort herunterladen</button>
     <button onclick="saveToLocal()">Antwort speichern</button>
+    <button onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    
+    <div id="debugInfo"></div>
 
     <script>
+        const debugInfo = document.getElementById('debugInfo');
+
+        function log(message) {
+            console.log(message);
+            debugInfo.innerHTML += message + '<br>';
+        }
+
         // Function to get query parameters
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -58,6 +75,7 @@
 
         // Retrieve the assignment ID from the query parameter
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+        log(`Assignment ID: ${assignmentId}`);
 
         // Reference to the textarea
         const textarea = document.getElementById('answerBox');
@@ -66,6 +84,9 @@
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             textarea.value = savedText;
+            log(`Loaded saved text for ${assignmentId}`);
+        } else {
+            log(`No saved text found for ${assignmentId}`);
         }
 
         // Download Button Function
@@ -73,6 +94,7 @@
             const text = textarea.value;
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
+                log("Download attempted with empty text field");
                 return;
             }
             const filename = `${assignmentId}_antworten.txt`;
@@ -87,6 +109,7 @@
             link.click();
             document.body.removeChild(link);
             window.URL.revokeObjectURL(url);
+            log(`Download initiated for ${filename}`);
         }
 
         // Save Button Function
@@ -94,10 +117,27 @@
             const text = textarea.value;
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
+                log("Save attempted with empty text field");
                 return;
             }
             localStorage.setItem(assignmentId, text);
             alert("Antwort gespeichert.");
+            log(`Saved text for ${assignmentId}`);
+        }
+
+        // Clear localStorage Function
+        function clearLocalStorage() {
+            localStorage.clear();
+            textarea.value = '';
+            alert("Alle gespeicherten Antworten wurden gelöscht.");
+            log("All localStorage items cleared");
+        }
+
+        // Log initial localStorage state
+        log("Initial localStorage state:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
 </body>
