@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Antworten herunterladen und speichern</title>
+    <title>Antworten speichern und drucken</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,17 +36,36 @@
             border: 1px solid #ccc;
             font-family: monospace;
         }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printContent, #printContent * {
+                visibility: visible;
+            }
+            #printContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            button, #debugInfo {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <h3>Deine Antwort:</h3>
+    <div id="printContent">
+        <h3>Deine Antwort:</h3>
+        <p id="assignmentInfo"></p>
+        <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+    </div>
+    
     <p class="info-text">
-        Du kannst deine Antworten individuell herunterladen oder alle zusammen am Ende der Seite herunterladen. 
-        <a href="https://aburossi.github.io/html/multibox/drafts.html" target="_blank">Gespeicherte Entwürfe herunterladen</a>.
+        Du kannst deine Antworten drucken oder als PDF speichern. 
+        <a href="https://aburossi.github.io/html/multibox/drafts.html" target="_blank">Gespeicherte Entwürfe ansehen</a>.
     </p>
-    <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
-    <br>
-    <button onclick="downloadTxtFile()">Antwort herunterladen</button>
+    <button onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
     <button onclick="saveToLocal()">Antwort speichern</button>
     <button onclick="clearLocalStorage()">Alle Antworten löschen</button>
     
@@ -54,6 +73,7 @@
 
     <script>
         const debugInfo = document.getElementById('debugInfo');
+        const assignmentInfo = document.getElementById('assignmentInfo');
 
         function log(message) {
             console.log(message);
@@ -67,6 +87,7 @@
 
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
         log(`Assignment ID: ${assignmentId}`);
+        assignmentInfo.textContent = `Auftrag: ${assignmentId}`;
 
         const textarea = document.getElementById('answerBox');
 
@@ -78,28 +99,15 @@
             log(`No saved text found for ${assignmentId}`);
         }
 
-        function downloadTxtFile() {
+        function printAnswer() {
             const text = textarea.value;
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                log("Download attempted with empty text field");
+                log("Print attempted with empty text field");
                 return;
             }
-            const filename = `${assignmentId}_antworten.txt`;
-            
-            const blob = new Blob([text], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            
-            const downloadLink = document.createElement('a');
-            downloadLink.href = url;
-            downloadLink.download = filename;
-            downloadLink.style.display = 'none';
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-            URL.revokeObjectURL(url);
-            
-            log(`Download initiated for ${filename}`);
+            log(`Print initiated for ${assignmentId}`);
+            window.print();
         }
 
         function saveToLocal() {
