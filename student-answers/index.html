@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Antworten herunterladen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            resize: vertical;
+            padding: 10px;
+            font-size: 14px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h3>Schreibe deine Antworten hier:</h3>
+    <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+    <br>
+    <button onclick="downloadTxtFile()">Antwort herunterladen</button>
+
+    <script>
+        function downloadTxtFile() {
+            const text = document.getElementById("answerBox").value;
+            const filename = "antworten.txt";
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            window.URL.revokeObjectURL(link.href);
+        }
+
+        // Listen for messages from the parent window
+        window.addEventListener('message', function(event) {
+            // **Security Check**: Replace 'https://your-obsidian-publish-domain.com' with your actual Obsidian Publish domain
+            const allowedOrigin = 'https://your-obsidian-publish-domain.com';
+            if (event.origin !== allowedOrigin) {
+                console.warn('Unauthorized origin:', event.origin);
+                return;
+            }
+
+            if (event.data && event.data.type === 'getAnswer') {
+                const answer = document.getElementById("answerBox").value;
+                // Respond with the answer and assignment ID
+                event.source.postMessage({
+                    type: 'sendAnswer',
+                    assignmentId: event.data.assignmentId,
+                    answer: answer
+                }, event.origin);
+            }
+        }, false);
+    </script>
+</body>
+</html>
