@@ -37,9 +37,33 @@
         #clearBtn {
             background-color: #f44336; /* Rot */
         }
+        #downloadAllBtn {
+            background-color: #555555; /* Dunkelgrau */
+        }
         .info-text {
             font-size: 12px;
             color: #555;
+            margin-bottom: 10px;
+        }
+        #draftContainer {
+            margin-top: 20px;
+        }
+        .draft {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .draft h3 {
+            margin-bottom: 5px;
+        }
+        .draft textarea {
+            width: 100%;
+            height: 100px;
+            resize: vertical;
+            padding: 10px;
+            font-size: 14px;
+            box-sizing: border-box;
             margin-bottom: 10px;
         }
         @media print {
@@ -53,11 +77,12 @@
                 position: absolute;
                 left: 0;
                 top: 0;
+                width: 100%;
             }
             textarea {
                 display: none;
             }
-            #answerText {
+            #answerText, .draft pre {
                 display: block;
                 white-space: pre-wrap; /* Zeilenumbrüche beibehalten */
                 font-size: 14px;
@@ -67,7 +92,7 @@
                 width: 100%;
                 height: auto;
             }
-            #printContent h3 {
+            #printContent h3, .draft h3 {
                 margin-bottom: 10px;
             }
             button {
@@ -77,6 +102,7 @@
     </style>
 </head>
 <body>
+    <!-- Bereich für das Drucken einer einzelnen Antwort -->
     <div id="printContent">
         <h3>Deine Antwort:</h3>
         <p id="assignmentInfo"></p>
@@ -90,6 +116,15 @@
     <button id="printBtn" onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
     <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
     <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    
+    <br><br>
+    
+    <!-- Hinzufügen der "Alle Antworten drucken / Als PDF speichern" Funktion -->
+    <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
+    
+    <div id="draftContainer">
+        <!-- Gespeicherte Antworten werden hier geladen -->
+    </div>
     
     <script>
         // Funktion zum Abrufen eines Query-Parameters nach Name
@@ -145,6 +180,7 @@
             localStorage.setItem(assignmentId, text);
             alert("Antwort zwischengespeichert.");
             console.log(`Text für ${assignmentId} gespeichert`);
+            loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
         }
 
         // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
@@ -154,8 +190,107 @@
                 textarea.value = '';
                 alert("Alle gespeicherten Antworten wurden gelöscht.");
                 console.log("Alle localStorage-Elemente gelöscht");
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
             }
         }
+
+        // Funktion zum Laden und Anzeigen aller gespeicherten Antworten
+        function loadAllAnswers() {
+            const draftContainer = document.getElementById("draftContainer");
+            draftContainer.innerHTML = ""; // Leere den Container
+
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge`);
+
+            if(storageKeys.length === 0) {
+                draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
+                return;
+            }
+
+            // Sortiere die storageKeys basierend auf der numerischen Komponente
+            storageKeys.sort((a, b) => {
+                const numA = parseInt(a.replace('assignment', ''), 10);
+                const numB = parseInt(b.replace('assignment', ''), 10);
+                return numA - numB;
+            });
+
+            console.log("Sortierte Auftrag-IDs:", storageKeys);
+
+            storageKeys.forEach(assignmentKey => {
+                const text = localStorage.getItem(assignmentKey);
+                if(text) {
+                    console.log(`Lade Auftrag: ${assignmentKey}`);
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const title = document.createElement("h3");
+                    title.textContent = "Gespeicherte Antwort für " + assignmentKey.replace('assignment', 'Auftrag ');
+                    draftDiv.appendChild(title);
+                    
+                    const pre = document.createElement("pre");
+                    pre.textContent = text;
+                    draftDiv.appendChild(pre);
+                    
+                    draftContainer.appendChild(draftDiv);
+                }
+            });
+        }
+
+        // Initiales Laden aller gespeicherten Antworten beim Laden der Seite
+        document.addEventListener("DOMContentLoaded", function() {
+            loadAllAnswers();
+            
+            // Add event listener for Print All Answers button
+            const downloadAllBtn = document.getElementById("downloadAllBtn");
+            downloadAllBtn.addEventListener('click', function() {
+                const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+                
+                console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
+
+                if(storageKeys.length === 0) {
+                    alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                    console.log("Drucken aller Antworten versucht, aber keine gespeichert");
+                    return;
+                }
+                
+                console.log("Drucken aller Antworten initiiert");
+                
+                // Erstelle ein temporäres div für das Drucken aller Antworten
+                const printAllContent = document.createElement('div');
+                printAllContent.id = 'printAllContent';
+                
+                // Sortiere die storageKeys wie zuvor
+                storageKeys.sort((a, b) => {
+                    const numA = parseInt(a.replace('assignment', ''), 10);
+                    const numB = parseInt(b.replace('assignment', ''), 10);
+                    return numA - numB;
+                });
+
+                storageKeys.forEach(assignmentKey => {
+                    const text = localStorage.getItem(assignmentKey);
+                    if(text) {
+                        const draftDiv = document.createElement("div");
+                        draftDiv.className = "draft";
+                        
+                        const title = document.createElement("h3");
+                        title.textContent = "Gespeicherte Antwort für " + assignmentKey.replace('assignment', 'Auftrag ');
+                        draftDiv.appendChild(title);
+                        
+                        const pre = document.createElement("pre");
+                        pre.textContent = text;
+                        draftDiv.appendChild(pre);
+                        
+                        printAllContent.appendChild(draftDiv);
+                    }
+                });
+                
+                // Append to body, print, and then remove
+                document.body.appendChild(printAllContent);
+                window.print();
+                document.body.removeChild(printAllContent);
+            });
+        });
 
         // Optional: Logge den initialen Zustand von localStorage zur Fehlerbehebung
         console.log("Initialer Zustand von localStorage:");
