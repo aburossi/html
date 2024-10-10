@@ -23,18 +23,24 @@
             font-size: 14px;
             cursor: pointer;
             margin-right: 10px;
+            margin-top: 10px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        #printBtn {
+            background-color: #4CAF50; /* Green */
+        }
+        #saveBtn {
+            background-color: #008CBA; /* Blue */
+        }
+        #clearBtn {
+            background-color: #f44336; /* Red */
         }
         .info-text {
             font-size: 12px;
             color: #555;
             margin-bottom: 10px;
-        }
-        #debugInfo {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            font-family: monospace;
         }
         @media print {
             body * {
@@ -48,7 +54,7 @@
                 left: 0;
                 top: 0;
             }
-            button, #debugInfo {
+            button {
                 display: none;
             }
         }
@@ -65,74 +71,76 @@
         Du kannst deine Antworten drucken oder als PDF speichern. 
         <a href="https://aburossi.github.io/html/multibox/drafts.html" target="_blank">Gespeicherte Entwürfe ansehen</a>.
     </p>
-    <button onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
-    <button onclick="saveToLocal()">Antwort speichern</button>
-    <button onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    <button id="printBtn" onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
+    <button id="saveBtn" onclick="saveToLocal()">Antwort speichern</button>
+    <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     
-    <div id="debugInfo"></div>
-
     <script>
-        const debugInfo = document.getElementById('debugInfo');
-        const assignmentInfo = document.getElementById('assignmentInfo');
-
-        function log(message) {
-            console.log(message);
-            debugInfo.innerHTML += message + '<br>';
-        }
-
+        // Function to get query parameter by name
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
-        log(`Assignment ID: ${assignmentId}`);
-        assignmentInfo.textContent = `Auftrag: ${assignmentId}`;
+        const assignmentInfo = document.getElementById('assignmentInfo');
+
+        // Extract the numerical part of the assignmentId
+        const assignmentNumberMatch = assignmentId.match(/\d+/);
+        const assignmentNumber = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
+        assignmentInfo.textContent = assignmentNumber ? `Auftrag ${assignmentNumber}` : 'Auftrag';
 
         const textarea = document.getElementById('answerBox');
 
+        // Load saved text from localStorage
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             textarea.value = savedText;
-            log(`Loaded saved text for ${assignmentId}`);
+            console.log(`Loaded saved text for ${assignmentId}`);
         } else {
-            log(`No saved text found for ${assignmentId}`);
+            console.log(`No saved text found for ${assignmentId}`);
         }
 
+        // Function to print the answer
         function printAnswer() {
             const text = textarea.value;
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                log("Print attempted with empty text field");
+                console.log("Print attempted with empty text field");
                 return;
             }
-            log(`Print initiated for ${assignmentId}`);
+            console.log(`Print initiated for ${assignmentId}`);
             window.print();
         }
 
+        // Function to save the answer to localStorage
         function saveToLocal() {
             const text = textarea.value;
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                log("Save attempted with empty text field");
+                console.log("Save attempted with empty text field");
                 return;
             }
             localStorage.setItem(assignmentId, text);
             alert("Antwort gespeichert.");
-            log(`Saved text for ${assignmentId}`);
+            console.log(`Saved text for ${assignmentId}`);
         }
 
+        // Function to clear all saved answers from localStorage
         function clearLocalStorage() {
-            localStorage.clear();
-            textarea.value = '';
-            alert("Alle gespeicherten Antworten wurden gelöscht.");
-            log("All localStorage items cleared");
+            if (confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
+                localStorage.clear();
+                textarea.value = '';
+                alert("Alle gespeicherten Antworten wurden gelöscht.");
+                console.log("All localStorage items cleared");
+            }
         }
 
-        log("Initial localStorage state:");
+        // Optional: Log initial localStorage state to console for debugging
+        console.log("Initial localStorage state:");
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
-            log(`${key}: ${localStorage.getItem(key)}`);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
 </body>
