@@ -80,21 +80,26 @@
             margin-bottom: 20px;
         }
 
+        /* Print Styles */
         @media print {
+            /* Hide everything by default */
             body * {
                 visibility: hidden;
             }
 
-            /* Ensure only #printContent or #printAllContent is visible */
-            #printContent, #printContent * {
+            /* Show only printContent when printing single answer */
+            body.print-single #printContent,
+            body.print-single #printContent * {
                 visibility: visible;
             }
 
-            #printAllContent, #printAllContent * {
+            /* Show only printAllContent when printing all answers */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
                 visibility: visible;
             }
 
-            /* Position the printContent and printAllContent at the top-left corner */
+            /* Position the visible content correctly */
             #printContent, #printAllContent {
                 position: absolute;
                 left: 0;
@@ -102,26 +107,24 @@
                 width: 100%;
             }
 
+            /* Hide textareas in print */
             textarea {
                 display: none;
             }
 
-            #answerText, .draft pre {
-                display: block;
-                white-space: pre-wrap; /* Zeilenumbrüche beibehalten */
+            /* Style pre elements for readability */
+            pre {
+                white-space: pre-wrap;
                 font-size: 14px;
-                /* Removed border and padding to match Code 1 */
+                padding: 10px;
                 box-sizing: border-box;
                 width: 100%;
                 height: auto;
+                margin-bottom: 20px;
+                border: none; /* Remove borders to match Code 1 */
             }
 
-            /* Styling for individual printContent */
-            #printContent h3 {
-                margin-bottom: 5px;
-            }
-
-            /* Styling for printAllContent similar to Code 1 */
+            /* Remove borders and padding from drafts when printing all answers */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
@@ -130,15 +133,6 @@
 
             #printAllContent .draft h3 {
                 margin-bottom: 5px;
-            }
-
-            #printAllContent pre {
-                white-space: pre-wrap; /* Zeilenumbrüche beibehalten */
-                /* Removed border and padding to match Code 1 */
-                box-sizing: border-box;
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
             }
 
             /* Hide all buttons during print */
@@ -212,7 +206,15 @@
             // Setze den Text für den Druck
             answerText.textContent = text;
             console.log(`Druckvorgang für ${assignmentId} gestartet`);
+
+            // Add 'print-single' class to body
+            document.body.classList.add('print-single');
+
             window.print();
+
+            // Remove 'print-single' class after printing
+            document.body.classList.remove('print-single');
+
             // Verzögertes Löschen des Textes, um sicherzustellen, dass der Druckvorgang abgeschlossen ist
             setTimeout(() => { answerText.textContent = ''; }, 1000);
         }
@@ -333,9 +335,16 @@
                     }
                 });
 
-                // Append to body, print, and then remove
+                // Append to body
                 document.body.appendChild(printAllContent);
+
+                // Add 'print-all' class to body
+                document.body.classList.add('print-all');
+
                 window.print();
+
+                // Remove 'print-all' class and the printAllContent div after printing
+                document.body.classList.remove('print-all');
                 document.body.removeChild(printAllContent);
             });
         });
