@@ -6,13 +6,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .assignment {
-            margin-bottom: 30px;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
         }
         textarea {
             width: 100%;
@@ -29,87 +24,59 @@
             cursor: pointer;
             margin-right: 10px;
         }
-        .buttons {
-            margin-top: 5px;
-        }
     </style>
 </head>
 <body>
-    <h2>Schreibe deine Antworten hier:</h2>
-    
-    <!-- Assignment 1 -->
-    <div class="assignment" data-assignment-id="assignment1">
-        <h3>Auftrag 1: Rechte einfordern</h3>
-        <p><strong>Aufgabe:</strong> Lesen Sie die Seiten 32-33 im Lehrmittel. Markieren Sie die Rechte der Lernenden und die dazugehörigen Gesetzesartikel.</p>
-        <ul>
-            <li>Welche Rechte haben Lernende in Bezug auf Lohn, Arbeitszeit und Ferien?</li>
-            <li>Was bedeutet die Lohnfortzahlungspflicht des Arbeitgebers?</li>
-            <li>Welches Recht haben Lernende im Zusammenhang mit dem Qualifikationsverfahren?</li>
-        </ul>
-        <p><strong>Besprechung:</strong> Besprechen Sie mit Ihrem Banknachbarn: An wen können sich Lernende wenden, wenn ihre Rechte im Lehrbetrieb nicht eingehalten werden?</p>
-        <textarea placeholder="Gib hier deine Antworten ein..."></textarea>
-        <div class="buttons">
-            <button class="downloadBtn">Antwort herunterladen</button>
-            <button class="saveBtn">Antwort speichern</button>
-        </div>
-    </div>
-    
-    <!-- Assignment 2 -->
-    <div class="assignment" data-assignment-id="assignment2">
-        <h3>Auftrag 2: Weitere Rechte</h3>
-        <p><strong>Aufgabe:</strong> Beschreiben Sie die Rechte der Lernenden in verschiedenen Kontexten.</p>
-        <textarea placeholder="Gib hier deine Antworten ein..."></textarea>
-        <div class="buttons">
-            <button class="downloadBtn">Antwort herunterladen</button>
-            <button class="saveBtn">Antwort speichern</button>
-        </div>
-    </div>
-    
-    <!-- Add more assignments as needed -->
-    
+    <h3>Deine Antwort:</h3>
+    <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+    <br>
+    <button onclick="downloadTxtFile()">Antwort herunterladen</button>
+    <button onclick="saveToLocal()">Antwort speichern</button>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const assignments = document.querySelectorAll('.assignment');
-            
-            assignments.forEach(assignment => {
-                const assignmentId = assignment.getAttribute('data-assignment-id');
-                const textarea = assignment.querySelector('textarea');
-                const downloadBtn = assignment.querySelector('.downloadBtn');
-                const saveBtn = assignment.querySelector('.saveBtn');
-                
-                // Load saved draft if exists
-                const savedText = localStorage.getItem(assignmentId);
-                if(savedText) {
-                    textarea.value = savedText;
-                }
-                
-                // Download Button Event
-                downloadBtn.addEventListener('click', function() {
-                    const text = textarea.value;
-                    if(text.trim() === "") {
-                        alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                        return;
-                    }
-                    const filename = assignmentId + "_antworten.txt";
-                    const blob = new Blob([text], { type: 'text/plain' });
-                    const link = document.createElement("a");
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = filename;
-                    link.click();
-                });
-                
-                // Save Button Event
-                saveBtn.addEventListener('click', function() {
-                    const text = textarea.value;
-                    if(text.trim() === "") {
-                        alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                        return;
-                    }
-                    localStorage.setItem(assignmentId, text);
-                    alert("Antwort für " + assignmentId + " gespeichert.");
-                });
-            });
-        });
+        // Function to get query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Retrieve the assignment ID from the query parameter
+        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+
+        // Reference to the textarea
+        const textarea = document.getElementById('answerBox');
+
+        // Load saved draft if exists
+        const savedText = localStorage.getItem(assignmentId);
+        if (savedText) {
+            textarea.value = savedText;
+        }
+
+        // Download Button Function
+        function downloadTxtFile() {
+            const text = textarea.value;
+            if (text.trim() === "") {
+                alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
+                return;
+            }
+            const filename = `${assignmentId}_antworten.txt`;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+
+        // Save Button Function
+        function saveToLocal() {
+            const text = textarea.value;
+            if (text.trim() === "") {
+                alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
+                return;
+            }
+            localStorage.setItem(assignmentId, text);
+            alert("Antwort gespeichert.");
+        }
     </script>
 </body>
 </html>
