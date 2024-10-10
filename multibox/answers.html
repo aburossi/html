@@ -24,10 +24,26 @@
             cursor: pointer;
             margin-right: 10px;
         }
+        .info-text {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h3>Deine Antwort:</h3>
+    <p class="info-text">
+        Du kannst deine Antworten individuell herunterladen oder alle zusammen am Ende der Seite herunterladen. 
+        <a href="https://aburossi.github.io/html/multibox/drafts.html" target="_blank">Gespeicherte Entwürfe herunterladen</a>.
+    </p>
     <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
     <br>
     <button onclick="downloadTxtFile()">Antwort herunterladen</button>
