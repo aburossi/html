@@ -29,13 +29,6 @@
             color: #555;
             margin-bottom: 10px;
         }
-        a {
-            color: #1a0dab;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
         #debugInfo {
             background-color: #f0f0f0;
             padding: 10px;
@@ -67,20 +60,16 @@
             debugInfo.innerHTML += message + '<br>';
         }
 
-        // Function to get query parameters
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
-        // Retrieve the assignment ID from the query parameter
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
         log(`Assignment ID: ${assignmentId}`);
 
-        // Reference to the textarea
         const textarea = document.getElementById('answerBox');
 
-        // Load saved draft if exists
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             textarea.value = savedText;
@@ -89,7 +78,6 @@
             log(`No saved text found for ${assignmentId}`);
         }
 
-        // Download Button Function
         function downloadTxtFile() {
             const text = textarea.value;
             if (text.trim() === "") {
@@ -98,23 +86,30 @@
                 return;
             }
             const filename = `${assignmentId}_antworten.txt`;
-            const blob = new Blob([text], { type: 'text/plain' });
             
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                // For IE
-                window.navigator.msSaveOrOpenBlob(blob, filename);
-                log("Download initiated using msSaveOrOpenBlob");
-            } else {
-                // For other browsers
-                const url = window.URL.createObjectURL(blob);
-                window.open(url, '_blank');
-                window.URL.revokeObjectURL(url);
-                log("Download initiated by opening URL in new tab");
-            }
-            log(`Download initiated for ${filename}`);
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            
+            const downloadPage = window.open('', '_blank');
+            downloadPage.document.write(`
+                <html>
+                <head>
+                    <title>Download ${filename}</title>
+                </head>
+                <body>
+                    <h1>Ihr Download startet automatisch</h1>
+                    <p>Falls der Download nicht automatisch startet, <a id="downloadLink" href="${url}" download="${filename}">klicken Sie hier</a>.</p>
+                    <script>
+                        document.getElementById('downloadLink').click();
+                    </script>
+                </body>
+                </html>
+            `);
+            downloadPage.document.close();
+            
+            log(`Download page opened for ${filename}`);
         }
 
-        // Save Button Function
         function saveToLocal() {
             const text = textarea.value;
             if (text.trim() === "") {
@@ -127,7 +122,6 @@
             log(`Saved text for ${assignmentId}`);
         }
 
-        // Clear localStorage Function
         function clearLocalStorage() {
             localStorage.clear();
             textarea.value = '';
@@ -135,7 +129,6 @@
             log("All localStorage items cleared");
         }
 
-        // Log initial localStorage state
         log("Initial localStorage state:");
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
