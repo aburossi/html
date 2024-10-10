@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Antworten herunterladen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            resize: vertical;
+            padding: 10px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Schreibe deine Antworten hier:</h2>
+    <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+    <br>
+    <button onclick="downloadTxtFile()">Antwort herunterladen</button>
+
+    <script>
+        function downloadTxtFile() {
+            const text = document.getElementById("answerBox").value;
+            const filename = "antworten.txt";
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+    </script>
+</body>
+</html>
