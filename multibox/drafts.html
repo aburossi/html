@@ -52,7 +52,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const draftContainer = document.getElementById("draftContainer");
-            const storageKeys = Object.keys(localStorage).filter(key => key.includes('assignment')); // Changed to include 'assignment' anywhere in the key
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment')); // Ensure keys start with 'assignment'
             
             if(storageKeys.length === 0) {
                 draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
@@ -79,17 +79,11 @@
                     downloadButton.addEventListener('click', function() {
                         const filename = `${assignmentId}_antworten.txt`;
                         const blob = new Blob([text], { type: 'text/plain' });
+                        const url = URL.createObjectURL(blob);
                         const link = document.createElement("a");
-                        const url = URL.createObjectURL(blob); // Simplified
                         link.href = url;
                         link.download = filename;
-                        // Append link to the body
-                        document.body.appendChild(link);
-                        // Trigger click
                         link.click();
-                        // Remove link from the body
-                        document.body.removeChild(link);
-                        // Revoke the object URL
                         URL.revokeObjectURL(url);
                     });
                     draftDiv.appendChild(downloadButton);
@@ -116,17 +110,11 @@
                 });
                 
                 const blob = new Blob([allTexts], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
                 const link = document.createElement("a");
-                const url = URL.createObjectURL(blob); // Simplified
                 link.href = url;
                 link.download = "alle_antworten.txt";
-                // Append link to the body
-                document.body.appendChild(link);
-                // Trigger click
                 link.click();
-                // Remove link from the body
-                document.body.removeChild(link);
-                // Revoke the object URL
                 URL.revokeObjectURL(url);
             });
         });
