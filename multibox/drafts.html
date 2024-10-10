@@ -42,6 +42,22 @@
             border: 1px solid #ccc;
             font-family: monospace;
         }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printContent, #printContent * {
+                visibility: visible;
+            }
+            #printContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            button, #debugInfo {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -101,6 +117,13 @@
                     });
                     draftDiv.appendChild(downloadButton);
                     
+                    const printButton = document.createElement("button");
+                    printButton.textContent = "Antwort drucken / als PDF speichern";
+                    printButton.addEventListener('click', function() {
+                        printAnswer(assignmentId, text);
+                    });
+                    draftDiv.appendChild(printButton);
+                    
                     draftContainer.appendChild(draftDiv);
                 }
             });
@@ -149,6 +172,29 @@
             alert("Alle gespeicherten Antworten wurden gelöscht.");
             log("All localStorage items cleared");
             location.reload(); // Reload the page to reflect the changes
+        }
+
+        function printAnswer(assignmentId, text) {
+            if (text.trim() === "") {
+                alert("Das Antwortfeld ist leer. Es gibt nichts zu drucken.");
+                log("Print attempted with empty text field");
+                return;
+            }
+            log(`Print initiated for ${assignmentId}`);
+            
+            // Create a temporary div for printing
+            const printContent = document.createElement('div');
+            printContent.id = 'printContent';
+            printContent.innerHTML = `
+                <h3>Deine Antwort:</h3>
+                <p>Auftrag: ${assignmentId.replace('assignment', 'Auftrag ')}</p>
+                <pre>${text}</pre>
+            `;
+            
+            // Append to body, print, and then remove
+            document.body.appendChild(printContent);
+            window.print();
+            document.body.removeChild(printContent);
         }
 
         // Log initial localStorage state
