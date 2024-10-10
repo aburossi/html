@@ -97,7 +97,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const draftContainer = document.getElementById("draftContainer");
-            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+            let storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
             console.log(`Found ${storageKeys.length} stored assignments`);
             
@@ -247,7 +247,7 @@
             document.body.removeChild(printContent);
         }
 
-        // Funktion zum Kopieren aller Antworten in die Zwischenablage mit Fallback
+        // Funktion zum Kopieren aller Antworten in die Zwischenablage mit verbessertem Fallback
         function copyAllAnswersToClipboard() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
@@ -256,6 +256,13 @@
                 console.log("Copy all attempted with no stored answers");
                 return;
             }
+
+            // Sortieren der storageKeys basierend auf dem numerischen Teil der assignmentId
+            storageKeys.sort((a, b) => {
+                const numA = parseInt(a.replace('assignment', ''), 10);
+                const numB = parseInt(b.replace('assignment', ''), 10);
+                return numA - numB;
+            });
 
             let allText = '';
             storageKeys.forEach(assignmentId => {
@@ -271,10 +278,9 @@
                 navigator.clipboard.writeText(allText).then(function() {
                     alert("Alle Antworten wurden in die Zwischenablage kopiert.");
                     console.log("All answers copied to clipboard successfully");
-                }, function(err) {
+                }).catch(function(err) {
                     console.error('Fehler beim Kopieren der Antworten: ', err);
-                    alert("Beim Kopieren der Antworten ist ein Fehler aufgetreten. Versuche einen alternativen Kopiervorgang.");
-                    // Fallback auf execCommand
+                    // Fallback auf execCommand ohne initiale Fehlermeldung
                     fallbackCopyTextToClipboard(allText);
                 });
             } else {
