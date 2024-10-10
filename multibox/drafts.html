@@ -247,7 +247,7 @@
             document.body.removeChild(printContent);
         }
 
-        // Funktion zum Kopieren aller Antworten in die Zwischenablage
+        // Funktion zum Kopieren aller Antworten in die Zwischenablage mit Fallback
         function copyAllAnswersToClipboard() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
@@ -265,14 +265,49 @@
                 }
             });
 
-            // Verwenden der Clipboard API
-            navigator.clipboard.writeText(allText).then(function() {
-                alert("Alle Antworten wurden in die Zwischenablage kopiert.");
-                console.log("All answers copied to clipboard successfully");
-            }, function(err) {
-                console.error('Fehler beim Kopieren der Antworten: ', err);
+            // Prüfen, ob die Clipboard API verfügbar ist
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // Verwenden der Clipboard API
+                navigator.clipboard.writeText(allText).then(function() {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("All answers copied to clipboard successfully");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren der Antworten: ', err);
+                    alert("Beim Kopieren der Antworten ist ein Fehler aufgetreten. Versuche einen alternativen Kopiervorgang.");
+                    // Fallback auf execCommand
+                    fallbackCopyTextToClipboard(allText);
+                });
+            } else {
+                // Fallback auf execCommand
+                fallbackCopyTextToClipboard(allText);
+            }
+        }
+
+        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecken des Textarea-Elements
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("All answers copied to clipboard using fallback");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren der Antworten (Fallback): ', err);
                 alert("Beim Kopieren der Antworten ist ein Fehler aufgetreten.");
-            });
+            }
+
+            document.body.removeChild(textarea);
         }
     </script>
 </body>
