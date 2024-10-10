@@ -28,14 +28,23 @@
             font-size: 14px;
             cursor: pointer;
             margin-right: 10px;
+            margin-top: 10px;
+        }
+        #downloadAllBtn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
         }
     </style>
 </head>
 <body>
     <h2>Gespeicherte Antworten:</h2>
     
+    <!-- Download All Answers Button -->
+    <button id="downloadAllBtn">Alle Antworten herunterladen</button>
     <button onclick="location.reload()">Seite neu laden</button>
     <br><br>
+    
     <div id="draftContainer">
         <!-- Drafts will be loaded here -->
     </div>
@@ -57,8 +66,7 @@
                     draftDiv.className = "draft";
                     
                     const title = document.createElement("h3");
-                    // Extract assignment number or name from assignmentId if needed
-                    title.textContent = "Gespeicherte Antwort für " + assignmentId;
+                    title.textContent = "Gespeicherte Antwort für " + assignmentId.replace('assignment', 'Auftrag ');
                     draftDiv.appendChild(title);
                     
                     const textarea = document.createElement("textarea");
@@ -80,6 +88,30 @@
                     
                     draftContainer.appendChild(draftDiv);
                 }
+            });
+            
+            // Add event listener for Download All Answers button
+            const downloadAllBtn = document.getElementById("downloadAllBtn");
+            downloadAllBtn.addEventListener('click', function() {
+                if(storageKeys.length === 0) {
+                    alert("Keine gespeicherten Antworten zum Herunterladen.");
+                    return;
+                }
+                
+                let allTexts = "";
+                storageKeys.forEach(assignmentId => {
+                    const text = localStorage.getItem(assignmentId);
+                    if(text) {
+                        allTexts += `=== ${assignmentId.replace('assignment', 'Auftrag ')} ===\n`;
+                        allTexts += text + "\n\n";
+                    }
+                });
+                
+                const blob = new Blob([allTexts], { type: 'text/plain' });
+                const link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "alle_antworten.txt";
+                link.click();
             });
         });
     </script>
