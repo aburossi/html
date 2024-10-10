@@ -129,16 +129,18 @@
 
         function downloadText(filename, text) {
             const blob = new Blob([text], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
             
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = `${filename}.txt`;
-            link.style.display = "none";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                // For IE
+                window.navigator.msSaveOrOpenBlob(blob, filename + '.txt');
+                log("Download initiated using msSaveOrOpenBlob");
+            } else {
+                // For other browsers
+                const url = window.URL.createObjectURL(blob);
+                window.open(url, '_blank');
+                window.URL.revokeObjectURL(url);
+                log("Download initiated by opening URL in new tab");
+            }
             log(`Download initiated for ${filename}`);
         }
 
