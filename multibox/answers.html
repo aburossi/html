@@ -57,7 +57,7 @@
         }
 
         // Retrieve the assignment ID from the query parameter
-        const assignmentId = getQueryParam('assignmentId') || 'assignmentDefault'; // Changed from 'defaultAssignment' to 'assignmentDefault'
+        const assignmentId = getQueryParam('assignmentId') || 'assignmentDefault'; // Ensure it starts with 'assignment'
 
         // Reference to the textarea
         const textarea = document.getElementById('answerBox');
@@ -77,18 +77,11 @@
             }
             const filename = `${assignmentId}_antworten.txt`;
             const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
-            const url = URL.createObjectURL(blob); // Simplified
             link.href = url;
             link.download = filename;
-
-            // Append link to the body
-            document.body.appendChild(link);
-            // Trigger click
             link.click();
-            // Remove link from the body
-            document.body.removeChild(link);
-            // Revoke the object URL
             URL.revokeObjectURL(url);
         }
 
