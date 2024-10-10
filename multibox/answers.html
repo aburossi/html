@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -37,33 +37,10 @@
         #clearBtn {
             background-color: #f44336; /* Red */
         }
-        #downloadAllBtn {
-            background-color: #4CAF50; /* Green */
-            margin-top: 20px;
-        }
         .info-text {
             font-size: 12px;
             color: #555;
             margin-bottom: 10px;
-        }
-        .saved-answers {
-            margin-top: 30px;
-        }
-        .saved-answer {
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .saved-answer h4 {
-            margin-bottom: 5px;
-        }
-        .saved-answer pre {
-            background-color: #f9f9f9;
-            padding: 10px;
-            white-space: pre-wrap; /* Preserve formatting */
-            border-radius: 4px;
-            overflow: auto;
         }
         @media print {
             body * {
@@ -76,21 +53,25 @@
                 position: absolute;
                 left: 0;
                 top: 0;
+            }
+            textarea {
+                display: none;
+            }
+            #answerText {
+                display: block;
+                white-space: pre-wrap; /* Preserves line breaks */
+                font-size: 14px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
                 width: 100%;
+                height: auto;
+            }
+            #printContent h3 {
+                margin-bottom: 10px;
             }
             button {
                 display: none;
-            }
-            .saved-answer {
-                border: none;
-                padding: 0;
-                margin-bottom: 20px;
-            }
-            .saved-answer h4 {
-                margin-bottom: 5px;
-            }
-            .saved-answer pre {
-                white-space: pre-wrap; /* Allow line breaks */
             }
         }
     </style>
@@ -100,24 +81,16 @@
         <h3>Deine Antwort:</h3>
         <p id="assignmentInfo"></p>
         <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+        <div id="answerText" style="display: none;"></div>
     </div>
     
     <p class="info-text">
-        Wenn Sie 'Antwort zwischenspeichern' verwenden, können die Antworten unten auf dieser Seite heruntergeladen werden.
+        Mit "Antwort zwischenspeichern" werden deine Antworten auf einer Seite gespeichert, die am Ende der Einheit angezeigt wird.
     </p>
     <button id="printBtn" onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
     <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
     <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     
-    <!-- Section to Display Saved Answers -->
-    <div class="saved-answers">
-        <h2>Gespeicherte Antworten:</h2>
-        <button id="downloadAllBtn" onclick="printAllAnswers()">Alle Antworten drucken / Als PDF speichern</button>
-        <div id="savedAnswersContainer">
-            <!-- Saved Answers will be loaded here -->
-        </div>
-    </div>
-
     <script>
         // Function to get query parameter by name
         function getQueryParam(param) {
@@ -134,6 +107,7 @@
         assignmentInfo.textContent = assignmentNumber ? `Auftrag ${assignmentNumber}` : 'Auftrag';
 
         const textarea = document.getElementById('answerBox');
+        const answerText = document.getElementById('answerText');
 
         // Load saved text from localStorage
         const savedText = localStorage.getItem(assignmentId);
@@ -144,7 +118,7 @@
             console.log(`No saved text found for ${assignmentId}`);
         }
 
-        // Function to print the current answer
+        // Function to print the answer
         function printAnswer() {
             const text = textarea.value;
             if (text.trim() === "") {
@@ -152,8 +126,12 @@
                 console.log("Print attempted with empty text field");
                 return;
             }
+            // Set the text for printing
+            answerText.textContent = text;
             console.log(`Print initiated for ${assignmentId}`);
             window.print();
+            // Clear the text after printing to avoid duplication if print is canceled
+            answerText.textContent = '';
         }
 
         // Function to save the answer to localStorage
@@ -167,7 +145,6 @@
             localStorage.setItem(assignmentId, text);
             alert("Antwort zwischengespeichert.");
             console.log(`Saved text for ${assignmentId}`);
-            loadSavedAnswers(); // Refresh the saved answers list
         }
 
         // Function to clear all saved answers from localStorage
@@ -177,160 +154,15 @@
                 textarea.value = '';
                 alert("Alle gespeicherten Antworten wurden gelöscht.");
                 console.log("All localStorage items cleared");
-                loadSavedAnswers(); // Refresh the saved answers list
             }
         }
 
-        // Function to load and display all saved answers
-        function loadSavedAnswers() {
-            const savedAnswersContainer = document.getElementById('savedAnswersContainer');
-            savedAnswersContainer.innerHTML = ""; // Clear existing content
-
-            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
-
-            if(storageKeys.length === 0) {
-                savedAnswersContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
-                return;
-            }
-
-            // Sort the storageKeys based on the numerical part of the assignmentId
-            storageKeys.sort((a, b) => {
-                const numA = parseInt(a.replace('assignment', ''), 10);
-                const numB = parseInt(b.replace('assignment', ''), 10);
-                return numA - numB;
-            });
-
-            storageKeys.forEach(key => {
-                const text = localStorage.getItem(key);
-                if(text) {
-                    const answerDiv = document.createElement("div");
-                    answerDiv.className = "saved-answer";
-                    
-                    const title = document.createElement("h4");
-                    const numMatch = key.match(/\d+/);
-                    const num = numMatch ? numMatch[0] : '';
-                    title.textContent = num ? `Auftrag ${num}` : 'Auftrag';
-                    answerDiv.appendChild(title);
-                    
-                    const pre = document.createElement("pre");
-                    pre.textContent = text;
-                    answerDiv.appendChild(pre);
-                    
-                    // Buttons for each saved answer
-                    const downloadBtn = document.createElement("button");
-                    downloadBtn.textContent = "Antwort herunterladen";
-                    downloadBtn.style.backgroundColor = "#008CBA"; // Blue
-                    downloadBtn.onclick = () => downloadText(key, text);
-                    answerDiv.appendChild(downloadBtn);
-                    
-                    const printBtn = document.createElement("button");
-                    printBtn.textContent = "Antwort drucken / als PDF speichern";
-                    printBtn.style.backgroundColor = "#4CAF50"; // Green
-                    printBtn.onclick = () => printSingleAnswer(key, text);
-                    answerDiv.appendChild(printBtn);
-                    
-                    savedAnswersContainer.appendChild(answerDiv);
-                }
-            });
+        // Optional: Log initial localStorage state to console for debugging
+        console.log("Initial localStorage state:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
         }
-
-        // Function to download a single answer as a .txt file
-        function downloadText(filename, text) {
-            const blob = new Blob([text], { type: 'text/plain' });
-            
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                // For IE
-                window.navigator.msSaveOrOpenBlob(blob, `${filename}.txt`);
-                console.log("Download initiated using msSaveOrOpenBlob");
-            } else {
-                // For other browsers
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `${filename}.txt`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-                console.log("Download initiated by creating a temporary link");
-            }
-            console.log(`Download initiated for ${filename}`);
-        }
-
-        // Function to print a single answer
-        function printSingleAnswer(filename, text) {
-            if (text.trim() === "") {
-                alert("Das Antwortfeld ist leer. Es gibt nichts zu drucken.");
-                console.log("Print attempted with empty text field");
-                return;
-            }
-            console.log(`Print initiated for ${filename}`);
-            
-            // Create a temporary div for printing
-            const printContent = document.createElement('div');
-            printContent.id = 'printContent';
-            printContent.innerHTML = `
-                <h3>Deine Antwort:</h3>
-                <p>Auftrag: ${filename.match(/\d+/) ? `Auftrag ${filename.match(/\d+/)[0]}` : 'Auftrag'}</p>
-                <pre>${text}</pre>
-            `;
-            
-            // Append to body, print, and then remove
-            document.body.appendChild(printContent);
-            window.print();
-            document.body.removeChild(printContent);
-        }
-
-        // Function to print all saved answers
-        function printAllAnswers() {
-            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
-            
-            if(storageKeys.length === 0) {
-                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
-                console.log("Print all attempted with no stored answers");
-                return;
-            }
-            
-            console.log("Print all answers initiated");
-            
-            // Create a temporary div for printing all answers
-            const printAllContent = document.createElement('div');
-            printAllContent.id = 'printAllContent';
-            
-            storageKeys.sort((a, b) => {
-                const numA = parseInt(a.replace('assignment', ''), 10);
-                const numB = parseInt(b.replace('assignment', ''), 10);
-                return numA - numB;
-            });
-
-            storageKeys.forEach(key => {
-                const text = localStorage.getItem(key);
-                if(text) {
-                    const answerDiv = document.createElement("div");
-                    answerDiv.className = "saved-answer";
-                    
-                    const title = document.createElement("h4");
-                    const numMatch = key.match(/\d+/);
-                    const num = numMatch ? numMatch[0] : '';
-                    title.textContent = num ? `Auftrag ${num}` : 'Auftrag';
-                    answerDiv.appendChild(title);
-                    
-                    const pre = document.createElement("pre");
-                    pre.textContent = text;
-                    answerDiv.appendChild(pre);
-                    
-                    printAllContent.appendChild(answerDiv);
-                }
-            });
-            
-            // Append to body, print, and then remove
-            document.body.appendChild(printAllContent);
-            window.print();
-            document.body.removeChild(printAllContent);
-        }
-
-        // Initial load of saved answers
-        loadSavedAnswers();
     </script>
 </body>
 </html>
