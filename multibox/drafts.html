@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gespeicherte Antworten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .draft {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            resize: vertical;
+            padding: 10px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Gespeicherte Antworten:</h2>
+    
+    <div id="draftContainer">
+        <!-- Drafts will be loaded here -->
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const draftContainer = document.getElementById("draftContainer");
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+            
+            if(storageKeys.length === 0) {
+                draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
+                return;
+            }
+            
+            storageKeys.forEach(assignmentId => {
+                const text = localStorage.getItem(assignmentId);
+                if(text) {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const title = document.createElement("h3");
+                    title.textContent = "Gespeicherte Antwort für " + assignmentId.replace('assignment', 'Auftrag ');
+                    draftDiv.appendChild(title);
+                    
+                    const textarea = document.createElement("textarea");
+                    textarea.value = text;
+                    textarea.readOnly = true;
+                    draftDiv.appendChild(textarea);
+                    
+                    const downloadButton = document.createElement("button");
+                    downloadButton.textContent = "Antwort herunterladen";
+                    downloadButton.addEventListener('click', function() {
+                        const filename = assignmentId + "_antworten.txt";
+                        const blob = new Blob([text], { type: 'text/plain' });
+                        const link = document.createElement("a");
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = filename;
+                        link.click();
+                    });
+                    draftDiv.appendChild(downloadButton);
+                    
+                    draftContainer.appendChild(draftDiv);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
