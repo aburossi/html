@@ -22,19 +22,26 @@
             box-sizing: border-box;
         }
 
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .button-container .left-buttons,
+        .button-container .right-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
         button {
             padding: 8px 16px;
             font-size: 14px;
             cursor: pointer;
-            margin-right: 10px;
-            margin-top: 10px;
             color: white;
             border: none;
             border-radius: 4px;
-        }
-
-        #printBtn {
-            background-color: #4CAF50; /* Grün */
         }
 
         #saveBtn {
@@ -47,6 +54,10 @@
 
         #downloadAllBtn {
             background-color: #555555; /* Dunkelgrau */
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto; /* Zentriert den Button */
+            display: block;
         }
 
         .info-text {
@@ -78,6 +89,7 @@
             width: 100%;
             height: auto;
             margin-bottom: 20px;
+            border: none; /* Entfernt die Rahmen */
         }
 
         /* Print Styles */
@@ -121,7 +133,7 @@
                 width: 100%;
                 height: auto;
                 margin-bottom: 20px;
-                border: none; /* Remove borders to match Code 1 */
+                border: none; /* Entfernt die Rahmen */
             }
 
             /* Remove borders and padding from drafts when printing all answers */
@@ -155,13 +167,18 @@
     <p class="info-text">
         Mit "Antwort zwischenspeichern" werden deine Antworten auf einer Seite gespeichert, die am Ende der Einheit angezeigt wird.
     </p>
-    <button id="printBtn" onclick="printAnswer()">Antwort drucken / als PDF speichern</button>
-    <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
-    <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
-    
-    <br><br>
-    
-    <!-- Hinzufügen der "Alle Antworten drucken / Als PDF speichern" Funktion -->
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <div class="left-buttons">
+            <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
+        </div>
+        <div class="right-buttons">
+            <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
+        </div>
+    </div>
+
+    <!-- "Alle Antworten drucken / Als PDF speichern" Button -->
     <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     
     <div id="draftContainer">
@@ -195,7 +212,8 @@
             console.log(`Kein gespeicherter Text für ${assignmentId} gefunden`);
         }
 
-        // Funktion zum Drucken der Antwort
+        // Funktion zum Drucken der Antwort (entfernt, da der Button entfernt wurde)
+        /*
         function printAnswer() {
             const text = textarea.value;
             if (text.trim() === "") {
@@ -218,6 +236,7 @@
             // Verzögertes Löschen des Textes, um sicherzustellen, dass der Druckvorgang abgeschlossen ist
             setTimeout(() => { answerText.textContent = ''; }, 1000);
         }
+        */
 
         // Funktion zum Zwischenspeichern der Antwort in localStorage
         function saveToLocal() {
