@@ -52,7 +52,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const draftContainer = document.getElementById("draftContainer");
-            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+            const storageKeys = Object.keys(localStorage).filter(key => key.includes('assignment')); // Changed to include 'assignment' anywhere in the key
             
             if(storageKeys.length === 0) {
                 draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
@@ -80,7 +80,7 @@
                         const filename = `${assignmentId}_antworten.txt`;
                         const blob = new Blob([text], { type: 'text/plain' });
                         const link = document.createElement("a");
-                        const url = window.URL.createObjectURL(blob);
+                        const url = URL.createObjectURL(blob); // Simplified
                         link.href = url;
                         link.download = filename;
                         // Append link to the body
@@ -90,7 +90,7 @@
                         // Remove link from the body
                         document.body.removeChild(link);
                         // Revoke the object URL
-                        window.URL.revokeObjectURL(url);
+                        URL.revokeObjectURL(url);
                     });
                     draftDiv.appendChild(downloadButton);
                     
@@ -117,7 +117,7 @@
                 
                 const blob = new Blob([allTexts], { type: 'text/plain' });
                 const link = document.createElement("a");
-                const url = window.URL.createObjectURL(blob);
+                const url = URL.createObjectURL(blob); // Simplified
                 link.href = url;
                 link.download = "alle_antworten.txt";
                 // Append link to the body
@@ -127,7 +127,7 @@
                 // Remove link from the body
                 document.body.removeChild(link);
                 // Revoke the object URL
-                window.URL.revokeObjectURL(url);
+                URL.revokeObjectURL(url);
             });
         });
     </script>
