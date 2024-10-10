@@ -45,14 +45,6 @@
             color: white;
             border: none;
         }
-        #debugInfo {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            font-family: monospace;
-            white-space: pre-wrap; /* Preserve formatting */
-        }
         @media print {
             body * {
                 visibility: hidden;
@@ -66,7 +58,7 @@
                 top: 0;
                 width: 100%;
             }
-            button, #debugInfo {
+            button {
                 display: none;
             }
             .draft {
@@ -86,7 +78,7 @@
 <body>
     <h2>Gespeicherte Antworten:</h2>
     
-    <!-- Download All Answers Button -->
+    <!-- Print All Answers Button -->
     <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     <button id="reloadBtn" onclick="location.reload()">Seite neu laden</button>
     <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
@@ -96,31 +88,31 @@
         <!-- Drafts will be loaded here -->
     </div>
     
-    <div id="debugInfo"></div>
-    
     <script>
-        const debugInfo = document.getElementById('debugInfo');
-
-        function log(message) {
-            console.log(message);
-            debugInfo.textContent += message + '\n';
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             const draftContainer = document.getElementById("draftContainer");
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
-            log(`Found ${storageKeys.length} stored assignments`);
+            console.log(`Found ${storageKeys.length} stored assignments`);
             
             if(storageKeys.length === 0) {
                 draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
                 return;
             }
             
+            // Sort the storageKeys based on the numerical part of the assignmentId
+            storageKeys.sort((a, b) => {
+                const numA = parseInt(a.replace('assignment', ''), 10);
+                const numB = parseInt(b.replace('assignment', ''), 10);
+                return numA - numB;
+            });
+            
+            console.log("Sorted assignment IDs:", storageKeys);
+            
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
-                    log(`Loading assignment: ${assignmentId}`);
+                    console.log(`Loading assignment: ${assignmentId}`);
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
@@ -156,11 +148,11 @@
             downloadAllBtn.addEventListener('click', function() {
                 if(storageKeys.length === 0) {
                     alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
-                    log("Print all attempted with no stored answers");
+                    console.log("Print all attempted with no stored answers");
                     return;
                 }
                 
-                log("Print all answers initiated");
+                console.log("Print all answers initiated");
                 
                 // Create a temporary div for printing all answers
                 const printAllContent = document.createElement('div');
@@ -197,7 +189,7 @@
             if (window.navigator && window.navigator.msSaveOrOpenBlob) {
                 // For IE
                 window.navigator.msSaveOrOpenBlob(blob, filename + '.txt');
-                log("Download initiated using msSaveOrOpenBlob");
+                console.log("Download initiated using msSaveOrOpenBlob");
             } else {
                 // For other browsers
                 const url = window.URL.createObjectURL(blob);
@@ -208,16 +200,16 @@
                 a.click();
                 document.body.removeChild(a);
                 window.URL.revokeObjectURL(url);
-                log("Download initiated by creating a temporary link");
+                console.log("Download initiated by creating a temporary link");
             }
-            log(`Download initiated for ${filename}`);
+            console.log(`Download initiated for ${filename}`);
         }
 
         function clearLocalStorage() {
             if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
                 localStorage.clear();
                 alert("Alle gespeicherten Antworten wurden gelöscht.");
-                log("All localStorage items cleared");
+                console.log("All localStorage items cleared");
                 location.reload(); // Reload the page to reflect the changes
             }
         }
@@ -225,10 +217,10 @@
         function printAnswer(assignmentId, text) {
             if (text.trim() === "") {
                 alert("Das Antwortfeld ist leer. Es gibt nichts zu drucken.");
-                log("Print attempted with empty text field");
+                console.log("Print attempted with empty text field");
                 return;
             }
-            log(`Print initiated for ${assignmentId}`);
+            console.log(`Print initiated for ${assignmentId}`);
             
             // Create a temporary div for printing
             const printContent = document.createElement('div');
@@ -243,13 +235,6 @@
             document.body.appendChild(printContent);
             window.print();
             document.body.removeChild(printContent);
-        }
-
-        // Log initial localStorage state
-        log("Initial localStorage state:");
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
 </body>
