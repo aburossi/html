@@ -34,6 +34,8 @@
 <body>
     <h2>Gespeicherte Antworten:</h2>
     
+    <button onclick="location.reload()">Seite neu laden</button>
+    <br><br>
     <div id="draftContainer">
         <!-- Drafts will be loaded here -->
     </div>
@@ -55,7 +57,8 @@
                     draftDiv.className = "draft";
                     
                     const title = document.createElement("h3");
-                    title.textContent = "Gespeicherte Antwort für " + assignmentId.replace('assignment', 'Auftrag ');
+                    // Extract assignment number or name from assignmentId if needed
+                    title.textContent = "Gespeicherte Antwort für " + assignmentId;
                     draftDiv.appendChild(title);
                     
                     const textarea = document.createElement("textarea");
@@ -66,7 +69,7 @@
                     const downloadButton = document.createElement("button");
                     downloadButton.textContent = "Antwort herunterladen";
                     downloadButton.addEventListener('click', function() {
-                        const filename = assignmentId + "_antworten.txt";
+                        const filename = `${assignmentId}_antworten.txt`;
                         const blob = new Blob([text], { type: 'text/plain' });
                         const link = document.createElement("a");
                         link.href = window.URL.createObjectURL(blob);
