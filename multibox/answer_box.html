@@ -1,0 +1,66 @@
+<!-- answer_box.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Antworten herunterladen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            resize: vertical;
+            padding: 5px;
+            font-size: 14px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="answerBox" placeholder="Gib hier deine Antworten ein..."></textarea>
+    <br>
+    <button onclick="downloadTxtFile()">Antwort herunterladen</button>
+    <button onclick="saveDraft()">Entwurf speichern</button>
+
+    <script>
+        // Retrieve the assignment ID from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const assignmentId = urlParams.get('id') || 'default';
+
+        // Load any existing draft from localStorage
+        const savedDraft = localStorage.getItem('draft_' + assignmentId);
+        if (savedDraft) {
+            document.getElementById('answerBox').value = savedDraft;
+        }
+
+        // Function to download the answer as a TXT file
+        function downloadTxtFile() {
+            const text = document.getElementById("answerBox").value;
+            const filename = `antworten_${assignmentId}.txt`;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+
+        // Function to save the draft to localStorage
+        function saveDraft() {
+            const text = document.getElementById("answerBox").value;
+            localStorage.setItem('draft_' + assignmentId, text);
+            alert('Entwurf gespeichert!');
+        }
+    </script>
+</body>
+</html>
