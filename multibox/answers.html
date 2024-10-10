@@ -90,24 +90,16 @@
             const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             
-            const downloadPage = window.open('', '_blank');
-            downloadPage.document.write(`
-                <html>
-                <head>
-                    <title>Download ${filename}</title>
-                </head>
-                <body>
-                    <h1>Ihr Download startet automatisch</h1>
-                    <p>Falls der Download nicht automatisch startet, <a id="downloadLink" href="${url}" download="${filename}">klicken Sie hier</a>.</p>
-                    <script>
-                        document.getElementById('downloadLink').click();
-                    </script>
-                </body>
-                </html>
-            `);
-            downloadPage.document.close();
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = filename;
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url);
             
-            log(`Download page opened for ${filename}`);
+            log(`Download initiated for ${filename}`);
         }
 
         function saveToLocal() {
