@@ -35,6 +35,13 @@
             color: white;
             border: none;
         }
+        #debugInfo {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -43,16 +50,28 @@
     <!-- Download All Answers Button -->
     <button id="downloadAllBtn">Alle Antworten herunterladen</button>
     <button onclick="location.reload()">Seite neu laden</button>
+    <button onclick="clearLocalStorage()">Alle Antworten löschen</button>
     <br><br>
     
     <div id="draftContainer">
         <!-- Drafts will be loaded here -->
     </div>
     
+    <div id="debugInfo"></div>
+    
     <script>
+        const debugInfo = document.getElementById('debugInfo');
+
+        function log(message) {
+            console.log(message);
+            debugInfo.innerHTML += message + '<br>';
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const draftContainer = document.getElementById("draftContainer");
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+            
+            log(`Found ${storageKeys.length} stored assignments`);
             
             if(storageKeys.length === 0) {
                 draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
@@ -62,6 +81,7 @@
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
+                    log(`Loading assignment: ${assignmentId}`);
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
@@ -90,6 +110,7 @@
             downloadAllBtn.addEventListener('click', function() {
                 if(storageKeys.length === 0) {
                     alert("Keine gespeicherten Antworten zum Herunterladen.");
+                    log("Download all attempted with no stored answers");
                     return;
                 }
                 
@@ -118,6 +139,21 @@
             link.click();
             document.body.removeChild(link);
             window.URL.revokeObjectURL(url);
+            log(`Download initiated for ${filename}`);
+        }
+
+        function clearLocalStorage() {
+            localStorage.clear();
+            alert("Alle gespeicherten Antworten wurden gelöscht.");
+            log("All localStorage items cleared");
+            location.reload(); // Reload the page to reflect the changes
+        }
+
+        // Log initial localStorage state
+        log("Initial localStorage state:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
 </body>
