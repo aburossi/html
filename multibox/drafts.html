@@ -9,23 +9,25 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .draft {
-            margin-bottom: 30px;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            position: relative;
-            background-color: #f9f9f9;
+        .button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         button {
             padding: 6px 12px; /* Kleinere Abmessungen */
             font-size: 12px;    /* Kleinere Schriftgröße */
             cursor: pointer;
-            margin-right: 10px;
-            margin-top: 10px;
             color: white;
             border: none;
             border-radius: 4px;
+        }
+        #reloadBtn {
+            background-color: #008CBA; /* Blau für Aktualisieren */
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         #downloadAllBtn {
             background-color: #4CAF50; /* Grün */
@@ -38,46 +40,47 @@
             background-color: #f44336; /* Rot */
         }
         /* Anzeigebereich der gespeicherten Antwort */
-        .savedAnswerContainer {
+        .draft {
+            margin-bottom: 30px;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 15px;
             border-radius: 5px;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             position: relative;
-            margin-top: 10px;
         }
-        .savedAnswerContainer h3 {
-            margin-bottom: 10px;
-        }
-        .savedAnswerContainer .answerText {
+        .answerText {
             white-space: pre-wrap;
             font-size: 14px;
             padding: 10px;
             box-sizing: border-box;
             width: 100%;
-            height: auto;
             background-color: #fff;
             overflow: auto;
             border: none;
         }
-        .copyAnswerBtn, .deleteAnswerBtn {
+        .copyAnswerBtn {
             position: absolute;
             top: 10px;
+            right: 60px;
             padding: 4px 8px;
             font-size: 12px;
-            color: white;
+            background-color: #FFEB3B; /* Gelb */
+            color: black; /* Kontrasttext für Gelb */
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
-        .copyAnswerBtn {
-            right: 50px;
-            background-color: #FFEB3B; /* Gelb */
-            color: black; /* Kontrasttext für Gelb */
-        }
         .deleteAnswerBtn {
+            position: absolute;
+            top: 10px;
             right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
             background-color: #f44336; /* Rot */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
         @media print {
             body * {
@@ -103,13 +106,13 @@
             .draft h3 {
                 margin-bottom: 5px;
             }
-            .draft .answerText {
+            .answerText {
                 white-space: pre-wrap; /* Zeilenumbrüche erlauben */
                 font-size: 14px;
                 padding: 10px;
                 box-sizing: border-box;
                 width: 100%;
-                height: auto;
+                background-color: #fff;
                 border: none;
             }
         }
@@ -118,6 +121,7 @@
 <body>
     <!-- Button Container -->
     <div class="button-container">
+        <button id="reloadBtn" onclick="reloadAnswers()">🔁 Antworten aktualisieren</button>
         <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
         <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
         <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
@@ -242,9 +246,6 @@
                     const copyBtn = document.createElement("button");
                     copyBtn.textContent = "Antwort kopieren";
                     copyBtn.className = "copyAnswerBtn";
-                    copyBtn.style.backgroundColor = "#FFEB3B"; // Gelb
-                    copyBtn.style.color = "black"; // Kontrasttext für Gelb
-                    copyBtn.style.right = "50px"; // Positionierung
                     copyBtn.addEventListener('click', function() {
                         copyToClipboard(text);
                     });
@@ -254,7 +255,6 @@
                     const deleteBtn = document.createElement("button");
                     deleteBtn.textContent = "Antwort löschen";
                     deleteBtn.className = "deleteAnswerBtn";
-                    deleteBtn.style.backgroundColor = "#f44336"; // Rot
                     deleteBtn.addEventListener('click', function() {
                         deleteAnswer(assignmentId);
                     });
