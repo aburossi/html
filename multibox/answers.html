@@ -52,17 +52,12 @@
             font-size: 12px; /* Konsistente Schriftgröße */
         }
 
-        .info-button {
-            background-color: #008CBA; /* Blau */
-            color: white;
-            padding: 10px 20px;
-            font-size: 14px;
-            border: none;
-            border-radius: 4px;
-            cursor: default;
+        /* Entfernt den vorherigen .info-button-Stil */
+
+        .info-text {
+            font-style: italic;
+            color: #555;
             margin-bottom: 20px;
-            text-align: center;
-            width: 100%;
         }
 
         /* Anzeige der gespeicherten Antwort */
@@ -177,10 +172,10 @@
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Blauer Button mit Informationstext -->
-    <button class="info-button" disabled>
+    <!-- Kursiver Informationstext -->
+    <p class="info-text">
         Alle Antworten können am Ende dieser Seite heruntergeladen werden.
-    </button>
+    </p>
 
     <!-- Button Container -->
     <div class="button-container">
@@ -210,8 +205,12 @@
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
         const assignmentInfo = document.getElementById('assignmentInfo');
 
-        // Setze den Text zu 'Auftrag: {assignmentId}'
-        assignmentInfo.textContent = `Auftrag: ${assignmentId}`;
+        // Extrahiere die numerische Komponente der assignmentId
+        const assignmentNumberMatch = assignmentId.match(/\d+/);
+        const assignmentNumber = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
+
+        // Setze den Text zu 'Auftrag: {number}'
+        assignmentInfo.textContent = assignmentNumber ? `Auftrag: ${assignmentNumber}` : 'Auftrag';
 
         const textarea = document.getElementById('answerBox');
         const answerText = document.getElementById('answerText');
@@ -234,14 +233,14 @@
 
         // Funktion zum Anzeigen der gespeicherten Antwort
         function displaySavedAnswer(text) {
-            savedAssignmentTitle.textContent = `Auftrag: ${assignmentId}`;
+            savedAssignmentTitle.textContent = assignmentNumber ? `Auftrag: ${assignmentNumber}` : 'Auftrag';
             savedAnswer.textContent = text;
             savedAnswerContainer.style.display = 'block';
         }
 
         // Funktion zum Kopieren der Antwort in die Zwischenablage
         copyAnswerBtn.addEventListener('click', function() {
-            const textToCopy = `Auftrag: ${assignmentId}\n${savedAnswer.textContent}`;
+            const textToCopy = assignmentNumber ? `Auftrag: ${assignmentNumber}\n${savedAnswer.textContent}` : savedAnswer.textContent;
             copyTextToClipboard(textToCopy);
         });
 
@@ -249,7 +248,7 @@
         function copyTextToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(function() {
-                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    // Bestätigungsfenster entfernt
                     console.log("Antwort erfolgreich kopiert");
                 }, function(err) {
                     console.error('Fehler beim Kopieren der Antwort: ', err);
@@ -275,14 +274,14 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    // Bestätigungsfenster entfernt
                     console.log("Antwort erfolgreich kopiert (Fallback)");
                 } else {
                     throw new Error("Fallback copy unsuccessful");
                 }
             } catch (err) {
                 console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
-                alert("Fehler beim Kopieren der Antwort.");
+                // Bestätigungsfenster entfernt
             }
 
             document.body.removeChild(textarea);
@@ -292,25 +291,23 @@
         function saveToLocal() {
             const text = textarea.value;
             if (text.trim() === "") {
-                alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
+                // Bestätigungsfenster entfernt
                 console.log("Speicherversuch mit leerem Textfeld");
                 return;
             }
             localStorage.setItem(assignmentId, text);
-            alert("Antwort zwischengespeichert.");
+            // Bestätigungsfenster entfernt
             console.log(`Text für ${assignmentId} gespeichert`);
             displaySavedAnswer(text); // Aktualisiere Anzeige der gespeicherten Antwort
         }
 
         // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
         function clearLocalStorage() {
-            if (confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
-                localStorage.clear();
-                textarea.value = '';
-                savedAnswerContainer.style.display = 'none';
-                alert("Alle gespeicherten Antworten wurden gelöscht.");
-                console.log("Alle localStorage-Elemente gelöscht");
-            }
+            // Bestätigungsfenster entfernt
+            localStorage.clear();
+            textarea.value = '';
+            savedAnswerContainer.style.display = 'none';
+            console.log("Alle gespeicherten Antworten wurden gelöscht");
         }
 
         // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
@@ -319,7 +316,7 @@
 
             console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
             if(storageKeys.length === 0) {
-                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                // Bestätigungsfenster entfernt
                 console.log("Drucken aller Antworten versucht, aber keine gespeichert");
                 return;
             }
@@ -346,7 +343,7 @@
                     const assignmentNumberMatch = assignmentKey.match(/\d+/);
                     const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
                     const title = document.createElement("h3");
-                    title.textContent = `Auftrag ${number}`;
+                    title.textContent = number ? `Auftrag ${number}` : 'Auftrag';
                     draftDiv.appendChild(title);
                     
                     const answerDiv = document.createElement("div");
