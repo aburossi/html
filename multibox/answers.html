@@ -201,26 +201,25 @@
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
-
+    
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
         const assignmentInfo = document.getElementById('assignmentInfo');
-
-        // Extrahiere die numerische Komponente der assignmentId
-        const assignmentNumberMatch = assignmentId.match(/\d+/);
-        const assignmentNumber = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
-
-        // Setze den Text zu 'Auftrag: {number}'
-        assignmentInfo.textContent = assignmentNumber ? `Auftrag: ${assignmentNumber}` : 'Auftrag';
-
+    
+        // Entferne das 'assignment' Präfix, um den Suffix zu erhalten
+        const assignmentSuffix = assignmentId.replace(/^assignment/, '');
+    
+        // Setze den Text zu 'Auftrag: {Suffix}'
+        assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+    
         const textarea = document.getElementById('answerBox');
         const answerText = document.getElementById('answerText');
-
+    
         // Anzeige Elemente
         const savedAnswerContainer = document.getElementById('savedAnswerContainer');
         const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
         const savedAnswer = document.getElementById('savedAnswer');
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
-
+    
         // Lade gespeicherten Text aus localStorage
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
@@ -230,20 +229,20 @@
         } else {
             console.log(`Kein gespeicherter Text für ${assignmentId} gefunden`);
         }
-
+    
         // Funktion zum Anzeigen der gespeicherten Antwort
         function displaySavedAnswer(text) {
-            savedAssignmentTitle.textContent = assignmentNumber ? `Auftrag: ${assignmentNumber}` : 'Auftrag';
+            savedAssignmentTitle.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
             savedAnswer.textContent = text;
             savedAnswerContainer.style.display = 'block';
         }
-
+    
         // Funktion zum Kopieren der Antwort in die Zwischenablage
         copyAnswerBtn.addEventListener('click', function() {
-            const textToCopy = assignmentNumber ? `Auftrag: ${assignmentNumber}\n${savedAnswer.textContent}` : savedAnswer.textContent;
+            const textToCopy = assignmentSuffix ? `Auftrag: ${assignmentSuffix}\n${savedAnswer.textContent}` : savedAnswer.textContent;
             copyTextToClipboard(textToCopy);
         });
-
+    
         // Funktion zum Kopieren von Text in die Zwischenablage
         function copyTextToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -259,7 +258,7 @@
                 fallbackCopyTextToClipboard(text);
             }
         }
-
+    
         // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
         function fallbackCopyTextToClipboard(text) {
             const textarea = document.createElement("textarea");
@@ -270,7 +269,7 @@
             document.body.appendChild(textarea);
             textarea.focus();
             textarea.select();
-
+    
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
@@ -283,10 +282,10 @@
                 console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
                 // Bestätigungsfenster entfernt
             }
-
+    
             document.body.removeChild(textarea);
         }
-
+    
         // Funktion zum Zwischenspeichern der Antwort in localStorage
         function saveToLocal() {
             const text = textarea.value;
@@ -300,7 +299,7 @@
             console.log(`Text für ${assignmentId} gespeichert`);
             displaySavedAnswer(text); // Aktualisiere Anzeige der gespeicherten Antwort
         }
-
+    
         // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
         function clearLocalStorage() {
             // Bestätigungsfenster entfernt
@@ -309,41 +308,40 @@
             savedAnswerContainer.style.display = 'none';
             console.log("Alle gespeicherten Antworten wurden gelöscht");
         }
-
+    
         // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
         document.getElementById("downloadAllBtn").addEventListener('click', function() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
-
+    
             console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
             if(storageKeys.length === 0) {
                 // Bestätigungsfenster entfernt
                 console.log("Drucken aller Antworten versucht, aber keine gespeichert");
                 return;
             }
-
+    
             console.log("Drucken aller Antworten initiiert");
-
+    
             // Erstelle ein temporäres div für das Drucken aller Antworten
             const printAllContent = document.createElement('div');
             printAllContent.id = 'printAllContent';
-
-            // Sortiere die storageKeys basierend auf der numerischen Komponente
+    
+            // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
             storageKeys.sort((a, b) => {
-                const numA = parseInt(a.replace('assignment', ''), 10);
-                const numB = parseInt(b.replace('assignment', ''), 10);
-                return numA - numB;
+                const suffixA = a.replace(/^assignment/, '');
+                const suffixB = b.replace(/^assignment/, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
             });
-
+    
             storageKeys.forEach(assignmentKey => {
                 const text = localStorage.getItem(assignmentKey);
                 if(text) {
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
-                    const assignmentNumberMatch = assignmentKey.match(/\d+/);
-                    const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
+                    const assignmentSuffix = assignmentKey.replace(/^assignment/, '');
                     const title = document.createElement("h3");
-                    title.textContent = number ? `Auftrag ${number}` : 'Auftrag';
+                    title.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
                     draftDiv.appendChild(title);
                     
                     const answerDiv = document.createElement("div");
@@ -353,20 +351,20 @@
                     printAllContent.appendChild(draftDiv);
                 }
             });
-
+    
             // Append to body
             document.body.appendChild(printAllContent);
-
+    
             // Add 'print-all' class to body
             document.body.classList.add('print-all');
-
+    
             window.print();
-
+    
             // Remove 'print-all' class and the printAllContent div nach dem Drucken
             document.body.classList.remove('print-all');
             document.body.removeChild(printAllContent);
         });
-
+    
         // Optional: Logge den initialen Zustand von localStorage zur Fehlerbehebung
         console.log("Initialer Zustand von localStorage:");
         for (let i = 0; i < localStorage.length; i++) {
@@ -374,6 +372,7 @@
             console.log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
+
 </body>
 
 </html>
