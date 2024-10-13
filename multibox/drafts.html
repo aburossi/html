@@ -7,14 +7,18 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            box-sizing: border-box;
         }
         .draft {
             margin-bottom: 30px;
             border: 1px solid #ccc;
             padding: 15px;
             border-radius: 5px;
+            position: relative;
+            background-color: #f9f9f9;
         }
-        textarea {
+        /* Entfernt Textbox-Stile, da Textboxen entfernt wurden */
+        /* textarea {
             width: 100%;
             height: 150px;
             margin-bottom: 10px;
@@ -22,33 +26,60 @@
             padding: 10px;
             font-size: 14px;
             box-sizing: border-box;
-        }
+        } */
         button {
-            padding: 8px 16px;
-            font-size: 14px;
+            padding: 6px 12px; /* Kleinere Abmessungen */
+            font-size: 12px;    /* Kleinere Schriftgröße */
             cursor: pointer;
             margin-right: 10px;
             margin-top: 10px;
+            color: white;
+            border: none;
+            border-radius: 4px;
         }
         #downloadAllBtn {
             background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-        #reloadBtn {
-            background-color: #008CBA;
-            color: white;
-            border: none;
-        }
-        #clearBtn {
-            background-color: #f44336;
-            color: white;
-            border: none;
         }
         #copyAllBtn {
             background-color: #FF9800; /* Orange Farbe */
+        }
+        #reloadBtn {
+            background-color: #008CBA;
+        }
+        #clearBtn {
+            background-color: #f44336;
+        }
+        /* YAML-Anzeigebereich */
+        .yamlContainer {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            position: relative;
+            margin-top: 10px;
+        }
+        .yamlContainer pre {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            border: none;
+            background-color: #f4f4f4;
+            overflow: auto;
+        }
+        .copyYamlBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
         @media print {
             body * {
@@ -76,178 +107,206 @@
             }
             .draft pre {
                 white-space: pre-wrap; /* Zeilenumbrüche erlauben */
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: auto;
+                border: none;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Aktualisierter Button -->
+    <button id="reloadBtn" onclick="reloadAnswers()">🔁 Antworten aktualisieren</button>
+    <p class="explanation">Klicke auf den Button, um die gespeicherten Antworten zu aktualisieren.</p>
+    
     <h2>Gespeicherte Antworten:</h2>
     
     <!-- Buttons -->
     <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
-    <button id="reloadBtn" onclick="location.reload()">Seite neu laden</button>
     <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     <br><br>
     
     <div id="draftContainer">
-        <!-- Drafts werden hier geladen -->
+        <!-- Entwürfe werden hier geladen -->
     </div>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            loadAllAnswers();
+
+            // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
+            const downloadAllBtn = document.getElementById("downloadAllBtn");
+            downloadAllBtn.addEventListener('click', function() {
+                const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+
+                console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
+
+                if(storageKeys.length === 0) {
+                    alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                    console.log("Drucken aller Antworten versucht, aber keine gespeichert");
+                    return;
+                }
+
+                console.log("Drucken aller Antworten initiiert");
+
+                // Temporäres Div für das Drucken aller Antworten erstellen
+                const printAllContent = document.createElement('div');
+                printAllContent.id = 'printAllContent';
+
+                // Sortieren der storageKeys basierend auf dem numerischen Teil der assignmentId
+                storageKeys.sort((a, b) => {
+                    const numA = parseInt(a.replace('assignment', ''), 10);
+                    const numB = parseInt(b.replace('assignment', ''), 10);
+                    return numA - numB;
+                });
+
+                storageKeys.forEach(assignmentKey => {
+                    const text = localStorage.getItem(assignmentKey);
+                    if(text) {
+                        const draftDiv = document.createElement("div");
+                        draftDiv.className = "draft";
+                        
+                        const title = document.createElement("h3");
+                        title.textContent = "Auftrag " + assignmentKey.replace('assignment', '');
+                        draftDiv.appendChild(title);
+                        
+                        const pre = document.createElement("pre");
+                        pre.textContent = `assignmentId: ${assignmentKey.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
+                        draftDiv.appendChild(pre);
+                        
+                        printAllContent.appendChild(draftDiv);
+                    }
+                });
+
+                // Zum Body hinzufügen
+                document.body.appendChild(printAllContent);
+
+                // 'print-all' Klasse zum Body hinzufügen
+                document.body.classList.add('print-all');
+
+                window.print();
+
+                // 'print-all' Klasse und printAllContent Div nach dem Drucken entfernen
+                document.body.classList.remove('print-all');
+                document.body.removeChild(printAllContent);
+            });
+
+            // Event Listener für den "Alle Antworten in die Zwischenablage kopieren" Button
+            const copyAllBtn = document.getElementById("copyAllBtn");
+            copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
+        });
+
+        function loadAllAnswers() {
             const draftContainer = document.getElementById("draftContainer");
-            let storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
-            
-            console.log(`Found ${storageKeys.length} stored assignments`);
-            
+            draftContainer.innerHTML = ""; // Leere den Container
+
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge`);
+
             if(storageKeys.length === 0) {
                 draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
                 return;
             }
-            
+
             // Sortieren der storageKeys basierend auf dem numerischen Teil der assignmentId
             storageKeys.sort((a, b) => {
                 const numA = parseInt(a.replace('assignment', ''), 10);
                 const numB = parseInt(b.replace('assignment', ''), 10);
                 return numA - numB;
             });
-            
-            console.log("Sorted assignment IDs:", storageKeys);
-            
+
+            console.log("Sortierte Auftrag-IDs:", storageKeys);
+
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
-                    console.log(`Loading assignment: ${assignmentId}`);
+                    console.log(`Lade Auftrag: ${assignmentId}`);
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
                     const title = document.createElement("h3");
-                    title.textContent = "Gespeicherte Antwort für " + assignmentId.replace('assignment', 'Auftrag ');
+                    title.textContent = "Auftrag " + assignmentId.replace('assignment', '');
                     draftDiv.appendChild(title);
                     
-                    const textarea = document.createElement("textarea");
-                    textarea.value = text;
-                    textarea.readOnly = true;
-                    draftDiv.appendChild(textarea);
+                    // YAML Container erstellen
+                    const yamlContainer = document.createElement("div");
+                    yamlContainer.className = "yamlContainer";
                     
-                    const downloadButton = document.createElement("button");
-                    downloadButton.textContent = "Antwort herunterladen";
-                    downloadButton.addEventListener('click', function() {
-                        downloadText(assignmentId, text);
-                    });
-                    draftDiv.appendChild(downloadButton);
+                    const pre = document.createElement("pre");
+                    pre.textContent = `assignmentId: ${assignmentId.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
+                    yamlContainer.appendChild(pre);
                     
-                    const printButton = document.createElement("button");
-                    printButton.textContent = "Antwort drucken / als PDF speichern";
-                    printButton.addEventListener('click', function() {
-                        printAnswer(assignmentId, text);
+                    // Kopier-Button erstellen
+                    const copyBtn = document.createElement("button");
+                    copyBtn.textContent = "YAML kopieren";
+                    copyBtn.className = "copyYamlBtn";
+                    copyBtn.addEventListener('click', function() {
+                        copyToClipboard(pre.textContent);
                     });
-                    draftDiv.appendChild(printButton);
+                    yamlContainer.appendChild(copyBtn);
+                    
+                    draftDiv.appendChild(yamlContainer);
                     
                     draftContainer.appendChild(draftDiv);
                 }
             });
-            
-            // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
-            const downloadAllBtn = document.getElementById("downloadAllBtn");
-            downloadAllBtn.addEventListener('click', function() {
-                if(storageKeys.length === 0) {
-                    alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
-                    console.log("Print all attempted with no stored answers");
-                    return;
-                }
-                
-                console.log("Print all answers initiated");
-                
-                // Temporäres Div für das Drucken aller Antworten erstellen
-                const printAllContent = document.createElement('div');
-                printAllContent.id = 'printAllContent';
-                
-                storageKeys.forEach(assignmentId => {
-                    const text = localStorage.getItem(assignmentId);
-                    if(text) {
-                        const draftDiv = document.createElement("div");
-                        draftDiv.className = "draft";
-                        
-                        const title = document.createElement("h3");
-                        title.textContent = "Gespeicherte Antwort für " + assignmentId.replace('assignment', 'Auftrag ');
-                        draftDiv.appendChild(title);
-                        
-                        const pre = document.createElement("pre");
-                        pre.textContent = text;
-                        draftDiv.appendChild(pre);
-                        
-                        printAllContent.appendChild(draftDiv);
-                    }
-                });
-                
-                // Zum Body hinzufügen, drucken und dann entfernen
-                document.body.appendChild(printAllContent);
-                window.print();
-                document.body.removeChild(printAllContent);
-            });
-            
-            // Event Listener für den "Alle Antworten in die Zwischenablage kopieren" Button
-            const copyAllBtn = document.getElementById("copyAllBtn");
-            copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
-        });
-
-        function downloadText(filename, text) {
-            const blob = new Blob([text], { type: 'text/plain' });
-            
-            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                // Für IE
-                window.navigator.msSaveOrOpenBlob(blob, filename + '.txt');
-                console.log("Download gestartet mit msSaveOrOpenBlob");
-            } else {
-                // Für andere Browser
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename + '.txt';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-                console.log("Download gestartet durch temporären Link");
-            }
-            console.log(`Download gestartet für ${filename}`);
         }
 
+        function reloadAnswers() {
+            loadAllAnswers();
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert("YAML wurde in die Zwischenablage kopiert.");
+                    console.log("YAML erfolgreich kopiert");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren des YAML: ', err);
+                    alert("Fehler beim Kopieren des YAML.");
+                });
+            } else {
+                // Fallback auf execCommand
+                const textarea = document.createElement("textarea");
+                textarea.value = text;
+                textarea.style.position = "fixed";
+                textarea.style.top = "-9999px";
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        alert("YAML wurde in die Zwischenablage kopiert.");
+                        console.log("YAML erfolgreich kopiert (Fallback)");
+                    } else {
+                        throw new Error("Fallback copy unsuccessful");
+                    }
+                } catch (err) {
+                    console.error('Fehler beim Kopieren des YAML (Fallback): ', err);
+                    alert("Beim Kopieren des YAML ist ein Fehler aufgetreten.");
+                }
+
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
         function clearLocalStorage() {
             if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
                 localStorage.clear();
                 alert("Alle gespeicherten Antworten wurden gelöscht.");
                 console.log("Alle localStorage-Elemente gelöscht");
-                location.reload(); // Seite neu laden, um die Änderungen widerzuspiegeln
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
             }
         }
 
-        function printAnswer(assignmentId, text) {
-            if (text.trim() === "") {
-                alert("Das Antwortfeld ist leer. Es gibt nichts zu drucken.");
-                console.log("Druckversuch mit leerem Textfeld");
-                return;
-            }
-            console.log(`Druck gestartet für ${assignmentId}`);
-            
-            // Temporäres Div zum Drucken erstellen
-            const printContent = document.createElement('div');
-            printContent.id = 'printContent';
-            printContent.innerHTML = `
-                <h3>Deine Antwort:</h3>
-                <p>Auftrag: ${assignmentId.replace('assignment', 'Auftrag ')}</p>
-                <pre>${text}</pre>
-            `;
-            
-            // Zum Body hinzufügen, drucken und dann entfernen
-            document.body.appendChild(printContent);
-            window.print();
-            document.body.removeChild(printContent);
-        }
-
-        // Funktion zum Kopieren aller Antworten in die Zwischenablage mit verbessertem Fallback
         function copyAllAnswersToClipboard() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
@@ -268,19 +327,18 @@
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
-                    allText += `Auftrag ${assignmentId.replace('assignment', '')}:\n${text}\n\n`;
+                    allText += `assignmentId: ${assignmentId.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}\n\n`;
                 }
             });
 
-            // Prüfen, ob die Clipboard API verfügbar ist
+            // Prüfe, ob die Clipboard API verfügbar ist
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                // Verwenden der Clipboard API
+                // Verwende die Clipboard API
                 navigator.clipboard.writeText(allText).then(function() {
                     alert("Alle Antworten wurden in die Zwischenablage kopiert.");
-                    console.log("All answers copied to clipboard successfully");
+                    console.log("Alle Antworten erfolgreich kopiert");
                 }).catch(function(err) {
                     console.error('Fehler beim Kopieren der Antworten: ', err);
-                    // Fallback auf execCommand ohne initiale Fehlermeldung
                     fallbackCopyTextToClipboard(allText);
                 });
             } else {
@@ -293,7 +351,7 @@
         function fallbackCopyTextToClipboard(text) {
             const textarea = document.createElement("textarea");
             textarea.value = text;
-            // Verstecken des Textarea-Elements
+            // Verstecke das Textarea-Element
             textarea.style.position = "fixed";
             textarea.style.top = "-9999px";
             document.body.appendChild(textarea);
@@ -304,7 +362,7 @@
                 const successful = document.execCommand('copy');
                 if (successful) {
                     alert("Alle Antworten wurden in die Zwischenablage kopiert.");
-                    console.log("All answers copied to clipboard using fallback");
+                    console.log("Alle Antworten erfolgreich kopiert (Fallback)");
                 } else {
                     throw new Error("Fallback copy unsuccessful");
                 }
