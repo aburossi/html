@@ -36,8 +36,8 @@
         }
 
         button {
-            padding: 8px 16px;
-            font-size: 14px;
+            padding: 6px 12px; /* Kleinere Abmessungen */
+            font-size: 12px;    /* Kleinere Schriftgröße */
             cursor: pointer;
             color: white;
             border: none;
@@ -58,6 +58,8 @@
             max-width: 300px;
             margin: 0 auto; /* Zentriert den Button */
             display: block;
+            padding: 6px 12px; /* Konsistente Abmessungen */
+            font-size: 12px; /* Konsistente Schriftgröße */
         }
 
         .info-text {
@@ -66,52 +68,63 @@
             margin-bottom: 10px;
         }
 
-        #draftContainer {
+        /* YAML-Anzeigebereich */
+        #yamlContainer {
             margin-top: 20px;
-        }
-
-        .draft {
-            margin-bottom: 20px;
             border: 1px solid #ccc;
-            padding: 15px;
+            padding: 10px;
             border-radius: 5px;
+            position: relative;
+            background-color: #f9f9f9;
+            display: none; /* Standardmäßig verborgen */
         }
 
-        .draft h3 {
-            margin-bottom: 5px;
-        }
-
-        .draft pre {
-            white-space: pre-wrap; /* Zeilenumbrüche beibehalten */
+        #yamlAnswer {
+            white-space: pre-wrap;
             font-size: 14px;
             padding: 10px;
             box-sizing: border-box;
             width: 100%;
             height: auto;
             margin-bottom: 20px;
-            border: none; /* Entfernt die Rahmen */
+            border: none;
+            background-color: #f4f4f4;
+            overflow: auto;
         }
 
-        /* Print Styles */
+        #copyYamlBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Druckstile */
         @media print {
-            /* Hide everything by default */
+            /* Alles standardmäßig ausblenden */
             body * {
                 visibility: hidden;
             }
 
-            /* Show only printContent when printing single answer */
+            /* Nur printContent sichtbar machen */
             body.print-single #printContent,
             body.print-single #printContent * {
                 visibility: visible;
             }
 
-            /* Show only printAllContent when printing all answers */
+            /* Nur printAllContent sichtbar machen */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
             }
 
-            /* Position the visible content correctly */
+            /* Positionierung des sichtbaren Inhalts */
             #printContent, #printAllContent {
                 position: absolute;
                 left: 0;
@@ -119,12 +132,12 @@
                 width: 100%;
             }
 
-            /* Hide textareas in print */
+            /* Textbereiche im Druck ausblenden */
             textarea {
                 display: none;
             }
 
-            /* Style pre elements for readability */
+            /* Pre-Elemente für Lesbarkeit stylen */
             pre {
                 white-space: pre-wrap;
                 font-size: 14px;
@@ -133,10 +146,10 @@
                 width: 100%;
                 height: auto;
                 margin-bottom: 20px;
-                border: none; /* Entfernt die Rahmen */
+                border: none; /* Rahmen entfernen */
             }
 
-            /* Remove borders and padding from drafts when printing all answers */
+            /* Rahmen und Padding bei Entwürfen im Druck entfernen */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
@@ -147,7 +160,7 @@
                 margin-bottom: 5px;
             }
 
-            /* Hide all buttons during print */
+            /* Alle Buttons im Druck ausblenden */
             button {
                 display: none;
             }
@@ -165,7 +178,7 @@
     </div>
     
     <p class="info-text">
-        Mit "Antwort zwischenspeichern" werden deine Antworten auf einer Seite gespeichert, die am Ende der Einheit angezeigt wird.
+        Alle Antworten können am Ende dieser Seite heruntergeladen werden.
     </p>
 
     <!-- Button Container -->
@@ -181,8 +194,10 @@
     <!-- "Alle Antworten drucken / Als PDF speichern" Button -->
     <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     
-    <div id="draftContainer">
-        <!-- Gespeicherte Antworten werden hier geladen -->
+    <!-- YAML-Anzeige Container -->
+    <div id="yamlContainer">
+        <button id="copyYamlBtn">YAML kopieren</button>
+        <pre id="yamlAnswer"></pre>
     </div>
     
     <script>
@@ -203,40 +218,39 @@
         const textarea = document.getElementById('answerBox');
         const answerText = document.getElementById('answerText');
 
+        // YAML Anzeige Elemente
+        const yamlContainer = document.getElementById('yamlContainer');
+        const yamlAnswer = document.getElementById('yamlAnswer');
+        const copyYamlBtn = document.getElementById('copyYamlBtn');
+
         // Lade gespeicherten Text aus localStorage
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             textarea.value = savedText;
             console.log(`Geladener gespeicherter Text für ${assignmentId}`);
+            displayYaml(savedText);
         } else {
             console.log(`Kein gespeicherter Text für ${assignmentId} gefunden`);
         }
 
-        // Funktion zum Drucken der Antwort (entfernt, da der Button entfernt wurde)
-        /*
-        function printAnswer() {
-            const text = textarea.value;
-            if (text.trim() === "") {
-                alert("Das Antwortfeld ist leer. Bitte geben Sie eine Antwort ein.");
-                console.log("Druckversuch mit leerem Textfeld");
-                return;
-            }
-            // Setze den Text für den Druck
-            answerText.textContent = text;
-            console.log(`Druckvorgang für ${assignmentId} gestartet`);
-
-            // Add 'print-single' class to body
-            document.body.classList.add('print-single');
-
-            window.print();
-
-            // Remove 'print-single' class after printing
-            document.body.classList.remove('print-single');
-
-            // Verzögertes Löschen des Textes, um sicherzustellen, dass der Druckvorgang abgeschlossen ist
-            setTimeout(() => { answerText.textContent = ''; }, 1000);
+        // Funktion zum Anzeigen der YAML-Box
+        function displayYaml(text) {
+            const yamlContent = `assignmentId: ${assignmentId}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
+            yamlAnswer.textContent = yamlContent;
+            yamlContainer.style.display = 'block';
         }
-        */
+
+        // Funktion zum Kopieren der YAML in die Zwischenablage
+        copyYamlBtn.addEventListener('click', function() {
+            const yamlText = yamlAnswer.textContent;
+            navigator.clipboard.writeText(yamlText).then(function() {
+                alert("YAML wurde in die Zwischenablage kopiert.");
+                console.log("YAML erfolgreich kopiert");
+            }, function(err) {
+                console.error('Fehler beim Kopieren des YAML: ', err);
+                alert("Fehler beim Kopieren des YAML.");
+            });
+        });
 
         // Funktion zum Zwischenspeichern der Antwort in localStorage
         function saveToLocal() {
@@ -249,7 +263,7 @@
             localStorage.setItem(assignmentId, text);
             alert("Antwort zwischengespeichert.");
             console.log(`Text für ${assignmentId} gespeichert`);
-            loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
+            displayYaml(text); // Aktualisiere YAML-Anzeige
         }
 
         // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
@@ -257,25 +271,29 @@
             if (confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
                 localStorage.clear();
                 textarea.value = '';
+                yamlContainer.style.display = 'none';
                 alert("Alle gespeicherten Antworten wurden gelöscht.");
                 console.log("Alle localStorage-Elemente gelöscht");
-                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
             }
         }
 
-        // Funktion zum Laden und Anzeigen aller gespeicherten Antworten
-        function loadAllAnswers() {
-            const draftContainer = document.getElementById("draftContainer");
-            draftContainer.innerHTML = ""; // Leere den Container
-
+        // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
+        document.getElementById("downloadAllBtn").addEventListener('click', function() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
 
-            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge`);
+            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
 
             if(storageKeys.length === 0) {
-                draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
+                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                console.log("Drucken aller Antworten versucht, aber keine gespeichert");
                 return;
             }
+
+            console.log("Drucken aller Antworten initiiert");
+
+            // Erstelle ein temporäres div für das Drucken aller Antworten
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
 
             // Sortiere die storageKeys basierend auf der numerischen Komponente
             storageKeys.sort((a, b) => {
@@ -284,88 +302,35 @@
                 return numA - numB;
             });
 
-            console.log("Sortierte Auftrag-IDs:", storageKeys);
-
             storageKeys.forEach(assignmentKey => {
                 const text = localStorage.getItem(assignmentKey);
                 if(text) {
-                    console.log(`Lade Auftrag: ${assignmentKey}`);
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
                     const title = document.createElement("h3");
-                    title.textContent = "Gespeicherte Antwort für " + assignmentKey.replace('assignment', 'Auftrag ');
+                    title.textContent = "Auftrag " + assignmentKey.replace('assignment', '');
                     draftDiv.appendChild(title);
                     
                     const pre = document.createElement("pre");
-                    pre.textContent = text;
+                    pre.textContent = `assignmentId: ${assignmentKey.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
                     draftDiv.appendChild(pre);
                     
-                    draftContainer.appendChild(draftDiv);
+                    printAllContent.appendChild(draftDiv);
                 }
             });
-        }
 
-        // Initiales Laden aller gespeicherten Antworten beim Laden der Seite
-        document.addEventListener("DOMContentLoaded", function() {
-            loadAllAnswers();
+            // Append to body
+            document.body.appendChild(printAllContent);
 
-            // Add event listener for Print All Answers button
-            const downloadAllBtn = document.getElementById("downloadAllBtn");
-            downloadAllBtn.addEventListener('click', function() {
-                const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+            // Add 'print-all' class to body
+            document.body.classList.add('print-all');
 
-                console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
+            window.print();
 
-                if(storageKeys.length === 0) {
-                    alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
-                    console.log("Drucken aller Antworten versucht, aber keine gespeichert");
-                    return;
-                }
-
-                console.log("Drucken aller Antworten initiiert");
-
-                // Erstelle ein temporäres div für das Drucken aller Antworten
-                const printAllContent = document.createElement('div');
-                printAllContent.id = 'printAllContent';
-
-                // Sortiere die storageKeys wie zuvor
-                storageKeys.sort((a, b) => {
-                    const numA = parseInt(a.replace('assignment', ''), 10);
-                    const numB = parseInt(b.replace('assignment', ''), 10);
-                    return numA - numB;
-                });
-
-                storageKeys.forEach(assignmentKey => {
-                    const text = localStorage.getItem(assignmentKey);
-                    if(text) {
-                        const draftDiv = document.createElement("div");
-                        draftDiv.className = "draft";
-                        
-                        const title = document.createElement("h3");
-                        title.textContent = "Gespeicherte Antwort für " + assignmentKey.replace('assignment', 'Auftrag ');
-                        draftDiv.appendChild(title);
-                        
-                        const pre = document.createElement("pre");
-                        pre.textContent = text;
-                        draftDiv.appendChild(pre);
-                        
-                        printAllContent.appendChild(draftDiv);
-                    }
-                });
-
-                // Append to body
-                document.body.appendChild(printAllContent);
-
-                // Add 'print-all' class to body
-                document.body.classList.add('print-all');
-
-                window.print();
-
-                // Remove 'print-all' class and the printAllContent div after printing
-                document.body.classList.remove('print-all');
-                document.body.removeChild(printAllContent);
-            });
+            // Remove 'print-all' class and the printAllContent div nach dem Drucken
+            document.body.classList.remove('print-all');
+            document.body.removeChild(printAllContent);
         });
 
         // Optional: Logge den initialen Zustand von localStorage zur Fehlerbehebung
