@@ -17,16 +17,6 @@
             position: relative;
             background-color: #f9f9f9;
         }
-        /* Entfernt Textbox-Stile, da Textboxen entfernt wurden */
-        /* textarea {
-            width: 100%;
-            height: 150px;
-            margin-bottom: 10px;
-            resize: vertical;
-            padding: 10px;
-            font-size: 14px;
-            box-sizing: border-box;
-        } */
         button {
             padding: 6px 12px; /* Kleinere Abmessungen */
             font-size: 12px;    /* Kleinere Schriftgröße */
@@ -38,19 +28,17 @@
             border-radius: 4px;
         }
         #downloadAllBtn {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Grün */
         }
         #copyAllBtn {
-            background-color: #FF9800; /* Orange Farbe */
-        }
-        #reloadBtn {
-            background-color: #008CBA;
+            background-color: #FFEB3B; /* Gelb */
+            color: black; /* Kontrasttext für Gelb */
         }
         #clearBtn {
-            background-color: #f44336;
+            background-color: #f44336; /* Rot */
         }
-        /* YAML-Anzeigebereich */
-        .yamlContainer {
+        /* Anzeigebereich der gespeicherten Antwort */
+        .savedAnswerContainer {
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
@@ -58,28 +46,38 @@
             position: relative;
             margin-top: 10px;
         }
-        .yamlContainer pre {
+        .savedAnswerContainer h3 {
+            margin-bottom: 10px;
+        }
+        .savedAnswerContainer .answerText {
             white-space: pre-wrap;
             font-size: 14px;
             padding: 10px;
             box-sizing: border-box;
             width: 100%;
             height: auto;
-            border: none;
-            background-color: #f4f4f4;
+            background-color: #fff;
             overflow: auto;
+            border: none;
         }
-        .copyYamlBtn {
+        .copyAnswerBtn, .deleteAnswerBtn {
             position: absolute;
             top: 10px;
-            right: 10px;
             padding: 4px 8px;
             font-size: 12px;
-            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+        }
+        .copyAnswerBtn {
+            right: 50px;
+            background-color: #FFEB3B; /* Gelb */
+            color: black; /* Kontrasttext für Gelb */
+        }
+        .deleteAnswerBtn {
+            right: 10px;
+            background-color: #f44336; /* Rot */
         }
         @media print {
             body * {
@@ -105,7 +103,7 @@
             .draft h3 {
                 margin-bottom: 5px;
             }
-            .draft pre {
+            .draft .answerText {
                 white-space: pre-wrap; /* Zeilenumbrüche erlauben */
                 font-size: 14px;
                 padding: 10px;
@@ -118,17 +116,14 @@
     </style>
 </head>
 <body>
-    <!-- Aktualisierter Button -->
-    <button id="reloadBtn" onclick="reloadAnswers()">🔁 Antworten aktualisieren</button>
-    <p class="explanation">Klicke auf den Button, um die gespeicherten Antworten zu aktualisieren.</p>
+    <!-- Button Container -->
+    <div class="button-container">
+        <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
+        <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
+        <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    </div>
     
     <h2>Gespeicherte Antworten:</h2>
-    
-    <!-- Buttons -->
-    <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
-    <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
-    <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
-    <br><br>
     
     <div id="draftContainer">
         <!-- Entwürfe werden hier geladen -->
@@ -170,27 +165,30 @@
                         const draftDiv = document.createElement("div");
                         draftDiv.className = "draft";
                         
+                        const assignmentNumberMatch = assignmentKey.match(/\d+/);
+                        const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
                         const title = document.createElement("h3");
-                        title.textContent = "Auftrag " + assignmentKey.replace('assignment', '');
+                        title.textContent = `Auftrag ${number}`;
                         draftDiv.appendChild(title);
                         
-                        const pre = document.createElement("pre");
-                        pre.textContent = `assignmentId: ${assignmentKey.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
-                        draftDiv.appendChild(pre);
+                        const answerDiv = document.createElement("div");
+                        answerDiv.className = "answerText";
+                        answerDiv.textContent = text;
+                        draftDiv.appendChild(answerDiv);
                         
                         printAllContent.appendChild(draftDiv);
                     }
                 });
 
-                // Zum Body hinzufügen
+                // Append to body
                 document.body.appendChild(printAllContent);
 
-                // 'print-all' Klasse zum Body hinzufügen
+                // Add 'print-all' class to body
                 document.body.classList.add('print-all');
 
                 window.print();
 
-                // 'print-all' Klasse und printAllContent Div nach dem Drucken entfernen
+                // Remove 'print-all' class and the printAllContent div nach dem Drucken
                 document.body.classList.remove('print-all');
                 document.body.removeChild(printAllContent);
             });
@@ -229,28 +227,38 @@
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
+                    const assignmentNumberMatch = assignmentId.match(/\d+/);
+                    const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
                     const title = document.createElement("h3");
-                    title.textContent = "Auftrag " + assignmentId.replace('assignment', '');
+                    title.textContent = `Auftrag ${number}`;
                     draftDiv.appendChild(title);
                     
-                    // YAML Container erstellen
-                    const yamlContainer = document.createElement("div");
-                    yamlContainer.className = "yamlContainer";
-                    
-                    const pre = document.createElement("pre");
-                    pre.textContent = `assignmentId: ${assignmentId.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}`;
-                    yamlContainer.appendChild(pre);
+                    const answerDiv = document.createElement("div");
+                    answerDiv.className = "answerText";
+                    answerDiv.textContent = text;
+                    draftDiv.appendChild(answerDiv);
                     
                     // Kopier-Button erstellen
                     const copyBtn = document.createElement("button");
-                    copyBtn.textContent = "YAML kopieren";
-                    copyBtn.className = "copyYamlBtn";
+                    copyBtn.textContent = "Antwort kopieren";
+                    copyBtn.className = "copyAnswerBtn";
+                    copyBtn.style.backgroundColor = "#FFEB3B"; // Gelb
+                    copyBtn.style.color = "black"; // Kontrasttext für Gelb
+                    copyBtn.style.right = "50px"; // Positionierung
                     copyBtn.addEventListener('click', function() {
-                        copyToClipboard(pre.textContent);
+                        copyToClipboard(text);
                     });
-                    yamlContainer.appendChild(copyBtn);
+                    draftDiv.appendChild(copyBtn);
                     
-                    draftDiv.appendChild(yamlContainer);
+                    // Löschen-Button erstellen
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "Antwort löschen";
+                    deleteBtn.className = "deleteAnswerBtn";
+                    deleteBtn.style.backgroundColor = "#f44336"; // Rot
+                    deleteBtn.addEventListener('click', function() {
+                        deleteAnswer(assignmentId);
+                    });
+                    draftDiv.appendChild(deleteBtn);
                     
                     draftContainer.appendChild(draftDiv);
                 }
@@ -264,36 +272,52 @@
         function copyToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(function() {
-                    alert("YAML wurde in die Zwischenablage kopiert.");
-                    console.log("YAML erfolgreich kopiert");
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert");
                 }, function(err) {
-                    console.error('Fehler beim Kopieren des YAML: ', err);
-                    alert("Fehler beim Kopieren des YAML.");
+                    console.error('Fehler beim Kopieren der Antwort: ', err);
+                    fallbackCopyTextToClipboard(text);
                 });
             } else {
                 // Fallback auf execCommand
-                const textarea = document.createElement("textarea");
-                textarea.value = text;
-                textarea.style.position = "fixed";
-                textarea.style.top = "-9999px";
-                document.body.appendChild(textarea);
-                textarea.focus();
-                textarea.select();
+                fallbackCopyTextToClipboard(text);
+            }
+        }
 
-                try {
-                    const successful = document.execCommand('copy');
-                    if (successful) {
-                        alert("YAML wurde in die Zwischenablage kopiert.");
-                        console.log("YAML erfolgreich kopiert (Fallback)");
-                    } else {
-                        throw new Error("Fallback copy unsuccessful");
-                    }
-                } catch (err) {
-                    console.error('Fehler beim Kopieren des YAML (Fallback): ', err);
-                    alert("Beim Kopieren des YAML ist ein Fehler aufgetreten.");
+        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecke das Textarea-Element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
                 }
+            } catch (err) {
+                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
+                alert("Fehler beim Kopieren der Antwort.");
+            }
 
-                document.body.removeChild(textarea);
+            document.body.removeChild(textarea);
+        }
+
+        // Funktion zum Löschen einer einzelnen Antwort
+        function deleteAnswer(assignmentId) {
+            if(confirm("Sind Sie sicher, dass Sie diese Antwort löschen möchten?")) {
+                localStorage.removeItem(assignmentId);
+                alert("Antwort wurde gelöscht.");
+                console.log(`Antwort für ${assignmentId} gelöscht.`);
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
             }
         }
 
@@ -327,7 +351,8 @@
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
-                    allText += `assignmentId: ${assignmentId.replace('assignment', '')}\nanswer: |\n  ${text.replace(/\n/g, '\n  ')}\n\n`;
+                    const number = assignmentId.replace('assignment', '');
+                    allText += `Auftrag ${number}:\n${text}\n\n`;
                 }
             });
 
@@ -347,31 +372,11 @@
             }
         }
 
-        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
-        function fallbackCopyTextToClipboard(text) {
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            // Verstecke das Textarea-Element
-            textarea.style.position = "fixed";
-            textarea.style.top = "-9999px";
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
-
-            try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
-                    console.log("Alle Antworten erfolgreich kopiert (Fallback)");
-                } else {
-                    throw new Error("Fallback copy unsuccessful");
-                }
-            } catch (err) {
-                console.error('Fehler beim Kopieren der Antworten (Fallback): ', err);
-                alert("Beim Kopieren der Antworten ist ein Fehler aufgetreten.");
-            }
-
-            document.body.removeChild(textarea);
+        // Optional: Logge den initialen Zustand von localStorage zur Fehlerbehebung
+        console.log("Initialer Zustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
         }
     </script>
 </body>
