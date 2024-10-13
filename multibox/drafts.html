@@ -9,7 +9,10 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .button-container {
+        .button-container-top {
+            margin-bottom: 20px;
+        }
+        .button-container-main {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -57,30 +60,24 @@
             background-color: #fff;
             overflow: auto;
             border: none;
+            margin-top: 10px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
         }
         .copyAnswerBtn {
-            position: absolute;
-            top: 10px;
-            right: 60px;
-            padding: 4px 8px;
-            font-size: 12px;
             background-color: #FFEB3B; /* Gelb */
             color: black; /* Kontrasttext für Gelb */
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            flex: 1;
+            margin-right: 5px;
         }
         .deleteAnswerBtn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 4px 8px;
-            font-size: 12px;
             background-color: #f44336; /* Rot */
             color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            flex: 1;
+            margin-left: 5px;
         }
         @media print {
             body * {
@@ -119,9 +116,13 @@
     </style>
 </head>
 <body>
-    <!-- Button Container -->
-    <div class="button-container">
+    <!-- Button Container oben -->
+    <div class="button-container-top">
         <button id="reloadBtn" onclick="reloadAnswers()">🔁 Antworten aktualisieren</button>
+    </div>
+    <hr>
+    <!-- Haupt Button Container -->
+    <div class="button-container-main">
         <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
         <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
         <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
@@ -169,10 +170,10 @@
                         const draftDiv = document.createElement("div");
                         draftDiv.className = "draft";
                         
-                        const assignmentNumberMatch = assignmentKey.match(/\d+/);
-                        const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
+                        const assignmentIdMatch = assignmentKey.match(/^assignment(.+)$/);
+                        const assignmentId = assignmentIdMatch ? assignmentIdMatch[1] : assignmentKey;
                         const title = document.createElement("h3");
-                        title.textContent = `Auftrag ${number}`;
+                        title.textContent = `Auftrag ${assignmentId}`;
                         draftDiv.appendChild(title);
                         
                         const answerDiv = document.createElement("div");
@@ -231,10 +232,11 @@
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
                     
-                    const assignmentNumberMatch = assignmentId.match(/\d+/);
-                    const number = assignmentNumberMatch ? assignmentNumberMatch[0] : '';
+                    const assignmentIdMatch = assignmentId.match(/^assignment(.+)$/);
+                    const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
+                    
                     const title = document.createElement("h3");
-                    title.textContent = `Auftrag ${number}`;
+                    title.textContent = `Auftrag ${assignmentIdClean}`;
                     draftDiv.appendChild(title);
                     
                     const answerDiv = document.createElement("div");
@@ -242,23 +244,32 @@
                     answerDiv.textContent = text;
                     draftDiv.appendChild(answerDiv);
                     
+                    // Buttongruppe erstellen
+                    const buttonGroup = document.createElement("div");
+                    buttonGroup.className = "button-group";
+                    
                     // Kopier-Button erstellen
                     const copyBtn = document.createElement("button");
                     copyBtn.textContent = "Antwort kopieren";
                     copyBtn.className = "copyAnswerBtn";
+                    copyBtn.style.backgroundColor = "#FFEB3B"; // Gelb
+                    copyBtn.style.color = "black"; // Kontrasttext für Gelb
                     copyBtn.addEventListener('click', function() {
                         copyToClipboard(text);
                     });
-                    draftDiv.appendChild(copyBtn);
+                    buttonGroup.appendChild(copyBtn);
                     
                     // Löschen-Button erstellen
                     const deleteBtn = document.createElement("button");
                     deleteBtn.textContent = "Antwort löschen";
                     deleteBtn.className = "deleteAnswerBtn";
+                    deleteBtn.style.backgroundColor = "#f44336"; // Rot
                     deleteBtn.addEventListener('click', function() {
                         deleteAnswer(assignmentId);
                     });
-                    draftDiv.appendChild(deleteBtn);
+                    buttonGroup.appendChild(deleteBtn);
+                    
+                    draftDiv.appendChild(buttonGroup);
                     
                     draftContainer.appendChild(draftDiv);
                 }
@@ -351,8 +362,9 @@
             storageKeys.forEach(assignmentId => {
                 const text = localStorage.getItem(assignmentId);
                 if(text) {
-                    const number = assignmentId.replace('assignment', '');
-                    allText += `Auftrag ${number}:\n${text}\n\n`;
+                    const assignmentIdMatch = assignmentId.match(/^assignment(.+)$/);
+                    const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
+                    allText += `Auftrag ${assignmentIdClean}:\n${text}\n\n`;
                 }
             });
 
