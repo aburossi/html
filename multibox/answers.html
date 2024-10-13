@@ -52,8 +52,6 @@
             font-size: 12px; /* Konsistente Schriftgröße */
         }
 
-        /* Entfernt den vorherigen .info-button-Stil */
-
         .info-text {
             font-style: italic;
             color: #555;
@@ -213,14 +211,33 @@
             try {
                 const url = new URL(referrer);
                 const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
-                const lastSegment = pathSegments[pathSegments.length - 1];
 
-                // Replace hyphens or underscores with spaces and capitalize words
-                const title = lastSegment
-                    ? lastSegment.replace(/[-_]/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
-                    : '';
+                // Find the index of 'allgemeinbildung'
+                const targetSegment = 'allgemeinbildung';
+                const targetIndex = pathSegments.indexOf(targetSegment);
 
-                return title;
+                if (targetIndex === -1) {
+                    console.warn(`Segment '${targetSegment}' not found in referrer URL path.`);
+                    return '';
+                }
+
+                // Extract all segments after 'allgemeinbildung'
+                const relevantSegments = pathSegments.slice(targetIndex + 1);
+
+                if (relevantSegments.length === 0) {
+                    console.warn('No path segments found after the target segment.');
+                    return '';
+                }
+
+                // Replace '+', '-', '_' with spaces and decode URI components
+                const formattedSegments = relevantSegments.map(segment => {
+                    return decodeURIComponent(segment.replace(/[-_+]/g, ' ')).replace(/\b\w/g, char => char.toUpperCase());
+                });
+
+                // Join the segments with ' - ' as a separator
+                const formattedTitle = formattedSegments.join(' - ');
+
+                return formattedTitle;
             } catch (e) {
                 console.error('Error parsing referrer URL:', e);
                 return '';
