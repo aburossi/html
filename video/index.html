@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed Video</title>
+  <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+</head>
+<body>
+  <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="360"
+    data-setup='{}'>
+    <source src="https://vod-adaptive-ak.vimeocdn.com/exp=1731573010~acl=%2F2df37a04-cee0-45f8-b3a4-8e77ed53280b%2F%2A~hmac=1c809fc9307d6a5b4d1ecb28a945119999b25197124e211f9b68f31d22f696da/2df37a04-cee0-45f8-b3a4-8e77ed53280b/v2/playlist/av/2df37a04/avf/cb30cdbc/media.m3u8?pathsig=8c953e4f~tQtsXNlPSarNbSeSs_se-uHqk_mbddw1PNxJvutRqhw&qsr=1&sf=ts&st=video" type="application/x-mpegURL" />
+    Your browser does not support HLS.
+  </video>
+
+  <script>
+    var player = videojs('my-video');
+  </script>
+</body>
+</html>
