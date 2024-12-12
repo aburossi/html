@@ -134,9 +134,7 @@
         // Funktion zum Abrufen der MCQs aus dem mcqs-Ordner
         async function fetchMCQs(assignmentId) {
             try {
-                // Verwenden von encodeURIComponent, um sicherzustellen, dass Sonderzeichen korrekt verarbeitet werden
-                const encodedAssignmentId = encodeURIComponent(assignmentId);
-                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${encodedAssignmentId}.json`);
+                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${assignmentId}.json`);
                 if (!response.ok) {
                     throw new Error(`MCQ-Datei für ${assignmentId} nicht gefunden.`);
                 }
@@ -197,10 +195,6 @@
         // Funktion zur Behandlung der Formularübermittlung
         function handleSubmit() {
             const mcqs = window.selectedMCQs;
-            if (!mcqs) {
-                alert('Keine Fragen zum Auswerten vorhanden.');
-                return;
-            }
             let correctCount = 0;
             let resultsHTML = '';
 
@@ -233,11 +227,6 @@
         // Funktion zum Herunterladen der Antworten und Ergebnisse als Textdatei
         function downloadResults() {
             const mcqs = window.selectedMCQs;
-            if (!mcqs) {
-                alert('Keine Ergebnisse zum Herunterladen verfügbar.');
-                return;
-            }
-
             let content = `Auftrag: ${assignmentId}\n\n`;
 
             mcqs.forEach(mcq => {
@@ -250,11 +239,8 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            // Verwenden von encodeURIComponent für den Dateinamen
-            a.download = `Antworten_${encodeURIComponent(assignmentId)}.txt`;
-            document.body.appendChild(a); // Anhängen zum DOM, um in einigen Browsern zu funktionieren
+            a.download = `Antworten_${assignmentId}.txt`;
             a.click();
-            document.body.removeChild(a); // Entfernen nach dem Klick
             URL.revokeObjectURL(url);
         }
 
