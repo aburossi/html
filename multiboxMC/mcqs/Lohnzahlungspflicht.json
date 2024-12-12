@@ -1,0 +1,112 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was besagt das Gesetz zur Lohnzahlung?",
+    "options": [
+      "Der Lohn muss bis zum 15. des Folgemonats überwiesen sein.",
+      "Der Lohn muss bis zum letzten Tag des Monats auf dem Konto sein.",
+      "Der Arbeitgeber darf den Lohn nach zwei Monaten auszahlen.",
+      "Die Zahlung des Lohns ist nicht gesetzlich geregelt."
+    ],
+    "correctAnswer": "Der Lohn muss bis zum letzten Tag des Monats auf dem Konto sein.",
+    "explanation": "Das Gesetz schreibt vor, dass der Lohn pünktlich bis Monatsende gezahlt werden muss."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Methode wird empfohlen, um Lohnforderungen geltend zu machen?",
+    "options": [
+      "Ein Gespräch mit dem Chef führen.",
+      "Einen eingeschriebenen Brief senden.",
+      "Eine schriftliche Mahnung senden.",
+      "Alle oben genannten Möglichkeiten."
+    ],
+    "correctAnswer": "Alle oben genannten Möglichkeiten.",
+    "explanation": "Das Gesetz sieht vor, dass zunächst Gespräche und schriftliche Mahnungen hilfreich sein können."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was passiert, wenn ein Arbeitnehmer dreimal zu wenig Lohn erhält und nicht reklamiert?",
+    "options": [
+      "Es passiert nichts.",
+      "Der Arbeitnehmer hat rechtlich gesehen den niedrigeren Lohn akzeptiert.",
+      "Der Arbeitgeber ist verpflichtet, den vollen Lohn nachzuzahlen.",
+      "Der Arbeitnehmer verliert automatisch seinen Anspruch auf Lohn."
+    ],
+    "correctAnswer": "Der Arbeitnehmer hat rechtlich gesehen den niedrigeren Lohn akzeptiert.",
+    "explanation": "Ohne Protest gilt dies als stillschweigende Zustimmung zu einem niedrigeren Lohn."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wie kann der Arbeitnehmer reagieren, wenn eine Mahnung ignoriert wird?",
+    "options": [
+      "Er kann den Arbeitsplatz verlassen, bis der Lohn gezahlt wird.",
+      "Er muss weiterarbeiten, bis der Arbeitgeber Konkurs anmeldet.",
+      "Er kann die Zahlung vor Gericht erzwingen.",
+      "Er darf eine längere Pause machen, ohne dies anzukündigen."
+    ],
+    "correctAnswer": "Er kann den Arbeitsplatz verlassen, bis der Lohn gezahlt wird.",
+    "explanation": "Das Gesetz erlaubt Arbeitnehmern, die Arbeit niederzulegen, wenn der Lohn nicht gezahlt wird."
+  },
+  {
+    "id": "mcq5",
+    "question": "Wie konnte die Hörerin im Radiobeitrag ihr Problem lösen?",
+    "options": [
+      "Sie sprach mit ihrem Chef und einigte sich auf eine Lösung.",
+      "Sie reichte Klage ein.",
+      "Sie kontaktierte eine externe Beratungsstelle.",
+      "Sie akzeptierte den verspäteten Lohn."
+    ],
+    "correctAnswer": "Sie sprach mit ihrem Chef und einigte sich auf eine Lösung.",
+    "explanation": "Im Gespräch einigte sie sich mit dem Chef auf eine Zahlung mit Zuschlag."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Arbeitnehmer darf keine Mahnung senden, wenn der Lohn verspätet ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Senden einer Mahnung ist ein empfohlener erster Schritt bei verspäteten Zahlungen."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist erlaubt, den Lohn erst zwei Monate nach Leistung der Arbeit auszuzahlen, ohne eine Vereinbarung zu treffen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Gesetz schreibt eine monatliche Zahlung ohne Verzögerung vor, sofern nichts anderes vereinbart wurde."
+  },
+  {
+    "id": "tf3",
+    "question": "Ein eingeschriebener Brief kann als Beweis für eine Lohnforderung dienen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein eingeschriebener Brief ist wichtig, um den Nachweis über die Reklamation zu erbringen."
+  },
+  {
+    "id": "tf4",
+    "question": "Wenn ein Arbeitgeber trotz Mahnung nicht zahlt, kann der Arbeitnehmer zu Hause bleiben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Gesetz erlaubt es dem Arbeitnehmer, die Arbeit niederzulegen, bis der ausstehende Lohn gezahlt wird."
+  },
+  {
+    "id": "tf5",
+    "question": "Wenn der Lohn mehrmals zu niedrig ausfällt, hat der Arbeitnehmer automatisch Anspruch auf den vollständigen Betrag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ohne rechtzeitigen Protest wird der niedrigere Lohn rechtlich akzeptiert."
+  }
+]
