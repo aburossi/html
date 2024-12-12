@@ -1,16 +1,72 @@
 [
     {
         "id": "mcq1",
-        "question": "Was ist die Hauptstadt von Zalando?",
-        "options": ["Berlin", "München", "Hamburg", "Frankfurt"],
-        "correctAnswer": "Berlin",
-        "explanation": "Berlin ist die Hauptstadt von Deutschland seit der Wiedervereinigung 1990."
+        "question": "Was war der Hauptgrund für die Betreibung?",
+        "options": ["Ein gestohlenes Paket", "Ein leeres zurückgeschicktes Paket", "Unbezahlte Rechnungen", "Falscher Adressat"],
+        "correctAnswer": "Ein leeres zurückgeschicktes Paket",
+        "explanation": "Zalando behauptete, das Paket sei leer zurückgekommen."
     },
     {
         "id": "mcq2",
-        "question": "Welches PAPA hat das chemische Symbol 'O'?",
-        "options": ["Gold", "Oxygen", "Silber", "Wasserstoff"],
-        "correctAnswer": "Oxygen",
-        "explanation": "Das chemische Symbol 'O' steht für Oxygen, das auch als Sauerstoff bekannt ist."
+        "question": "Welche Nachweise sammelte Selina Philipp?",
+        "options": ["Einen Zahlungsbeleg", "Einen Gewichtsbeleg der Post", "Fotos des Pakets", "E-Mails von Zalando"],
+        "correctAnswer": "Einen Gewichtsbeleg der Post",
+        "explanation": "Der Beleg zeigte das Gewicht des zurückgesandten Pakets."
+    },
+    {
+        "id": "mcq3",
+        "question": "Welche Folgen hätte die Betreibung haben können?",
+        "options": ["Gefängnisstrafe", "Schlechte Bonität", "Mehr Mahnungen", "Keine Konsequenzen"],
+        "correctAnswer": "Schlechte Bonität",
+        "explanation": "Eine Betreibung kann die Bonität beeinträchtigen."
+    },
+    {
+        "id": "mcq4",
+        "question": "Warum wurde der Fall letztlich gelöst?",
+        "options": ["Zalando bot eine Entschädigung an", "Medienintervention", "Die Kundin zahlte die Rechnung", "Die Post übernahm die Verantwortung"],
+        "correctAnswer": "Medienintervention",
+        "explanation": "Die Medien machten den Fall öffentlich und setzten Zalando unter Druck."
+    },
+    {
+        "id": "mcq5",
+        "question": "Welche Empfehlung gibt der Beitrag bei solchen Problemen?",
+        "options": ["Sofort zahlen", "Sich wehren und Beweise sichern", "Die Angelegenheit ignorieren", "Nur mit Anwälten kommunizieren"],
+        "correctAnswer": "Sich wehren und Beweise sichern",
+        "explanation": "Der Beitrag rät, sich mit Nachweisen gegen falsche Forderungen zu wehren."
+    }
+    {
+        "id": "mcq1",
+        "question": "Was war der Hauptgrund für die Betreibung?",
+        "options": ["Ein gestohlenes Paket", "Ein leeres zurückgeschicktes Paket", "Unbezahlte Rechnungen", "Falscher Adressat"],
+        "correctAnswer": "Ein leeres zurückgeschicktes Paket",
+        "explanation": "Zalando behauptete, das Paket sei leer zurückgekommen."
+    },
+    {
+        "id": "mcq2",
+        "question": "Welche Nachweise sammelte Selina Philipp?",
+        "options": ["Einen Zahlungsbeleg", "Einen Gewichtsbeleg der Post", "Fotos des Pakets", "E-Mails von Zalando"],
+        "correctAnswer": "Einen Gewichtsbeleg der Post",
+        "explanation": "Der Beleg zeigte das Gewicht des zurückgesandten Pakets."
+    },
+    {
+        "id": "mcq3",
+        "question": "Welche Folgen hätte die Betreibung haben können?",
+        "options": ["Gefängnisstrafe", "Schlechte Bonität", "Mehr Mahnungen", "Keine Konsequenzen"],
+        "correctAnswer": "Schlechte Bonität",
+        "explanation": "Eine Betreibung kann die Bonität beeinträchtigen."
+    },
+    {
+        "id": "mcq4",
+        "question": "Warum wurde der Fall letztlich gelöst?",
+        "options": ["Zalando bot eine Entschädigung an", "Medienintervention", "Die Kundin zahlte die Rechnung", "Die Post übernahm die Verantwortung"],
+        "correctAnswer": "Medienintervention",
+        "explanation": "Die Medien machten den Fall öffentlich und setzten Zalando unter Druck."
+    },
+    {
+        "id": "mcq5",
+        "question": "Welche Empfehlung gibt der Beitrag bei solchen Problemen?",
+        "options": ["Sofort zahlen", "Sich wehren und Beweise sichern", "Die Angelegenheit ignorieren", "Nur mit Anwälten kommunizieren"],
+        "correctAnswer": "Sich wehren und Beweise sichern",
+        "explanation": "Der Beitrag rät, sich mit Nachweisen gegen falsche Forderungen zu wehren."
     }
 ]
