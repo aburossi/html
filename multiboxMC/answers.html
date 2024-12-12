@@ -237,7 +237,7 @@
         // Function to fetch MCQs from GitHub
         async function fetchMCQs(assignmentId) {
             try {
-                const response = await fetch(`https://raw.githubusercontent.com/yourusername/yourrepo/main/mcqs/${assignmentId}.json`);
+                const response = await fetch(`https://raw.githubusercontent.com/aburossi/html/multiboxMC/main/mcqs/${assignmentId}.json`);
                 if (!response.ok) {
                     throw new Error(`MCQ file for ${assignmentId} not found.`);
                 }
