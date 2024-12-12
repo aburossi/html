@@ -120,7 +120,7 @@
         // Function to fetch MCQs from the mcqs folder
         async function fetchMCQs(assignmentId) {
             try {
-                const response = await fetch(`https://aburossi.github.io/multiboxMC/mcqs/${assignmentId}.json`);
+                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${assignmentId}.json`);
                 if (!response.ok) {
                     throw new Error(`MCQ file for ${assignmentId} not found.`);
                 }
