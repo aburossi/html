@@ -46,7 +46,7 @@
             background-color: #4CAF50; /* Grün */
             color: white;
         }
-        #downloadBtn {
+        #printBtn { /* Renamed from downloadBtn */
             background-color: #008CBA; /* Blau */
             color: white;
         }
@@ -80,6 +80,16 @@
                 left: 0;
                 top: 0;
                 width: 100%;
+                padding: 20px;
+                background-color: white;
+            }
+            /* Optional: Add page breaks between questions for better readability */
+            .print-section {
+                page-break-after: always;
+            }
+            /* Hide the print button during print */
+            #printBtn {
+                display: none;
             }
         }
     </style>
@@ -94,7 +104,7 @@
         </div>
         <div class="button-container">
             <button type="button" id="submitBtn">Antworten einreichen</button>
-            <button type="button" id="downloadBtn" disabled>Antworten herunterladen</button>
+            <button type="button" id="printBtn" disabled>Antworten drucken</button> <!-- Changed ID and Label -->
             <button type="button" id="retryBtn" style="display: none;">Test wiederholen</button>
         </div>
     </form>
@@ -210,11 +220,13 @@
                 if (isCorrect) correctCount += 1;
 
                 resultsHTML += `
-                    <p>
-                        <strong>${mcq.question}</strong><br>
-                        Deine Antwort: ${userAnswer} ${isCorrect ? '<span class="correct">(Richtig)</span>' : '<span class="incorrect">(Falsch)</span>'}<br>
-                        ${!isCorrect && mcq.explanation ? `Erklärung: ${mcq.explanation}` : ''}
-                    </p>
+                    <div class="result-item">
+                        <p>
+                            <strong>${mcq.question}</strong><br>
+                            Deine Antwort: ${userAnswer} ${isCorrect ? '<span class="correct">(Richtig)</span>' : '<span class="incorrect">(Falsch)</span>'}<br>
+                            ${!isCorrect && mcq.explanation ? `Erklärung: ${mcq.explanation}` : ''}
+                        </p>
+                    </div>
                 `;
             });
 
@@ -223,49 +235,32 @@
                 ${resultsHTML}
             `;
             document.getElementById('resultContainer').style.display = 'block';
-            document.getElementById('downloadBtn').disabled = false;
+            document.getElementById('printBtn').disabled = false; // Enable print button
             document.getElementById('retryBtn').style.display = 'inline-block';
             // Scrollen zum Ergebnis
             document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Funktion zum Herunterladen der Antworten und Ergebnisse als Textdatei
-        function downloadResults() {
-            const mcqs = window.selectedMCQs;
-            let content = `Auftrag: ${formatAssignmentId(assignmentId)}\n\n`;
-
-            mcqs.forEach(mcq => {
-                const selectedOption = document.querySelector(`input[name="${mcq.id}"]:checked`);
-                const userAnswer = selectedOption ? selectedOption.value : 'Keine Antwort';
-                content += `Frage: ${mcq.question}\nAntwort: ${userAnswer}\n\n`;
-            });
-
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Antworten_${assignmentId}.txt`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        // Funktion zum Vorbereiten des Inhalts für den Druck
-        function preparePrint() {
+        // Funktion zum Vorbereiten des Inhalts für den Druck und Drucken
+        function printResults() {
             const printContent = document.getElementById('printContent');
             const results = document.getElementById('results').innerHTML;
-            document.getElementById('printResults').innerHTML = results;
-            window.print();
-        }
+            const assignmentTitle = document.getElementById('assignmentTitle').textContent;
 
-        // Funktion zum Kopieren der Ergebnisse in die Zwischenablage
-        function copyResultsToClipboard() {
-            const resultsText = document.getElementById('results').innerText;
-            navigator.clipboard.writeText(resultsText).then(() => {
-                alert('Ergebnisse wurden in die Zwischenablage kopiert.');
-            }).catch(err => {
-                console.error('Fehler beim Kopieren:', err);
-                alert('Fehler beim Kopieren der Ergebnisse.');
-            });
+            // Populate the printContent div
+            document.getElementById('printResults').innerHTML = `
+                <h2>${assignmentTitle}</h2>
+                ${results}
+            `;
+
+            // Show the printContent section
+            printContent.style.display = 'block';
+
+            // Trigger print
+            window.print();
+
+            // Hide the printContent section after printing
+            printContent.style.display = 'none';
         }
 
         // Funktion zum Neuladen der Seite und Laden neuer Fragen
@@ -278,7 +273,7 @@
             renderMCQs();
 
             document.getElementById('submitBtn').addEventListener('click', handleSubmit);
-            document.getElementById('downloadBtn').addEventListener('click', downloadResults);
+            document.getElementById('printBtn').addEventListener('click', printResults); // Changed event handler
             document.getElementById('retryBtn').addEventListener('click', retryTest);
         });
     </script>
