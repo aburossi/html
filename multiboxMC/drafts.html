@@ -1,1 +1,494 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gespeicherte Antworten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .button-container-top {
+            margin-bottom: 20px;
+        }
+        .button-container-main {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 6px 12px; /* Smaller dimensions */
+            font-size: 12px;    /* Smaller font size */
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        #reloadBtn {
+            background-color: #008CBA; /* Blue for Refresh */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        #downloadAllBtn {
+            background-color: #4CAF50; /* Green */
+        }
+        #copyAllBtn {
+            background-color: #FFEB3B; /* Yellow */
+            color: black; /* Contrast text for yellow */
+        }
+        #clearBtn {
+            background-color: #f44336; /* Red */
+        }
+        /* Display area for saved answers */
+        .draft {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+        .answerText {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: #fff;
+            overflow: auto;
+            border: none;
+            margin-top: 10px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .copyAnswerBtn {
+            background-color: #FFEB3B; /* Yellow */
+            color: black; /* Contrast text for yellow */
+            flex: 1;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .deleteAnswerBtn {
+            background-color: #f44336; /* Red */
+            color: white;
+            flex: 1;
+            margin-left: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printAllContent, #printAllContent * {
+                visibility: visible;
+            }
+            #printAllContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            button {
+                display: none;
+            }
+            .draft {
+                border: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+            .draft h3 {
+                margin-bottom: 5px;
+            }
+            .answerText {
+                white-space: pre-wrap; /* Allow line breaks */
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                background-color: #fff;
+                border: none;
+            }
+            /* Optional: Style lists if needed */
+            .draft ul, .draft ol {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Button Container -->
+    <div class="button-container-top">
+        <button id="reloadBtn" onclick="reloadAnswers()">🔁 Antworten aktualisieren</button>
+    </div>
+    <hr>
+    <!-- Main Button Container -->
+    <div class="button-container-main">
+        <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
+        <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
+        <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    </div>
+    
+    <h2>Gespeicherte Antworten:</h2>
+    
+    <div id="draftContainer">
+        <!-- Drafts will be loaded here -->
+    </div>
+    
+    <script>
+        // Array of MCQs should be consistent with answers.html
+        // To ensure consistency, consider storing MCQs in a shared script or a separate JSON file
+        const mcqs = [
+            {
+                id: "mcq1",
+                question: "Was ist die Hauptstadt von Deutschland?",
+                options: ["Berlin", "München", "Hamburg", "Frankfurt"],
+                correctAnswer: "Berlin" // Optional
+            },
+            {
+                id: "mcq2",
+                question: "Welches Element hat das chemische Symbol 'O'?",
+                options: ["Gold", "Oxygen", "Silber", "Wasserstoff"],
+                correctAnswer: "Oxygen"
+            }
+            // Add more questions as needed
+        ];
+
+        // Function to retrieve a query parameter by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+
+        // Function to fetch MCQs from GitHub
+        async function fetchMCQs(assignmentId) {
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/yourusername/yourrepo/main/mcqs/${assignmentId}.json`);
+                if (!response.ok) {
+                    throw new Error(`MCQ file for ${assignmentId} not found.`);
+                }
+                const mcqs = await response.json();
+                return mcqs;
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            loadAllAnswers();
+
+            // Event Listener for the "Print All Answers / Save as PDF" button
+            const downloadAllBtn = document.getElementById("downloadAllBtn");
+            downloadAllBtn.addEventListener('click', async function() {
+                const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(`${assignmentId}_`));
+
+                console.log(`Found ${storageKeys.length} saved items to print`);
+                if(storageKeys.length === 0) {
+                    console.log("Attempted to print all answers, but none are saved");
+                    return;
+                }
+
+                console.log("Initiating print of all answers");
+
+                // Create a temporary div for printing all answers
+                const printAllContent = document.createElement('div');
+                printAllContent.id = 'printAllContent';
+
+                // Add parent page's title once
+                if (parentTitle) {
+                    const parentTitleElement = document.createElement('h2');
+                    parentTitleElement.textContent = parentTitle;
+                    printAllContent.appendChild(parentTitleElement);
+                }
+
+                // Sort the storageKeys based on the numerical component or suffix
+                storageKeys.sort((a, b) => {
+                    const suffixA = a.replace(`${assignmentId}_`, '');
+                    const suffixB = b.replace(`${assignmentId}_`, '');
+                    return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+                });
+
+                // Display text answers and MCQ results
+                const textContent = localStorage.getItem(`${assignmentId}_text`);
+                const mcqResponses = localStorage.getItem(`${assignmentId}_mcq`);
+
+                if (textContent) {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+
+                    const title = document.createElement("h3");
+                    title.textContent = `Auftrag ${assignmentSuffix}`;
+                    draftDiv.appendChild(title);
+
+                    const answerDiv = document.createElement("div");
+                    answerDiv.innerHTML = textContent;
+                    draftDiv.appendChild(answerDiv);
+
+                    // Append MCQ results if available
+                    if (mcqResponses) {
+                        const mcqResultsDiv = document.createElement('div');
+                        mcqResultsDiv.innerHTML = "<h4>Multiple Choice Ergebnisse:</h4>";
+                        const responses = JSON.parse(mcqResponses);
+                        mcqs.forEach(mcq => {
+                            const response = responses[mcq.id];
+                            const resultP = document.createElement('p');
+                            resultP.textContent = `${mcq.question} - ${response ? response : 'Keine Antwort'}`;
+                            mcqResultsDiv.appendChild(resultP);
+                        });
+                        draftDiv.appendChild(mcqResultsDiv);
+                    }
+
+                    printAllContent.appendChild(draftDiv);
+                }
+
+                // Append to body
+                document.body.appendChild(printAllContent);
+
+                // Add 'print-all' class to body
+                document.body.classList.add('print-all');
+
+                window.print();
+
+                // Remove 'print-all' class and the printAllContent div after printing
+                document.body.classList.remove('print-all');
+                document.body.removeChild(printAllContent);
+            });
+
+            // Event Listener for the "Copy All Answers to Clipboard" button
+            const copyAllBtn = document.getElementById("copyAllBtn");
+            copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
+        });
+
+        function loadAllAnswers() {
+            const draftContainer = document.getElementById("draftContainer");
+            draftContainer.innerHTML = ""; // Clear the container
+
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(`${assignmentId}_`));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge`);
+
+            if(storageKeys.length === 0) {
+                draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
+                return;
+            }
+
+            // Sort the storageKeys based on the numerical part of the assignmentId
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(`${assignmentId}_`, '');
+                const suffixB = b.replace(`${assignmentId}_`, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            console.log("Sortierte Auftrag-IDs:", storageKeys);
+
+            storageKeys.forEach(key => {
+                const parts = key.split('_');
+                const type = parts[1]; // 'text' or 'mcq'
+                const assignmentIdClean = parts[0].replace(/^assignment[_-]?/, '');
+                const text = localStorage.getItem(key);
+
+                // Initialize or find the draftDiv for this assignment
+                let draftDiv = draftContainer.querySelector(`.draft[data-assignment="${assignmentIdClean}"]`);
+                if (!draftDiv) {
+                    draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    draftDiv.setAttribute('data-assignment', assignmentIdClean);
+
+                    const title = document.createElement("h3");
+                    title.textContent = `Auftrag ${assignmentIdClean}`;
+                    draftDiv.appendChild(title);
+
+                    const answerDiv = document.createElement("div");
+                    answerDiv.className = "answerText";
+                    draftDiv.appendChild(answerDiv);
+
+                    // Create button group
+                    const buttonGroup = document.createElement("div");
+                    buttonGroup.className = "button-group";
+
+                    // Create copy button
+                    const copyBtn = document.createElement("button");
+                    copyBtn.textContent = "Antwort kopieren";
+                    copyBtn.className = "copyAnswerBtn";
+                    copyBtn.style.backgroundColor = "#FFEB3B"; // Yellow
+                    copyBtn.style.color = "black"; // Contrast text for yellow
+                    copyBtn.addEventListener('click', function() {
+                        copyToClipboard(localStorage.getItem(`${assignmentIdClean}_text`) || '');
+                    });
+                    buttonGroup.appendChild(copyBtn);
+
+                    // Create delete button
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "Antwort löschen";
+                    deleteBtn.className = "deleteAnswerBtn";
+                    deleteBtn.style.backgroundColor = "#f44336"; // Red
+                    deleteBtn.addEventListener('click', function() {
+                        deleteAnswer(`${assignmentIdClean}_text`);
+                        deleteAnswer(`${assignmentIdClean}_mcq`);
+                    });
+                    buttonGroup.appendChild(deleteBtn);
+
+                    draftDiv.appendChild(buttonGroup);
+                    draftContainer.appendChild(draftDiv);
+                }
+
+                const answerDiv = draftDiv.querySelector('.answerText');
+
+                if (type === 'text') {
+                    answerDiv.innerHTML = text;
+                } else if (type === 'mcq') {
+                    const mcqResultsDiv = document.createElement('div');
+                    mcqResultsDiv.innerHTML = "<h4>Multiple Choice Ergebnisse:</h4>";
+                    const responses = JSON.parse(text);
+                    mcqs.forEach(mcq => {
+                        const response = responses[mcq.id];
+                        const resultP = document.createElement('p');
+                        resultP.textContent = `${mcq.question} - ${response ? response : 'Keine Antwort'}`;
+                        mcqResultsDiv.appendChild(resultP);
+                    });
+                    answerDiv.appendChild(mcqResultsDiv);
+                }
+            });
+        }
+
+        function reloadAnswers() {
+            loadAllAnswers();
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren der Antwort: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback to execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // Fallback function to copy text to the clipboard
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Hide the textarea element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
+                alert("Fehler beim Kopieren der Antwort.");
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Function to delete a single answer
+        function deleteAnswer(key) {
+            if(confirm("Sind Sie sicher, dass Sie diese Antwort löschen möchten?")) {
+                localStorage.removeItem(key);
+                alert("Antwort wurde gelöscht.");
+                console.log(`Antwort für ${key} gelöscht.`);
+                loadAllAnswers(); // Update the list of saved answers
+            }
+        }
+
+        // Function to clear all saved answers from localStorage
+        function clearLocalStorage() {
+            if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
+                localStorage.clear();
+                alert("Alle gespeicherten Antworten wurden gelöscht.");
+                console.log("Alle localStorage-Elemente gelöscht");
+                loadAllAnswers(); // Update the list of saved answers
+            }
+        }
+
+        // Function to copy all answers to clipboard
+        function copyAllAnswersToClipboard() {
+            const textContent = localStorage.getItem(`${assignmentId}_text`);
+            const mcqResponses = localStorage.getItem(`${assignmentId}_mcq`);
+
+            if(!textContent && !mcqResponses) {
+                alert("Keine gespeicherten Antworten zum Kopieren.");
+                console.log("Copy all attempted with no stored answers");
+                return;
+            }
+
+            let allText = '';
+
+            if (textContent) {
+                // Extract plain text from HTML
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = textContent;
+                const plainText = tempDiv.textContent || tempDiv.innerText || "";
+                allText += `Textantworten:\n${plainText}\n\n`;
+            }
+
+            if (mcqResponses) {
+                allText += `Multiple Choice Ergebnisse:\n`;
+                const responses = JSON.parse(mcqResponses);
+                mcqs.forEach(mcq => {
+                    const response = responses[mcq.id];
+                    allText += `${mcq.question} - ${response ? response : 'Keine Antwort'}\n`;
+                });
+                allText += `\n`;
+            }
+
+            // Check if the Clipboard API is available
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // Use the Clipboard API
+                navigator.clipboard.writeText(allText).then(function() {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("Alle Antworten erfolgreich kopiert");
+                }).catch(function(err) {
+                    console.error('Fehler beim Kopieren der Antworten: ', err);
+                    fallbackCopyTextToClipboard(allText);
+                });
+            } else {
+                // Fallback to execCommand
+                fallbackCopyTextToClipboard(allText);
+            }
+        }
+
+        // Optional: Log the initial state of localStorage for debugging
+        console.log("Initialer Zustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+        // **New Code to Prevent Pasting Content**
+
+        // Prevent pasting into Quill editor beyond basic formatting
+        // Already handled in answers.html
+
+    </script>
+</body>
+</html>
