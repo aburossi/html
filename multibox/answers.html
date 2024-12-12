@@ -30,8 +30,8 @@
         }
 
         button {
-            padding: 6px 12px; /* Kleinere Abmessungen */
-            font-size: 12px;    /* Kleinere Schriftgröße */
+            padding: 6px 12px; /* Smaller dimensions */
+            font-size: 12px;    /* Smaller font size */
             cursor: pointer;
             color: white;
             border: none;
@@ -39,17 +39,17 @@
         }
 
         #saveBtn {
-            background-color: #008CBA; /* Blau */
+            background-color: #008CBA; /* Blue */
         }
 
         #clearBtn {
-            background-color: #f44336; /* Rot */
+            background-color: #f44336; /* Red */
         }
 
         #downloadAllBtn {
-            background-color: #555555; /* Dunkelgrau */
-            padding: 6px 12px; /* Konsistente Abmessungen */
-            font-size: 12px; /* Konsistente Schriftgröße */
+            background-color: #555555; /* Dark gray */
+            padding: 6px 12px; /* Consistent dimensions */
+            font-size: 12px; /* Consistent font size */
         }
 
         .info-text {
@@ -58,14 +58,14 @@
             margin-bottom: 20px;
         }
 
-        /* Anzeige der gespeicherten Antwort */
+        /* Display of saved answer */
         #savedAnswerContainer {
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
             background-color: #f9f9f9;
-            display: none; /* Standardmäßig verborgen */
+            display: none; /* Hidden by default */
             position: relative;
         }
 
@@ -91,33 +91,33 @@
             right: 10px;
             padding: 4px 8px;
             font-size: 12px;
-            background-color: #4CAF50; /* Grün */
+            background-color: #4CAF50; /* Green */
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
-        /* Druckstile */
+        /* Print styles */
         @media print {
-            /* Alles standardmäßig ausblenden */
+            /* Hide everything by default */
             body * {
                 visibility: hidden;
             }
 
-            /* Nur printContent sichtbar machen */
+            /* Make printContent visible */
             body.print-single #printContent,
             body.print-single #printContent * {
                 visibility: visible;
             }
 
-            /* Nur printAllContent sichtbar machen */
+            /* Make printAllContent visible */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
             }
 
-            /* Positionierung des sichtbaren Inhalts */
+            /* Position the visible content */
             #printContent, #printAllContent {
                 position: absolute;
                 left: 0;
@@ -125,12 +125,12 @@
                 width: 100%;
             }
 
-            /* Textbereiche im Druck ausblenden */
+            /* Hide text areas in print */
             textarea {
                 display: none;
             }
 
-            /* Pre-Elemente für Lesbarkeit stylen */
+            /* Style pre elements for readability */
             pre {
                 white-space: pre-wrap;
                 font-size: 14px;
@@ -139,10 +139,10 @@
                 width: 100%;
                 height: auto;
                 margin-bottom: 20px;
-                border: none; /* Rahmen entfernen */
+                border: none; /* Remove borders */
             }
 
-            /* Rahmen und Padding bei Entwürfen im Druck entfernen */
+            /* Remove borders and padding for drafts in print */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
@@ -153,7 +153,7 @@
                 margin-bottom: 5px;
             }
 
-            /* Alle Buttons im Druck ausblenden */
+            /* Hide all buttons in print */
             button {
                 display: none;
             }
@@ -162,7 +162,7 @@
 </head>
 
 <body>
-    <!-- Bereich für das Drucken einer einzelnen Antwort -->
+    <!-- Section for printing a single answer -->
     <div id="printContent">
         <h3>Deine Antwort:</h3>
         <p id="assignmentInfo"></p>
@@ -170,7 +170,7 @@
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Kursiver Informationstext -->
+    <!-- Italic informational text -->
     <p class="info-text">
         Alle Antworten können am Ende dieser Seite heruntergeladen werden.
     </p>
@@ -181,20 +181,20 @@
         <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     </div>
 
-    <!-- Anzeige der gespeicherten Antwort -->
+    <!-- Display of saved answer -->
     <div id="savedAnswerContainer">
         <button id="copyAnswerBtn">Antwort kopieren</button>
         <h3 id="savedAssignmentTitle"></h3>
         <div id="savedAnswer"></div>
     </div>
 
-    <!-- Rotes Löschen-Button, verschoben unter savedAnswerContainer -->
+    <!-- Red delete button, moved under savedAnswerContainer -->
     <div class="button-container" style="margin-top: 10px;">
         <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     </div>
     
     <script>
-        // Funktion zum Abrufen eines Query-Parameters nach Name
+        // Function to retrieve a query parameter by name
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -248,34 +248,34 @@
         const parentTitle = getParentPageTitle();
         const assignmentInfo = document.getElementById('assignmentInfo');
 
-        // Entferne das 'assignment' Präfix, um den Suffix zu erhalten
+        // Remove the 'assignment' prefix to get the suffix
         const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
 
-        // Setze den Text zu 'Auftrag: {Suffix}'
+        // Set the text to 'Auftrag: {Suffix}'
         assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
 
         const textarea = document.getElementById('answerBox');
         const answerText = document.getElementById('answerText');
 
-        // Anzeige Elemente
+        // Display elements
         const savedAnswerContainer = document.getElementById('savedAnswerContainer');
         const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
         const savedAnswer = document.getElementById('savedAnswer');
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
 
-        // Lade gespeicherten Text aus localStorage
+        // Load saved text from localStorage
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             textarea.value = savedText;
-            console.log(`Geladener gespeicherter Text für ${assignmentId}`);
+            console.log(`Loaded saved text for ${assignmentId}`);
             displaySavedAnswer(savedText);
         } else {
-            console.log(`Kein gespeicherter Text für ${assignmentId} gefunden`);
+            console.log(`No saved text found for ${assignmentId}`);
         }
 
-        // Funktion zum Anzeigen der gespeicherten Antwort
+        // Function to display the saved answer
         function displaySavedAnswer(text) {
-            // Kombiniere parentTitle und assignmentSuffix, falls vorhanden
+            // Combine parentTitle and assignmentSuffix, if available
             const titleText = parentTitle
                 ? `${parentTitle}\nAuftrag: ${assignmentSuffix}`
                 : `Auftrag: ${assignmentSuffix}`;
@@ -284,7 +284,7 @@
             savedAnswerContainer.style.display = 'block';
         }
 
-        // Funktion zum Kopieren der Antwort in die Zwischenablage
+        // Function to copy the answer to the clipboard
         copyAnswerBtn.addEventListener('click', function() {
             const textToCopy = parentTitle
                 ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${savedAnswer.textContent}`
@@ -292,27 +292,27 @@
             copyTextToClipboard(textToCopy);
         });
 
-        // Funktion zum Kopieren von Text in die Zwischenablage
+        // Function to copy text to the clipboard
         function copyTextToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(function() {
-                    // Bestätigungsfenster entfernt
-                    console.log("Antwort erfolgreich kopiert");
+                    // Confirmation removed
+                    console.log("Answer successfully copied");
                 }, function(err) {
-                    console.error('Fehler beim Kopieren der Antwort: ', err);
+                    console.error('Error copying the answer: ', err);
                     fallbackCopyTextToClipboard(text);
                 });
             } else {
-                // Fallback auf execCommand
+                // Fallback to execCommand
                 fallbackCopyTextToClipboard(text);
             }
         }
 
-        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        // Fallback function to copy text to the clipboard
         function fallbackCopyTextToClipboard(text) {
             const textarea = document.createElement("textarea");
             textarea.value = text;
-            // Verstecke das Textarea-Element
+            // Hide the textarea element
             textarea.style.position = "fixed";
             textarea.style.top = "-9999px";
             document.body.appendChild(textarea);
@@ -322,55 +322,55 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    // Bestätigungsfenster entfernt
-                    console.log("Antwort erfolgreich kopiert (Fallback)");
+                    // Confirmation removed
+                    console.log("Answer successfully copied (Fallback)");
                 } else {
                     throw new Error("Fallback copy unsuccessful");
                 }
             } catch (err) {
-                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
-                // Bestätigungsfenster entfernt
+                console.error('Error copying the answer (Fallback): ', err);
+                // Confirmation removed
             }
 
             document.body.removeChild(textarea);
         }
 
-        // Funktion zum Zwischenspeichern der Antwort in localStorage
+        // Function to save the answer to localStorage
         function saveToLocal() {
             const text = textarea.value;
             if (text.trim() === "") {
-                // Bestätigungsfenster entfernt
-                console.log("Speicherversuch mit leerem Textfeld");
+                // Confirmation removed
+                console.log("Attempted to save with an empty text field");
                 return;
             }
             localStorage.setItem(assignmentId, text);
-            // Bestätigungsfenster entfernt
-            console.log(`Text für ${assignmentId} gespeichert`);
-            displaySavedAnswer(text); // Aktualisiere Anzeige der gespeicherten Antwort
+            // Confirmation removed
+            console.log(`Text saved for ${assignmentId}`);
+            displaySavedAnswer(text); // Update the display of the saved answer
         }
 
-        // Funktion zum Löschen aller gespeicherten Antworten aus localStorage
+        // Function to clear all saved answers from localStorage
         function clearLocalStorage() {
-            // Bestätigungsfenster entfernt
+            // Confirmation removed
             localStorage.clear();
             textarea.value = '';
             savedAnswerContainer.style.display = 'none';
-            console.log("Alle gespeicherten Antworten wurden gelöscht");
+            console.log("All saved answers have been deleted");
         }
 
-        // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
+        // Event Listener for the "Print All Answers / Save as PDF" button
         document.getElementById("downloadAllBtn").addEventListener('click', function() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
 
-            console.log(`Gefundene ${storageKeys.length} gespeicherte Aufträge zum Drucken`);
+            console.log(`Found ${storageKeys.length} saved assignments to print`);
             if(storageKeys.length === 0) {
-                console.log("Drucken aller Antworten versucht, aber keine gespeichert");
+                console.log("Attempted to print all answers, but none are saved");
                 return;
             }
 
-            console.log("Drucken aller Antworten initiiert");
+            console.log("Initiating print of all answers");
 
-            // Erstelle ein temporäres div für das Drucken aller Antworten
+            // Create a temporary div for printing all answers
             const printAllContent = document.createElement('div');
             printAllContent.id = 'printAllContent';
 
@@ -381,7 +381,7 @@
                 printAllContent.appendChild(parentTitleElement);
             }
 
-            // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+            // Sort the storageKeys based on the numerical component or suffix
             storageKeys.sort((a, b) => {
                 const suffixA = a.replace(/^assignment[_-]?/, '');
                 const suffixB = b.replace(/^assignment[_-]?/, '');
@@ -415,17 +415,48 @@
 
             window.print();
 
-            // Remove 'print-all' class and the printAllContent div nach dem Drucken
+            // Remove 'print-all' class and the printAllContent div after printing
             document.body.classList.remove('print-all');
             document.body.removeChild(printAllContent);
         });
 
-        // Optional: Logge den initialen Zustand von localStorage zur Fehlerbehebung
-        console.log("Initialer Zustand von localStorage:");
+        // Optional: Log the initial state of localStorage for debugging
+        console.log("Initial state of localStorage:");
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             console.log(`${key}: ${localStorage.getItem(key)}`);
         }
+
+        // **New Code to Prevent Pasting Content**
+
+        // Select the textarea element
+        const answerBox = document.getElementById('answerBox');
+
+        // a. Prevent pasting via Ctrl+V or other methods
+        answerBox.addEventListener('paste', function(e) {
+            e.preventDefault();
+            alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+        });
+
+        // b. Prevent drag-and-drop of content
+        answerBox.addEventListener('drop', function(e) {
+            e.preventDefault();
+        });
+
+        // c. Prevent the context menu (right-click)
+        answerBox.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Optional: Additionally block other paste-related keyboard shortcuts
+        answerBox.addEventListener('keydown', function(e) {
+            // Check for Ctrl+V or Cmd+V (for Mac)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+                e.preventDefault();
+                alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+            }
+        });
+
     </script>
 </body>
 
