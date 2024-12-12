@@ -119,8 +119,13 @@
 
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
 
+        // Funktion zum Umwandeln der Assignment ID für die Anzeige (Unterstriche durch Leerzeichen ersetzen)
+        function formatAssignmentId(id) {
+            return id.replace(/_/g, ' ');
+        }
+
         // Setzen des Assignment-Titels (kann nach Bedarf angepasst werden)
-        document.getElementById('assignmentTitle').textContent = `Auftrag: ${assignmentId}`;
+        document.getElementById('assignmentTitle').textContent = `Auftrag: ${formatAssignmentId(assignmentId)}`;
 
         // Funktion zum Mischen eines Arrays (Fisher-Yates Algorithmus)
         function shuffleArray(array) {
@@ -227,7 +232,7 @@
         // Funktion zum Herunterladen der Antworten und Ergebnisse als Textdatei
         function downloadResults() {
             const mcqs = window.selectedMCQs;
-            let content = `Auftrag: ${assignmentId}\n\n`;
+            let content = `Auftrag: ${formatAssignmentId(assignmentId)}\n\n`;
 
             mcqs.forEach(mcq => {
                 const selectedOption = document.querySelector(`input[name="${mcq.id}"]:checked`);
