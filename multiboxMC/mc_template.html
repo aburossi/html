@@ -43,11 +43,15 @@
             border-radius: 5px;
         }
         #submitBtn {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; /* Grün */
             color: white;
         }
         #downloadBtn {
-            background-color: #008CBA; /* Blue */
+            background-color: #008CBA; /* Blau */
+            color: white;
+        }
+        #retryBtn {
+            background-color: #f44336; /* Rot */
             color: white;
         }
         #resultContainer {
@@ -86,11 +90,12 @@
     
     <form id="mcqForm">
         <div id="mcqContainer">
-            <!-- MCQs will be dynamically inserted here -->
+            <!-- MCQs werden hier dynamisch eingefügt -->
         </div>
         <div class="button-container">
             <button type="button" id="submitBtn">Antworten einreichen</button>
             <button type="button" id="downloadBtn" disabled>Antworten herunterladen</button>
+            <button type="button" id="retryBtn" style="display: none;">Test wiederholen</button>
         </div>
     </form>
     
@@ -99,14 +104,14 @@
         <div id="results"></div>
     </div>
     
-    <!-- Hidden content for printing -->
+    <!-- Versteckter Inhalt zum Drucken -->
     <div id="printContent" style="display: none;">
         <h1>Multiple Choice Ergebnisse</h1>
         <div id="printResults"></div>
     </div>
     
     <script>
-        // Function to retrieve a query parameter by name
+        // Funktion zum Abrufen eines Query-Parameters nach Name
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -114,15 +119,24 @@
 
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
 
-        // Set the assignment title (you can customize this as needed)
+        // Setzen des Assignment-Titels (kann nach Bedarf angepasst werden)
         document.getElementById('assignmentTitle').textContent = `Auftrag: ${assignmentId}`;
 
-        // Function to fetch MCQs from the mcqs folder
+        // Funktion zum Mischen eines Arrays (Fisher-Yates Algorithmus)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Funktion zum Abrufen der MCQs aus dem mcqs-Ordner
         async function fetchMCQs(assignmentId) {
             try {
                 const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${assignmentId}.json`);
                 if (!response.ok) {
-                    throw new Error(`MCQ file for ${assignmentId} not found.`);
+                    throw new Error(`MCQ-Datei für ${assignmentId} nicht gefunden.`);
                 }
                 const mcqs = await response.json();
                 return mcqs;
@@ -133,15 +147,22 @@
             }
         }
 
-        // Function to render MCQs
+        // Funktion zum Rendern der MCQs
         async function renderMCQs() {
-            const mcqs = await fetchMCQs(assignmentId);
-            const mcqContainer = document.getElementById('mcqContainer');
-
+            let mcqs = await fetchMCQs(assignmentId);
+            
             if (mcqs.length === 0) {
-                mcqContainer.innerHTML = "<p>Keine Multiple Choice Fragen verfügbar.</p>";
+                document.getElementById('mcqContainer').innerHTML = "<p>Keine Multiple Choice Fragen verfügbar.</p>";
                 return;
             }
+
+            // Auswahl von 7 zufälligen Fragen
+            mcqs = shuffleArray(mcqs).slice(0, 7);
+            
+            // Speichern der ausgewählten Fragen für spätere Verwendung
+            window.selectedMCQs = mcqs;
+
+            const mcqContainer = document.getElementById('mcqContainer');
 
             mcqs.forEach(mcq => {
                 const questionDiv = document.createElement('div');
@@ -151,7 +172,10 @@
                 questionP.textContent = mcq.question;
                 questionDiv.appendChild(questionP);
 
-                mcq.options.forEach(option => {
+                // Zufällige Reihenfolge der Optionen
+                const shuffledOptions = shuffleArray([...mcq.options]);
+
+                shuffledOptions.forEach(option => {
                     const label = document.createElement('label');
 
                     const input = document.createElement('input');
@@ -168,9 +192,9 @@
             });
         }
 
-        // Function to handle form submission
-        async function handleSubmit() {
-            const mcqs = await fetchMCQs(assignmentId);
+        // Funktion zur Behandlung der Formularübermittlung
+        function handleSubmit() {
+            const mcqs = window.selectedMCQs;
             let correctCount = 0;
             let resultsHTML = '';
 
@@ -195,11 +219,14 @@
             `;
             document.getElementById('resultContainer').style.display = 'block';
             document.getElementById('downloadBtn').disabled = false;
+            document.getElementById('retryBtn').style.display = 'inline-block';
+            // Scrollen zum Ergebnis
+            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Function to download answers and results as a text file
-        async function downloadResults() {
-            const mcqs = await fetchMCQs(assignmentId);
+        // Funktion zum Herunterladen der Antworten und Ergebnisse als Textdatei
+        function downloadResults() {
+            const mcqs = window.selectedMCQs;
             let content = `Auftrag: ${assignmentId}\n\n`;
 
             mcqs.forEach(mcq => {
@@ -217,7 +244,7 @@
             URL.revokeObjectURL(url);
         }
 
-        // Function to prepare content for printing
+        // Funktion zum Vorbereiten des Inhalts für den Druck
         function preparePrint() {
             const printContent = document.getElementById('printContent');
             const results = document.getElementById('results').innerHTML;
@@ -225,7 +252,7 @@
             window.print();
         }
 
-        // Function to copy results to clipboard
+        // Funktion zum Kopieren der Ergebnisse in die Zwischenablage
         function copyResultsToClipboard() {
             const resultsText = document.getElementById('results').innerText;
             navigator.clipboard.writeText(resultsText).then(() => {
@@ -236,12 +263,18 @@
             });
         }
 
-        // Initialize the page
+        // Funktion zum Neuladen der Seite und Laden neuer Fragen
+        function retryTest() {
+            window.location.reload();
+        }
+
+        // Initialisierung der Seite
         document.addEventListener('DOMContentLoaded', function() {
             renderMCQs();
 
             document.getElementById('submitBtn').addEventListener('click', handleSubmit);
             document.getElementById('downloadBtn').addEventListener('click', downloadResults);
+            document.getElementById('retryBtn').addEventListener('click', retryTest);
         });
     </script>
 </body>
