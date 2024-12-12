@@ -33,7 +33,7 @@
         "options": ["Sofort zahlen", "Sich wehren und Beweise sichern", "Die Angelegenheit ignorieren", "Nur mit Anwälten kommunizieren"],
         "correctAnswer": "Sich wehren und Beweise sichern",
         "explanation": "Der Beitrag rät, sich mit Nachweisen gegen falsche Forderungen zu wehren."
-    }
+    },
     {
         "id": "mcq6",
         "question": "Was war der Hauptgrund für die Betreibung?",
