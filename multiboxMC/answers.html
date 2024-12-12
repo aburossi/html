@@ -1,4 +1,3 @@
-
 <!DOCTYPE html> 
 
 <html lang="de">
@@ -10,7 +9,156 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <style>
-        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .quill-editor {
+            height: 150px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 6px 12px; /* Smaller dimensions */
+            font-size: 12px;    /* Smaller font size */
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #saveBtn {
+            background-color: #008CBA; /* Blue */
+        }
+
+        #clearBtn {
+            background-color: #f44336; /* Red */
+        }
+
+        #downloadAllBtn {
+            background-color: #555555; /* Dark gray */
+            padding: 6px 12px; /* Consistent dimensions */
+            font-size: 12px; /* Consistent font size */
+        }
+
+        .info-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Display of saved answer */
+        #savedAnswerContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: none; /* Hidden by default */
+            position: relative;
+        }
+
+        #savedAnswerContainer h3 {
+            margin-bottom: 10px;
+        }
+
+        #savedAnswer {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            background-color: #f4f4f4;
+            overflow: auto;
+            border: none;
+        }
+
+        #copyAnswerBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Print styles */
+        @media print {
+            /* Hide everything by default */
+            body * {
+                visibility: hidden;
+            }
+
+            /* Make printContent visible */
+            body.print-single #printContent,
+            body.print-single #printContent * {
+                visibility: visible;
+            }
+
+            /* Make printAllContent visible */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
+                visibility: visible;
+            }
+
+            /* Position the visible content */
+            #printContent, #printAllContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            /* Hide text areas in print */
+            .quill-editor {
+                display: none;
+            }
+
+            /* Style pre elements for readability */
+            pre {
+                white-space: pre-wrap;
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                border: none; /* Remove borders */
+            }
+
+            /* Remove borders and padding for drafts in print */
+            #printAllContent .draft {
+                border: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            #printAllContent .draft h3 {
+                margin-bottom: 5px;
+            }
+
+            /* Hide all buttons in print */
+            button {
+                display: none;
+            }
+        }
 
         /* MCQ Styles */
         .mcq-question {
