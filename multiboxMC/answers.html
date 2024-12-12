@@ -1,1 +1,462 @@
 
+<!DOCTYPE html> 
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Antworten speichern und drucken</title>
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        /* Existing styles */
+
+        /* MCQ Styles */
+        .mcq-question {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fefefe;
+        }
+
+        .mcq-question p {
+            font-weight: bold;
+        }
+
+        .mcq-question label {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Optional: Highlight correct answers after submission */
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Existing content -->
+
+    <!-- MCQ Section -->
+    <div id="mcqContainer"></div>
+
+    <!-- Existing content -->
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script>
+        // Function to retrieve a query parameter by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+
+        // Function to fetch MCQs from GitHub
+        async function fetchMCQs(assignmentId) {
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/yourusername/yourrepo/main/mcqs/${assignmentId}.json`);
+                if (!response.ok) {
+                    throw new Error(`MCQ file for ${assignmentId} not found.`);
+                }
+                const mcqs = await response.json();
+                return mcqs;
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        }
+
+        // Function to render MCQs
+        async function renderMCQs() {
+            const mcqContainer = document.getElementById('mcqContainer');
+            mcqContainer.innerHTML = "<h3>Multiple Choice Fragen:</h3>";
+
+            const mcqs = await fetchMCQs(assignmentId);
+
+            if (mcqs.length === 0) {
+                mcqContainer.innerHTML += "<p>Keine Multiple Choice Fragen verfügbar.</p>";
+                return;
+            }
+
+            mcqs.forEach(mcq => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'mcq-question';
+
+                // Question
+                const questionTitle = document.createElement('p');
+                questionTitle.textContent = mcq.question;
+                questionDiv.appendChild(questionTitle);
+
+                // Options
+                mcq.options.forEach(option => {
+                    const optionLabel = document.createElement('label');
+                    
+                    const optionInput = document.createElement('input');
+                    optionInput.type = 'radio';
+                    optionInput.name = mcq.id;
+                    optionInput.value = option;
+                    
+                    optionLabel.appendChild(optionInput);
+                    optionLabel.appendChild(document.createTextNode(option));
+                    questionDiv.appendChild(optionLabel);
+                });
+
+                mcqContainer.appendChild(questionDiv);
+            });
+        }
+
+        // Initialize Quill editor
+        const quill = new Quill('#answerBox', {
+            theme: 'snow',
+            placeholder: 'Gib hier deine Antworten ein...',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['clean']
+                ]
+            }
+        });
+
+        // Display elements
+        const savedAnswerContainer = document.getElementById('savedAnswerContainer');
+        const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
+        const savedAnswer = document.getElementById('savedAnswer');
+        const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+
+        // Function to display saved answers and MCQ results
+        function displaySavedAnswer(content, mcqResponses) {
+            // Combine parentTitle and assignmentSuffix, if available
+            const titleText = parentTitle
+                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}`
+                : `Auftrag: ${assignmentSuffix}`;
+            savedAssignmentTitle.textContent = titleText;
+
+            // Display text answers
+            savedAnswer.innerHTML = content;
+
+            // Display MCQ results
+            const mcqResultsDiv = document.createElement('div');
+            mcqResultsDiv.id = 'mcqResults';
+            mcqResultsDiv.innerHTML = "<h4>Multiple Choice Ergebnisse:</h4>";
+
+            mcqs.forEach(mcq => {
+                const response = mcqResponses[mcq.id];
+                const resultP = document.createElement('p');
+                resultP.textContent = `${mcq.question} - ${response ? response : 'Keine Antwort'}`;
+                // Optionally, highlight correct/incorrect answers
+                /*
+                if (response === mcq.correctAnswer) {
+                    resultP.classList.add('correct');
+                } else if (response) {
+                    resultP.classList.add('incorrect');
+                }
+                */
+                mcqResultsDiv.appendChild(resultP);
+            });
+
+            savedAnswer.appendChild(mcqResultsDiv);
+            savedAnswerContainer.style.display = 'block';
+        }
+
+        // Function to copy text and MCQ responses to clipboard
+        copyAnswerBtn.addEventListener('click', function() {
+            const textToCopy = parentTitle
+                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`
+                : `Auftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+            copyTextToClipboard(textToCopy);
+        });
+
+        // Function to copy text to the clipboard
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    // Confirmation removed
+                    console.log("Answer successfully copied");
+                }, function(err) {
+                    console.error('Error copying the answer: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback to execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // Fallback function to copy text to the clipboard
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Hide the textarea element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    // Confirmation removed
+                    console.log("Answer successfully copied (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Error copying the answer (Fallback): ', err);
+                // Confirmation removed
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Function to save the answer and MCQ responses to localStorage
+        async function saveToLocal() {
+            // Save text answers
+            const htmlContent = quill.root.innerHTML;
+            const textContent = quill.getText().trim();
+            if (textContent === "") {
+                console.log("Attempted to save with an empty text field");
+                return;
+            }
+            localStorage.setItem(`${assignmentId}_text`, htmlContent);
+            console.log(`Text saved for ${assignmentId}`);
+
+            // Save MCQ answers
+            const mcqResponses = {};
+            mcqs.forEach(mcq => {
+                const selectedOption = document.querySelector(`input[name="${mcq.id}"]:checked`);
+                mcqResponses[mcq.id] = selectedOption ? selectedOption.value : null;
+            });
+            localStorage.setItem(`${assignmentId}_mcq`, JSON.stringify(mcqResponses));
+            console.log(`MCQ responses saved for ${assignmentId}`);
+
+            // Display saved answers
+            displaySavedAnswer(htmlContent, mcqResponses);
+        }
+
+        // Function to clear all saved answers from localStorage
+        function clearLocalStorage() {
+            // Confirmation removed
+            localStorage.clear();
+            quill.setText(''); // Clear Quill editor
+            document.getElementById('mcqContainer').innerHTML = ""; // Clear MCQs
+            savedAnswerContainer.style.display = 'none';
+            console.log("All saved answers have been deleted");
+        }
+
+        // Event Listener for the "Print All Answers / Save as PDF" button
+        document.getElementById("downloadAllBtn").addEventListener('click', async function() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(`${assignmentId}_`));
+
+            console.log(`Found ${storageKeys.length} saved items to print`);
+            if(storageKeys.length === 0) {
+                console.log("Attempted to print all answers, but none are saved");
+                return;
+            }
+
+            console.log("Initiating print of all answers");
+
+            // Create a temporary div for printing all answers
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
+
+            // Add parent page's title once
+            if (parentTitle) {
+                const parentTitleElement = document.createElement('h2');
+                parentTitleElement.textContent = parentTitle;
+                printAllContent.appendChild(parentTitleElement);
+            }
+
+            // Sort the storageKeys based on the numerical component or suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(`${assignmentId}_`, '');
+                const suffixB = b.replace(`${assignmentId}_`, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            // Display text answers and MCQ results
+            const textContent = localStorage.getItem(`${assignmentId}_text`);
+            const mcqResponses = localStorage.getItem(`${assignmentId}_mcq`);
+
+            if (textContent) {
+                const draftDiv = document.createElement("div");
+                draftDiv.className = "draft";
+
+                const title = document.createElement("h3");
+                title.textContent = `Auftrag ${assignmentSuffix}`;
+                draftDiv.appendChild(title);
+
+                const answerDiv = document.createElement("div");
+                answerDiv.innerHTML = textContent;
+                draftDiv.appendChild(answerDiv);
+
+                // Append MCQ results if available
+                if (mcqResponses) {
+                    const mcqResultsDiv = document.createElement('div');
+                    mcqResultsDiv.innerHTML = "<h4>Multiple Choice Ergebnisse:</h4>";
+                    const responses = JSON.parse(mcqResponses);
+                    mcqs.forEach(mcq => {
+                        const response = responses[mcq.id];
+                        const resultP = document.createElement('p');
+                        resultP.textContent = `${mcq.question} - ${response ? response : 'Keine Antwort'}`;
+                        mcqResultsDiv.appendChild(resultP);
+                    });
+                    draftDiv.appendChild(mcqResultsDiv);
+                }
+
+                printAllContent.appendChild(draftDiv);
+            }
+
+            // Append to body
+            document.body.appendChild(printAllContent);
+
+            // Add 'print-all' class to body
+            document.body.classList.add('print-all');
+
+            window.print();
+
+            // Remove 'print-all' class and the printAllContent div after printing
+            document.body.classList.remove('print-all');
+            document.body.removeChild(printAllContent);
+        });
+
+        // Event Listener for the "Copy All Answers to Clipboard" button
+        const copyAllBtn = document.getElementById("copyAllBtn");
+        copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
+
+        // Function to copy all answers to clipboard
+        function copyAllAnswersToClipboard() {
+            const textContent = localStorage.getItem(`${assignmentId}_text`);
+            const mcqResponses = localStorage.getItem(`${assignmentId}_mcq`);
+
+            if(!textContent && !mcqResponses) {
+                alert("Keine gespeicherten Antworten zum Kopieren.");
+                console.log("Copy all attempted with no stored answers");
+                return;
+            }
+
+            let allText = '';
+
+            if (textContent) {
+                // Extract plain text from HTML
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = textContent;
+                const plainText = tempDiv.textContent || tempDiv.innerText || "";
+                allText += `Textantworten:\n${plainText}\n\n`;
+            }
+
+            if (mcqResponses) {
+                allText += `Multiple Choice Ergebnisse:\n`;
+                const responses = JSON.parse(mcqResponses);
+                mcqs.forEach(mcq => {
+                    const response = responses[mcq.id];
+                    allText += `${mcq.question} - ${response ? response : 'Keine Antwort'}\n`;
+                });
+                allText += `\n`;
+            }
+
+            // Check if the Clipboard API is available
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // Use the Clipboard API
+                navigator.clipboard.writeText(allText).then(function() {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("Alle Antworten erfolgreich kopiert");
+                }).catch(function(err) {
+                    console.error('Fehler beim Kopieren der Antworten: ', err);
+                    fallbackCopyTextToClipboard(allText);
+                });
+            } else {
+                // Fallback to execCommand
+                fallbackCopyTextToClipboard(allText);
+            }
+        }
+
+        // Optional: Log the initial state of localStorage for debugging
+        console.log("Initialer Zustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+        // **New Code to Prevent Pasting Content**
+
+        // Prevent pasting into Quill editor beyond basic formatting
+        quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
+            // Customize as needed, e.g., strip unwanted formats
+            return delta;
+        });
+
+        quill.root.addEventListener('paste', function(e) {
+            e.preventDefault();
+            alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+            // Optionally, allow plain text pasting without formatting
+            const text = e.clipboardData.getData('text/plain');
+            quill.insertText(quill.getSelection().index, text);
+        });
+
+        // Prevent drag-and-drop into Quill editor
+        quill.root.addEventListener('drop', function(e) {
+            e.preventDefault();
+        });
+
+        // Prevent context menu in Quill editor
+        quill.root.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Additionally, prevent Ctrl+V and Cmd+V
+        quill.root.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+                e.preventDefault();
+                alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+            }
+        });
+
+        // Load and render MCQs on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMCQs();
+
+            // Load saved content and set it in Quill
+            const savedText = localStorage.getItem(`${assignmentId}_text`);
+            const savedMCQs = localStorage.getItem(`${assignmentId}_mcq`);
+            if (savedText) {
+                quill.root.innerHTML = savedText;
+                console.log(`Loaded saved text for ${assignmentId}`);
+            } else {
+                console.log(`No saved text found for ${assignmentId}`);
+            }
+
+            if (savedMCQs) {
+                const mcqResponses = JSON.parse(savedMCQs);
+                mcqs.forEach(mcq => {
+                    if (mcqResponses[mcq.id]) {
+                        const option = document.querySelector(`input[name="${mcq.id}"][value="${mcqResponses[mcq.id]}"]`);
+                        if (option) {
+                            option.checked = true;
+                        }
+                    }
+                });
+                console.log(`Loaded saved MCQ responses for ${assignmentId}`);
+            }
+
+            // Display saved answers if any
+            if (savedText || savedMCQs) {
+                displaySavedAnswer(savedText, savedMCQs ? JSON.parse(savedMCQs) : {});
+            }
+        });
+    </script>
+</body>
+
+</html>
