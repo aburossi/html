@@ -191,13 +191,37 @@
 </head>
 
 <body>
-    <!-- Existing content -->
+    <!-- Section for printing a single answer -->
+    <div id="printContent">
+        <h3>Deine Antwort:</h3>
+        <p id="assignmentInfo"></p>
+        <div id="answerBox" class="quill-editor"></div>
+        <pre id="answerText" style="display: none;"></pre>
+    </div>
+    
+    <!-- Italic informational text -->
+    <p class="info-text">
+        Alle Antworten können am Ende dieser Seite heruntergeladen werden.
+    </p>
 
-    <!-- MCQ Section -->
-    <div id="mcqContainer"></div>
+    <!-- Button Container -->
+    <div class="button-container">
+        <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
+        <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
+    </div>
 
-    <!-- Existing content -->
+    <!-- Display of saved answer -->
+    <div id="savedAnswerContainer">
+        <button id="copyAnswerBtn">Antwort kopieren</button>
+        <h3 id="savedAssignmentTitle"></h3>
+        <div id="savedAnswer"></div>
+    </div>
 
+    <!-- Red delete button, moved under savedAnswerContainer -->
+    <div class="button-container" style="margin-top: 10px;">
+        <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
+    </div>
+    
     <!-- Quill JS -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
