@@ -27,7 +27,7 @@
         /* --- Mindmap Generator Styles --- */
         #mindmap-container {
             width: 100%; /* Use full width */
-            max-width: 1200px; /* Optional max width for larger screens */
+            max-width: 1000px; /* Reduced max-width for less height */
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -78,34 +78,32 @@
             background-color: #e0e0e0;
         }
 
-        #mindmap-canvas {
-            border: 1px solid #ccc;
-            background-color: #fff;
+        #mindmap-canvas-container {
             width: 100%;
             /* Maintain a 16:9 aspect ratio */
-            height: 0;
-            padding-bottom: 56.25%;
             position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
             border-radius: 4px;
+            overflow: hidden;
         }
 
-        #mindmap-canvas actual-canvas {
+        #mindmap-canvas {
             position: absolute;
             top: 0;
             left: 0;
-        }
-
-        /* Responsive Design for Mindmap */
-        @media (max-width: 850px) {
-            #mindmap-canvas {
-                padding-bottom: 75%; /* Adjust aspect ratio for smaller screens if needed */
-            }
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            touch-action: none; /* Prevent touch gestures */
+            border-radius: 4px;
         }
 
         /* --- Answers Section Styles --- */
         #answers-container {
             width: 100%; /* Use full width */
-            max-width: 1200px; /* Optional max width for larger screens */
+            max-width: 1000px; /* Reduced max-width for consistency */
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -204,28 +202,17 @@
             }
 
             /* Make printContent visible */
-            body.print-single #printContent,
-            body.print-single #printContent * {
-                visibility: visible;
-            }
-
-            /* Make printAllContent visible */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
             }
 
             /* Position the visible content */
-            #printContent, #printAllContent {
+            #printAllContent {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
-            }
-
-            /* Hide text areas in print */
-            .quill-editor {
-                display: none;
             }
 
             /* Style pre elements for readability */
@@ -273,14 +260,24 @@
             <button id="mindmap-printBtn">Print Mindmap</button>
         </div>
         <div id="mindmap-canvas-container">
-            <canvas id="mindmap-canvas"></canvas> <!-- Removed fixed width/height -->
+            <canvas id="mindmap-canvas"></canvas> <!-- Responsive Canvas -->
         </div>
     </div>
 
     <!-- --- Answers Section --- -->
     <div id="answers-container">
+        <!-- Section for printing both Mindmap and Answers -->
+        <div id="printAllContent" style="display: none;">
+            <h1 id="printAll-mindmap-title"></h1>
+            <div id="printAll-mindmap-image"></div>
+            <h3>Deine Antworten:</h3>
+            <div id="printAll-answers">
+                <!-- Dynamically populated answers will appear here -->
+            </div>
+        </div>
+
         <!-- Section for printing a single answer -->
-        <div id="answers-printContent">
+        <div id="answers-printContent" style="display: none;">
             <h3>Deine Antwort:</h3>
             <p id="answers-assignmentInfo"></p>
             <div id="answers-answerBox" class="quill-editor"></div>
@@ -741,54 +738,74 @@
 
                 console.log("Initiating print of all answers");
 
-                // Create a temporary div for printing all answers
-                const printAllContent = document.createElement('div');
-                printAllContent.id = 'printAllContent';
+                // Create a temporary div for printing all answers along with the Mindmap
+                const printAllContent = document.getElementById('printAllContent');
 
-                // Add parent page's title once
-                if (parentTitle) {
-                    const parentTitleElement = document.createElement('h2');
-                    parentTitleElement.textContent = parentTitle;
-                    printAllContent.appendChild(parentTitleElement);
-                }
+                // Set Mindmap Title
+                const printAllMindmapTitle = document.getElementById('printAll-mindmap-title');
+                printAllMindmapTitle.textContent = mindmapTitle.textContent;
 
-                // Sort the storageKeys based on the numerical component or suffix
-                storageKeys.sort((a, b) => {
-                    const suffixA = a.replace(/^assignment[_-]?/, '');
-                    const suffixB = b.replace(/^assignment[_-]?/, '');
-                    return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
-                });
+                // Convert the canvas to an image and append it
+                const mindmapImageContainer = document.getElementById('printAll-mindmap-image');
+                mindmapImageContainer.innerHTML = ''; // Clear previous image if any
 
-                storageKeys.forEach(assignmentKey => {
-                    const text = localStorage.getItem(assignmentKey);
-                    if(text) {
-                        const draftDiv = document.createElement("div");
-                        draftDiv.className = "draft";
-                        
-                        const assignmentSuffix = assignmentKey.replace(/^assignment[_-]?/, '');
-                        const title = document.createElement("h3");
-                        title.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
-                        draftDiv.appendChild(title);
-                        
-                        const answerDiv = document.createElement("div");
-                        answerDiv.innerHTML = text; // Render HTML content
-                        draftDiv.appendChild(answerDiv);
-                        
-                        printAllContent.appendChild(draftDiv);
-                    }
-                });
+                canvas.toBlob(function(blob) {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(blob);
+                    img.style.width = '100%';
+                    img.style.height = 'auto';
+                    img.onload = function() {
+                        URL.revokeObjectURL(img.src);
+                    };
+                    mindmapImageContainer.appendChild(img);
 
-                // Append to body
-                document.body.appendChild(printAllContent);
+                    // Populate Answers
+                    const answersContainer = document.getElementById('printAll-answers');
+                    answersContainer.innerHTML = ''; // Clear previous content
 
-                // Add 'print-all' class to body
-                document.body.classList.add('print-all');
+                    // Sort the storageKeys based on the numerical component or suffix
+                    storageKeys.sort((a, b) => {
+                        const suffixA = a.replace(/^assignment[_-]?/, '');
+                        const suffixB = b.replace(/^assignment[_-]?/, '');
+                        return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+                    });
 
-                window.print();
+                    storageKeys.forEach(assignmentKey => {
+                        const text = localStorage.getItem(assignmentKey);
+                        if(text) {
+                            const draftDiv = document.createElement("div");
+                            draftDiv.className = "draft";
+                            
+                            const assignmentSuffix = assignmentKey.replace(/^assignment[_-]?/, '');
+                            const title = document.createElement("h3");
+                            title.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+                            draftDiv.appendChild(title);
+                            
+                            const answerDiv = document.createElement("div");
+                            answerDiv.innerHTML = text; // Render HTML content
+                            draftDiv.appendChild(answerDiv);
+                            
+                            answersContainer.appendChild(draftDiv);
+                        }
+                    });
 
-                // Remove 'print-all' class and the printAllContent div after printing
-                document.body.classList.remove('print-all');
-                document.body.removeChild(printAllContent);
+                    // Show the printAllContent
+                    printAllContent.style.display = 'block';
+
+                    // Add 'print-all' class to body
+                    document.body.classList.add('print-all');
+
+                    window.print();
+
+                    // Remove 'print-all' class and hide printAllContent after printing
+                    window.onafterprint = function() {
+                        document.body.classList.remove('print-all');
+                        printAllContent.style.display = 'none';
+                        // Revoke all object URLs if any
+                        const images = printAllContent.querySelectorAll('img');
+                        images.forEach(img => URL.revokeObjectURL(img.src));
+                    };
+                }, 'image/png');
             });
 
             // Event Listener for the "Save Answer" button
