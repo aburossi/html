@@ -201,7 +201,7 @@
                 visibility: hidden;
             }
 
-            /* Make printContent visible */
+            /* Make printAllContent visible */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
@@ -276,18 +276,16 @@
             </div>
         </div>
 
-        <!-- Section for printing a single answer -->
-        <div id="answers-printContent" style="display: none;">
-            <h3>Deine Antwort:</h3>
-            <p id="answers-assignmentInfo"></p>
-            <div id="answers-answerBox" class="quill-editor"></div>
-            <pre id="answers-answerText" style="display: none;"></pre>
-        </div>
-        
         <!-- Italic informational text -->
         <p class="info-text">
             Alle Antworten können am Ende dieser Seite heruntergeladen werden.
         </p>
+
+        <!-- Quill Editor (Moved to visible section) -->
+        <div id="answers-editor-container">
+            <h3>Gib deine Antworten ein:</h3>
+            <div id="answers-answerBox" class="quill-editor"></div>
+        </div>
 
         <!-- Button Container -->
         <div class="answers-button-container">
@@ -524,7 +522,7 @@
                             };
                         };
                     } else {
-                        alert('Please allow popups for this website to enable printing.');
+                        alert('Bitte erlaube Pop-ups für diese Webseite, um das Drucken zu ermöglichen.');
                     }
                 }, 'image/png');
             });
@@ -653,9 +651,14 @@
 
             // Function to copy the answer to the clipboard
             copyAnswerBtn.addEventListener('click', function() {
+                // To ensure plain text is copied, strip HTML tags
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = quill.root.innerHTML;
+                const plainText = tempDiv.textContent || tempDiv.innerText || '';
+
                 const textToCopy = parentTitle
-                    ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`
-                    : `Auftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+                    ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${plainText}`
+                    : `Auftrag: ${assignmentSuffix}\n${plainText}`;
                 copyTextToClipboard(textToCopy);
             });
 
@@ -664,9 +667,9 @@
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(text).then(function() {
                         // Confirmation removed
-                        console.log("Answer successfully copied");
+                        console.log("Antwort erfolgreich kopiert");
                     }, function(err) {
-                        console.error('Error copying the answer: ', err);
+                        console.error('Fehler beim Kopieren der Antwort: ', err);
                         fallbackCopyTextToClipboard(text);
                     });
                 } else {
@@ -690,12 +693,12 @@
                     const successful = document.execCommand('copy');
                     if (successful) {
                         // Confirmation removed
-                        console.log("Answer successfully copied (Fallback)");
+                        console.log("Antwort erfolgreich kopiert (Fallback)");
                     } else {
                         throw new Error("Fallback copy unsuccessful");
                     }
                 } catch (err) {
-                    console.error('Error copying the answer (Fallback): ', err);
+                    console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
                     // Confirmation removed
                 }
 
@@ -708,12 +711,12 @@
                 const textContent = quill.getText().trim();
                 if (textContent === "") {
                     // Confirmation removed
-                    console.log("Attempted to save with an empty text field");
+                    console.log("Versuch, mit leerem Textfeld zu speichern");
                     return;
                 }
                 localStorage.setItem(assignmentId, htmlContent);
                 // Confirmation removed
-                console.log(`Text saved for ${assignmentId}`);
+                console.log(`Text für ${assignmentId} gespeichert`);
                 displaySavedAnswer(htmlContent); // Update the display of the saved answer
             }
 
@@ -723,20 +726,20 @@
                 localStorage.clear();
                 quill.setText(''); // Clear Quill editor
                 savedAnswerContainer.style.display = 'none';
-                console.log("All saved answers have been deleted");
+                console.log("Alle gespeicherten Antworten wurden gelöscht");
             }
 
             // Event Listener for the "Print All Answers / Save as PDF" button
             document.getElementById("answers-downloadAllBtn").addEventListener('click', function() {
                 const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
 
-                console.log(`Found ${storageKeys.length} saved assignments to print`);
+                console.log(`Gefundene gespeicherte Aufträge zum Drucken: ${storageKeys.length}`);
                 if(storageKeys.length === 0) {
-                    console.log("Attempted to print all answers, but none are saved");
+                    console.log("Versuch, alle Antworten zu drucken, aber keine sind gespeichert");
                     return;
                 }
 
-                console.log("Initiating print of all answers");
+                console.log("Starte das Drucken aller Antworten");
 
                 // Create a temporary div for printing all answers along with the Mindmap
                 const printAllContent = document.getElementById('printAllContent');
