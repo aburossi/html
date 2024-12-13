@@ -18,8 +18,10 @@
         }
         #toolbar {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
-        #colorPicker, #lineWidth, #clearBtn, #saveBtn {
+        #colorPicker, #lineWidth, #clearBtn, #printBtn {
             padding: 10px;
             margin-right: 5px;
             font-size: 16px;
@@ -29,12 +31,15 @@
             border: none;
             background: none;
         }
-        #clearBtn, #saveBtn {
+        #lineWidth {
+            width: 100px;
+        }
+        #clearBtn, #printBtn {
             background-color: #ffffff;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        #clearBtn:hover, #saveBtn:hover {
+        #clearBtn:hover, #printBtn:hover {
             background-color: #e0e0e0;
         }
         #canvas {
@@ -42,15 +47,26 @@
             background-color: #fff;
             touch-action: none; /* Prevent touch devices from handling gestures */
         }
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            #canvas {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Simple Mindmap Generator</h1>
     <div id="toolbar">
-        <input type="color" id="colorPicker" value="#000000" title="Choose Color">
-        <input type="range" id="lineWidth" min="1" max="10" value="2" title="Line Width">
+        <label for="colorPicker" title="Choose Color">
+            <input type="color" id="colorPicker" value="#000000">
+        </label>
+        <label for="lineWidth" title="Line Width">
+            <input type="range" id="lineWidth" min="1" max="10" value="2">
+        </label>
         <button id="clearBtn">Clear Canvas</button>
-        <button id="saveBtn">Save as PNG</button>
+        <button id="printBtn">Print Mindmap</button>
     </div>
     <canvas id="canvas" width="800" height="600"></canvas>
 
@@ -60,10 +76,11 @@
         const colorPicker = document.getElementById('colorPicker');
         const lineWidth = document.getElementById('lineWidth');
         const clearBtn = document.getElementById('clearBtn');
-        const saveBtn = document.getElementById('saveBtn');
+        const printBtn = document.getElementById('printBtn');
 
         let drawing = false;
         let currentColor = colorPicker.value;
+        let currentLineWidth = lineWidth.value;
         let lastX = 0;
         let lastY = 0;
 
@@ -77,11 +94,29 @@
             ctx.scale(dpr, dpr);
             ctx.lineJoin = 'round';
             ctx.lineCap = 'round';
-            ctx.lineWidth = lineWidth.value;
+            ctx.lineWidth = currentLineWidth;
             ctx.strokeStyle = currentColor;
         }
 
         setupCanvas();
+
+        // Load saved canvas from localStorage
+        function loadCanvas() {
+            const dataURL = localStorage.getItem('mindmap');
+            if (dataURL) {
+                const img = new Image();
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                };
+                img.src = dataURL;
+            }
+        }
+
+        // Save canvas to localStorage
+        function saveCanvas() {
+            const dataURL = canvas.toDataURL();
+            localStorage.setItem('mindmap', dataURL);
+        }
 
         // Update stroke color when color picker changes
         colorPicker.addEventListener('change', (e) => {
@@ -91,7 +126,8 @@
 
         // Update line width when slider changes
         lineWidth.addEventListener('input', (e) => {
-            ctx.lineWidth = e.target.value;
+            currentLineWidth = e.target.value;
+            ctx.lineWidth = currentLineWidth;
         });
 
         // Start drawing
@@ -112,7 +148,10 @@
 
         // Stop drawing
         function stopDrawing() {
-            drawing = false;
+            if (drawing) {
+                drawing = false;
+                saveCanvas();
+            }
         }
 
         // Mouse Events
@@ -149,44 +188,40 @@
         canvas.addEventListener('touchend', stopDrawing);
         canvas.addEventListener('touchcancel', stopDrawing);
 
-        // Clear Canvas
+        // Clear Canvas and localStorage
         clearBtn.addEventListener('click', () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            localStorage.removeItem('mindmap');
         });
 
-        // Save Canvas as PNG with Fallback to New Tab
-        saveBtn.addEventListener('click', () => {
+        // Print Canvas as Image
+        printBtn.addEventListener('click', () => {
             canvas.toBlob(function(blob) {
                 const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'mindmap.png';
-                
-                // Append link to the body
-                document.body.appendChild(link);
-                
-                // Create and dispatch a click event
-                const clickEvent = new MouseEvent('click', {
-                    view: window,
-                    bubbles: true,
-                    cancelable: true
-                });
-                const downloadSuccess = link.dispatchEvent(clickEvent);
-                
-                // If download is blocked, open in new tab
-                if (!downloadSuccess) {
-                    window.open(url, '_blank');
+                const printWindow = window.open(url, '_blank');
+                if (printWindow) {
+                    printWindow.onload = function() {
+                        printWindow.focus();
+                        printWindow.print();
+                        // Optionally, revoke the object URL after printing
+                        printWindow.onafterprint = function() {
+                            URL.revokeObjectURL(url);
+                            printWindow.close();
+                        };
+                    };
+                } else {
+                    alert('Please allow popups for this website to enable printing.');
                 }
-                
-                // Cleanup
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
             }, 'image/png');
         });
 
-        // Handle window resize to maintain canvas size (optional)
+        // Load the canvas when the page loads
+        window.addEventListener('load', loadCanvas);
+
+        // Optional: Handle window resize to maintain canvas size
         window.addEventListener('resize', () => {
-            // Optionally, implement responsive resizing
+            // Implement responsive resizing if necessary
+            // Note: Resizing the canvas will clear its content unless handled
         });
     </script>
 </body>
