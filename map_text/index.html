@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mindmap & Antworten Manager</title>
+    
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        /* Reset some basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+
+        /* --- Mindmap Generator Styles --- */
+        #mindmap-container {
+            width: 800px;
+            max-width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        #mindmap-toolbar {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #mindmap-toolbar input[type="color"],
+        #mindmap-toolbar input[type="range"],
+        #mindmap-toolbar button {
+            padding: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #mindmap-toolbar input[type="color"] {
+            border: none;
+            background: none;
+        }
+
+        #mindmap-toolbar input[type="range"] {
+            width: 100px;
+        }
+
+        #mindmap-toolbar button {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #mindmap-toolbar button:hover {
+            background-color: #e0e0e0;
+        }
+
+        #mindmap-canvas {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            width: 100%;
+            height: 600px;
+            touch-action: none; /* Prevent touch gestures */
+            border-radius: 4px;
+        }
+
+        /* Responsive Design for Mindmap */
+        @media (max-width: 850px) {
+            #mindmap-canvas {
+                height: 400px;
+            }
+        }
+
+        /* --- Answers Section Styles --- */
+        #answers-container {
+            width: 800px;
+            max-width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quill-editor {
+            height: 150px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .answers-button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        #answers-container button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #answers-saveBtn {
+            background-color: #008CBA; /* Blue */
+        }
+
+        #answers-downloadAllBtn {
+            background-color: #555555; /* Dark gray */
+        }
+
+        #answers-clearBtn {
+            background-color: #f44336; /* Red */
+        }
+
+        .info-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Display of saved answer */
+        #savedAnswerContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: none; /* Hidden by default */
+            position: relative;
+        }
+
+        #savedAnswerContainer h3 {
+            margin-bottom: 10px;
+        }
+
+        #savedAnswer {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            background-color: #f4f4f4;
+            overflow: auto;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #copyAnswerBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Print styles */
+        @media print {
+            /* Hide everything by default */
+            body * {
+                visibility: hidden;
+            }
+
+            /* Make printContent visible */
+            body.print-single #printContent,
+            body.print-single #printContent * {
+                visibility: visible;
+            }
+
+            /* Make printAllContent visible */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
+                visibility: visible;
+            }
+
+            /* Position the visible content */
+            #printContent, #printAllContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            /* Hide text areas in print */
+            .quill-editor {
+                display: none;
+            }
+
+            /* Style pre elements for readability */
+            pre {
+                white-space: pre-wrap;
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                border: none; /* Remove borders */
+            }
+
+            /* Remove borders and padding for drafts in print */
+            #printAllContent .draft {
+                border: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            #printAllContent .draft h3 {
+                margin-bottom: 5px;
+            }
+
+            /* Hide all buttons in print */
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- --- Mindmap Generator Section --- -->
+    <div id="mindmap-container">
+        <h1>Simple Mindmap Generator</h1>
+        <div id="mindmap-toolbar">
+            <label for="mindmap-colorPicker" title="Choose Color">
+                <input type="color" id="mindmap-colorPicker" value="#000000">
+            </label>
+            <label for="mindmap-lineWidth" title="Line Width">
+                <input type="range" id="mindmap-lineWidth" min="1" max="10" value="2">
+            </label>
+            <button id="mindmap-clearBtn">Clear Canvas</button>
+            <button id="mindmap-printBtn">Print Mindmap</button>
+        </div>
+        <canvas id="mindmap-canvas" width="800" height="600"></canvas>
+    </div>
+
+    <!-- --- Answers Section --- -->
+    <div id="answers-container">
+        <!-- Section for printing a single answer -->
+        <div id="answers-printContent">
+            <h3>Deine Antwort:</h3>
+            <p id="answers-assignmentInfo"></p>
+            <div id="answers-answerBox" class="quill-editor"></div>
+            <pre id="answers-answerText" style="display: none;"></pre>
+        </div>
+        
+        <!-- Italic informational text -->
+        <p class="info-text">
+            Alle Antworten können am Ende dieser Seite heruntergeladen werden.
+        </p>
+
+        <!-- Button Container -->
+        <div class="answers-button-container">
+            <button id="answers-saveBtn">Antwort zwischenspeichern</button>
+            <button id="answers-downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
+        </div>
+
+        <!-- Display of saved answer -->
+        <div id="savedAnswerContainer">
+            <button id="answers-copyAnswerBtn">Antwort kopieren</button>
+            <h3 id="answers-savedAssignmentTitle"></h3>
+            <div id="answers-savedAnswer"></div>
+        </div>
+
+        <!-- Red delete button, moved under savedAnswerContainer -->
+        <div class="answers-button-container" style="margin-top: 10px;">
+            <button id="answers-clearBtn">Alle Antworten löschen</button>
+        </div>
+    </div>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script>
+        /* --- Mindmap Generator Script --- */
+        (function() {
+            const canvas = document.getElementById('mindmap-canvas');
+            const ctx = canvas.getContext('2d');
+            const colorPicker = document.getElementById('mindmap-colorPicker');
+            const lineWidth = document.getElementById('mindmap-lineWidth');
+            const clearBtn = document.getElementById('mindmap-clearBtn');
+            const printBtn = document.getElementById('mindmap-printBtn');
+
+            let drawing = false;
+            let currentColor = colorPicker.value;
+            let currentLineWidth = lineWidth.value;
+            let lastX = 0;
+            let lastY = 0;
+
+            // Set up canvas for high DPI screens
+            function setupCanvas() {
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = 800 * dpr;
+                canvas.height = 600 * dpr;
+                canvas.style.width = '100%';
+                canvas.style.height = '600px';
+                ctx.scale(dpr, dpr);
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.lineWidth = currentLineWidth;
+                ctx.strokeStyle = currentColor;
+            }
+
+            setupCanvas();
+
+            // Load saved canvas from localStorage
+            function loadCanvas() {
+                const dataURL = localStorage.getItem('mindmap');
+                if (dataURL) {
+                    const img = new Image();
+                    img.onload = function() {
+                        ctx.drawImage(img, 0, 0);
+                    };
+                    img.src = dataURL;
+                }
+            }
+
+            // Save canvas to localStorage
+            function saveCanvas() {
+                const dataURL = canvas.toDataURL();
+                localStorage.setItem('mindmap', dataURL);
+            }
+
+            // Update stroke color when color picker changes
+            colorPicker.addEventListener('change', (e) => {
+                currentColor = e.target.value;
+                ctx.strokeStyle = currentColor;
+            });
+
+            // Update line width when slider changes
+            lineWidth.addEventListener('input', (e) => {
+                currentLineWidth = e.target.value;
+                ctx.lineWidth = currentLineWidth;
+            });
+
+            // Start drawing
+            function startDrawing(x, y) {
+                drawing = true;
+                [lastX, lastY] = [x, y];
+            }
+
+            // Draw line
+            function drawLine(x, y) {
+                if (!drawing) return;
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                [lastX, lastY] = [x, y];
+            }
+
+            // Stop drawing
+            function stopDrawing() {
+                if (drawing) {
+                    drawing = false;
+                    saveCanvas();
+                }
+            }
+
+            // Mouse Events
+            canvas.addEventListener('mousedown', (e) => {
+                startDrawing(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                drawLine(e.offsetX, e.offsetY);
+            });
+
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+
+            // Touch Events for mobile devices
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const x = (touch.clientX - rect.left);
+                const y = (touch.clientY - rect.top);
+                startDrawing(x, y);
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const x = (touch.clientX - rect.left);
+                const y = (touch.clientY - rect.top);
+                drawLine(x, y);
+            });
+
+            canvas.addEventListener('touchend', stopDrawing);
+            canvas.addEventListener('touchcancel', stopDrawing);
+
+            // Clear Canvas and localStorage
+            clearBtn.addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                localStorage.removeItem('mindmap');
+            });
+
+            // Print Canvas as Image
+            printBtn.addEventListener('click', () => {
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const printWindow = window.open(url, '_blank');
+                    if (printWindow) {
+                        printWindow.onload = function() {
+                            printWindow.focus();
+                            printWindow.print();
+                            // Optionally, revoke the object URL after printing
+                            printWindow.onafterprint = function() {
+                                URL.revokeObjectURL(url);
+                                printWindow.close();
+                            };
+                        };
+                    } else {
+                        alert('Please allow popups for this website to enable printing.');
+                    }
+                }, 'image/png');
+            });
+
+            // Load the canvas when the page loads
+            window.addEventListener('load', loadCanvas);
+
+            // Optional: Handle window resize to maintain canvas size
+            window.addEventListener('resize', () => {
+                // Implement responsive resizing if necessary
+                // Note: Resizing the canvas will clear its content unless handled
+            });
+        })();
+
+        /* --- Answers Section Script --- */
+        (function() {
+            // Function to retrieve a query parameter by name
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            // Function to extract the page title from the referrer URL
+            function getParentPageTitle() {
+                const referrer = document.referrer;
+                if (!referrer) {
+                    console.warn('No referrer found. Cannot retrieve parent page title.');
+                    return '';
+                }
+
+                try {
+                    const url = new URL(referrer);
+                    const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
+
+                    // Find the index of 'allgemeinbildung'
+                    const targetSegment = 'allgemeinbildung';
+                    const targetIndex = pathSegments.indexOf(targetSegment);
+
+                    if (targetIndex === -1) {
+                        console.warn(`Segment '${targetSegment}' not found in referrer URL path.`);
+                        return '';
+                    }
+
+                    // Extract all segments after 'allgemeinbildung'
+                    const relevantSegments = pathSegments.slice(targetIndex + 1);
+
+                    if (relevantSegments.length === 0) {
+                        console.warn('No path segments found after the target segment.');
+                        return '';
+                    }
+
+                    // Replace '+', '-', '_' with spaces and decode URI components
+                    const formattedSegments = relevantSegments.map(segment => {
+                        return decodeURIComponent(segment.replace(/[-_+]/g, ' ')).replace(/\b\w/g, char => char.toUpperCase());
+                    });
+
+                    // Join the segments with ' - ' as a separator
+                    const formattedTitle = formattedSegments.join(' - ');
+
+                    return formattedTitle;
+                } catch (e) {
+                    console.error('Error parsing referrer URL:', e);
+                    return '';
+                }
+            }
+
+            const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+            const parentTitle = getParentPageTitle();
+            const assignmentInfo = document.getElementById('answers-assignmentInfo');
+
+            // Remove the 'assignment' prefix to get the suffix
+            const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
+
+            // Set the text to 'Auftrag: {Suffix}'
+            assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+
+            // Initialize Quill editor
+            const quill = new Quill('#answers-answerBox', {
+                theme: 'snow',
+                placeholder: 'Gib hier deine Antworten ein...',
+                modules: {
+                    toolbar: [
+                        ['bold', 'italic', 'underline'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Display elements
+            const savedAnswerContainer = document.getElementById('savedAnswerContainer');
+            const savedAssignmentTitle = document.getElementById('answers-savedAssignmentTitle');
+            const savedAnswer = document.getElementById('answers-savedAnswer');
+            const copyAnswerBtn = document.getElementById('answers-copyAnswerBtn');
+
+            // Load saved content and set it in Quill
+            const savedText = localStorage.getItem(assignmentId);
+            if (savedText) {
+                quill.root.innerHTML = savedText;
+                console.log(`Loaded saved text for ${assignmentId}`);
+                displaySavedAnswer(savedText);
+            } else {
+                console.log(`No saved text found for ${assignmentId}`);
+            }
+
+            // Function to display the saved answer
+            function displaySavedAnswer(content) {
+                // Combine parentTitle and assignmentSuffix, if available
+                const titleText = parentTitle
+                    ? `${parentTitle}\nAuftrag: ${assignmentSuffix}`
+                    : `Auftrag: ${assignmentSuffix}`;
+                savedAssignmentTitle.textContent = titleText;
+                savedAnswer.innerHTML = content;
+                savedAnswerContainer.style.display = 'block';
+            }
+
+            // Function to copy the answer to the clipboard
+            copyAnswerBtn.addEventListener('click', function() {
+                const textToCopy = parentTitle
+                    ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`
+                    : `Auftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+                copyTextToClipboard(textToCopy);
+            });
+
+            // Function to copy text to the clipboard
+            function copyTextToClipboard(text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(function() {
+                        // Confirmation removed
+                        console.log("Answer successfully copied");
+                    }, function(err) {
+                        console.error('Error copying the answer: ', err);
+                        fallbackCopyTextToClipboard(text);
+                    });
+                } else {
+                    // Fallback to execCommand
+                    fallbackCopyTextToClipboard(text);
+                }
+            }
+
+            // Fallback function to copy text to the clipboard
+            function fallbackCopyTextToClipboard(text) {
+                const textarea = document.createElement("textarea");
+                textarea.value = text;
+                // Hide the textarea element
+                textarea.style.position = "fixed";
+                textarea.style.top = "-9999px";
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        // Confirmation removed
+                        console.log("Answer successfully copied (Fallback)");
+                    } else {
+                        throw new Error("Fallback copy unsuccessful");
+                    }
+                } catch (err) {
+                    console.error('Error copying the answer (Fallback): ', err);
+                    // Confirmation removed
+                }
+
+                document.body.removeChild(textarea);
+            }
+
+            // Function to save the answer to localStorage
+            function saveToLocal() {
+                const htmlContent = quill.root.innerHTML;
+                const textContent = quill.getText().trim();
+                if (textContent === "") {
+                    // Confirmation removed
+                    console.log("Attempted to save with an empty text field");
+                    return;
+                }
+                localStorage.setItem(assignmentId, htmlContent);
+                // Confirmation removed
+                console.log(`Text saved for ${assignmentId}`);
+                displaySavedAnswer(htmlContent); // Update the display of the saved answer
+            }
+
+            // Function to clear all saved answers from localStorage
+            function clearLocalStorage() {
+                // Confirmation removed
+                localStorage.clear();
+                quill.setText(''); // Clear Quill editor
+                savedAnswerContainer.style.display = 'none';
+                console.log("All saved answers have been deleted");
+            }
+
+            // Event Listener for the "Print All Answers / Save as PDF" button
+            document.getElementById("answers-downloadAllBtn").addEventListener('click', function() {
+                const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+
+                console.log(`Found ${storageKeys.length} saved assignments to print`);
+                if(storageKeys.length === 0) {
+                    console.log("Attempted to print all answers, but none are saved");
+                    return;
+                }
+
+                console.log("Initiating print of all answers");
+
+                // Create a temporary div for printing all answers
+                const printAllContent = document.createElement('div');
+                printAllContent.id = 'printAllContent';
+
+                // Add parent page's title once
+                if (parentTitle) {
+                    const parentTitleElement = document.createElement('h2');
+                    parentTitleElement.textContent = parentTitle;
+                    printAllContent.appendChild(parentTitleElement);
+                }
+
+                // Sort the storageKeys based on the numerical component or suffix
+                storageKeys.sort((a, b) => {
+                    const suffixA = a.replace(/^assignment[_-]?/, '');
+                    const suffixB = b.replace(/^assignment[_-]?/, '');
+                    return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+                });
+
+                storageKeys.forEach(assignmentKey => {
+                    const text = localStorage.getItem(assignmentKey);
+                    if(text) {
+                        const draftDiv = document.createElement("div");
+                        draftDiv.className = "draft";
+                        
+                        const assignmentSuffix = assignmentKey.replace(/^assignment[_-]?/, '');
+                        const title = document.createElement("h3");
+                        title.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+                        draftDiv.appendChild(title);
+                        
+                        const answerDiv = document.createElement("div");
+                        answerDiv.innerHTML = text; // Render HTML content
+                        draftDiv.appendChild(answerDiv);
+                        
+                        printAllContent.appendChild(draftDiv);
+                    }
+                });
+
+                // Append to body
+                document.body.appendChild(printAllContent);
+
+                // Add 'print-all' class to body
+                document.body.classList.add('print-all');
+
+                window.print();
+
+                // Remove 'print-all' class and the printAllContent div after printing
+                document.body.classList.remove('print-all');
+                document.body.removeChild(printAllContent);
+            });
+
+            // Event Listener for the "Save Answer" button
+            document.getElementById("answers-saveBtn").addEventListener('click', saveToLocal);
+
+            // Event Listener for the "Clear All Answers" button
+            document.getElementById("answers-clearBtn").addEventListener('click', clearLocalStorage);
+
+            // Optional: Log the initial state of localStorage for debugging
+            console.log("Initial state of localStorage:");
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                console.log(`${key}: ${localStorage.getItem(key)}`);
+            }
+
+            // **New Code to Prevent Pasting Content**
+
+            // Prevent pasting into Quill editor beyond basic formatting
+            quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
+                // Customize as needed, e.g., strip unwanted formats
+                return delta;
+            });
+
+            quill.root.addEventListener('paste', function(e) {
+                e.preventDefault();
+                alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+                // Optionally, allow plain text pasting without formatting
+                const text = e.clipboardData.getData('text/plain');
+                quill.insertText(quill.getSelection().index, text);
+            });
+
+            // Prevent drag-and-drop into Quill editor
+            quill.root.addEventListener('drop', function(e) {
+                e.preventDefault();
+            });
+
+            // Prevent context menu in Quill editor
+            quill.root.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            // Additionally, prevent Ctrl+V and Cmd+V
+            quill.root.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+                    e.preventDefault();
+                    alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
