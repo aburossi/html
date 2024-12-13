@@ -203,9 +203,7 @@
     
     <!-- GoJS JS -->
     <script src="https://unpkg.com/gojs/release/go.js"></script>
-    <!-- html2canvas für das Erfassen der Mindmap als Bild -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+    
     <script>
         // Funktion zum Abrufen eines Abfrageparameters nach Name
         function getQueryParam(param) {
@@ -454,6 +452,7 @@
                     printAllContent.appendChild(tempContainer);
 
                     // Initialisiere eine neue GoJS-Instanz
+                    const $ = go.GraphObject.make;
                     const tempDiagram = $(go.Diagram, tempContainer,
                         {
                             "undoManager.isEnabled": false,
@@ -470,29 +469,24 @@
                                 new go.Binding("text", "key"))
                         );
 
+                    // Setze das Modell der temporären Diagramms
                     tempDiagram.model = go.Model.fromJson(mindData);
 
                     // Warten, bis das Diagramm gerendert ist
                     setTimeout(() => {
                         tempDiagram.layoutDiagram(true);
-                        html2canvas(tempContainer).then(canvas => {
-                            const img = canvas.toDataURL("image/png");
-                            const imgElement = document.createElement("img");
-                            imgElement.src = img;
-                            imgElement.alt = "Mindmap";
-                            imgElement.style.maxWidth = "100%";
-                            draftDiv.appendChild(imgElement);
+                        // Exportiere die Diagramm als Bild
+                        const imgData = tempDiagram.makeImageData({ background: "white" });
+                        const imgElement = document.createElement("img");
+                        imgElement.src = imgData;
+                        imgElement.alt = "Mindmap";
+                        imgElement.style.maxWidth = "100%";
+                        draftDiv.appendChild(imgElement);
 
-                            // Entferne den temporären Container
-                            printAllContent.removeChild(tempContainer);
+                        // Entferne den temporären Container
+                        printAllContent.removeChild(tempContainer);
 
-                            resolve();
-                        }).catch(err => {
-                            console.error('Fehler beim Erfassen der Mindmap als Bild:', err);
-                            reject(err);
-                        });
-
-                        draftDiv.appendChild(tempContainer);
+                        resolve();
                     }, 1000); // Warte 1 Sekunde, um sicherzustellen, dass das Diagramm gerendert ist
                 });
             }
@@ -502,7 +496,7 @@
                 const text = localStorage.getItem(assignmentKey);
                 if(text) {
                     try {
-                        const mindData = text;
+                        const mindData = JSON.parse(text);
                         await addMindmapAsImage(assignmentKey, mindData);
                     } catch (e) {
                         console.error(`Fehler beim Verarbeiten von ${assignmentKey}:`, e);
