@@ -117,6 +117,10 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        
+        .ql-toolbar.ql-snow {
+            margin-bottom: 10px;
+        }
 
         .answers-button-container {
             display: flex;
@@ -280,6 +284,9 @@
         <p class="info-text">
             Alle Antworten können am Ende dieser Seite heruntergeladen werden.
         </p>
+
+        <!-- Assignment Information -->
+        <p id="answers-assignmentInfo"></p>
 
         <!-- Quill Editor (Moved to visible section) -->
         <div id="answers-editor-container">
@@ -606,8 +613,10 @@
             // Remove the 'assignment' prefix to get the suffix
             const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
 
-            // Set the text to 'Auftrag: {Suffix}'
-            assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+            // Set the text to 'Auftrag: {Suffix}' if the element exists
+            if (assignmentInfo) {
+                assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+            }
 
             // Initialize Quill editor
             const quill = new Quill('#answers-answerBox', {
