@@ -1,0 +1,534 @@
+<!DOCTYPE html> 
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mindmap speichern und drucken</title>
+    <!-- jsMind CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsmind/0.4.6/jsmind.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Mindmap-Container */
+        #mindmap-container {
+            height: 500px; /* Anpassbar je nach Bedarf */
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 6px 12px; /* Kleinere Dimensionen */
+            font-size: 12px;    /* Kleinere Schriftgröße */
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        #saveBtn {
+            background-color: #008CBA; /* Blau */
+        }
+
+        #clearBtn {
+            background-color: #f44336; /* Rot */
+        }
+
+        #downloadAllBtn {
+            background-color: #555555; /* Dunkelgrau */
+            padding: 6px 12px; /* Konsistente Dimensionen */
+            font-size: 12px; /* Konsistente Schriftgröße */
+        }
+
+        .info-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Anzeige der gespeicherten Mindmap */
+        #savedAnswerContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: none; /* Standardmäßig verborgen */
+            position: relative;
+        }
+
+        #savedAnswerContainer h3 {
+            margin-bottom: 10px;
+        }
+
+        #savedAnswer {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            background-color: #f4f4f4;
+            overflow: auto;
+            border: none;
+        }
+
+        #copyAnswerBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #4CAF50; /* Grün */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Druckstile */
+        @media print {
+            /* Alles standardmäßig ausblenden */
+            body * {
+                visibility: hidden;
+            }
+
+            /* printContent sichtbar machen */
+            body.print-single #printContent,
+            body.print-single #printContent * {
+                visibility: visible;
+            }
+
+            /* printAllContent sichtbar machen */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
+                visibility: visible;
+            }
+
+            /* Position des sichtbaren Inhalts */
+            #printContent, #printAllContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            /* Mindmap-Container im Druck ausblenden */
+            #mindmap-container {
+                display: none;
+            }
+
+            /* Pre-Elemente für Lesbarkeit stylen */
+            pre {
+                white-space: pre-wrap;
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                border: none; /* Rahmen entfernen */
+            }
+
+            /* Rahmen und Padding für Entwürfe im Druck entfernen */
+            #printAllContent .draft {
+                border: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            #printAllContent .draft h3 {
+                margin-bottom: 5px;
+            }
+
+            /* Alle Buttons im Druck ausblenden */
+            button {
+                display: none;
+            }
+
+            /* Stelle die Mindmap als Bild im Druck dar */
+            #printContent img, #printAllContent img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bereich zum Drucken eines einzelnen Textes -->
+    <div id="printContent">
+        <h3>Dein Text:</h3>
+        <p id="assignmentInfo"></p>
+        <img id="mindmapImage" src="" alt="Mindmap" />
+        <pre id="answerText" style="display: none;"></pre>
+    </div>
+    
+    <!-- Kursiver Informationstext -->
+    <p class="info-text">
+        Alle Texte können am Ende dieser Seite heruntergeladen werden.
+    </p>
+
+    <!-- Button-Container -->
+    <div class="button-container">
+        <button id="saveBtn" onclick="saveToLocal()">Text zwischenspeichern</button>
+        <button id="downloadAllBtn">Text drucken / als PDF schreiben</button>
+    </div>
+
+    <!-- Anzeige des gespeicherten Textes -->
+    <div id="savedAnswerContainer">
+        <button id="copyAnswerBtn">Text kopieren</button>
+        <h3 id="savedAssignmentTitle"></h3>
+        <div id="savedAnswer"></div>
+    </div>
+
+    <!-- Roter Löschen-Button, unter savedAnswerContainer verschoben -->
+    <div class="button-container" style="margin-top: 10px;">
+        <button id="clearBtn" onclick="clearLocalStorage()">Text löschen</button>
+    </div>
+    
+    <!-- jsMind JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmind/0.4.6/jsmind.js"></script>
+    <!-- html2canvas für das Erfassen der Mindmap als Bild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Funktion zum Abrufen eines Abfrageparameters nach Name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Funktion zum Extrahieren des Seitentitels aus der Referrer-URL
+        function getParentPageTitle() {
+            const referrer = document.referrer;
+            if (!referrer) {
+                console.warn('Kein Referrer gefunden. Der übergeordnete Seitentitel kann nicht abgerufen werden.');
+                return '';
+            }
+
+            try {
+                const url = new URL(referrer);
+                const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
+
+                // Suche nach dem Segment 'allgemeinbildung'
+                const targetSegment = 'allgemeinbildung';
+                const targetIndex = pathSegments.indexOf(targetSegment);
+
+                if (targetIndex === -1) {
+                    console.warn(`Segment '${targetSegment}' wurde im Pfad der Referrer-URL nicht gefunden.`);
+                    return '';
+                }
+
+                // Extrahiere alle Segmente nach 'allgemeinbildung'
+                const relevantSegments = pathSegments.slice(targetIndex + 1);
+
+                if (relevantSegments.length === 0) {
+                    console.warn('Keine Pfadsegmente nach dem Zielsegment gefunden.');
+                    return '';
+                }
+
+                // Ersetze '+', '-', '_' durch Leerzeichen und dekodiere URI-Komponenten
+                const formattedSegments = relevantSegments.map(segment => {
+                    return decodeURIComponent(segment.replace(/[-_+]/g, ' ')).replace(/\b\w/g, char => char.toUpperCase());
+                });
+
+                // Verbinde die Segmente mit ' - ' als Trenner
+                const formattedTitle = formattedSegments.join(' - ');
+
+                return formattedTitle;
+            } catch (e) {
+                console.error('Fehler beim Parsen der Referrer-URL:', e);
+                return '';
+            }
+        }
+
+        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+        const parentTitle = getParentPageTitle();
+        const assignmentInfo = document.getElementById('assignmentInfo');
+
+        // Entferne das Präfix 'assignment', um das Suffix zu erhalten
+        const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
+
+        // Setze den Text auf 'Textsorte: {Suffix}'
+        assignmentInfo.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+
+        // Initialisiere jsMind
+        const mind = {
+            "meta": {
+                "name": "mindmap",
+                "author": "OpenAI",
+                "version": "1.0"
+            },
+            "format": "node_tree",
+            "data": {
+                "id": "root",
+                "topic": "Mindmap",
+                "children": []
+            }
+        };
+
+        const options = {
+            container: 'mindmap-container',
+            editable: true,
+            theme: 'primary'
+        };
+        const jm = new jsMind(options, mind);
+        jm.show();
+
+        // Anzeigeelemente
+        const savedAnswerContainer = document.getElementById('savedAnswerContainer');
+        const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
+        const savedAnswer = document.getElementById('savedAnswer');
+        const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+
+        // Lade gespeicherten Inhalt und setze ihn im jsMind
+        const savedMind = localStorage.getItem(assignmentId);
+        if (savedMind) {
+            try {
+                const mindData = JSON.parse(savedMind);
+                jm.show(mindData);
+                console.log(`Gespeicherten Mindmap für ${assignmentId} geladen`);
+                displaySavedAnswer(mindData);
+            } catch (e) {
+                console.error('Fehler beim Parsen der gespeicherten Mindmap:', e);
+            }
+        } else {
+            console.log(`Keine gespeicherte Mindmap für ${assignmentId} gefunden`);
+        }
+
+        // Funktion zur Anzeige der gespeicherten Mindmap als JSON
+        function displaySavedAnswer(content) {
+            // Kombiniere parentTitle und assignmentSuffix, falls verfügbar
+            const titleText = parentTitle
+                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}`
+                : `Textsorte: ${assignmentSuffix}`;
+            savedAssignmentTitle.textContent = titleText;
+            savedAnswer.textContent = JSON.stringify(content, null, 2);
+            savedAnswerContainer.style.display = 'block';
+        }
+
+        // Funktion zum Kopieren des Textes in die Zwischenablage
+        copyAnswerBtn.addEventListener('click', function() {
+            const textToCopy = parentTitle
+                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${JSON.stringify(jm.get_data(), null, 2)}`
+                : `Textsorte: ${assignmentSuffix}\n${JSON.stringify(jm.get_data(), null, 2)}`;
+            copyTextToClipboard(textToCopy);
+        });
+
+        // Funktion zum Kopieren von Text in die Zwischenablage
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    // Bestätigung entfernt
+                    console.log("Text erfolgreich kopiert");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren des Textes: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback zu execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecke das Textarea-Element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    // Bestätigung entfernt
+                    console.log("Text erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback-Kopieren nicht erfolgreich");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren des Textes (Fallback): ', err);
+                // Bestätigung entfernt
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Funktion zum Speichern der Mindmap in localStorage
+        function saveToLocal() {
+            const mindData = jm.get_data();
+            const mindJson = JSON.stringify(mindData);
+            // Überprüfe, ob die Mindmap leer ist (nur der Root-Knoten)
+            if (mindData.children.length === 0) {
+                // Bestätigung entfernt
+                console.log("Versuch, mit leerer Mindmap zu speichern");
+                return;
+            }
+            localStorage.setItem(assignmentId, mindJson);
+            // Bestätigung entfernt
+            console.log(`Mindmap für ${assignmentId} gespeichert`);
+            displaySavedAnswer(mindData); // Aktualisiere die Anzeige des gespeicherten Textes
+        }
+
+        // Funktion zum Löschen aller gespeicherten Mindmaps aus localStorage
+        function clearLocalStorage() {
+            // Bestätigung entfernt
+            localStorage.clear();
+            jm.show(mind); // Leere die Mindmap
+            savedAnswerContainer.style.display = 'none';
+            console.log("Alle gespeicherten Mindmaps wurden gelöscht");
+        }
+
+        // Event Listener für den Button "Text drucken / als PDF schreiben"
+        document.getElementById("downloadAllBtn").addEventListener('click', function() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte Assignments zum Drucken`);
+            if(storageKeys.length === 0) {
+                console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
+                return;
+            }
+
+            console.log("Drucken aller Texte wird initiiert");
+
+            // Erstelle ein temporäres Div zum Drucken aller Texte
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
+
+            // Füge einmal den Titel der übergeordneten Seite hinzu
+            if (parentTitle) {
+                const parentTitleElement = document.createElement('h2');
+                parentTitleElement.textContent = parentTitle;
+                printAllContent.appendChild(parentTitleElement);
+            }
+
+            // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(/^assignment[_-]?/, '');
+                const suffixB = b.replace(/^assignment[_-]?/, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            // Funktion zum Hinzufügen der Mindmap als Bild
+            function addMindmapAsImage(assignmentKey, mindData) {
+                return new Promise((resolve, reject) => {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const assignmentSuffix = assignmentKey.replace(/^assignment[_-]?/, '');
+                    const title = document.createElement("h3");
+                    title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+                    draftDiv.appendChild(title);
+                    
+                    // Erstelle einen temporären Container für die Mindmap
+                    const tempContainer = document.createElement("div");
+                    tempContainer.style.width = "800px"; // Größe für die Mindmap
+                    tempContainer.style.height = "600px";
+                    tempContainer.style.background = "#fff";
+                    tempContainer.style.border = "1px solid #ccc";
+                    tempContainer.style.marginBottom = "20px";
+                    printAllContent.appendChild(tempContainer);
+
+                    // Initialisiere eine neue jsMind-Instanz
+                    const tempMind = {
+                        "meta": {
+                            "name": "mindmap",
+                            "author": "OpenAI",
+                            "version": "1.0"
+                        },
+                        "format": "node_tree",
+                        "data": mindData
+                    };
+                    const tempOptions = {
+                        container: tempContainer,
+                        editable: false,
+                        theme: 'primary'
+                    };
+                    const tempJm = new jsMind(tempOptions, tempMind);
+                    tempJm.show();
+
+                    // Verwende html2canvas, um die Mindmap als Bild zu erfassen
+                    html2canvas(tempContainer).then(canvas => {
+                        const img = canvas.toDataURL("image/png");
+                        const imgElement = document.createElement("img");
+                        imgElement.src = img;
+                        draftDiv.appendChild(imgElement);
+
+                        // Entferne den temporären Container
+                        printAllContent.removeChild(tempContainer);
+
+                        resolve();
+                    }).catch(err => {
+                        console.error('Fehler beim Erfassen der Mindmap als Bild:', err);
+                        reject(err);
+                    });
+
+                    printAllContent.appendChild(draftDiv);
+                });
+            }
+
+            // Lade alle Mindmaps und füge sie als Bilder hinzu
+            const promises = storageKeys.map(async (assignmentKey) => {
+                const text = localStorage.getItem(assignmentKey);
+                if(text) {
+                    try {
+                        const mindData = JSON.parse(text);
+                        await addMindmapAsImage(assignmentKey, mindData);
+                    } catch (e) {
+                        console.error(`Fehler beim Verarbeiten von ${assignmentKey}:`, e);
+                    }
+                }
+            });
+
+            Promise.all(promises).then(() => {
+                // Füge zum Body hinzu
+                document.body.appendChild(printAllContent);
+
+                // Füge der Body-Klasse 'print-all' hinzu
+                document.body.classList.add('print-all');
+
+                window.print();
+
+                // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
+                document.body.classList.remove('print-all');
+                document.body.removeChild(printAllContent);
+            }).catch(err => {
+                console.error('Fehler beim Hinzufügen der Mindmaps zum Druck:', err);
+            });
+        });
+
+        // Optional: Logge den initialen Zustand von localStorage zur Fehlersuche
+        console.log("Anfangszustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+        // **Neuer Code zum Verhindern des Einfügens von Inhalten**
+        // Da jsMind kein direktes Einfügen von Inhalten unterstützt, ist dieser Teil nicht notwendig.
+        // Wenn du dennoch Eingaben einschränken möchtest, kannst du jsMind-Events nutzen.
+
+    </script>
+</body>
+
+</html>
