@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mindmap speichern und drucken</title>
-    <!-- jsMind CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsmind/0.4.6/jsmind.css" />
+    <!-- GoJS CSS (optional, GoJS benötigt kein spezielles CSS) -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -202,8 +201,8 @@
         <button id="clearBtn" onclick="clearLocalStorage()">Text löschen</button>
     </div>
     
-    <!-- jsMind JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmind/0.4.6/jsmind.js"></script>
+    <!-- GoJS JS -->
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
     <!-- html2canvas für das Erfassen der Mindmap als Bild -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -268,28 +267,32 @@
         // Setze den Text auf 'Textsorte: {Suffix}'
         assignmentInfo.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
 
-        // Initialisiere jsMind
-        const mind = {
-            "meta": {
-                "name": "mindmap",
-                "author": "OpenAI",
-                "version": "1.0"
-            },
-            "format": "node_tree",
-            "data": {
-                "id": "root",
-                "topic": "Mindmap",
-                "children": []
-            }
+        // Initialisiere GoJS
+        const $ = go.GraphObject.make;
+
+        const myDiagram = $(go.Diagram, "mindmap-container",
+            {
+                "undoManager.isEnabled": true,
+                layout: $(go.TreeLayout, { angle: 90, layerSpacing: 35 })
+            });
+
+        // Definiere das Aussehen der Knoten
+        myDiagram.nodeTemplate =
+            $(go.Node, "Horizontal",
+                $(go.Shape, "Circle",
+                    { width: 30, height: 30, fill: "lightblue" }),
+                $(go.TextBlock,
+                    { margin: 10, font: "bold 14px sans-serif" },
+                    new go.Binding("text", "key"))
+            );
+
+        // Initiale Daten
+        const initialData = {
+            key: "Mindmap",
+            children: []
         };
 
-        const options = {
-            container: 'mindmap-container',
-            editable: true,
-            theme: 'primary'
-        };
-        const jm = new jsMind(options, mind);
-        jm.show();
+        myDiagram.model = new go.TreeModel([initialData]);
 
         // Anzeigeelemente
         const savedAnswerContainer = document.getElementById('savedAnswerContainer');
@@ -297,13 +300,13 @@
         const savedAnswer = document.getElementById('savedAnswer');
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
 
-        // Lade gespeicherten Inhalt und setze ihn im jsMind
+        // Lade gespeicherten Inhalt und setze ihn im GoJS Diagramm
         const savedMind = localStorage.getItem(assignmentId);
         if (savedMind) {
             try {
                 const mindData = JSON.parse(savedMind);
-                jm.show(mindData);
-                console.log(`Gespeicherten Mindmap für ${assignmentId} geladen`);
+                myDiagram.model = new go.TreeModel(mindData);
+                console.log(`Gespeicherte Mindmap für ${assignmentId} geladen`);
                 displaySavedAnswer(mindData);
             } catch (e) {
                 console.error('Fehler beim Parsen der gespeicherten Mindmap:', e);
@@ -326,8 +329,8 @@
         // Funktion zum Kopieren des Textes in die Zwischenablage
         copyAnswerBtn.addEventListener('click', function() {
             const textToCopy = parentTitle
-                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${JSON.stringify(jm.get_data(), null, 2)}`
-                : `Textsorte: ${assignmentSuffix}\n${JSON.stringify(jm.get_data(), null, 2)}`;
+                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${JSON.stringify(myDiagram.model.toJson(), null, 2)}`
+                : `Textsorte: ${assignmentSuffix}\n${JSON.stringify(myDiagram.model.toJson(), null, 2)}`;
             copyTextToClipboard(textToCopy);
         });
 
@@ -376,25 +379,26 @@
 
         // Funktion zum Speichern der Mindmap in localStorage
         function saveToLocal() {
-            const mindData = jm.get_data();
-            const mindJson = JSON.stringify(mindData);
+            const mindData = myDiagram.model.toJson();
             // Überprüfe, ob die Mindmap leer ist (nur der Root-Knoten)
-            if (mindData.children.length === 0) {
+            const parsedData = JSON.parse(mindData);
+            if (parsedData.length === 0 || (parsedData.length === 1 && parsedData[0].children.length === 0)) {
                 // Bestätigung entfernt
                 console.log("Versuch, mit leerer Mindmap zu speichern");
                 return;
             }
-            localStorage.setItem(assignmentId, mindJson);
+            localStorage.setItem(assignmentId, mindData);
             // Bestätigung entfernt
             console.log(`Mindmap für ${assignmentId} gespeichert`);
-            displaySavedAnswer(mindData); // Aktualisiere die Anzeige des gespeicherten Textes
+            displaySavedAnswer(parsedData);
         }
 
         // Funktion zum Löschen aller gespeicherten Mindmaps aus localStorage
         function clearLocalStorage() {
             // Bestätigung entfernt
             localStorage.clear();
-            jm.show(mind); // Leere die Mindmap
+            // Leere das Diagramm
+            myDiagram.model = new go.TreeModel([initialData]);
             savedAnswerContainer.style.display = 'none';
             console.log("Alle gespeicherten Mindmaps wurden gelöscht");
         }
@@ -434,12 +438,12 @@
                 return new Promise((resolve, reject) => {
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
-                    
+
                     const assignmentSuffix = assignmentKey.replace(/^assignment[_-]?/, '');
                     const title = document.createElement("h3");
                     title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
                     draftDiv.appendChild(title);
-                    
+
                     // Erstelle einen temporären Container für die Mindmap
                     const tempContainer = document.createElement("div");
                     tempContainer.style.width = "800px"; // Größe für die Mindmap
@@ -449,41 +453,47 @@
                     tempContainer.style.marginBottom = "20px";
                     printAllContent.appendChild(tempContainer);
 
-                    // Initialisiere eine neue jsMind-Instanz
-                    const tempMind = {
-                        "meta": {
-                            "name": "mindmap",
-                            "author": "OpenAI",
-                            "version": "1.0"
-                        },
-                        "format": "node_tree",
-                        "data": mindData
-                    };
-                    const tempOptions = {
-                        container: tempContainer,
-                        editable: false,
-                        theme: 'primary'
-                    };
-                    const tempJm = new jsMind(tempOptions, tempMind);
-                    tempJm.show();
+                    // Initialisiere eine neue GoJS-Instanz
+                    const tempDiagram = $(go.Diagram, tempContainer,
+                        {
+                            "undoManager.isEnabled": false,
+                            layout: $(go.TreeLayout, { angle: 90, layerSpacing: 35 })
+                        });
 
-                    // Verwende html2canvas, um die Mindmap als Bild zu erfassen
-                    html2canvas(tempContainer).then(canvas => {
-                        const img = canvas.toDataURL("image/png");
-                        const imgElement = document.createElement("img");
-                        imgElement.src = img;
-                        draftDiv.appendChild(imgElement);
+                    // Definiere das Aussehen der Knoten
+                    tempDiagram.nodeTemplate =
+                        $(go.Node, "Horizontal",
+                            $(go.Shape, "Circle",
+                                { width: 30, height: 30, fill: "lightblue" }),
+                            $(go.TextBlock,
+                                { margin: 10, font: "bold 14px sans-serif" },
+                                new go.Binding("text", "key"))
+                        );
 
-                        // Entferne den temporären Container
-                        printAllContent.removeChild(tempContainer);
+                    tempDiagram.model = go.Model.fromJson(mindData);
 
-                        resolve();
-                    }).catch(err => {
-                        console.error('Fehler beim Erfassen der Mindmap als Bild:', err);
-                        reject(err);
-                    });
+                    // Warten, bis das Diagramm gerendert ist
+                    setTimeout(() => {
+                        tempDiagram.layoutDiagram(true);
+                        html2canvas(tempContainer).then(canvas => {
+                            const img = canvas.toDataURL("image/png");
+                            const imgElement = document.createElement("img");
+                            imgElement.src = img;
+                            imgElement.alt = "Mindmap";
+                            imgElement.style.maxWidth = "100%";
+                            draftDiv.appendChild(imgElement);
 
-                    printAllContent.appendChild(draftDiv);
+                            // Entferne den temporären Container
+                            printAllContent.removeChild(tempContainer);
+
+                            resolve();
+                        }).catch(err => {
+                            console.error('Fehler beim Erfassen der Mindmap als Bild:', err);
+                            reject(err);
+                        });
+
+                        draftDiv.appendChild(tempContainer);
+                    }, 1000); // Warte 1 Sekunde, um sicherzustellen, dass das Diagramm gerendert ist
                 });
             }
 
@@ -492,7 +502,7 @@
                 const text = localStorage.getItem(assignmentKey);
                 if(text) {
                     try {
-                        const mindData = JSON.parse(text);
+                        const mindData = text;
                         await addMindmapAsImage(assignmentKey, mindData);
                     } catch (e) {
                         console.error(`Fehler beim Verarbeiten von ${assignmentKey}:`, e);
@@ -525,9 +535,8 @@
         }
 
         // **Neuer Code zum Verhindern des Einfügens von Inhalten**
-        // Da jsMind kein direktes Einfügen von Inhalten unterstützt, ist dieser Teil nicht notwendig.
-        // Wenn du dennoch Eingaben einschränken möchtest, kannst du jsMind-Events nutzen.
-
+        // Da GoJS hauptsächlich auf Drag-and-Drop und direkte Interaktionen basiert, ist dieser Teil nicht notwendig.
+        // Wenn du dennoch Eingaben einschränken möchtest, kannst du GoJS-Events nutzen.
     </script>
 </body>
 
