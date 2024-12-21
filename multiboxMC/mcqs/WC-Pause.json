@@ -1,0 +1,158 @@
+[
+    {
+      "id": "mcq1",
+      "question": "Was ist die rechtliche Situation bezüglich WC-Pausen in der Schweiz?",
+      "options": [
+        "Arbeitnehmer müssen für WC-Pausen ausstempeln.",
+        "Arbeitnehmer dürfen während der Arbeitszeit nicht auf die Toilette gehen.",
+        "Arbeitgeber dürfen WC-Pausen nicht verbieten, können aber verlangen, dass Arbeitnehmer dafür ausstempeln.",
+        "WC-Pausen sind immer bezahlte Arbeitszeit."
+      ],
+      "correctAnswer": "Arbeitgeber dürfen WC-Pausen nicht verbieten, können aber verlangen, dass Arbeitnehmer dafür ausstempeln.",
+      "explanation": "Die Rechtsexpertin im Beitrag erklärt, dass Arbeitgeber das Verlangen nach Ausstempeln für WC-Pausen rechtlich durchsetzen können."
+    },
+    {
+      "id": "mcq2",
+      "question": "Wie lange ist die bezahlte Pause bei einem Arbeitstag von mehr als 9 Stunden?",
+      "options": [
+        "15 Minuten",
+        "30 Minuten",
+        "45 Minuten",
+        "60 Minuten"
+      ],
+      "correctAnswer": "60 Minuten",
+      "explanation": "Der Beitrag nennt eine Stunde bezahlte Pause bei einem Arbeitstag von mehr als neun Stunden."
+    },
+    {
+      "id": "tf1",
+      "question": "Gabriela Baumgartner findet es fair, dass Arbeitnehmer für WC-Pausen ausstempeln müssen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Im Beitrag wird ihre Aussage zitiert, dass sie es kleinkariert und schikanös findet."
+    },
+    {
+      "id": "tf2",
+      "question": "Kaffeepausen sind immer bezahlte Arbeitszeit.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Ob Kaffeepausen bezahlt werden, hängt vom Arbeitgeber ab. Es gibt keine gesetzliche Regelung dazu."
+    },
+    {
+      "id": "mcq3",
+      "question": "Welcher Begriff beschreibt die Pflicht des Arbeitgebers, sich um das Wohl der Arbeitnehmer zu kümmern?",
+      "options": [
+        "Fürsorgepflicht",
+        "Weisungsrecht",
+        "Treuepflicht",
+        "Pflicht zur Lohnfortzahlung"
+      ],
+      "correctAnswer": "Fürsorgepflicht",
+      "explanation": "Der Begriff wird im Beitrag im Zusammenhang mit der Pflicht des Arbeitgebers genannt, Toilettenpausen zu ermöglichen."
+    },
+    {
+      "id": "mcq4",
+      "question": "Was ist ein Beispiel für eine bezahlte Pause?",
+      "options": [
+        "Eine Rauchpause im Freien",
+        "Ein kurzer Toilettengang",
+        "Eine Kaffeepause mit Kollegen in der Kantine",
+        "Eine Pause, in der der Arbeitnehmer am Arbeitsplatz erreichbar sein muss"
+      ],
+      "correctAnswer": "Eine Pause, in der der Arbeitnehmer am Arbeitsplatz erreichbar sein muss",
+      "explanation": "Im Beitrag wird erklärt, dass nur Pausen bezahlt werden, in denen der Arbeitnehmer den Arbeitsplatz nicht verlassen darf und erreichbar sein muss."
+    },
+    {
+      "id": "tf3",
+      "question": "Arbeitnehmer haben in der Schweiz einen gesetzlichen Anspruch auf bezahlte Pausen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Arbeitnehmer haben zwar einen Anspruch auf Pausen, diese müssen aber nicht bezahlt werden."
+    },
+    {
+      "id": "tf4",
+      "question": "Rauchpausen müssen vom Arbeitgeber immer bezahlt werden.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Der Beitrag erwähnt, dass es immer häufiger vorkommt, dass Raucher für ihre Pausen ausstempeln müssen."
+    },
+    {
+      "id": "mcq5",
+      "question": "In welcher Situation darf der Arbeitgeber die Pausenzeiten der Arbeitnehmer bestimmen?",
+      "options": [
+        "Immer",
+        "Nur wenn es im Arbeitsvertrag steht",
+        "Nur wenn es betrieblich notwendig ist",
+        "Nie"
+      ],
+      "correctAnswer": "Nur wenn es betrieblich notwendig ist",
+      "explanation": "Der Arbeitgeber darf die Pausenzeiten zwar festlegen, muss dabei aber die Bedürfnisse der Arbeitnehmer und die betrieblichen Abläufe berücksichtigen."
+    },
+    {
+      "id": "mcq6",
+      "question": "Was ist KEIN Grund für eine bezahlte Pause?",
+      "options": [
+        "Der Arbeitnehmer muss während der Pause erreichbar sein.",
+        "Der Arbeitnehmer darf den Arbeitsplatz während der Pause nicht verlassen.",
+        "Die Pause dient der Erholung des Arbeitnehmers.",
+        "Die Pause ist im Arbeitsvertrag als bezahlte Pause festgelegt."
+      ],
+      "correctAnswer": "Die Pause dient der Erholung des Arbeitnehmers.",
+      "explanation": "Die Erholung des Arbeitnehmers ist zwar ein wichtiger Zweck der Pause, rechtfertigt aber nicht automatisch eine bezahlte Pause."
+    },
+    {
+      "id": "tf5",
+      "question": "Wenn ein Arbeitnehmer während der Pause den Arbeitsplatz verlassen darf, ist die Pause immer unbezahlt.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Das Verlassen des Arbeitsplatzes ist ein Indikator für eine unbezahlte Pause."
+    },
+    {
+      "id": "tf6",
+      "question": "Der Betriebsrat kann bei der Festlegung der Pausenzeiten mitbestimmen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Der Betriebsrat hat ein Mitbestimmungsrecht bei der Gestaltung der Arbeitszeit, wozu auch die Pausenzeiten gehören."
+    },
+    {
+      "id": "mcq7",
+      "question": "An wen kann sich ein Arbeitnehmer wenden, wenn er Probleme mit den Pausenzeiten hat?",
+      "options": [
+        "An den Betriebsrat",
+        "An die Gewerkschaft",
+        "An das kantonale Arbeitsinspektorat",
+        "An alle genannten Stellen"
+      ],
+      "correctAnswer": "An alle genannten Stellen",
+      "explanation": "Alle genannten Stellen können Arbeitnehmern bei Problemen mit den Pausenzeiten unterstützen und beraten."
+    },
+    {
+      "id": "mcq8",
+      "question": "Was ist das Hauptziel des Beitrags von Kassensturz-Espresso?",
+      "options": [
+        "Arbeitnehmer über ihre Rechte bezüglich WC-Pausen zu informieren",
+        "Arbeitgeber zu kritisieren, die von ihren Arbeitnehmern verlangen, für WC-Pausen auszustempeln",
+        "Eine Diskussion über die Bedeutung von Pausen am Arbeitsplatz anzuregen",
+        "Die rechtliche Situation von Pausen in der Schweiz zu erklären"
+      ],
+      "correctAnswer": "Arbeitnehmer über ihre Rechte bezüglich WC-Pausen zu informieren",
+      "explanation": "Der Beitrag fokussiert darauf, die rechtliche Situation zu erklären und Arbeitnehmer über ihre Rechte aufzuklären."
+    }
+  ]
