@@ -53,6 +53,7 @@
         #retryBtn {
             background-color: #f44336; /* Rot */
             color: white;
+            display: none; /* Anfangs versteckt */
         }
         #resultContainer {
             margin-top: 30px;
@@ -75,206 +76,91 @@
             #printContent, #printContent * {
                 visibility: visible;
             }
-            #printContent {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                padding: 20px;
-                background-color: white;
-            }
-            /* Optionale Seitenumbrüche zwischen Fragen für bessere Lesbarkeit */
-            .print-section {
-                page-break-after: always;
-            }
-            /* Druck-Button während des Druckens ausblenden */
-            #printBtn {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
     <h1>Verständnisfragen</h1>
-    <h2 id="assignmentTitle"></h2>
-    
-    <form id="mcqForm">
-        <div id="mcqContainer">
-            <!-- Fragen werden hier dynamisch eingefügt -->
+    <form id="testForm">
+        <div class="question">
+            <p>Frage 1: Was ist die Hauptstadt von Deutschland?</p>
+            <label><input type="radio" name="q1" value="A"> München</label>
+            <label><input type="radio" name="q1" value="B"> Berlin</label>
+            <label><input type="radio" name="q1" value="C"> Hamburg</label>
         </div>
+        <div class="question">
+            <p>Frage 2: Welches Element hat das chemische Symbol O?</p>
+            <label><input type="radio" name="q2" value="A"> Gold</label>
+            <label><input type="radio" name="q2" value="B"> Sauerstoff</label>
+            <label><input type="radio" name="q2" value="C"> Silber</label>
+        </div>
+        <!-- Weitere Fragen können hier hinzugefügt werden -->
         <div class="button-container">
-            <button type="button" id="submitBtn">Antworten einreichen</button>
-            <button type="button" id="printBtn" disabled>Antworten drucken</button> <!-- Geänderte ID und Beschriftung -->
-            <button type="button" id="retryBtn" style="display: none;">Test wiederholen</button>
+            <button type="button" id="submitBtn">Absenden</button>
+            <button type="button" id="printBtn">Drucken</button>
+            <button type="button" id="retryBtn">Nochmal versuchen</button>
         </div>
     </form>
-    
     <div id="resultContainer">
-        <h3>Ergebnisse:</h3>
-        <div id="results"></div>
+        <h2>Ergebnisse</h2>
+        <p id="score"></p>
     </div>
-    
-    <!-- Versteckter Inhalt zum Drucken -->
-    <div id="printContent" style="display: none;">
-        <h1>Verständnisfragen</h1>
-        <div id="printResults"></div>
-    </div>
-    
+
     <script>
-        // Funktion zum Abrufen eines Query-Parameters nach Name
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            // Auswertung der Antworten
+            let score = 0;
+            const total = 2; // Gesamtanzahl der Fragen
 
-        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
-
-        // Funktion zum Umwandeln der Assignment ID für die Anzeige (Unterstriche durch Leerzeichen ersetzen)
-        function formatAssignmentId(id) {
-            return id.replace(/_/g, ' ');
-        }
-
-        // Setzen des Assignment-Titels (kann nach Bedarf angepasst werden)
-        document.getElementById('assignmentTitle').textContent = `ABUnews: ${formatAssignmentId(assignmentId)}`;
-
-        // Funktion zum Mischen eines Arrays (Fisher-Yates Algorithmus)
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Funktion zum Abrufen der Fragen aus dem mcqs-Ordner
-        async function fetchQuestions(assignmentId) {
-            try {
-                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${assignmentId}.json`);
-                if (!response.ok) {
-                    throw new Error(`Fragedatei für ${assignmentId} nicht gefunden.`);
+            // Frage 1
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1) {
+                if (q1.value === 'B') { // Richtig: Berlin
+                    score++;
                 }
-                const questions = await response.json();
-                return questions;
-            } catch (error) {
-                console.error(error);
-                alert("Fehler beim Laden der Fragen. Bitte überprüfen Sie die Zuordnung.");
-                return [];
-            }
-        }
-
-        // Funktion zum Rendern der Fragen
-        async function renderQuestions() {
-            let questions = await fetchQuestions(assignmentId);
-            
-            if (questions.length === 0) {
-                document.getElementById('mcqContainer').innerHTML = "<p>Keine Fragen verfügbar.</p>";
-                return;
             }
 
-            // Auswahl von 7 zufälligen Fragen
-            questions = shuffleArray(questions).slice(0, 7);
-            
-            // Speichern der ausgewählten Fragen für spätere Verwendung
-            window.selectedQuestions = questions;
+            // Frage 2
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2) {
+                if (q2.value === 'B') { // Richtig: Sauerstoff
+                    score++;
+                }
+            }
 
-            const mcqContainer = document.getElementById('mcqContainer');
+            // Weitere Fragen können hier ausgewertet werden
 
-            questions.forEach(question => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'question';
-
-                const questionP = document.createElement('p');
-                questionP.textContent = question.question;
-                questionDiv.appendChild(questionP);
-
-                // Zufällige Reihenfolge der Optionen
-                const shuffledOptions = shuffleArray([...question.options]);
-
-                shuffledOptions.forEach(option => {
-                    const label = document.createElement('label');
-
-                    const input = document.createElement('input');
-                    input.type = 'radio';
-                    input.name = question.id;
-                    input.value = option;
-
-                    label.appendChild(input);
-                    label.appendChild(document.createTextNode(option));
-                    questionDiv.appendChild(label);
-                });
-
-                mcqContainer.appendChild(questionDiv);
-            });
-        }
-
-        // Funktion zur Behandlung der Formularübermittlung
-        function handleSubmit() {
-            const questions = window.selectedQuestions;
-            let correctCount = 0;
-            let resultsHTML = '';
-
-            questions.forEach(question => {
-                const selectedOption = document.querySelector(`input[name="${question.id}"]:checked`);
-                const userAnswer = selectedOption ? selectedOption.value : 'Keine Antwort';
-                const isCorrect = userAnswer === question.correctAnswer;
-                if (isCorrect) correctCount += 1;
-
-                resultsHTML += `
-                    <div class="result-item">
-                        <p>
-                            <strong>${question.question}</strong><br>
-                            Deine Antwort: ${userAnswer} ${isCorrect ? '<span class="correct">(Richtig)</span>' : '<span class="incorrect">(Falsch)</span>'}<br>
-                            ${!isCorrect && question.explanation ? `Erklärung: ${question.explanation}` : ''}
-                        </p>
-                    </div>
-                `;
-            });
-
-            document.getElementById('results').innerHTML = `
-                <p>Du hast ${correctCount} von ${questions.length} Fragen richtig beantwortet.</p>
-                ${resultsHTML}
-            `;
+            // Anzeige der Ergebnisse
+            document.getElementById('score').textContent = `Du hast ${score} von ${total} richtig beantwortet.`;
             document.getElementById('resultContainer').style.display = 'block';
-            document.getElementById('printBtn').disabled = false; // Druck-Button aktivieren
+
+            // Deaktiviere alle Eingabefelder
+            const inputs = document.querySelectorAll('#testForm input');
+            inputs.forEach(input => input.disabled = true);
+
+            // Zeige den Retry-Button und verstecke den Submit-Button
+            document.getElementById('submitBtn').style.display = 'none';
             document.getElementById('retryBtn').style.display = 'inline-block';
-            // Scrollen zum Ergebnis
-            document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
-        }
+        });
 
-        // Funktion zum Vorbereiten des Inhalts für den Druck und Drucken
-        function printResults() {
-            const printContent = document.getElementById('printContent');
-            const results = document.getElementById('results').innerHTML;
-            const assignmentTitle = document.getElementById('assignmentTitle').textContent;
+        document.getElementById('retryBtn').addEventListener('click', function() {
+            // Formular zurücksetzen
+            document.getElementById('testForm').reset();
 
-            // Populate the printContent div
-            document.getElementById('printResults').innerHTML = `
-                <h2>${assignmentTitle}</h2>
-                ${results}
-            `;
+            // Ergebnisse verstecken
+            document.getElementById('resultContainer').style.display = 'none';
 
-            // Show the printContent section
-            printContent.style.display = 'block';
+            // Aktiviere alle Eingabefelder
+            const inputs = document.querySelectorAll('#testForm input');
+            inputs.forEach(input => input.disabled = false);
 
-            // Trigger print
+            // Zeige den Submit-Button und verstecke den Retry-Button
+            document.getElementById('submitBtn').style.display = 'inline-block';
+            document.getElementById('retryBtn').style.display = 'none';
+        });
+
+        document.getElementById('printBtn').addEventListener('click', function() {
             window.print();
-
-            // Hide the printContent section after printing
-            printContent.style.display = 'none';
-        }
-
-        // Funktion zum Neuladen der Seite und Laden neuer Fragen
-        function retryTest() {
-            window.location.reload();
-        }
-
-        // Initialisierung der Seite
-        document.addEventListener('DOMContentLoaded', function() {
-            renderQuestions();
-
-            document.getElementById('submitBtn').addEventListener('click', handleSubmit);
-            document.getElementById('printBtn').addEventListener('click', printResults); // Geänderte Event-Handler
-            document.getElementById('retryBtn').addEventListener('click', retryTest);
         });
     </script>
 </body>
