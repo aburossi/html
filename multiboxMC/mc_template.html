@@ -53,7 +53,6 @@
         #retryBtn {
             background-color: #f44336; /* Rot */
             color: white;
-            display: none; /* Anfangs versteckt */
         }
         #resultContainer {
             margin-top: 30px;
@@ -82,85 +81,99 @@
 <body>
     <h1>Verständnisfragen</h1>
     <form id="testForm">
+        <!-- Beispiel-Fragen -->
         <div class="question">
-            <p>Frage 1: Was ist die Hauptstadt von Deutschland?</p>
-            <label><input type="radio" name="q1" value="A"> München</label>
-            <label><input type="radio" name="q1" value="B"> Berlin</label>
-            <label><input type="radio" name="q1" value="C"> Hamburg</label>
+            <p>1. Was ist die Hauptstadt von Deutschland?</p>
+            <label><input type="radio" name="q1" value="Berlin"> Berlin</label>
+            <label><input type="radio" name="q1" value="München"> München</label>
+            <label><input type="radio" name="q1" value="Hamburg"> Hamburg</label>
         </div>
         <div class="question">
-            <p>Frage 2: Welches Element hat das chemische Symbol O?</p>
-            <label><input type="radio" name="q2" value="A"> Gold</label>
-            <label><input type="radio" name="q2" value="B"> Sauerstoff</label>
-            <label><input type="radio" name="q2" value="C"> Silber</label>
+            <p>2. Welches Element hat das chemische Symbol O?</p>
+            <label><input type="radio" name="q2" value="Gold"> Gold</label>
+            <label><input type="radio" name="q2" value="Oxygen"> Oxygen</label>
+            <label><input type="radio" name="q2" value="Silber"> Silber</label>
         </div>
         <!-- Weitere Fragen können hier hinzugefügt werden -->
         <div class="button-container">
             <button type="button" id="submitBtn">Absenden</button>
             <button type="button" id="printBtn">Drucken</button>
-            <button type="button" id="retryBtn">Nochmal versuchen</button>
+            <button type="button" id="retryBtn">Erneut versuchen</button>
         </div>
     </form>
     <div id="resultContainer">
         <h2>Ergebnisse</h2>
-        <p id="score"></p>
+        <p id="resultText"></p>
     </div>
 
     <script>
-        document.getElementById('submitBtn').addEventListener('click', function() {
-            // Auswertung der Antworten
-            let score = 0;
-            const total = 2; // Gesamtanzahl der Fragen
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitBtn = document.getElementById('submitBtn');
+            const retryBtn = document.getElementById('retryBtn');
+            const printBtn = document.getElementById('printBtn');
+            const testForm = document.getElementById('testForm');
+            const resultContainer = document.getElementById('resultContainer');
+            const resultText = document.getElementById('resultText');
 
-            // Frage 1
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            if (q1) {
-                if (q1.value === 'B') { // Richtig: Berlin
-                    score++;
+            // Beispielhafte richtige Antworten
+            const correctAnswers = {
+                q1: 'Berlin',
+                q2: 'Oxygen'
+                // Weitere Antworten können hier hinzugefügt werden
+            };
+
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                const total = Object.keys(correctAnswers).length;
+                let answers = {};
+
+                // Überprüfung der Antworten
+                for (let q in correctAnswers) {
+                    const selected = testForm.querySelector(`input[name="${q}"]:checked`);
+                    if (selected) {
+                        answers[q] = selected.value;
+                        if (selected.value === correctAnswers[q]) {
+                            score++;
+                        }
+                    } else {
+                        answers[q] = null;
+                    }
                 }
-            }
 
-            // Frage 2
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            if (q2) {
-                if (q2.value === 'B') { // Richtig: Sauerstoff
-                    score++;
-                }
-            }
+                // Anzeige der Ergebnisse
+                resultText.innerHTML = `Du hast ${score} von ${total} richtig beantwortet.`;
+                resultContainer.style.display = 'block';
 
-            // Weitere Fragen können hier ausgewertet werden
+                // Deaktivieren aller Eingaben nach dem Absenden
+                const allInputs = testForm.querySelectorAll('input');
+                allInputs.forEach(input => {
+                    input.disabled = true;
+                });
 
-            // Anzeige der Ergebnisse
-            document.getElementById('score').textContent = `Du hast ${score} von ${total} richtig beantwortet.`;
-            document.getElementById('resultContainer').style.display = 'block';
+                // Optional: Deaktivieren des Absenden-Buttons nach dem Absenden
+                submitBtn.disabled = true;
+            });
 
-            // Deaktiviere alle Eingabefelder
-            const inputs = document.querySelectorAll('#testForm input');
-            inputs.forEach(input => input.disabled = true);
+            retryBtn.addEventListener('click', function() {
+                // Zurücksetzen des Formulars
+                testForm.reset();
 
-            // Zeige den Retry-Button und verstecke den Submit-Button
-            document.getElementById('submitBtn').style.display = 'none';
-            document.getElementById('retryBtn').style.display = 'inline-block';
-        });
+                // Verstecken der Ergebnisse
+                resultContainer.style.display = 'none';
 
-        document.getElementById('retryBtn').addEventListener('click', function() {
-            // Formular zurücksetzen
-            document.getElementById('testForm').reset();
+                // Reaktivieren aller Eingaben
+                const allInputs = testForm.querySelectorAll('input');
+                allInputs.forEach(input => {
+                    input.disabled = false;
+                });
 
-            // Ergebnisse verstecken
-            document.getElementById('resultContainer').style.display = 'none';
+                // Reaktivieren des Absenden-Buttons
+                submitBtn.disabled = false;
+            });
 
-            // Aktiviere alle Eingabefelder
-            const inputs = document.querySelectorAll('#testForm input');
-            inputs.forEach(input => input.disabled = false);
-
-            // Zeige den Submit-Button und verstecke den Retry-Button
-            document.getElementById('submitBtn').style.display = 'inline-block';
-            document.getElementById('retryBtn').style.display = 'none';
-        });
-
-        document.getElementById('printBtn').addEventListener('click', function() {
-            window.print();
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
         });
     </script>
 </body>
