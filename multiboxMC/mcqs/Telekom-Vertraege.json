@@ -1,0 +1,190 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was passiert mit den Verträgen einer verstorbenen Person?",
+    "options": [
+      "Sie erlöschen automatisch mit dem Todestag.",
+      "Sie gehen auf die Erben über.",
+      "Sie müssen vom Staat gekündigt werden.",
+      "Sie werden eingefroren, bis die Erben eine Entscheidung treffen."
+    ],
+    "correctAnswer": "Sie gehen auf die Erben über.",
+    "explanation": "Die Erben übernehmen die Rechte und Pflichten aus den Verträgen des Verstorbenen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie müssen die Erben die Verträge kündigen?",
+    "options": [
+      "Mündlich beim jeweiligen Anbieter.",
+      "Durch einen Anruf beim Zivilstandsamt.",
+      "Schriftlich per Mail oder eingeschrieben.",
+      "Gar nicht, die Verträge enden automatisch."
+    ],
+    "correctAnswer": "Schriftlich per Mail oder eingeschrieben.",
+    "explanation": "Eine schriftliche Kündigung gibt den Erben und den Anbietern Rechtssicherheit."
+  },
+  {
+    "id": "tf1",
+    "question": "Telekom-Anbieter müssen Verträge im Todesfall immer fristlos auflösen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Kündigungsfrist hängt von den allgemeinen Geschäftsbedingungen des Anbieters ab."
+  },
+  {
+    "id": "tf2",
+    "question": "Mietverträge können von den Erben unabhängig von den Vertragsbedingungen auf den nächstmöglichen gesetzlichen Termin gekündigt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Gesetz schützt die Erben vor übermässig langen Kündigungsfristen bei Mietverträgen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was geschieht mit Arbeitsverträgen im Todesfall?",
+    "options": [
+      "Sie gehen auf die Erben über.",
+      "Sie werden bis zum Ende der vereinbarten Laufzeit weitergeführt.",
+      "Sie werden mit dem Tod aufgelöst.",
+      "Sie müssen von den Erben gekündigt werden."
+    ],
+    "correctAnswer": "Sie werden mit dem Tod aufgelöst.",
+    "explanation": "Ein Arbeitsvertrag ist an die Person gebunden und endet mit deren Tod."
+  },
+  {
+    "id": "mcq4",
+    "question": "Bis wann müssen die Prämien der obligatorischen Krankenkassen bezahlt werden?",
+    "options": [
+      "Bis zum Ende des Monats, in dem der Tod eintrat.",
+      "Bis zum Ende des Jahres.",
+      "Bis zur Auflösung des Vertrags durch die Erben.",
+      "Bis zum Todestag."
+    ],
+    "correctAnswer": "Bis zum Todestag.",
+    "explanation": "Das Bundesgericht hat entschieden, dass keine Prämien über den Todestag hinaus bezahlt werden müssen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Hörer muss die Telekomrechnung für den ganzen November bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Er muss nur anteilsmässig bis zum Todestag seiner Mutter bezahlen."
+  },
+        {
+    "id": "tf4",
+    "question": "Der Sohn muss den Telekom-Anbieter nicht über den Tod seiner Mutter informieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Er muss den Anbieter informieren und den Vertrag kündigen."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Erben erben nur das Vermögen, nicht aber die Verträge des Verstorbenen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Erben erben sowohl das Vermögen als auch die Verträge."
+  },
+        {
+    "id": "tf6",
+    "question": "Es ist ratsam, sich nach einem Todesfall sofort mit den Vertragsanbietern in Verbindung zu setzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "So können die Verträge schnellstmöglich gekündigt und unnötige Kosten vermieden werden."
+  },
+        {
+    "id": "tf7",
+    "question": "Alle Telekom-Anbieter haben die gleiche Kündigungsfrist im Todesfall.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Kündigungsfristen variieren je nach Anbieter."
+  },
+        {
+    "id": "tf8",
+    "question": "Gabriela Baumgartner ist die Rechtsexpertin bei Espresso.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie beantwortet die Rechtsfragen der Hörerinnen und Hörer."
+  },
+        {
+    "id": "tf9",
+    "question": "Im Beitrag geht es um einen Hörer aus dem Kanton Zürich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hörer kommt aus dem Kanton Thurgau."
+  },
+          {
+    "id": "tf10",
+    "question": "Der Hörer hat dem Telekom-Anbieter eine Kopie des Totenscheins geschickt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Er hat den Anbieter über den Tod seiner Mutter informiert."
+  },
+{
+    "id": "tf11",
+    "question": "Die Mutter des Hörers ist im Herbst gestorben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Todesfall ereignete sich im Herbst."
+  },
+{
+    "id": "tf12",
+    "question": "Der Hörer hat eine Mahnung für den ganzen November erhalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Obwohl er den Anbieter informiert hatte, erhielt er eine Mahnung."
+  },
+{
+    "id": "tf13",
+    "question": "Der Hörer möchte die Rechnung nur bis zum Todestag seiner Mutter bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Er ist der Meinung, dass der Vertrag mit dem Tod seiner Mutter endet."
+  },
+{
+    "id": "tf14",
+    "question": "Laut Beitrag ist es nicht ratsam, sofort zu reklamieren, wenn man eine ungerechtfertigte Mahnung erhält.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag wird empfohlen, die Rechnung zu reklamieren."
+  }
+]

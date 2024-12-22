@@ -1,0 +1,156 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was kann eine Eigentümerin bei Rauchbelästigung durch den Nachbarn tun?",
+    "options": [
+      "Sie kann direkt die Polizei rufen.",
+      "Sie kann den Nachbarn auf Schadenersatz verklagen.",
+      "Sie kann gegen die Emissionen klagen, wenn diese übermässig sind.",
+      "Sie kann nichts tun, da Rauchen auf dem Balkon erlaubt ist."
+    ],
+    "correctAnswer": "Sie kann gegen die Emissionen klagen, wenn diese übermässig sind.",
+    "explanation": "Im Falle von übermässiger Belästigung kann eine Eigentümerin rechtliche Schritte einleiten."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was sind materielle Emissionen im Kontext des Nachbarschaftsrechts?",
+    "options": [
+      "Positive Einflüsse auf die Umwelt.",
+      "Störende Einwirkungen auf ein Nachbargrundstück.",
+      "Finanzielle Belastungen durch den Nachbarn.",
+      "Geräuschemissionen von öffentlichen Veranstaltungen."
+    ],
+    "correctAnswer": "Störende Einwirkungen auf ein Nachbargrundstück.",
+    "explanation": "Materielle Emissionen beziehen sich auf konkrete Beeinträchtigungen wie Rauch, Lärm oder Gerüche."
+  },
+  {
+    "id": "tf1",
+    "question": "Das Bundesgesetz zum Schutz von Passivrauchen gilt auch für private Haushalte.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Gesetz schützt vor Passivrauchen in öffentlich zugänglichen Räumen und am Arbeitsplatz, nicht in privaten Haushalten."
+  },
+  {
+    "id": "tf2",
+    "question": "Kantonale Vorschriften können strengere Regelungen zum Gesundheitsschutz als das Bundesgesetz enthalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Je nach Kanton können zusätzliche Regelungen gelten, die den Schutz vor Rauchbelästigung erweitern."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist oft ein Problem bei Nachbarschaftsklagen?",
+    "options": [
+      "Sie sind schnell und kostengünstig.",
+      "Sie stärken das Nachbarschaftsverhältnis.",
+      "Sie sind langwierig, teuer und belasten das Nachbarschaftsverhältnis.",
+      "Sie führen immer zu einer zufriedenstellenden Lösung."
+    ],
+    "correctAnswer": "Sie sind langwierig, teuer und belasten das Nachbarschaftsverhältnis.",
+    "explanation": "Nachbarschaftsklagen können komplexe und unangenehme Prozesse sein."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Möglichkeiten gibt es, wenn der Nachbar nachts durch Husten Lärm verursacht?",
+    "options": [
+      "Man kann den Nachbarn wegen Körperverletzung anzeigen.",
+      "Man kann sich auf Polizeiverordnungen zu Ruhezeiten berufen.",
+      "Man kann den Nachbarn zwingen, zum Arzt zu gehen.",
+      "Man hat keine rechtlichen Möglichkeiten."
+    ],
+    "correctAnswer": "Man kann sich auf Polizeiverordnungen zu Ruhezeiten berufen.",
+    "explanation": "Bei übermässiger Lärmbelästigung können die Ruhezeiten in Polizeiverordnungen relevant sein."
+  },
+    {
+    "id": "tf3",
+    "question": "Polizeiverordnungen können das Rauchen auf dem Balkon grundsätzlich verbieten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Polizeiverordnungen können das Rauchen auf dem Balkon nicht grundsätzlich verbieten, aber bei übermässiger Belästigung der Nachbarn einschreiten."
+  },
+      {
+    "id": "mcq5",
+    "question": "Welcher Tipp wird im Beitrag wiederholt gegeben?",
+    "options": [
+      "Sofort die Polizei rufen.",
+      "Miteinander reden und eine gemeinsame Lösung suchen.",
+      "Den Nachbarn anzeigen.",
+      "Ausziehen."
+    ],
+    "correctAnswer": "Miteinander reden und eine gemeinsame Lösung suchen.",
+    "explanation": "Die einvernehmliche Lösung ist der beste Weg, um Nachbarschaftskonflikte zu lösen."
+  },
+{
+    "id": "tf4",
+    "question": "Im Beitrag wird empfohlen, bei Problemen mit den Nachbarn sofort einen Anwalt einzuschalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es wird empfohlen, zuerst das Gespräch zu suchen und erst im Notfall rechtliche Schritte einzuleiten."
+  },
+{
+    "id": "tf5",
+    "question": "Wenn der Rauch des Nachbarn in die eigene Wohnung zieht, ist das immer ein Grund für eine Klage.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Klage ist nur bei übermässiger Belästigung gerechtfertigt."
+  },
+{
+    "id": "tf6",
+    "question": "Ein Mediator kann bei Nachbarschaftskonflikten helfen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Mediator kann als neutrale Partei die Kommunikation und Konfliktlösung unterstützen."
+  },
+{
+    "id": "tf7",
+    "question": "Lärm durch Hustenanfälle kann in bestimmten Fällen als übermässige Belästigung gelten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Auch Lärm, der durch Hustenanfälle entsteht, kann unter bestimmten Umständen als übermässige Belästigung gewertet werden."
+  },
+{
+    "id": "mcq6",
+    "question": "Was ist im Zusammenhang mit Rauchbelästigung durch Nachbarn am wichtigsten?",
+    "options": [
+      "Die Rechte des Rauchers schützen.",
+      "Die Nachbarschaft vor Rauch schützen.",
+      "Eine einvernehmliche Lösung finden.",
+      "Den Nachbarn anzeigen."
+    ],
+    "correctAnswer": "Eine einvernehmliche Lösung finden.",
+    "explanation": "Eine einvernehmliche Lösung ist im Interesse aller Beteiligten und trägt zu einem guten Nachbarschaftsverhältnis bei."
+  },
+{
+    "id": "mcq7",
+    "question": "An wen kann man sich wenden, wenn man sich durch den Rauch des Nachbarn belästigt fühlt?",
+    "options": [
+      "An den Vermieter oder die Verwaltung.",
+      "An die Polizei.",
+      "An einen Mediator.",
+      "An alle oben genannten."
+    ],
+    "correctAnswer": "An alle oben genannten.",
+    "explanation": "Je nach Situation und Schweregrad der Belästigung können verschiedene Ansprechpartner relevant sein."
+  }
+]

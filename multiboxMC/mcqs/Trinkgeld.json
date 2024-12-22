@@ -1,0 +1,157 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wem gehört das Trinkgeld rechtlich?",
+    "options": [
+      "Dem Chef",
+      "Den Angestellten",
+      "Dem Staat",
+      "Dem Betrieb"
+    ],
+    "correctAnswer": "Den Angestellten",
+    "explanation": "Trinkgeld ist eine freiwillige Zuwendung für die Angestellten."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wann darf der Chef das Trinkgeld mit den Angestellten teilen?",
+    "options": [
+      "Immer",
+      "Nur wenn er mitgearbeitet hat",
+      "Wenn der Kunde es ausdrücklich wünscht",
+      "Niemals"
+    ],
+    "correctAnswer": "Wenn der Kunde es ausdrücklich wünscht",
+    "explanation": "Der Kunde entscheidet, wer das Trinkgeld erhält."
+  },
+  {
+    "id": "tf1",
+    "question": "Es gibt einen gesetzlich festgelegten Verteilschlüssel für Trinkgelder.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt keinen gesetzlich festgelegten Verteilschlüssel."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein Betrieb darf ein Reglement für die Trinkgeldverteilung erstellen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Betrieb darf ein Reglement erstellen, muss aber die Angestellten einbeziehen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist Trinkgeld rechtlich gesehen?",
+    "options": [
+      "Ein Teil des Lohns",
+      "Eine freiwillige Zuwendung",
+      "Eine Pflicht des Kunden",
+      "Eine Steuer"
+    ],
+    "correctAnswer": "Eine freiwillige Zuwendung",
+    "explanation": "Trinkgeld ist kein Bestandteil des Lohns und keine Pflicht."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wer muss in die Erstellung eines Trinkgeldreglements einbezogen werden?",
+    "options": [
+      "Nur der Chef",
+      "Nur die Angestellten",
+      "Die Angestellten und der Chef",
+      "Niemand"
+    ],
+    "correctAnswer": "Die Angestellten und der Chef",
+    "explanation": "Die Angestellten müssen mitreden können, da es ihr Geld ist."
+  },
+  {
+    "id": "tf3",
+    "question": "Ein Angestellter darf Trinkgeld behalten, auch wenn ein Reglement dagegen spricht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Reglement ist bindend."
+  },
+    {
+    "id": "tf4",
+    "question": "Trinkgeld ist in der Schweiz steuerfrei.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Trinkgeld ist in der Schweiz steuerpflichtig."
+  },
+      {
+    "id": "mcq5",
+    "question": "Was sollte in einem Trinkgeldreglement festgehalten werden?",
+    "options": [
+      "Nur die Höhe des Trinkgeldes",
+      "Nur der Verteilschlüssel",
+      "Der Verteilschlüssel und die Verwendung des Trinkgeldes",
+      "Gar nichts"
+    ],
+    "correctAnswer": "Der Verteilschlüssel und die Verwendung des Trinkgeldes",
+    "explanation": "Das Reglement sollte transparent und umfassend sein."
+  },
+        {
+    "id": "tf5",
+    "question": "Wenn kein Reglement existiert, dürfen die Angestellten das Trinkgeld behalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ohne Reglement gehört das Trinkgeld den Angestellten."
+  },
+  {
+    "id": "mcq6",
+    "question": "Dürfen Angestellte Trinkgeld annehmen, wenn der Kunde es ihnen direkt gibt?",
+    "options": [
+      "Ja, immer",
+      "Nein, niemals",
+      "Nur wenn kein Reglement existiert",
+      "Nur mit Erlaubnis des Chefs"
+    ],
+    "correctAnswer": "Nur wenn kein Reglement existiert",
+    "explanation": "Ein Reglement kann die Annahme von direktem Trinkgeld verbieten."
+  },
+    {
+    "id": "tf6",
+    "question": "Trinkgeld ist ein fester Bestandteil des Lohnes in der Gastronomie.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Trinkgeld ist eine freiwillige Zuwendung, kein fester Lohnbestandteil."
+  },
+    {
+    "id": "mcq7",
+    "question": "Was ist der häufigste Grund für das Geben von Trinkgeld?",
+    "options": [
+      "Pflichtgefühl",
+      "Zufriedenheit mit der Leistung",
+      "Mitleid",
+      "Angst vor schlechter Bedienung"
+    ],
+    "correctAnswer": "Zufriedenheit mit der Leistung",
+    "explanation": "Trinkgeld drückt in der Regel Zufriedenheit und Anerkennung aus."
+  },
+    {
+    "id": "tf7",
+    "question": "Der Kunde darf selbst entscheiden, wem er das Trinkgeld gibt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Kunde hat die freie Wahl, wem er Trinkgeld gibt."
+  }
+
+]

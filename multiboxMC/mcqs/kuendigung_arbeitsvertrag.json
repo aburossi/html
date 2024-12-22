@@ -1,0 +1,90 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wann wird eine Kündigung im Arbeitsrecht wirksam?",
+    "options": [
+      "Mit dem Datum des Poststempels.",
+      "Mit dem Datum des Vertragsabschlusses.",
+      "Sobald der Arbeitgeber sie abschickt.",
+      "Sobald der Arbeitnehmer sie liest."
+    ],
+    "correctAnswer": "Sobald der Arbeitnehmer sie liest.",
+    "explanation": "Massgebend ist der Zeitpunkt des Empfangs und der Kenntnisnahme durch den Arbeitnehmer."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Formvorschriften gelten für eine Kündigung im Arbeitsrecht?",
+    "options": [
+      "Sie muss immer schriftlich erfolgen.",
+      "Sie muss immer eingeschrieben versendet werden.",
+      "Es gibt keine gesetzlich vorgeschriebene Form.",
+      "Sie muss vom Arbeitgeber und Arbeitnehmer unterschrieben sein."
+    ],
+    "correctAnswer": "Es gibt keine gesetzlich vorgeschriebene Form.",
+    "explanation": "Mündliche, schriftliche oder elektronische Kündigungen sind möglich, sofern keine anderslautenden Vereinbarungen bestehen."
+  },
+  {
+    "id": "tf1",
+    "question": "Im Mietrecht muss eine Kündigung immer schriftlich erfolgen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Mietrecht ist die Schriftform zwingend vorgeschrieben."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Poststempel ist massgebend für den Beginn der Kündigungsfrist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Empfang der Kündigung durch den Arbeitnehmer ist entscheidend."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was sollte man tun, wenn man eine Kündigung erhält, die man für unrechtmässig hält?",
+    "options": [
+      "Den Arbeitgeber sofort kontaktieren und die Kündigung anfechten.",
+      "Sich rechtlich beraten lassen, z.B. bei einer Gewerkschaft oder einem Anwalt.",
+      "Die Kündigung ignorieren und abwarten.",
+      "Sich an die Medien wenden und den Fall öffentlich machen."
+    ],
+    "correctAnswer": "Sich rechtlich beraten lassen, z.B. bei einer Gewerkschaft oder einem Anwalt.",
+    "explanation": "Professionelle Beratung hilft, die Rechtslage zu klären und die richtigen Schritte einzuleiten."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wie kann man den Empfang einer Kündigung beweisen?",
+    "options": [
+      "Durch Zeugen, schriftliche Kommunikation oder andere Indizien.",
+      "Durch den Poststempel auf dem Briefumschlag.",
+      "Durch die Aussage des Arbeitgebers.",
+      "Es ist nicht möglich, den Empfang einer Kündigung zu beweisen."
+    ],
+    "correctAnswer": "Durch Zeugen, schriftliche Kommunikation oder andere Indizien.",
+    "explanation": "Verschiedene Beweismittel können den Empfang einer Kündigung glaubhaft machen."
+  },
+    {
+    "id": "tf3",
+    "question": "Eine Kündigung per E-Mail ist im Arbeitsrecht grundsätzlich gültig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sofern keine anderslautenden Vereinbarungen bestehen, ist eine Kündigung per E-Mail zulässig."
+  },
+  {
+    "id": "tf4",
+    "question": "Eine Kündigung muss immer vom Arbeitgeber und Arbeitnehmer unterschrieben sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt keine gesetzliche Vorschrift, dass beide Parteien eine Kündigung unterschreiben müssen."
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Auf welche Prüfung bereitet sich Lukas Erne vor?",
+    "options": [
+      "Eidg. dipl. Elektroinstallateur",
+      "Eidg. dipl. Sanitärinstallateur",
+      "Eidg. dipl. Schreiner",
+      "Eidg. dipl. Maler"
+    ],
+    "correctAnswer": "Eidg. dipl. Elektroinstallateur",
+    "explanation": "Im Text wird erwähnt, dass er sich auf die Prüfung zum eidgenössisch diplomierten Elektroinstallateur vorbereitet."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welches Problem diskutiert die Lerngruppe?",
+    "options": [
+      "Kostenübernahme der Arbeitszeit bei Garantiefällen",
+      "Die Höhe des Stundenlohns für Elektroinstallateure",
+      "Die korrekte Installation von Deckenlampen",
+      "Die verschiedenen Arten von Leuchtmitteln"
+    ],
+    "correctAnswer": "Kostenübernahme der Arbeitszeit bei Garantiefällen",
+    "explanation": "Die Lerngruppe diskutiert, wer die Kosten für die Arbeitszeit des Installateurs übernimmt, wenn eine Lampe im Rahmen der Garantie repariert werden muss."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Werk besteht aus mehreren Leistungen, z.B. Material und Arbeit.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Werk ist eine Kombination aus Material und Arbeit, im Gegensatz zu einem Kaufgegenstand, der nur aus dem Gegenstand selbst besteht."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Garantiefrist für ein bewegliches Werk beträgt fünf Jahre.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Garantiefrist für ein bewegliches Werk beträgt zwei Jahre, für ein unbewegliches Werk fünf Jahre."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist ein Beispiel für ein unbewegliches Werk?",
+    "options": [
+      "Fest installierte Deckenlampe",
+      "Ein Tisch",
+      "Eine Kaffeemaschine",
+      "Ein Fahrrad"
+    ],
+    "correctAnswer": "Fest installierte Deckenlampe",
+    "explanation": "Eine fest installierte Deckenlampe ist ein Beispiel für ein unbewegliches Werk, da sie fest mit dem Gebäude verbunden ist."
+  },
+    {
+    "id": "mcq4",
+    "question": "Welche Ansprüche hat ein Kunde während der Garantiezeit bei einem Werkvertrag?",
+    "options": [
+      "Nachbesserung, Preisminderung oder Austausch",
+      "Nur Rückerstattung des Kaufpreises",
+      "Nur Reparatur des defekten Teils",
+      "Kostenlose Ersatzteile, aber keine Arbeitszeit"
+    ],
+    "correctAnswer": "Nachbesserung, Preisminderung oder Austausch",
+    "explanation": "Der Kunde kann Nachbesserung, Preisminderung oder Austausch des Werks verlangen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Kunde muss die Arbeitszeit des Handwerkers bei einer Garantiereparatur bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Arbeitszeit ist im Werkvertrag inbegriffen und muss vom Kunden nicht separat bezahlt werden."
+  },
+    {
+    "id": "mcq5",
+    "question": "Welcher Vertrag regelt die Installation der Deckenlampe?",
+    "options": [
+      "Werkvertrag",
+      "Kaufvertrag",
+      "Mietvertrag",
+      "Leihvertrag"
+    ],
+    "correctAnswer": "Werkvertrag",
+    "explanation": "Da die Installation der Lampe eine Dienstleistung ist, fällt sie unter den Werkvertrag."
+  },
+        {
+    "id": "mcq6",
+    "question": "Wer ist Gabriela Baumgartner?",
+    "options": [
+      "Espresso-Rechtsexpertin",
+      "Elektroinstallateurin",
+      "Moderatorin der Sendung",
+      "Kollegin von Lukas Erne"
+    ],
+    "correctAnswer": "Espresso-Rechtsexpertin",
+    "explanation": "Gabriela Baumgartner wird im Text als Espresso-Rechtsexpertin vorgestellt."
+  },
+        {
+    "id": "tf4",
+    "question": "Lukas Erne wohnt in Klingnau AG.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Text wird erwähnt, dass Lukas Erne aus Klingnau AG kommt."
+  },
+        {
+    "id": "mcq7",
+    "question": "Wie lange hat der Kunde Garantie auf die Deckenlampe?",
+    "options": [
+      "5 Jahre",
+      "2 Jahre",
+      "1 Jahr",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Unbewegliche Werke haben eine Garantiefrist von 5 Jahren."
+  },
+        {
+    "id": "mcq8",
+    "question": "Was ist ein Beispiel für ein bewegliches Werk?",
+    "options": [
+      "Ein massgeschneiderter Tisch",
+      "Ein fest installiertes Fenster",
+      "Ein eingebauter Backofen",
+      "Eine gemauerte Wand"
+    ],
+    "correctAnswer": "Ein massgeschneiderter Tisch",
+    "explanation": "Ein massgeschneiderter Tisch ist beweglich und fällt somit unter die 2-jährige Garantiefrist für bewegliche Werke."
+  },
+        {
+    "id": "tf5",
+    "question": "Bei einem Kaufvertrag muss der Kunde die Arbeitszeit für Reparaturen innerhalb der Garantiezeit bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Beim Kaufvertrag ist nur der Gegenstand selbst von der Garantie abgedeckt, nicht aber die Arbeitszeit für Reparaturen."
+  },
+        {
+    "id": "tf6",
+    "question": "Die Sendung \"Espresso\" hat den Fall von Lukas Erne öffentlich gemacht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Sendung \"Espresso\" hat die Frage des Hörers aufgegriffen und öffentlich diskutiert."
+  }
+]

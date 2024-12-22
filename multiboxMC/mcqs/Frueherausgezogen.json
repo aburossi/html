@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum ist Elisabeth Thoma früher aus ihrer Wohnung ausgezogen?",
+    "options": [
+      "Sie wurde vom Vermieter gekündigt.",
+      "Sie hat eine neue Wohnung gefunden.",
+      "Die Wohnung war von Schimmel befallen.",
+      "Sie konnte sich die Miete nicht mehr leisten."
+    ],
+    "correctAnswer": "Sie hat eine neue Wohnung gefunden.",
+    "explanation": "Im Beitrag wird erwähnt, dass sie bereits am neuen Ort wohnt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was plant der Vermieter mit der Wohnung zu tun?",
+    "options": [
+      "Sie an einen neuen Mieter vermieten.",
+      "Sie renovieren.",
+      "Sie selbst beziehen.",
+      "Sie verkaufen."
+    ],
+    "correctAnswer": "Sie renovieren.",
+    "explanation": "Der Vermieter gibt an, Renovierungsarbeiten durchführen zu wollen."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Vermieter darf die Wohnung renovieren, obwohl Elisabeth Thoma noch Miete zahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin erklärt, dass der Vermieter während der Kündigungsfrist nur Schäden reparieren darf, die der Mieter verursacht hat."
+  },
+  {
+    "id": "tf2",
+    "question": "Elisabeth Thoma kann den zu viel bezahlten Mietzins zurückfordern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie kann sich an die Schlichtungsstelle wenden."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welches Beispiel nennt die Rechtsexpertin für einen Schaden, den der Mieter selbst beheben muss?",
+    "options": [
+      "Riss in der Wand",
+      "Defekter Duschschlauch",
+      "Abgenutzter Fussboden",
+      "Undichte Fenster"
+    ],
+    "correctAnswer": "Defekter Duschschlauch",
+    "explanation": "Die Rechtsexpertin erwähnt den Duschschlauch explizit als Beispiel."
+  },
+  {
+    "id": "mcq4",
+    "question": "An wen kann sich Elisabeth Thoma wenden, um den Mietzins zurückzufordern?",
+    "options": [
+      "An den Mieterverband.",
+      "An die Schlichtungsstelle.",
+      "An das Bezirksgericht.",
+      "An den Vermieter."
+    ],
+    "correctAnswer": "An die Schlichtungsstelle.",
+    "explanation": "Die Rechtsexpertin rät ihr, sich an die Schlichtungsstelle zu wenden."
+  },
+    {
+    "id": "tf3",
+    "question": "Elisabeth Thoma muss die Wohnung renoviert übergeben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie muss die Wohnung lediglich geräumt und geputzt übergeben."
+  },
+    {
+    "id": "mcq5",
+    "question": "Wo findet man weitere Informationen zum Thema Mietrecht?",
+    "options": [
+      "Auf der Website des Mieterverbandes.",
+      "Auf der Website von Kassensturz.",
+      "Auf der Website von SRF Espresso.",
+      "Alle Antworten sind richtig."
+    ],
+    "correctAnswer": "Alle Antworten sind richtig.",
+    "explanation": "Der Beitrag verweist auf den Mieterverband und die SRF Espresso-Website bietet weitere Informationen."
+  }
+]

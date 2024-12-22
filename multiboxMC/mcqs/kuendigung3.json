@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum möchte die Vermieterin der Espresso-Hörerin kündigen?",
+    "options": [
+      "Wegen Eigenbedarf.",
+      "Weil sie das Haus verkaufen will.",
+      "Weil die Mieterin die Miete nicht bezahlt hat.",
+      "Weil die Mieterin die Hausordnung verletzt hat."
+    ],
+    "correctAnswer": "Weil sie das Haus verkaufen will.",
+    "explanation": "Im Beitrag wird explizit erwähnt, dass die Vermieterin das Mehrfamilienhaus verkaufen möchte."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange ist die Kündigungsfrist im Kanton Luzern?",
+    "options": [
+      "Einen Monat.",
+      "Zwei Monate.",
+      "Drei Monate.",
+      "Sechs Monate."
+    ],
+    "correctAnswer": "Drei Monate.",
+    "explanation": "Die Rechtsexpertin nennt im Beitrag eine Kündigungsfrist von drei Monaten für den Kanton Luzern."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Espresso-Hörerin kann ohne Konsequenzen sofort ausziehen, sobald sie eine neue Wohnung gefunden hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Rechtlich gesehen ist sie an die Kündigungsfrist und die Termine gebunden. Ein vorzeitiger Auszug muss mit der Vermieterin abgesprochen werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist ratsam, dass die Mieterin alle ihre Bemühungen für die Wohnungssuche dokumentiert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Dokumentation der Wohnungssuche dient als Beweis für die Schlichtungsbehörde, falls die Mieterin eine Fristverlängerung benötigt."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welchen Vorteil hat die Vermieterin, wenn sie die Mieterin vorzeitig aus dem Vertrag lässt?",
+    "options": [
+      "Sie kann die Wohnung teurer vermieten.",
+      "Sie spart sich den Aufwand der Suche nach einem Nachmieter.",
+      "Sie kann das Haus schneller verkaufen.",
+      "Sie vermeidet ein mögliches Verfahren vor der Schlichtungsbehörde."
+    ],
+    "correctAnswer": "Sie vermeidet ein mögliches Verfahren vor der Schlichtungsbehörde.",
+    "explanation": "Ein Nachmieter könnte die Kündigung anfechten und eine Fristverlängerung verlangen, was für die Vermieterin mit Aufwand und Unsicherheit verbunden wäre."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte die Mieterin der Vermieterin konkret vorschlagen?",
+    "options": [
+      "Eine Mietzinsreduktion.",
+      "Die Übernahme der Maklerkosten.",
+      "Eine verkürzte Kündigungsfrist von einem Monat.",
+      "Die Kostenübernahme für den Umzug."
+    ],
+    "correctAnswer": "Eine verkürzte Kündigungsfrist von einem Monat.",
+    "explanation": "Dies wäre eine faire Lösung für beide Parteien und würde der Mieterin mehr Flexibilität bei der Wohnungssuche geben."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Chancen der Mieterin auf eine Fristverlängerung sind unabhängig von ihrem Alter.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Alter der Mieterin kann ein Argument für eine Fristverlängerung sein, da es für ältere Menschen oft schwieriger ist, eine neue Wohnung zu finden."
+  },
+    {
+    "id": "tf4",
+    "question": "Im Kanton Luzern gibt es fixe Kündigungstermine.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag wird erwähnt, dass es im Kanton Luzern keine fixen Kündigungstermine gibt, im Gegensatz zu Kantonen wie Solothurn."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welches Dokument ist wichtig für die Dokumentation der Wohnungssuche?",
+    "options": [
+      "Der Mietvertrag der alten Wohnung.",
+      "Eine Liste der besichtigten Wohnungen.",
+      "Die Kündigungsbestätigung der alten Wohnung.",
+      "Ein Auszug aus dem Betreibungsregister."
+    ],
+    "correctAnswer": "Eine Liste der besichtigten Wohnungen.",
+    "explanation": "Diese Liste zeigt, dass sich die Mieterin aktiv um eine neue Wohnung bemüht."
+  },
+      {
+    "id": "mcq6",
+    "question": "Wer ist Gabriela Baumgartner?",
+    "options": [
+      "Die Vermieterin der Espresso-Hörerin.",
+      "Eine Mitarbeiterin der Schlichtungsbehörde.",
+      "Eine Rechtsexpertin.",
+      "Die Moderatorin der Sendung Espresso."
+    ],
+    "correctAnswer": "Eine Rechtsexpertin.",
+    "explanation": "Gabriela Baumgartner wird im Beitrag als Rechtsexpertin vorgestellt."
+  },
+{
+    "id": "tf5",
+    "question": "Die Mieterin muss sich an keine Kündigungsfrist halten, wenn die Vermieterin das Haus verkauft.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch beim Verkauf eines Hauses muss die Mieterin die gesetzliche Kündigungsfrist einhalten."
+  },
+{
+    "id": "tf6",
+    "question": "Die Vermieterin ist verpflichtet, der Mieterin bei der Suche nach einer neuen Wohnung zu helfen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Vermieterin hat keine Verpflichtung, der Mieterin bei der Wohnungssuche zu helfen."
+  },
+  {
+    "id": "mcq7",
+    "question": "In welchem Kanton gibt es fixe Kündigungstermine?",
+    "options": [
+      "Luzern",
+      "Zürich",
+      "Bern",
+      "Solothurn"
+    ],
+    "correctAnswer": "Solothurn",
+    "explanation": "Im Beitrag wird Solothurn als Beispiel für einen Kanton mit fixen Kündigungsterminen genannt."
+  },
+    {
+    "id": "mcq8",
+    "question": "Was ist ein wichtiges Argument für eine Fristverlängerung bei der Schlichtungsbehörde?",
+    "options": [
+      "Das hohe Mietzinsniveau.",
+      "Die lange Wohndauer in der Wohnung.",
+      "Das Alter der Mieterin.",
+      "Die Grösse der Wohnung."
+    ],
+    "correctAnswer": "Das Alter der Mieterin.",
+    "explanation": "Für ältere Menschen ist es oft schwieriger, eine neue Wohnung zu finden."
+  }
+]

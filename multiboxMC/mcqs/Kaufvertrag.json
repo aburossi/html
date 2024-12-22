@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was war der ursprüngliche Preis der Musikanlage?",
+    "options": [
+      "1'500 Fr.",
+      "2'000 Fr.",
+      "2'500 Fr.",
+      "3'000 Fr."
+    ],
+    "correctAnswer": "2'000 Fr.",
+    "explanation": "Heinz Krapf und der Verkäufer einigten sich zunächst auf einen Preis von 2'000 Fr."
+  },
+  {
+    "id": "mcq2",
+    "question": "Warum hat der Verkäufer den Preis erhöht?",
+    "options": [
+      "Weil er die Anlage teurer eingekauft hatte.",
+      "Weil er mehr Angebote erhalten hatte.",
+      "Weil die Anlage beschädigt war.",
+      "Weil Heinz Krapf zu spät gezahlt hatte."
+    ],
+    "correctAnswer": "Weil er mehr Angebote erhalten hatte.",
+    "explanation": "Der Verkäufer begründete die Preiserhöhung mit weiteren Kaufinteressenten."
+  },
+  {
+    "id": "tf1",
+    "question": "Mündliche Kaufverträge sind in der Schweiz rechtlich nicht bindend.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Mündliche Kaufverträge sind grundsätzlich gültig, aber schwierig zu beweisen."
+  },
+  {
+    "id": "tf2",
+    "question": "Heinz Krapf kann den Verkäufer auf Schadensersatz verklagen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Er hat Anspruch auf Ersatz der Mehrkosten für eine gleichwertige Anlage."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welchen Rat gibt die Rechtsexpertin?",
+    "options": [
+      "Immer einen schriftlichen Vertrag abschliessen.",
+      "Nach einem Telefongespräch eine Bestätigungsmail schicken.",
+      "Keine Käufe über Online-Plattformen tätigen.",
+      "Sich an den Konsumentenschutz wenden."
+    ],
+    "correctAnswer": "Nach einem Telefongespräch eine Bestätigungsmail schicken.",
+    "explanation": "Eine schriftliche Bestätigung dient als Beweismittel im Streitfall."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte man beim Kauf auf Online-Plattformen beachten?",
+    "options": [
+      "Auf Vorkasse bestehen.",
+      "Persönliche Treffen vereinbaren.",
+      "Nur von gewerblichen Händlern kaufen.",
+      "Auf Bewertungen anderer Käufer achten."
+    ],
+    "correctAnswer": "Persönliche Treffen vereinbaren.",
+    "explanation": "Persönliche Treffen minimieren das Risiko von Betrug."
+  },
+  {
+    "id": "tf3",
+    "question": "Der Verkäufer hat sich korrekt verhalten, da er den besten Preis erzielen wollte.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nach der mündlichen Vereinbarung war er an den Preis gebunden."
+  },
+    {
+    "id": "tf4",
+    "question": "Heinz Krapf hätte die Anlage auch ohne schriftlichen Vertrag abholen können.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Verkäufer hatte die Anlage bereits anderweitig verkauft."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wo fand Heinz Krapf die Musikanlage?",
+    "options": [
+      "In einem Musikgeschäft.",
+      "Auf einer Online-Plattform.",
+      "In einem Auktionshaus.",
+      "Über eine Kleinanzeige."
+    ],
+    "correctAnswer": "Auf einer Online-Plattform.",
+    "explanation": "Der Text erwähnt explizit eine Online-Plattform."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist ein wichtiger Beweis für einen Kaufvertrag?",
+    "options": [
+      "Ein Foto des Produkts.",
+      "Eine schriftliche Bestätigung.",
+      "Ein Zeugenaussage.",
+      "Ein Screenshot der Webseite."
+    ],
+    "correctAnswer": "Eine schriftliche Bestätigung.",
+    "explanation": "Eine schriftliche Bestätigung ist ein eindeutiger Beweis."
+  },
+  {
+    "id": "tf5",
+    "question": "Der Verkäufer muss Heinz Krapf die Anlage zum ursprünglichen Preis verkaufen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da die Anlage bereits verkauft ist, kann er nur Schadensersatz leisten."
+  },
+    {
+    "id": "tf6",
+    "question": "Eine SMS kann als Beweis für einen mündlichen Vertrag dienen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine SMS gilt als schriftlicher Beleg."
+  },
+      {
+    "id": "tf7",
+    "question": "Heinz Krapf sollte unbedingt vor Gericht gehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Kostenrisiko ist hoch, da er den Vertrag nicht beweisen kann."
+  },
+        {
+    "id": "tf8",
+    "question": "Es ist ratsam, bei Online-Käufen eine Anzahlung zu leisten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Anzahlung birgt das Risiko des Verlustes, wenn der Verkäufer unseriös ist."
+  }
+
+]

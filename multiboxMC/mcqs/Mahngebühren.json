@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was hat Herr Mauchli bestellt?",
+    "options": [
+      "Kleider",
+      "Batterien",
+      "Einen Laptop",
+      "Bücher"
+    ],
+    "correctAnswer": "Batterien",
+    "explanation": "Im Beitrag wird erwähnt, dass Herr Mauchli wiederaufladbare Batterien bestellt hat."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie hat der Online-Shop die Rechnung verschickt?",
+    "options": [
+      "Per Post",
+      "Per E-Mail",
+      "Per SMS",
+      "Per Fax"
+    ],
+    "correctAnswer": "Per E-Mail",
+    "explanation": "Es wird explizit erwähnt, dass der Online-Shop Rechnungen per E-Mail verschickt."
+  },
+  {
+    "id": "tf1",
+    "question": "Herr Mauchli hat die Mahngebühren bezahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Herr Mauchli hat die Mahngebühren reklamiert und die Rechtsexpertin bestätigt, dass er sie nicht bezahlen muss."
+  },
+  {
+    "id": "tf2",
+    "question": "Eine Lesebestätigung reicht als Beweis für den Empfang einer E-Mail vor Gericht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Bundesgericht hat entschieden, dass eine Lesebestätigung nicht als Beweis ausreicht."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wer trägt das Risiko, wenn eine E-Mail nicht ankommt?",
+    "options": [
+      "Der Empfänger",
+      "Der Absender",
+      "Der E-Mail-Provider",
+      "Niemand"
+    ],
+    "correctAnswer": "Der Absender",
+    "explanation": "Der Absender trägt das Risiko, dass die E-Mail nicht ankommt, wie im Beitrag erklärt wird."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte man tun, wenn man wichtige Dokumente per E-Mail verschickt?",
+    "options": [
+      "Abwarten",
+      "Eine Lesebestätigung anfordern",
+      "Nachfragen oder sich den Empfang bestätigen lassen",
+      "Den E-Mail-Provider kontaktieren"
+    ],
+    "correctAnswer": "Nachfragen oder sich den Empfang bestätigen lassen",
+    "explanation": "Dies ist die Empfehlung der Rechtsexpertin, um sicherzustellen, dass wichtige E-Mails angekommen sind."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Online-Shop hat einen guten Kundenservice bewiesen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Online-Shop hat direkt Mahngebühren verschickt, ohne die Reklamation des Kunden zu prüfen, was kein guter Kundenservice ist."
+  },
+  {
+    "id": "tf4",
+    "question": "Mahngebühren sind immer gerechtfertigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Mahngebühren sind nur gerechtfertigt, wenn der Kunde die Rechnung auch erhalten hat."
+  },
+  {
+    "id": "mcq5",
+    "question": "In welchem Monat hat Herr Mauchli die Batterien bestellt?",
+    "options": [
+      "Januar",
+      "Februar",
+      "März",
+      "Dezember"
+    ],
+    "correctAnswer": "Dezember",
+    "explanation": "Im Beitrag wird erwähnt, dass die Bestellung im Dezember stattfand."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welcher Sender hat über den Fall berichtet?",
+    "options": [
+      "Kassensturz",
+      "Espresso",
+      "Tagesschau",
+      "10vor10"
+    ],
+    "correctAnswer": "Espresso",
+    "explanation": "Der Beitrag stammt von der Sendung \"Espresso\"."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Lieferun der Batterien hat geklappt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Es wird erwähnt, dass die Lieferung der Batterien tipptopp geklappt hat."
+  },
+    {
+    "id": "tf6",
+    "question": "Herr Mauchli hat zuerst eine Rechnung und dann eine Mahnung erhalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Herr Mauchli hat keine Rechnung, sondern direkt eine Mahnung erhalten."
+  },
+    {
+    "id": "tf7",
+    "question": "Der Online-Shop muss beweisen können, dass Herr Mauchli die Rechnung erhalten hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Online-Shop muss den Empfang der Rechnung beweisen können, um Mahngebühren rechtfertigen zu können."
+  },
+    {
+    "id": "tf8",
+    "question": "Herr Mauchli wohnt in Zürich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Herr Mauchli wohnt in St. Gallen."
+  }
+
+]

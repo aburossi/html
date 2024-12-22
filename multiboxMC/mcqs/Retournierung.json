@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer muss gemäss dem Beitrag die Versandkosten bei einer Retoure in der Regel tragen?",
+    "options": [
+      "Der Online-Shop",
+      "Der Kurierdienst",
+      "Der Kunde/Die Kundin",
+      "Der Hersteller der Ware"
+    ],
+    "correctAnswer": "Der Kunde/Die Kundin",
+    "explanation": "Grundsätzlich trägt der Kunde die Versandkosten, ausser der Shop übernimmt sie freiwillig."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was sind AGB?",
+    "options": [
+      "Allgemeine Geschäftsbedingungen",
+      "Ausführliche Gebührenbestimmungen",
+      "Allgemeine Gebührenbedingungen",
+      "Ausführliche Geschäftsbedingungen"
+    ],
+    "correctAnswer": "Allgemeine Geschäftsbedingungen",
+    "explanation": "AGB steht für Allgemeine Geschäftsbedingungen."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Online-Shop ist gesetzlich verpflichtet, retournierte Ware zurückzunehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Online-Shop ist nicht gesetzlich verpflichtet, Ware zurückzunehmen. Es gibt aber Ausnahmen, z.B. wenn die Ware mangelhaft ist."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn in den AGB nichts zu den Versandkosten steht, muss der Kunde sie nicht übernehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch wenn in den AGB nichts steht, muss der Kunde gemäss Gesetz die Versandkosten tragen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wann gelten AGB bei einer telefonischen Bestellung?",
+    "options": [
+      "Immer",
+      "Nur wenn sie vorgelesen wurden",
+      "Nur wenn der Kunde sie schriftlich bestätigt hat",
+      "Nie"
+    ],
+    "correctAnswer": "Nur wenn der Kunde sie schriftlich bestätigt hat",
+    "explanation": "Bei telefonischen Bestellungen gelten AGB nur, wenn der Kunde sie in einer schriftlichen Bestätigung (z.B. per Mail) akzeptiert hat."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welcher Tipp wird im Beitrag genannt, um die Seriosität eines Online-Shops zu prüfen?",
+    "options": [
+      "Den Kundendienst anrufen",
+      "Die AGB genau studieren",
+      "Den Shop in einer Suchmaschine suchen und Kommentare lesen",
+      "Die Preise mit anderen Shops vergleichen"
+    ],
+    "correctAnswer": "Den Shop in einer Suchmaschine suchen und Kommentare lesen",
+    "explanation": "Kommentare und Bewertungen anderer Kunden können Hinweise auf die Seriosität eines Online-Shops geben."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Hörerin musste die Versandkosten für die Retoure zahlen, weil es so in den AGB des Kostüm-Shops stand.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die AGB des Shops bestimmten, dass die Kundin die Versandkosten trägt."
+  },
+    {
+    "id": "tf4",
+    "question": "Die Espresso-Rechtsexpertinnen finden, dass der Kostüm-Shop die Versandkosten hätte übernehmen müssen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Expertinnen bestätigen, dass der Shop rechtlich korrekt gehandelt hat."
+  },
+        {
+    "id": "tf5",
+    "question": "Man kann als Kunde immer darauf bestehen, dass der Online-Shop die Versandkosten bei einer Retoure übernimmt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Übernahme der Versandkosten ist freiwillig, ausser es wurde vertraglich etwas anderes vereinbart."
+  },
+        {
+    "id": "tf6",
+    "question": "Wenn ein Online-Shop keine AGB hat, muss der Kunde die Versandkosten bei einer Retoure nicht tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch ohne explizite AGB im Shop gelten die gesetzlichen Bestimmungen, wonach der Kunde die Versandkosten trägt."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist ein guter Tipp für sicheres Online-Shopping?",
+    "options": [
+      "Nur bei bekannten Shops bestellen",
+      "AGB immer genau lesen",
+      "Auf Rechnung bestellen",
+      "Alle oben genannten"
+    ],
+    "correctAnswer": "Alle oben genannten",
+    "explanation": "Alle genannten Punkte tragen zur Sicherheit beim Online-Shopping bei."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was bedeutet «kolant» im Zusammenhang mit Retouren?",
+    "options": [
+      "Kulant",
+      "Unfreundlich",
+      "Streng",
+      "Gesetzlich verpflichtet"
+    ],
+    "correctAnswer": "Kulant",
+    "explanation": "«Kolant» bedeutet entgegenkommend und freundlich."
+  },
+        {
+    "id": "mcq7",
+    "question": "In welchem Fall muss ein Online-Shop die Ware immer zurücknehmen?",
+    "options": [
+      "Wenn sie dem Kunden nicht gefällt",
+      "Wenn sie zu teuer ist",
+      "Wenn sie mangelhaft ist",
+      "Wenn der Kunde sie nicht mehr braucht"
+    ],
+    "correctAnswer": "Wenn sie mangelhaft ist",
+    "explanation": "Bei mangelhafter Ware hat der Kunde ein Recht auf Rückgabe oder Umtausch."
+  },
+{
+    "id": "mcq8",
+    "question": "Wer hat im Beitrag die Rechtslage erklärt?",
+    "options": [
+      "Die Moderatorin",
+      "Die Hörerin",
+      "Eine Rechtsexpertin",
+      "Ein Mitarbeiter des Kostüm-Shops"
+    ],
+    "correctAnswer": "Eine Rechtsexpertin",
+    "explanation": "Die Rechtsexpertinnen Gabriela Baumgartner und Raffaella Reichlin gaben Auskunft zur Rechtslage."
+  }
+]

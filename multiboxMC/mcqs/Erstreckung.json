@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum müssen die Mieter der Zughaushäuser in Zürich ausziehen?",
+    "options": [
+      "Wegen Eigenbedarf des Vermieters",
+      "Wegen Mietrückständen",
+      "Wegen einer Totalsanierung",
+      "Wegen Lärmbelästigung"
+    ],
+    "correctAnswer": "Wegen einer Totalsanierung",
+    "explanation": "Im Beitrag wird erwähnt, dass die Zughaushäuser einer Totalsanierung unterzogen werden."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist eine \"Erstreckung\" im Mietrecht?",
+    "options": [
+      "Eine Mieterhöhung",
+      "Eine Mietminderung",
+      "Eine verlängerte Kündigungsfrist",
+      "Eine Kautionsrückzahlung"
+    ],
+    "correctAnswer": "Eine verlängerte Kündigungsfrist",
+    "explanation": "Die Erstreckung ermöglicht es Mietern, länger in der Wohnung zu bleiben, als in der Kündigung angegeben."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Mieter der Zughaushäuser haben ein Jahr Zeit, um auszuziehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Mieter haben bis Ende März Zeit, also weniger als ein Jahr."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist wichtig, dass Mieter nach Erhalt einer Kündigung sofort mit der Wohnungssuche beginnen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die aktive Wohnungssuche ist ein wichtiges Kriterium für die Gewährung einer Erstreckung."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wer entscheidet über die Gewährung einer Erstreckung?",
+    "options": [
+      "Der Vermieter",
+      "Der Mieterverband",
+      "Die Schlichtungsbehörde",
+      "Das Bundesgericht"
+    ],
+    "correctAnswer": "Die Schlichtungsbehörde",
+    "explanation": "Die Schlichtungsbehörde prüft die Härtefallgründe des Mieters und entscheidet über die Erstreckung."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welcher Faktor spielt KEINE Rolle bei der Entscheidung über eine Erstreckung?",
+    "options": [
+      "Alter des Mieters",
+      "Einkommen des Mieters",
+      "Anzahl der Kinder",
+      "Grösse der Wohnung"
+    ],
+    "correctAnswer": "Grösse der Wohnung",
+    "explanation": "Die Grösse der Wohnung ist nicht relevant für die Härtefallprüfung."
+  },
+    {
+    "id": "mcq5",
+    "question": "Wie lange kann eine Erstreckung maximal dauern?",
+    "options": [
+      "1 Jahr",
+      "2 Jahre",
+      "3 Jahre",
+      "4 Jahre"
+    ],
+    "correctAnswer": "4 Jahre",
+    "explanation": "Laut Gesetz kann eine Erstreckung maximal vier Jahre dauern."
+  },
+    {
+    "id": "tf3",
+    "question": "Eine lange Kündigungsfrist wirkt sich negativ auf die Chancen einer Erstreckung aus.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Schlichtungsbehörde rechnet die lange Kündigungsfrist an die Erstreckung an."
+  }
+]

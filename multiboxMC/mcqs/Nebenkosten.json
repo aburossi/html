@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "In welchem Kanton wohnt der Mieter, der die hohe Nebenkostenabrechnung erhalten hat?",
+    "options": [
+      "Zürich",
+      "Bern",
+      "Basel",
+      "Luzern"
+    ],
+    "correctAnswer": "Bern",
+    "explanation": "Der Mieter wohnt in Uetendorf im Kanton Bern."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie hoch ist der Gesamtbetrag, den der Vermieter nachfordert?",
+    "options": [
+      "12'435 Franken",
+      "14'435 Franken",
+      "16'435 Franken",
+      "18'435 Franken"
+    ],
+    "correctAnswer": "16'435 Franken",
+    "explanation": "Der Vermieter fordert 16'435 Franken nach."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Mieter muss die nachgeforderten Nebenkosten bezahlen, da sie noch nicht verjährt sind.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Obwohl die Forderung noch nicht verjährt ist, ist sie gemäss der Expertin unverhältnismässig hoch und sollte angefochten werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Vermieter hat gegen das Gesetz verstossen, indem er jahrelang keine Nebenkostenabrechnung erstellt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Vermieter ist gesetzlich verpflichtet, jährlich eine Nebenkostenabrechnung zu erstellen."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welchen monatlichen Betrag hat der Mieter an Nebenkosten bezahlt?",
+    "options": [
+      "20 Franken",
+      "30 Franken",
+      "40 Franken",
+      "50 Franken"
+    ],
+    "correctAnswer": "50 Franken",
+    "explanation": "Der Mieter zahlte monatlich 50 Franken Akonto an Nebenkosten."
+  },
+  {
+    "id": "mcq4",
+    "question": "An wen sollte sich der Mieter wenden, um die Nebenkostenabrechnung überprüfen zu lassen?",
+    "options": [
+      "An den Vermieter",
+      "An die Polizei",
+      "An die Mietschlichtungsstelle",
+      "An das Bundesgericht"
+    ],
+    "correctAnswer": "An die Mietschlichtungsstelle",
+    "explanation": "Die Mietschlichtungsstelle ist die richtige Anlaufstelle für Mietstreitigkeiten."
+  },
+      {
+    "id": "tf3",
+    "question": "Reparaturkosten für Haushaltsgeräte wie eine Waschmaschine dürfen in die Nebenkostenabrechnung aufgenommen werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Reparaturkosten für Haushaltsgeräte sind Sache des Vermieters und dürfen nicht auf die Mieter abgewälzt werden."
+  },
+  {
+    "id": "tf4",
+    "question": "Mieter haben das Recht, die Originalbelege der Nebenkostenabrechnung einzusehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Mieter haben das Recht, die Belege zur Überprüfung der Nebenkostenabrechnung einzusehen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist gemäss Gabriela Baumgartner bei 'Akontozahlungen' für Nebenkosten wichtig?",
+    "options": [
+      "Sie müssen genau den tatsächlichen Kosten entsprechen.",
+      "Sie müssen so angesetzt sein, dass keine grossen Nachzahlungen entstehen.",
+      "Sie können beliebig vom Vermieter festgelegt werden.",
+      "Sie müssen jährlich angepasst werden."
+    ],
+    "correctAnswer": "Sie müssen so angesetzt sein, dass keine grossen Nachzahlungen entstehen.",
+    "explanation": "Akontozahlungen sollen die zu erwartenden Kosten decken und böse Überraschungen vermeiden."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welches Dokument erwähnt Gabriela Baumgartner als hilfreiche Informationsquelle zum Thema Nebenkosten?",
+    "options": [
+      "Ein Merkblatt des Hauseigentümerverbandes",
+      "Ein Merkblatt des Mieterinnen- und Mieterverbandes",
+      "Das Schweizerische Zivilgesetzbuch",
+      "Das Obligationenrecht"
+    ],
+    "correctAnswer": "Ein Merkblatt des Mieterinnen- und Mieterverbandes",
+    "explanation": "Das Merkblatt des Mieterinnen- und Mieterverbandes bietet Informationen zu Nebenkosten."
+  },
+          {
+    "id": "tf5",
+    "question": "Die Nebenkostenforderung im geschilderten Fall ist verjährt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Forderung ist noch nicht verjährt, da sie innerhalb der 5-Jahres-Frist liegt."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Mieter hat im geschilderten Fall die Möglichkeit, die Nebenkostenabrechnung von der Mietschlichtungsstelle überprüfen zu lassen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Mietschlichtungsstelle kann die Nebenkostenabrechnung überprüfen und im Streitfall vermitteln."
+  },
+{
+    "id": "tf7",
+    "question": "Gemäss Expertin ist es zulässig, dass Vermieter die Nebenkosten fünfmal höher ansetzen als die monatlichen Akontozahlungen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Expertin kritisiert, dass die Nebenkosten im vorliegenden Fall fünfmal höher sind als die Akontozahlungen und als unverhältnismässig hoch bezeichnet."
+  },
+{
+    "id": "tf8",
+    "question": "Liegenschaftssteuern dürfen in die Nebenkostenabrechnung aufgenommen werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Liegenschaftssteuern dürfen nicht auf die Mieter abgewälzt werden."
+  }
+
+]

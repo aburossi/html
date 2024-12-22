@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist das zentrale Thema des Radiobeitrags?",
+    "options": [
+      "Die Bedeutung von Online-Bewertungen",
+      "Die Verbindlichkeit von Preisen in der Werbung",
+      "Die Vorteile des Online-Shoppings",
+      "Die Gefahren von Fake-Shops"
+    ],
+    "correctAnswer": "Die Verbindlichkeit von Preisen in der Werbung",
+    "explanation": "Der Beitrag handelt von einem Fall, bei dem der Preis in einem Prospekt nicht mit dem Online-Preis übereinstimmte."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welches Produkt wollte Margrit Müller kaufen?",
+    "options": [
+      "Einen Blazer",
+      "Ein Kleid",
+      "Einen Kittel",
+      "Eine Hose"
+    ],
+    "correctAnswer": "Einen Kittel",
+    "explanation": "Im Beitrag wird explizit von einem Kittel gesprochen."
+  },
+  {
+    "id": "tf1",
+    "question": "Margrit Müller konnte den Kittel zum günstigeren Preis kaufen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Händler verlangte den höheren Preis, da der Preis im Prospekt nicht verbindlich war."
+  },
+  {
+    "id": "tf2",
+    "question": "Preise in Werbeprospekten sind in der Schweiz rechtlich verbindlich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Preise in der Werbung sind nicht verbindlich, wie im Beitrag erklärt wird."
+  },
+  {
+    "id": "mcq3",
+    "question": "In welchen Fällen haben Konsumenten in der Schweiz ein Widerrufsrecht?",
+    "options": [
+      "Bei Käufen im Laden",
+      "Bei Online-Bestellungen",
+      "Bei Verträgen an Werbeveranstaltungen",
+      "Immer"
+    ],
+    "correctAnswer": "Bei Verträgen an Werbeveranstaltungen",
+    "explanation": "Das Widerrufsrecht besteht bei Verträgen, die ausserhalb von Geschäftsräumen abgeschlossen werden, z.B. auf der Strasse, am Telefon oder an Werbeveranstaltungen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte man tun, wenn man einen Artikel online bestellt und der Preis auf der Rechnung höher ist als in der Werbung?",
+    "options": [
+      "Den Artikel sofort zurückschicken",
+      "Die Allgemeinen Geschäftsbedingungen des Händlers prüfen",
+      "Den Händler kontaktieren und den günstigeren Preis verlangen",
+      "Nichts tun, da man den höheren Preis zahlen muss"
+    ],
+    "correctAnswer": "Die Allgemeinen Geschäftsbedingungen des Händlers prüfen",
+    "explanation": "Es ist wichtig zu prüfen, ob ein Widerrufsrecht besteht und wie die Rückgabebedingungen des Händlers sind."
+  },
+    {
+    "id": "tf3",
+    "question": "Margrit Müller hat den Kittel online bestellt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie wollte den Kittel online bestellen, hat es aber aufgrund des höheren Preises nicht getan."
+  },
+  {
+    "id": "tf4",
+    "question": "Der Beitrag rät dazu, Preise in Prospekten immer zu überprüfen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag betont, dass Preise in der Werbung nicht immer korrekt sind und man sie vor dem Kauf überprüfen sollte."
+  },
+  {
+    "id": "mcq5",
+    "question": "Wo hat Margrit Müller den Flyer mit dem Angebot gefunden?",
+    "options": [
+      "Im Laden",
+      "Im Internet",
+      "In ihrem Briefkasten",
+      "Von einer Freundin"
+    ],
+    "correctAnswer": "In ihrem Briefkasten",
+    "explanation": "Der Beitrag erwähnt, dass sie den Flyer in ihrem Briefkasten gefunden hat."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wie hoch war die Preisdifferenz zwischen Prospekt und Online-Shop?",
+    "options": [
+      "50 Franken",
+      "100 Franken",
+      "150 Franken",
+      "200 Franken"
+    ],
+    "correctAnswer": "100 Franken",
+    "explanation": "Der Kittel kostete im Prospekt 139 Franken und online 239 Franken."
+  },
+  {
+    "id": "tf5",
+    "question": "Margrit Müller hat beim Händler angerufen, um sich über den Preis zu erkundigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie hat beim Händler angerufen und erfahren, dass der Preis im Prospekt ein Fehler war."
+  },
+  {
+    "id": "tf6",
+    "question": "Zalando wird im Beitrag als Beispiel für ein Unternehmen genannt, das kein Rückgaberecht gewährt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Zalando wird als Beispiel für ein Unternehmen genannt, das ein Rückgaberecht gewährt."
+  },
+        {
+    "id": "tf7",
+    "question": "Der Beitrag wurde in der Sendung \"Kassensturz\" ausgestrahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Beitrag wurde in der Sendung \"Espresso\" ausgestrahlt."
+  },
+  {
+    "id": "tf8",
+    "question": "Gemäss Beitrag haben Konsumenten in der Schweiz nur in bestimmten Fällen ein Widerrufsrecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag erklärt, dass ein Widerrufsrecht nur in bestimmten Fällen besteht, z.B. bei Verträgen, die ausserhalb von Geschäftsräumen abgeschlossen wurden."
+  }
+]

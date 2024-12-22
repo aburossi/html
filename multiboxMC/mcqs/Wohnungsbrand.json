@@ -1,0 +1,80 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist das zentrale Thema des Radiobeitrags?",
+    "options": [
+      "Die Pflicht des Mieters zur Brandverhütung",
+      "Die Mietzinsreduktion bei unbewohnbarer Wohnung nach einem Brand",
+      "Die Haftung des Vermieters bei Brandschäden",
+      "Der Ablauf eines Versicherungsfalls nach einem Wohnungsbrand"
+    ],
+    "correctAnswer": "Die Mietzinsreduktion bei unbewohnbarer Wohnung nach einem Brand",
+    "explanation": "Der Beitrag dreht sich um die Frage, ob und in welcher Höhe der Vermieter dem Mieter eine Mietzinsreduktion gewähren muss, wenn die Wohnung nach einem Brand unbewohnbar ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Forderung stellt der Mieter im geschilderten Fall?",
+    "options": [
+      "Eine Entschädigung für den Verlust seines Hausrats",
+      "Eine Mietzinsreduktion von 50%",
+      "Die Stellung einer Ersatzwohnung",
+      "Eine Mietzinsreduktion von 100%"
+    ],
+    "correctAnswer": "Eine Mietzinsreduktion von 100%",
+    "explanation": "Der Mieter verlangt eine vollständige Mietzinsreduktion, da er die Wohnung aufgrund des Brandes nicht bewohnen kann."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Vermieter muss dem Mieter in jedem Fall eine Mietzinsreduktion gewähren, wenn es in der Wohnung brennt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Mietzinsreduktion ist nur dann gerechtfertigt, wenn die Wohnung durch den Brand unbewohnbar geworden ist oder die Nutzung erheblich eingeschränkt ist."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn der Mieter den Brand verursacht hat, hat er keinen Anspruch auf eine Mietzinsreduktion.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch wenn der Mieter den Brand verursacht hat, hat er grundsätzlich Anspruch auf eine Mietzinsreduktion, wenn die Wohnung unbewohnbar ist. Der Vermieter kann jedoch Schadensersatz verlangen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist die rechtliche Grundlage für die Mietzinsreduktion?",
+    "options": [
+      "Das Obligationenrecht",
+      "Das Mietrecht",
+      "Das Strafgesetzbuch",
+      "Das Versicherungsgesetz"
+    ],
+    "correctAnswer": "Das Mietrecht",
+    "explanation": "Das Mietrecht regelt die Rechte und Pflichten von Mieter und Vermieter, einschliesslich der Mietzinsreduktion bei Mängeln an der Mietsache."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welcher Faktor spielt KEINE Rolle bei der Bemessung der Mietzinsreduktion?",
+    "options": [
+      "Die Dauer der Unbewohnbarkeit",
+      "Der Grad der Beeinträchtigung der Wohnqualität",
+      "Die Ursache des Brandes",
+      "Die Verfügbarkeit von Keller, Waschküche und Parkplatz"
+    ],
+    "correctAnswer": "Die Verfügbarkeit von Keller, Waschküche und Parkplatz",
+    "explanation": "Die Verfügbarkeit von Nebenräumen ist irrelevant, wenn die Wohnung selbst unbewohnbar ist."
+  },
+    {
+    "id": "tf3",
+    "question": "Wenn die Wohnung komplett zerstört ist, erlischt der Mietvertrag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Kann der Vermieter seine Pflicht zur Bereitstellung der Wohnung nicht mehr erfüllen, erlischt der Mietvertrag."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Worum geht es im Beitrag?",
+    "options": [
+      "Um die Bekämpfung von Mäusen",
+      "Um die Kosten einer Schädlingsbekämpfung",
+      "Um einen Wasserschaden in einer Wohnung",
+      "Um die Kündigung eines Mietvertrags"
+    ],
+    "correctAnswer": "Um die Kosten einer Schädlingsbekämpfung",
+    "explanation": "Im Beitrag wird der Fall einer Hörerin diskutiert, die die Rechnung eines Schädlingsbekämpfers für zu hoch hält."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welchen Betrag verlangte der Schädlingsbekämpfer?",
+    "options": [
+      "420 Franken",
+      "520 Franken",
+      "620 Franken",
+      "720 Franken"
+    ],
+    "correctAnswer": "620 Franken",
+    "explanation": "Der Schädlingsbekämpfer stellte 620 Franken in Rechnung."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Hörerin war mit der Höhe der Rechnung einverstanden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hörerin fand die Rechnung zu hoch, da der Aufwand geringer war als erwartet."
+  },
+  {
+    "id": "tf2",
+    "question": "Pauschalofferten sind rechtlich bindend.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Auch wenn der Aufwand geringer ausfällt als erwartet, sind Pauschalofferten verbindlich."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was wurde an der Offerte kritisiert?",
+    "options": [
+      "Sie war zu kurz.",
+      "Sie war nicht detailliert genug.",
+      "Sie enthielt keine Preise.",
+      "Sie war handschriftlich verfasst."
+    ],
+    "correctAnswer": "Sie war nicht detailliert genug.",
+    "explanation": "Die Offerte enthielt keine detaillierte Aufschlüsselung der Kosten und basierte nicht auf einer Besichtigung der Wohnung."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Möglichkeiten hat die Hörerin?",
+    "options": [
+      "Sie kann die Rechnung einfach ignorieren.",
+      "Sie kann ein Gerichtsverfahren anstreben.",
+      "Sie kann den Schädlingsbekämpfer anzeigen.",
+      "Sie kann eine neue Offerte verlangen."
+    ],
+    "correctAnswer": "Sie kann ein Gerichtsverfahren anstreben.",
+    "explanation": "Die Hörerin kann die Rechnung bestreiten und ein Gerichtsverfahren anstreben oder versuchen, einen Kompromiss mit dem Handwerker zu finden."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Schädlingsbekämpfer hat die Wohnung vor der Offerterstellung besichtigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Schädlingsbekämpfer hat die Wohnung nicht besichtigt."
+  },
+    {
+    "id": "tf4",
+    "question": "Die Rechtsexpertin rät der Hörerin, die Rechnung zu bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin gibt der Hörerin verschiedene Handlungsoptionen, darunter auch die Möglichkeit, die Rechnung zu bestreiten."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welches Tier verursachte die Probleme?",
+    "options": [
+      "Silberfische",
+      "Mäuse",
+      "Kakerlaken",
+      "Ameisen"
+    ],
+    "correctAnswer": "Silberfische",
+    "explanation": "Im Beitrag geht es um Silberfische."
+  },
+        {
+    "id": "mcq6",
+    "question": "In welchem Kanton wohnt die Hörerin?",
+    "options": [
+      "Bern",
+      "Zürich",
+      "Aargau",
+      "Basel"
+    ],
+    "correctAnswer": "Zürich",
+    "explanation": "Die Hörerin wohnt im Kanton Zürich."
+  },
+          {
+    "id": "tf5",
+    "question": "Nur die Wohnung der Hörerin war betroffen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der ganze Block war von Silberfischen betroffen."
+  },
+          {
+    "id": "tf6",
+    "question": "Der Kammerjäger hat 5% Rabatt angeboten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Kammerjäger bot 5% Rabatt an."
+  },
+            {
+    "id": "tf7",
+    "question": "Die Hörerin hat sich vor der Behandlung eine Offerte erstellen lassen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Stockwerkeigentümerschaft hat sich vor der Behandlung eine Offerte erstellen lassen."
+  },
+              {
+    "id": "tf8",
+    "question": "Der Handwerker war länger in der Wohnung als erwartet.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Handwerker war kürzer in der Wohnung als erwartet."
+  }
+]

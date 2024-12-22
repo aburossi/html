@@ -1,0 +1,159 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was war das Problem mit Willi Bollingers Radio?",
+    "options": [
+      "Es funktionierte von Anfang an nicht.",
+      "Es stellte nach einigen Monaten immer wieder ab.",
+      "Es wurde gestohlen.",
+      "Es fing Feuer."
+    ],
+    "correctAnswer": "Es stellte nach einigen Monaten immer wieder ab.",
+    "explanation": "Im Beitrag wird erwähnt, dass das Radio nach einigen Monaten 'anfing zu spinnen' und schliesslich ganz ausfiel."
+  },
+  {
+    "id": "mcq2",
+    "question": "Warum verweigerte der Laden die Reparatur des Radios?",
+    "options": [
+      "Weil der Schaden selbstverschuldet war.",
+      "Weil keine Ersatzteile mehr verfügbar waren.",
+      "Weil die Garantie abgelaufen war.",
+      "Weil Willi Bollinger unfreundlich war."
+    ],
+    "correctAnswer": "Weil die Garantie abgelaufen war.",
+    "explanation": "Der Laden argumentierte, dass die Garantie abgelaufen sei und deshalb keine Reparaturpflicht mehr bestehe."
+  },
+  {
+    "id": "tf1",
+    "question": "Nach Ablauf der Garantie hat man keinen Anspruch mehr auf Reparatur oder Ersatz.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin bestätigt, dass nach Ablauf der Garantie kein Anspruch mehr besteht, ausser auf Kulanz."
+  },
+  {
+    "id": "tf2",
+    "question": "Eine Betreibung verlängert die Garantiefrist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine Betreibung unterbricht die Garantiefrist und lässt sie anschliessend neu beginnen."
+  },
+    {
+    "id": "mcq3",
+    "question": "Was sollte man gemäss Beitrag sofort tun, wenn man einen Mangel an einem gekauften Produkt feststellt?",
+    "options": [
+      "Den Hersteller kontaktieren.",
+      "Das Produkt weiter benutzen.",
+      "Reklamieren.",
+      "Ein Gutachten erstellen lassen."
+    ],
+    "correctAnswer": "Reklamieren.",
+    "explanation": "Es wird betont, dass man sofort reklamieren soll, um die Garantierechte nicht zu verlieren."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche zwei Möglichkeiten gibt es, die Garantiefrist bei längeren Reparaturen zu verlängern?",
+    "options": [
+      "Eine schriftliche Bestätigung des Händlers einholen oder den Händler betreiben.",
+      "Den Hersteller direkt kontaktieren oder eine Online-Petition starten.",
+      "Das Produkt im Laden zurückgeben oder einen Anwalt einschalten.",
+      "Abwarten und Tee trinken oder den Händler auf Facebook anschwärzen."
+    ],
+    "correctAnswer": "Eine schriftliche Bestätigung des Händlers einholen oder den Händler betreiben.",
+    "explanation": "Diese beiden Optionen werden im Beitrag explizit genannt."
+  },
+        {
+    "id": "tf3",
+    "question": "Man sollte immer sofort reklamieren, wenn man mit einem Produkt unzufrieden ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin rät, sofort zu reklamieren, um die Garantierechte zu wahren."
+  },
+  {
+    "id": "tf4",
+    "question": "Eine Betreibung ist in jedem Fall die beste Lösung bei Garantieproblemen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Betreibung ist nur bei teuren Produkten oder komplexen Streitfällen sinnvoll."
+  },
+{
+    "id": "mcq5",
+    "question": "Welche Art von Gerät hatte Willi Bollinger gekauft?",
+    "options": [
+      "Einen Fernseher",
+      "Ein Radio",
+      "Eine Waschmaschine",
+      "Einen Kühlschrank"
+    ],
+    "correctAnswer": "Ein Radio",
+    "explanation": "Im Beitrag wird explizit von einem Radio gesprochen."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was bedeutet 'Kulanz' in diesem Zusammenhang?",
+    "options": [
+      "Eine freiwillige Leistung des Händlers.",
+      "Eine gesetzliche Verpflichtung des Händlers.",
+      "Ein Rechtsanspruch des Kunden.",
+      "Eine Verhandlungsstrategie."
+    ],
+    "correctAnswer": "Eine freiwillige Leistung des Händlers.",
+    "explanation": "Kulanz bedeutet, dass der Händler aus freien Stücken eine Leistung erbringt, zu der er nicht verpflichtet ist."
+  },
+ {
+    "id": "tf5",
+    "question": "Die Garantiefrist läuft während der Reparatur weiter.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin erklärt, dass die Garantiefrist während der Reparatur weiterläuft, was zu Problemen führen kann."
+  },
+  {
+    "id": "tf6",
+    "question": "Willi Bollinger hat sofort reklamiert, als das Radio anfing zu spinnen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Aus dem Beitrag geht hervor, dass Willi Bollinger erst reklamierte, als das Radio ganz kaputt war."
+  },
+ {
+    "id": "mcq7",
+    "question": "Bei wem kann man sich über Garantiefragen informieren?",
+    "options": [
+      "Beim Bundesamt für Gesundheit",
+      "Beim Staatssekretariat für Wirtschaft",
+      "Bei der SRF-Sendung Espresso",
+      "Beim Schweizerischen Gewerbeverband"
+    ],
+    "correctAnswer": "Bei der SRF-Sendung Espresso",
+    "explanation": "Am Ende des Beitrags wird auf weitere Informationen bei SRF Espresso verwiesen."
+  },
+  {
+    "id": "mcq8",
+    "question": "Was ist der wichtigste Tipp im Zusammenhang mit Garantiefällen?",
+    "options": [
+      "Immer einen Anwalt konsultieren.",
+      "Sofort reklamieren.",
+      "Das Produkt im Internet bewerten.",
+      "Den Händler öffentlich anprangern."
+    ],
+    "correctAnswer": "Sofort reklamieren.",
+    "explanation": "Der Beitrag betont mehrmals die Wichtigkeit einer sofortigen Reklamation."
+  }
+
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist das zentrale Thema des Radiobeitrags?",
+    "options": [
+      "Die Kosten für ein Altersheimzimmer",
+      "Der Umgang mit einer verschuldeten Erbschaft",
+      "Die Organisation einer Beerdigung",
+      "Die Bedeutung eines Testaments"
+    ],
+    "correctAnswer": "Der Umgang mit einer verschuldeten Erbschaft",
+    "explanation": "Im Beitrag geht es darum, wie man als Angehöriger mit einem Nachlass umgeht, wenn Schulden vorhanden sind."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was darf man tun, wenn man eine Erbschaft verwaltet, aber nicht annehmen möchte?",
+    "options": [
+      "Wertgegenstände verkaufen, um die Schulden zu begleichen",
+      "Die Wohnung kündigen oder das Zimmer im Altersheim räumen",
+      "Sich die besten Möbelstücke aussuchen und behalten",
+      "Das Geld vom Konto des Verstorbenen abheben"
+    ],
+    "correctAnswer": "Die Wohnung kündigen oder das Zimmer im Altersheim räumen",
+    "explanation": "Diese Handlungen dienen der Erhaltung des Werts der Erbschaft und gelten als Verwaltung."
+  },
+  {
+    "id": "tf1",
+    "question": "Man darf unter keinen Umständen etwas aus dem Nachlass eines Verstorbenen entsorgen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Wertlose Gegenstände dürfen entsorgt werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein öffentliches Inventar kann helfen, den Wert einer Erbschaft zu bestimmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein öffentliches Inventar ist eine amtliche Bestandsaufnahme des Nachlasses."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wer bezahlt die Kosten für ein öffentliches Inventar?",
+    "options": [
+      "Das Altersheim",
+      "Der Staat",
+      "Die Erben",
+      "Die Gläubiger"
+    ],
+    "correctAnswer": "Die Erben",
+    "explanation": "Die Kosten für ein öffentliches Inventar müssen von den Erben getragen werden."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Beispiel für eine 'Verwaltungshandlung' wird im Beitrag genannt?",
+    "options": [
+      "Das Verschenken von Schmuck",
+      "Das Bezahlen von offenen Rechnungen des Verstorbenen",
+      "Der Verkauf eines wertvollen Gemäldes",
+      "Das Behalten von Erinnerungsstücken"
+    ],
+    "correctAnswer": "Das Bezahlen von offenen Rechnungen des Verstorbenen",
+    "explanation": "Dies dient der Erhaltung des Werts der Erbschaft und gilt als Verwaltung."
+  },
+  {
+    "id": "tf3",
+    "question": "Wenn man Wertgegenstände aus dem Nachlass behält, kann man die Erbschaft immer noch ausschlagen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Behalten von Wertgegenständen gilt als Einmischung in die Erbschaft und verhindert die Ausschlagung."
+  },
+  {
+    "id": "tf4",
+    "question": "Stefan Auer hat sich bei der Redaktion gemeldet, weil er nicht wusste, wie er das Zimmer seiner verstorbenen Mutter im Altersheim räumen sollte, ohne die Erbschaft anzunehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Genau diese Frage hat der Hörer Stefan Auer gestellt."
+  },
+    {
+    "id": "mcq5",
+    "question": "Was ist der erste Schritt, den Angehörige tun sollten, wenn sie ein Zimmer im Altersheim räumen müssen?",
+    "options": [
+      "Alle Wertgegenstände an sich nehmen",
+      "Die Möbel entsorgen",
+      "Ein Inventar erstellen und Fotos machen",
+      "Das Zimmer so schnell wie möglich leeren"
+    ],
+    "correctAnswer": "Ein Inventar erstellen und Fotos machen",
+    "explanation": "So kann man später nachweisen, was sich im Zimmer befand."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was raten Experten den Angehörigen in einer solchen Situation?",
+    "options": [
+      "Sofort einen Anwalt kontaktieren",
+      "Die Erbschaft ausschlagen",
+      "Sich beraten lassen und selbst einen Überblick verschaffen",
+      "Alle Wertgegenstände verkaufen"
+    ],
+    "correctAnswer": "Sich beraten lassen und selbst einen Überblick verschaffen",
+    "explanation": "So kann man eine fundierte Entscheidung über die Annahme oder Ausschlagung der Erbschaft treffen."
+  },
+  {
+    "id": "tf5",
+    "question": "Das Räumen eines Zimmers im Altersheim gilt immer als Annahme der Erbschaft.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Räumen an sich ist erlaubt, solange man die Gegenstände nur verwaltet und nicht an sich nimmt."
+  },
+  {
+    "id": "tf6",
+    "question": "Angehörige dürfen die Erbschaft ausschlagen, auch wenn sie bereits mit dem Räumen des Zimmers begonnen haben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Solange sie die Gegenstände nur verwalten und nicht an sich nehmen, ist die Ausschlagung noch möglich."
+  },
+        {
+    "id": "mcq7",
+    "question": "Wo findet man weitere Informationen zum Thema Erbrecht?",
+    "options": [
+      "Im Altersheim",
+      "Beim Anwalt",
+      "Auf der Website von SRF Espresso",
+      "Im Testament des Verstorbenen"
+    ],
+    "correctAnswer": "Auf der Website von SRF Espresso",
+    "explanation": "Dort hat die Redaktion die Informationen zum Thema zusammengefasst."
+  },
+  {
+    "id": "mcq8",
+    "question": "Welcher Begriff wird im Beitrag für das 'An-sich-nehmen' von Erbschaftsgegenständen verwendet?",
+    "options": [
+      "Verwalten",
+      "Sich aneignen",
+      "Entsorgen",
+      "Inventarisieren"
+    ],
+    "correctAnswer": "Sich aneignen",
+    "explanation": "Dieser juristische Begriff beschreibt das Verhalten, das die Ausschlagung der Erbschaft verhindert."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer haftet, wenn jemand auf einem Privatgrundstück wegen Schneeglätte stürzt?",
+    "options": [
+      "Der Passant",
+      "Die Gemeinde",
+      "Der Hauseigentümer",
+      "Niemand"
+    ],
+    "correctAnswer": "Der Hauseigentümer",
+    "explanation": "Der Hauseigentümer ist für die Sicherheit auf seinem Grundstück verantwortlich."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was müssen Hauseigentümer im Winter tun?",
+    "options": [
+      "Rund um die Uhr Schnee räumen",
+      "Den Zugang zum Haus zwischen 7:00 und 21:00 Uhr gefahrlos ermöglichen",
+      "Nur bei schönem Wetter Schnee räumen",
+      "Gar nichts tun"
+    ],
+    "correctAnswer": "Den Zugang zum Haus zwischen 7:00 und 21:00 Uhr gefahrlos ermöglichen",
+    "explanation": "Der Zugang muss tagsüber gefahrlos sein, nicht rund um die Uhr."
+  },
+  {
+    "id": "tf1",
+    "question": "Warnschilder reichen aus, um die Gefahr von Dachlawinen abzuwenden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der gefährdete Bereich muss abgesperrt werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Hauseigentümer müssen auch im Winter für die Sicherheit auf ihrem Grundstück sorgen, wenn sie in den Ferien sind.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie müssen jemanden beauftragen, der die Schneeräumung und Sicherung übernimmt."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist bei starkem Schneefall ausreichend?",
+    "options": [
+      "Der ganze Weg muss geräumt sein.",
+      "Es reicht, wenn ein schmaler Pfad geräumt ist.",
+      "Ein Fussweg, auf dem zwei Personen aneinander vorbeigehen können, ist ausreichend.",
+      "Man muss gar nichts räumen."
+    ],
+    "correctAnswer": "Ein Fussweg, auf dem zwei Personen aneinander vorbeigehen können, ist ausreichend.",
+    "explanation": "Es muss ein sicherer Durchgang gewährleistet sein."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wer zahlt in der Regel, wenn eine Dachlawine das Auto des Nachbarn beschädigt?",
+    "options": [
+      "Der Nachbar",
+      "Die Gemeinde",
+      "Die Privathaftpflichtversicherung des Hauseigentümers",
+      "Niemand"
+    ],
+    "correctAnswer": "Die Privathaftpflichtversicherung des Hauseigentümers",
+    "explanation": "Die Privathaftpflichtversicherung deckt solche Schäden in der Regel ab."
+  },
+  {
+    "id": "tf3",
+    "question": "Bei Swimmingpools und Teichen müssen keine Sicherheitsvorkehrungen getroffen werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es müssen Sicherheitsvorkehrungen getroffen werden, um Unfälle zu verhindern."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wo findet man die genauen Vorschriften zur Sicherung von Swimmingpools und Teichen?",
+    "options": [
+      "Im Bundesgesetz",
+      "Im kantonalen Gesetz",
+      "Im Gemeindegesetz",
+      "Im Internet"
+    ],
+    "correctAnswer": "Im kantonalen Gesetz",
+    "explanation": "Die kantonalen Gesetze regeln die Sicherheitsvorschriften."
+  },
+  {
+    "id": "tf4",
+    "question": "Wenn ich im Winter in den Ferien bin, muss ich mich nicht um die Schneeräumung kümmern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch bei Abwesenheit muss die Schneeräumung gewährleistet sein."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist die Wercheigentümerhaftung?",
+    "options": [
+      "Die Haftung für Schäden, die durch ein Gebäude oder Grundstück verursacht werden.",
+      "Die Haftung für Schäden, die durch die Arbeit verursacht werden.",
+      "Die Haftung für Schäden, die durch Tiere verursacht werden.",
+      "Die Haftung für Schäden, die durch Fahrzeuge verursacht werden."
+    ],
+    "correctAnswer": "Die Haftung für Schäden, die durch ein Gebäude oder Grundstück verursacht werden.",
+    "explanation": "Die Wercheigentümerhaftung bezieht sich auf Gebäude und Grundstücke."
+  },
+    {
+    "id": "tf5",
+    "question": "Die Beratungsstelle für Unfallverhütung gibt Tipps für Eigentümer.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Beratungsstelle bietet Informationen und Tipps zur Unfallverhütung."
+  },
+  {
+    "id": "tf6",
+    "question": "Raphaela Reichlin ist die Rechtsexpertin bei Espresso.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie beantwortet die Rechtsfragen der Hörerinnen und Hörer."
+  },
+  {
+    "id": "tf7",
+    "question": "Yvonne Hafner hat mit der Rechtsexpertin gesprochen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie hat das Interview für den Beitrag geführt."
+  },
+  {
+    "id": "tf8",
+    "question": "Im Beitrag geht es nur um die Eigentümerhaftung im Winter.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es wird auch die Haftung bei Swimmingpools und Teichen erwähnt."
+  }
+]

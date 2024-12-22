@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Darf der Vermieter während der Kündigungsfrist mit Umbauarbeiten in der Wohnung beginnen?",
+    "options": [
+      "Ja, immer.",
+      "Ja, mit Zustimmung des Mieters.",
+      "Nein, erst nach der Wohnungsabgabe.",
+      "Nein, ausser bei dringenden Reparaturen."
+    ],
+    "correctAnswer": "Nein, erst nach der Wohnungsabgabe.",
+    "explanation": "Der Vermieter muss warten, bis der Mieter die Wohnung abgegeben hat."
+  },
+  {
+    "id": "mcq2",
+    "question": "Unter welcher Bedingung darf der Vermieter die Wohnung während der Kündigungsfrist betreten?",
+    "options": [
+      "Gar nicht.",
+      "Nur mit Zustimmung des Mieters.",
+      "Jederzeit, ohne Ankündigung.",
+      "Nur in Notfällen."
+    ],
+    "correctAnswer": "Nur mit Zustimmung des Mieters.",
+    "explanation": "Der Vermieter muss Rücksicht auf den Mieter nehmen und einen geeigneten Termin vereinbaren."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Hörerin muss die Umbauarbeiten während ihrer Kündigungsfrist dulden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Umbauarbeiten dürfen erst nach der Wohnungsabgabe durchgeführt werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Vermieter darf Handwerker in die Wohnung schicken, um die Umbauarbeiten zu planen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Vermieter darf die Wohnung betreten, um sie Handwerkern zu zeigen, muss aber Rücksicht auf den Mieter nehmen."
+  },
+    {
+    "id": "mcq3",
+    "question": "Was ist die Rechtslage bei Umbauarbeiten in Nebenräumen wie Keller oder Garage während der Kündigungsfrist?",
+    "options": [
+      "Sie sind immer erlaubt.",
+      "Sie sind verboten.",
+      "Es kommt auf die Umstände an.",
+      "Der Mieter muss sie dulden."
+    ],
+    "correctAnswer": "Es kommt auf die Umstände an.",
+    "explanation": "Faktoren wie Lärm, Dreck und Dauer der Arbeiten spielen eine Rolle."
+  },
+    {
+    "id": "mcq4",
+    "question": "An wen kann sich ein Mieter wenden, wenn er sich durch den Vermieter ungerecht behandelt fühlt?",
+    "options": [
+      "An die Polizei.",
+      "An den Vermieterverband.",
+      "An den Mieterverband.",
+      "Ans Gericht."
+    ],
+    "correctAnswer": "An den Mieterverband.",
+    "explanation": "Der Mieterverband berät und unterstützt Mieter bei rechtlichen Fragen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Beitrag nennt den genauen Grund für den Auszug der Hörerin.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Beitrag erwähnt nur, dass die Hörerin gekündigt hat."
+  },
+  {
+    "id": "tf4",
+    "question": "Der Vermieter muss den Mieter über geplante Umbauarbeiten informieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Vermieter muss den Mieter informieren und dessen Zustimmung einholen."
+  },
+      {
+    "id": "mcq5",
+    "question": "Welches ist KEIN Schlüsselbegriff im Zusammenhang mit dem Radiobeitrag?",
+    "options": [
+      "Mietrecht",
+      "Kündigung",
+      "Umbau",
+      "Nebenkosten"
+    ],
+    "correctAnswer": "Nebenkosten",
+    "explanation": "Nebenkosten sind im Beitrag kein zentrales Thema."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was ist das Hauptthema des Radiobeitrags?",
+    "options": [
+      "Die Höhe der Miete.",
+      "Der Zeitpunkt von Umbauarbeiten.",
+      "Die Kündigungsfrist.",
+      "Die Reinigung der Wohnung."
+    ],
+    "correctAnswer": "Der Zeitpunkt von Umbauarbeiten.",
+    "explanation": "Im Zentrum steht die Frage, wann der Vermieter mit Umbauarbeiten beginnen darf."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Hörerin hat ihre Wohnung per Ende Juni gekündigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Hörerin hat ihre Wohnung per Ende Juni gekündigt."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Vermieter darf die Wohnung ohne Vorankündigung betreten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter muss den Mieter informieren und dessen Zustimmung einholen."
+  },
+    {
+    "id": "tf7",
+    "question": "Lärm und Dreck durch Umbauarbeiten können für den Mieter relevant sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Lärm, Dreck und Dauer der Arbeiten sind Faktoren, die bei der Zulässigkeit von Umbauarbeiten in Nebenräumen berücksichtigt werden."
+  },
+    {
+    "id": "tf8",
+    "question": "Der Mieter muss in jedem Fall den Handwerker in die Wohnung lassen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Mieter muss den Handwerker nur nach Absprache in die Wohnung lassen."
+  }
+
+]

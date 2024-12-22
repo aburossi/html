@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was darf ein Verkäufer bei einer Stichprobe am Self-Checkout NICHT tun?",
+    "options": [
+      "Nach dem Kassenbon fragen.",
+      "In die Tasche des Kunden greifen.",
+      "Den Kunden bitten, bestimmte Artikel vorzuzeigen.",
+      "Eine Taschenkontrolle ankündigen."
+    ],
+    "correctAnswer": "In die Tasche des Kunden greifen.",
+    "explanation": "Ein Verkäufer darf nicht ohne Einwilligung in die Tasche des Kunden greifen. Er muss den Kunden bitten, die Artikel selbst herauszunehmen oder um Erlaubnis fragen, in die Tasche zu greifen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Konsequenz kann eintreten, wenn man wiederholt Artikel beim Self-Scanning nicht scannt?",
+    "options": [
+      "Eine Verwarnung.",
+      "Ein Hausverbot.",
+      "Eine Geldstrafe.",
+      "Gefängnisstrafe."
+    ],
+    "correctAnswer": "Ein Hausverbot.",
+    "explanation": "Bei wiederholtem Nicht-Scannen kann der Laden ein Hausverbot aussprechen."
+  },
+  {
+    "id": "tf1",
+    "question": "Auch wenn im Laden Schilder hängen, die Taschenkontrollen ankündigen, darf der Verkäufer nicht ohne Einwilligung in die Tasche des Kunden greifen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Einwilligung des Kunden ist immer erforderlich, unabhängig von der Beschilderung."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn man sich mit einer Kundenkarte anmeldet und Self-Scanning nutzt, werden keine Daten über den Einkauf gespeichert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es werden Daten darüber gespeichert, welche Artikel gekauft wurden."
+  },
+    {
+    "id": "mcq3",
+    "question": "Wo findet man einen Musterbrief für die Auskunft über gespeicherte Kundendaten?",
+    "options": [
+      "Auf der Webseite des Ladens.",
+      "Auf der Webseite des eidgenössischen Datenschutzbeauftragten.",
+      "Im Kassenbereich des Ladens.",
+      "Bei der Polizei."
+    ],
+    "correctAnswer": "Auf der Webseite des eidgenössischen Datenschutzbeauftragten.",
+    "explanation": "Der eidgenössische Datenschutzbeauftragte stellt einen Musterbrief auf seiner Webseite zur Verfügung."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte man tun, wenn man versehentlich einen Artikel beim Self-Scanning nicht gescannt hat?",
+    "options": [
+      "Den Laden schnell verlassen.",
+      "Den Artikel an der Kasse nachmelden.",
+      "So tun, als ob nichts passiert wäre.",
+      "Den Artikel zurück ins Regal legen."
+    ],
+    "correctAnswer": "Den Artikel an der Kasse nachmelden.",
+    "explanation": "Man sollte den Artikel an der Kasse nachmelden und bezahlen."
+  },
+  {
+    "id": "tf3",
+    "question": "Kunden haben kein Recht darauf zu erfahren, welche Daten über sie im Laden gespeichert werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Kunden haben das Recht auf Auskunft über die gespeicherten Daten."
+  },
+  {
+    "id": "tf4",
+    "question": "Ein Verkäufer darf bei einer Stichprobe am Self-Checkout den Kunden bitten, seine Tasche selbst zu leeren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Verkäufer darf den Kunden bitten, die Tasche selbst zu leeren, anstatt selbst hineinzugreifen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welches Gesetz regelt die Auskunft über gespeicherte Kundendaten?",
+    "options": [
+      "Das Konsumkreditgesetz.",
+      "Das Datenschutzgesetz.",
+      "Das Obligationenrecht.",
+      "Das Strafgesetzbuch."
+    ],
+    "correctAnswer": "Das Datenschutzgesetz.",
+    "explanation": "Das Datenschutzgesetz regelt die Auskunft über gespeicherte Kundendaten."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist die rechtliche Grundlage dafür, dass ein Verkäufer nicht ohne Einwilligung in die Tasche eines Kunden greifen darf?",
+    "options": [
+      "Schutz der Privatsphäre.",
+      "Diebstahlprävention.",
+      "Vertragsfreiheit.",
+      "Hausrecht."
+    ],
+    "correctAnswer": "Schutz der Privatsphäre.",
+    "explanation": "Das Hineingreifen in die Tasche eines Kunden ohne dessen Einwilligung verletzt seine Privatsphäre."
+  },
+  {
+    "id": "tf5",
+    "question": "Wenn ein Kunde versehentlich einen teuren Artikel nicht scannt, wird er immer direkt bei der Polizei angezeigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nicht jeder Fehler führt zu einer Anzeige. Es kommt auf die Umstände an, z.B. ob es sich um einen wiederholten Vorfall handelt oder ob der Kunde den Artikel absichtlich nicht gescannt hat."
+  },
+  {
+    "id": "tf6",
+    "question": "Die allgemeinen Geschäftsbedingungen von Geschäften können zusätzliche Regeln für Taschenkontrollen enthalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Geschäfte können in ihren AGB zusätzliche Regeln für Taschenkontrollen festlegen, solange diese den gesetzlichen Bestimmungen nicht widersprechen."
+  },
+      {
+    "id": "mcq7",
+    "question": "Welcher Aspekt des Self-Scannings wird im Beitrag thematisiert?",
+    "options": [
+      "Die Geschwindigkeit des Einkaufs.",
+      "Die Benutzerfreundlichkeit des Systems.",
+      "Die Datenschutzbestimmungen.",
+      "Die Kostenersparnis für den Kunden."
+    ],
+    "correctAnswer": "Die Datenschutzbestimmungen.",
+    "explanation": "Im Beitrag geht es um die Datenschutzbestimmungen im Zusammenhang mit Self-Scanning und Kundenkarten."
+  },
+      {
+    "id": "mcq8",
+    "question": "Was wird im Beitrag als \"dehnbarer Begriff\" bezeichnet?",
+    "options": [
+      "Self-Scanning.",
+      "Kundenkarte.",
+      "Stichprobe.",
+      "Verdacht auf Diebstahl."
+    ],
+    "correctAnswer": "Verdacht auf Diebstahl.",
+    "explanation": "Der Begriff \"Verdacht auf Diebstahl\" wird als dehnbar bezeichnet, da die Kriterien dafür nicht eindeutig definiert sind."
+  }
+]

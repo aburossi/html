@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist die Hauptursache für Simon Martellas Lärmproblem?",
+    "options": [
+      "Baulärm von einer nahegelegenen Baustelle",
+      "Laute Musik aus einem benachbarten Tanzstudio",
+      "Bellende Hunde im selben Gebäude",
+      "Strassenlärm durch starken Verkehr"
+    ],
+    "correctAnswer": "Laute Musik aus einem benachbarten Tanzstudio",
+    "explanation": "Im Beitrag wird erwähnt, dass ein neues Tanzstudio die Ursache für den Lärm ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie reagiert Simon Martellas Vermieter auf seine Beschwerde?",
+    "options": [
+      "Er verspricht, sich der Sache anzunehmen.",
+      "Er verweist ihn an die Schlichtungsbehörde.",
+      "Er meint, er müsse mit dem Lärm leben.",
+      "Er kündigt dem Tanzstudio die Mietwohnung."
+    ],
+    "correctAnswer": "Er meint, er müsse mit dem Lärm leben.",
+    "explanation": "Der Vermieter zeigt sich wenig kooperativ und weist die Beschwerde zurück."
+  },
+  {
+    "id": "tf1",
+    "question": "Die kantonale Lärmschutzfachstelle ist die richtige Anlaufstelle für Lärmbelästigung durch private Nachbarn.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Lärmschutzfachstelle ist für Lärm von Betrieben und Anlagen zuständig, nicht für private Streitigkeiten."
+  },
+  {
+    "id": "tf2",
+    "question": "Gabriela Baumgartner rät Simon Martella, ein Lärmtagebuch zu führen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Lärmtagebuch dient als Beweismittel für die Lärmbelästigung."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welchen Tipp gibt Gabriela Baumgartner zusätzlich zum Lärmtagebuch?",
+    "options": [
+      "Den Lärm mit einer App messen.",
+      "Sich Ohrstöpsel kaufen.",
+      "Die Polizei rufen.",
+      "Ausziehen."
+    ],
+    "correctAnswer": "Den Lärm mit einer App messen.",
+    "explanation": "Die Messung mit einer App kann als zusätzlicher Beweis dienen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wer ist gemäss Beitrag die erste Anlaufstelle bei Lärmproblemen?",
+    "options": [
+      "Die Polizei",
+      "Der Vermieter",
+      "Die Schlichtungsbehörde",
+      "Die kantonale Lärmschutzfachstelle"
+    ],
+    "correctAnswer": "Der Vermieter",
+    "explanation": "Der Vermieter ist in der Pflicht, für eine mangelfreie Wohnung zu sorgen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welche Behörde ist für die Kontrolle der Lärmschutzbestimmungen zuständig?",
+    "options": [
+      "Die Polizei",
+      "Das Mietgericht",
+      "Die kantonale Lärmschutzfachstelle",
+      "Das Bundesamt für Umwelt"
+    ],
+    "correctAnswer": "Die kantonale Lärmschutzfachstelle",
+    "explanation": "Diese Stelle prüft, ob die Lärmschutzbestimmungen eingehalten werden."
+  },
+  {
+    "id": "tf3",
+    "question": "Lärm kann als Mangel der Mietsache gelten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Überschreitet der Lärm ein bestimmtes Mass, kann dies als Mangel angesehen werden und der Mieter hat Anspruch auf Abhilfe."
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum konnte der Hörer seine Krankenkassenprämien nicht bezahlen?",
+    "options": [
+      "Er war arbeitslos.",
+      "Er war gesundheitlich angeschlagen und arbeitsunfähig.",
+      "Er hatte vergessen, die Rechnung zu bezahlen.",
+      "Er war mit der Krankenkasse unzufrieden."
+    ],
+    "correctAnswer": "Er war gesundheitlich angeschlagen und arbeitsunfähig.",
+    "explanation": "Der Hörer wartete auf die Bewilligung seiner IV-Rente."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was tat die Krankenkasse, als der Hörer eine neue Versicherungskarte beantragte?",
+    "options": [
+      "Sie stellte ihm sofort eine neue Karte aus.",
+      "Sie verweigerte die Ausstellung einer neuen Karte.",
+      "Sie schickte ihm eine Mahnung.",
+      "Sie bot ihm eine Ratenzahlung an."
+    ],
+    "correctAnswer": "Sie verweigerte die Ausstellung einer neuen Karte.",
+    "explanation": "Die Krankenkasse begründete dies mit den offenen Prämien."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Krankenkasse darf die Ausstellung einer neuen Versicherungskarte verweigern, wenn der Versicherte mit den Prämien im Rückstand ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Laut Gesetz muss die Krankenkasse jedem Versicherten eine Karte ausstellen, unabhängig vom Prämienzahlungsstatus."
+  },
+  {
+    "id": "tf2",
+    "question": "In allen Kantonen der Schweiz gibt es schwarze Listen für säumige Prämienzahler.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nur die Kantone Aargau, Luzern, Tessin und Thurgau führen solche Listen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welche Leistung muss die Krankenkasse in Kantonen mit schwarzen Listen noch erbringen?",
+    "options": [
+      "Gar keine Leistungen mehr.",
+      "Nur noch Notfallbehandlungen.",
+      "Alle medizinisch notwendigen Leistungen.",
+      "Nur noch Medikamentenkosten."
+    ],
+    "correctAnswer": "Nur noch Notfallbehandlungen.",
+    "explanation": "Für Personen auf der schwarzen Liste werden nur noch Notfallbehandlungen übernommen."
+  },
+  {
+    "id": "mcq4",
+    "question": "An wen kann man sich wenden, wenn man Schwierigkeiten hat, die Krankenkassenprämien zu bezahlen?",
+    "options": [
+      "An die Polizei.",
+      "An das Bundesamt für Gesundheit.",
+      "An Beratungsstellen für Schuldenberatung.",
+      "An die eigene Bank."
+    ],
+    "correctAnswer": "An Beratungsstellen für Schuldenberatung.",
+    "explanation": "Beratungsstellen bieten Unterstützung und Hilfe bei finanziellen Problemen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Hörer wohnt im Kanton Bern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer kommt aus dem Kanton Bern."
+  },
+      {
+    "id": "tf4",
+    "question": "Der Hörer hat gesundheitliche Probleme und wartet auf seine IV.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer ist gesundheitlich angeschlagen, arbeitsunfähig und wartet auf die Bewilligung seiner IV-Rente."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Krankenkasse hat dem Hörer am Schluss die Versicherungskarte zugeschickt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Krankenkasse hat ihren Fehler eingesehen und die Karte nachgeschickt."
+  },
+          {
+    "id": "tf6",
+    "question": "Im Kanton Bern gibt es eine schwarze Liste.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Kanton Bern gibt es keine schwarze Liste."
+  },
+            {
+    "id": "tf7",
+    "question": "Wenn man seine Krankenkassenprämie nicht bezahlt, kann das zu einer Betreibung führen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Nach einer Mahnung kann die Krankenkasse eine Betreibung einleiten."
+  },
+              {
+    "id": "tf8",
+    "question": "Die Krankenkasse heisst Adupri.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Krankenkasse heisst Adubri"
+  },
+{
+    "id": "tf9",
+    "question": "Wenn man seine Krankenkassenprämie nicht bezahlt, kann das im schlimmsten Fall zu einer Lohnpfändung führen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Je nach Umständen kann die Betreibung zu einer Lohnpfändung führen."
+  },
+{
+    "id": "tf10",
+    "question": "Gabriela Baumgartner ist die Rechtsexpertin.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Gabriela Baumgartner ist Rechtsexpertin bei Espresso."
+  },
+{
+    "id": "tf11",
+    "question": "Der Versicherungsangestellte der Krankenkasse kannte das Gesetz nicht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Angestellte hat sich nicht mit dem Gesetz befasst."
+  },
+{
+    "id": "tf12",
+    "question": "Die Krankenkasse hat sich beim Hörer entschuldigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Krankenkasse hat ihren Fehler eingesehen und sich entschuldigt."
+  },
+{
+    "id": "tf13",
+    "question": "Es gibt Beratungsstellen, die einem weiterhelfen, wenn man seine Prämien nicht zahlen kann.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Es gibt Schuldenberatungsstellen, die Unterstützung anbieten."
+  },
+{
+    "id": "tf14",
+    "question": "Man findet die Beratungsstellen beim Dachverband für Schuldenberatung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Dachverband für Schuldenberatung bietet eine Übersicht über regionale Anlaufstellen."
+  }
+]

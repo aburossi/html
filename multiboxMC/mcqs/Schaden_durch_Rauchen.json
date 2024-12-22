@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum verlangte der Vermieter Geld von den Angehörigen der Mieterin?",
+    "options": [
+      "Wegen Schäden am Parkettboden",
+      "Wegen eines Wasserschadens",
+      "Wegen Nikotinrückständen an den Wänden",
+      "Wegen nicht gezahlter Miete"
+    ],
+    "correctAnswer": "Wegen Nikotinrückständen an den Wänden",
+    "explanation": "Die Mieterin rauchte in der Wohnung, was zu Nikotinablagerungen an den Wänden führte."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist ein Spezialanstrich/Nikotinsperre?",
+    "options": [
+      "Eine besonders teure Farbe",
+      "Ein Anstrich, der Nikotinrückstände überdeckt",
+      "Ein Anstrich, der das Durchdringen von Nikotin verhindert",
+      "Ein Anstrich, der die Wohnung schöner macht"
+    ],
+    "correctAnswer": "Ein Anstrich, der das Durchdringen von Nikotin verhindert",
+    "explanation": "Eine Nikotinsperre verhindert, dass Nikotinrückstände durch die neue Farbschicht durchdringen."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Angehörigen müssen die gesamten Renovierungskosten übernehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie müssen nur die Kosten für den Spezialanstrich übernehmen, nicht die allgemeinen Renovierungskosten nach 23 Jahren Mietdauer."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Haftpflichtversicherung übernimmt die Kosten für den Spezialanstrich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Haftpflichtversicherung deckt keine Schäden, die bewusst in Kauf genommen wurden, wie die Nikotinablagerungen durch Rauchen."
+  },
+    {
+    "id": "mcq3",
+    "question": "Wann darf der Vermieter Kosten vom Mietdepot abziehen?",
+    "options": [
+      "Sobald die Wohnung leer ist",
+      "Nach der Besichtigung der Wohnung",
+      "Wenn er einen Kostenvoranschlag hat",
+      "Wenn die Renovierung abgeschlossen ist und die Rechnungen vorliegen"
+    ],
+    "correctAnswer": "Wenn die Renovierung abgeschlossen ist und die Rechnungen vorliegen",
+    "explanation": "Der Vermieter benötigt die finalen Rechnungen, um die Kosten vom Depot abziehen zu dürfen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sind typische Beispiele für normale Abnutzung?",
+    "options": [
+      "Abgelöste Tapeten durch Haustiere",
+      "Ein Brandfleck im Teppich",
+      "Leichte Kratzer im Parkett",
+      "Ein Loch in der Wand"
+    ],
+    "correctAnswer": "Leichte Kratzer im Parkett",
+    "explanation": "Leichte Kratzer im Parkett sind nach längerer Mietdauer üblich und gelten als normale Abnutzung."
+  },
+    {
+    "id": "tf3",
+    "question": "Rauchen in der Wohnung ist grundsätzlich verboten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Rauchen in der Wohnung ist nicht per se verboten, kann aber zu Kosten für die Beseitigung von Nikotinrückständen führen."
+  },
+  {
+    "id": "tf4",
+    "question": "Der Vermieter muss die Wohnung nach jedem Auszug renovieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter muss die Wohnung nur nach einer bestimmten Mietdauer oder bei übermässiger Abnutzung renovieren."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welchen Tipp gab die Rechtsexpertin der Hörerin?",
+    "options": [
+      "Sie soll die Wohnung selbst renovieren",
+      "Sie soll die Rechnungen des Vermieters kontrollieren",
+      "Sie soll sich an einen Anwalt wenden",
+      "Sie soll die Kosten einfach bezahlen"
+    ],
+    "correctAnswer": "Sie soll die Rechnungen des Vermieters kontrollieren",
+    "explanation": "Die Hörerin sollte die Rechnungen prüfen, um sicherzustellen, dass nur die Kosten für den Spezialanstrich verrechnet werden."
+  },
+  {
+    "id": "mcq6",
+    "question": "In welchem Fall zahlt die Haftpflichtversicherung?",
+    "options": [
+      "Bei Schäden durch Absicht",
+      "Bei Schäden durch Unachtsamkeit",
+      "Bei Schäden durch normale Abnutzung",
+      "Bei Schäden durch höhere Gewalt"
+    ],
+    "correctAnswer": "Bei Schäden durch Unachtsamkeit",
+    "explanation": "Die Haftpflichtversicherung deckt Schäden ab, die durch Unachtsamkeit verursacht wurden."
+  },
+    {
+    "id": "tf5",
+    "question": "Der Vermieter darf die Kosten für den Spezialanstrich nur auf Basis eines Kostenvoranschlags vom Depot abziehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Er benötigt die effektiven Rechnungen nach Abschluss der Renovierung."
+  },
+  {
+    "id": "tf6",
+    "question": "Nikotinrückstände an den Wänden gelten als normale Abnutzung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nikotinrückstände gelten als Schaden, der durch das Verhalten des Mieters verursacht wurde."
+  },
+    {
+    "id": "tf7",
+    "question": "Regelmässiges Lüften kann helfen, Nikotinablagerungen zu reduzieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Lüften hilft, die Nikotinablagerungen zu minimieren."
+  },
+    {
+    "id": "tf8",
+    "question": "Es ist ratsam, vor dem Einzug mit dem Vermieter über die Rauchgewohnheiten zu sprechen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine offene Kommunikation mit dem Vermieter kann spätere Konflikte vermeiden."
+  }
+]

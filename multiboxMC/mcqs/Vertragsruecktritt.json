@@ -1,0 +1,80 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum wollte Monika Schnebeli vom Vertrag zurücktreten?",
+    "options": [
+      "Sie hatte den Vertrag versehentlich unterschrieben.",
+      "Das Branchenverzeichnis war zu teuer.",
+      "Sie erkannte, dass der Eintrag ihr keinen Nutzen bringt.",
+      "Sie hatte ein besseres Angebot von einem anderen Anbieter erhalten."
+    ],
+    "correctAnswer": "Sie erkannte, dass der Eintrag ihr keinen Nutzen bringt.",
+    "explanation": "Im Beitrag wird erwähnt, dass ihr nachträglich klar wurde, dass ihr der Eintrag nichts bringt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was war die Begründung des Verkäufers, warum Frau Schnebeli nicht zurücktreten konnte?",
+    "options": [
+      "Sie hatte die Widerrufsfrist verpasst.",
+      "Der Vertrag war bereits in Kraft getreten.",
+      "Sie hatte als Geschäftsinhaberin kein Widerrufsrecht.",
+      "Sie hatte die AGBs akzeptiert."
+    ],
+    "correctAnswer": "Sie hatte als Geschäftsinhaberin kein Widerrufsrecht.",
+    "explanation": "Der Verkäufer argumentierte, dass nur Privatpersonen ein Widerrufsrecht hätten."
+  },
+  {
+    "id": "tf1",
+    "question": "Frau Schnebeli hat die Möglichkeit, durch Zahlung eines Reuegeldes aus dem Vertrag auszusteigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag wird die Möglichkeit einer Ausstiegsklausel mit Reuegeld erwähnt."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein Widerrufsrecht besteht immer, unabhängig vom Kaufbetrag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Widerrufsrecht besteht nicht bei Beträgen unter 100 Franken."
+  },
+  {
+    "id": "mcq3",
+    "question": "In welchem Fall hat man kein Widerrufsrecht?",
+    "options": [
+      "Beim Kauf eines Produkts im Internet.",
+      "Beim Kauf eines Produkts an einer Messe.",
+      "Beim Kauf eines Produkts im privaten Gebrauch.",
+      "Beim Kauf eines Produkts über 100 Franken."
+    ],
+    "correctAnswer": "Beim Kauf eines Produkts an einer Messe.",
+    "explanation": "Käufe an Messen oder Verkaufsveranstaltungen sind vom Widerrufsrecht ausgeschlossen."
+  },
+    {
+    "id": "mcq4",
+    "question": "Wie lange hat man Zeit, um vom Vertrag zurückzutreten, wenn ein Widerrufsrecht besteht?",
+    "options": [
+      "7 Tage",
+      "10 Tage",
+      "14 Tage",
+      "30 Tage"
+    ],
+    "correctAnswer": "14 Tage",
+    "explanation": "Die Widerrufsfrist beträgt 14 Tage."
+  },
+      {
+    "id": "tf3",
+    "question": "Wenn man den Verkäufer zu sich nach Hause einlädt, hat man kein Widerrufsrecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Wer den Verkäufer einlädt, kann sich nicht auf Überrumpelung berufen."
+  }
+]

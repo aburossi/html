@@ -1,0 +1,152 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Ist es in der Schweiz verboten, im Sommer mit Winterreifen zu fahren?",
+    "options": [
+      "Ja",
+      "Nein",
+      "Nur auf Autobahnen",
+      "Nur bei Temperaturen über 25 Grad"
+    ],
+    "correctAnswer": "Nein",
+    "explanation": "Es ist nicht verboten, aber es wird nicht empfohlen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welchen Nachteil haben Winterreifen im Sommer?",
+    "options": [
+      "Sie sind lauter.",
+      "Sie verschleissen schneller.",
+      "Sie haben einen längeren Bremsweg.",
+      "Sie verringern die Bodenhaftung."
+    ],
+    "correctAnswer": "Sie haben einen längeren Bremsweg.",
+    "explanation": "Auf trockener Strasse ist der Bremsweg mit Winterreifen länger."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Fahrer kann bei einem Unfall im Sommer mit Winterreifen immer belangt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nur bei fahrlässigem Verhalten."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Haftpflichtversicherung zahlt den Schaden am anderen Auto.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Haftpflichtversicherung deckt Schäden am anderen Fahrzeug."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wer haftet für den Schaden am Geschäftsauto, wenn der Fahrer fahrlässig gehandelt hat?",
+    "options": [
+      "Der Arbeitgeber",
+      "Der Fahrer",
+      "Die Versicherung",
+      "Niemand"
+    ],
+    "correctAnswer": "Der Fahrer",
+    "explanation": "Der Fahrer kann gegenüber dem Arbeitgeber haftbar gemacht werden."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was riskiert man, wenn man im Winter mit Sommerreifen fährt und einen Unfall verursacht?",
+    "options": [
+      "Eine Busse",
+      "Führerscheinentzug",
+      "Punkte in Flensburg",
+      "Nichts"
+    ],
+    "correctAnswer": "Führerscheinentzug",
+    "explanation": "Der Führerschein kann entzogen werden, wenn der Unfall mit Winterreifen vermeidbar gewesen wäre."
+  },
+    {
+    "id": "tf3",
+    "question": "Winterreifen im Sommer erhöhen den Benzinverbrauch.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Rollwiderstand ist bei Winterreifen höher, was zu einem höheren Benzinverbrauch führt."
+  },
+    {
+    "id": "tf4",
+    "question": "Der Fahrer im Beitrag hat die Winterreifen freiwillig im Sommer montiert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Fahrer fährt mit dem Geschäftsauto und die Reifen wurden nicht von ihm gewechselt."
+  },
+    {
+    "id": "tf5",
+    "question": "Im Beitrag geht es um einen Handwerker aus Lachen SZ.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Handwerker wohnt in Lachen SZ."
+  },
+    {
+    "id": "tf6",
+    "question": "Gabriela Baumgartner ist Rechtsexpertin beim Espresso.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Gabriela Baumgartner beantwortet die Rechtsfragen."
+  },
+        {
+    "id": "tf7",
+    "question": "Oliver Futter hat die Frage an die Expertin gestellt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Oliver Futter hat nachgefragt."
+  },
+        {
+    "id": "tf8",
+    "question": "Man muss im Sommer nicht rechtzeitig bremsen, da der Bremsweg mit Winterreifen kürzer ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Bremsweg ist mit Winterreifen im Sommer länger, daher muss man frühzeitiger bremsen."
+  },
+        {
+    "id": "tf9",
+    "question": "Der Fahrer haftet immer für den Schaden am Geschäftsauto.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nur bei fahrlässigem Verhalten."
+  },
+        {
+    "id": "tf10",
+    "question": "Es ist verboten, im Winter mit Sommerreifen zu fahren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es ist nicht verboten, aber gefährlich und kann bei einem Unfall zum Führerscheinentzug führen."
+  }
+
+
+]

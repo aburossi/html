@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum war die Betreibung der Hörerin erfolglos?",
+    "options": [
+      "Der Kollege hat einen Rechtsvorschlag eingereicht.",
+      "Die Hörerin hatte keinen schriftlichen Vertrag.",
+      "Der Kollege ist ins Ausland gezogen.",
+      "Das Betreibungsamt hat einen Fehler gemacht."
+    ],
+    "correctAnswer": "Der Kollege ist ins Ausland gezogen.",
+    "explanation": "Schweizer Behörden können im Ausland keine Betreibung durchführen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was rät die Rechtsexpertin der Hörerin?",
+    "options": [
+      "Die Forderung abschreiben.",
+      "Sich an die Polizei wenden.",
+      "Einen Anwalt im Ausland beauftragen.",
+      "Sich an ihre Rechtsschutzversicherung wenden."
+    ],
+    "correctAnswer": "Sich an ihre Rechtsschutzversicherung wenden.",
+    "explanation": "Die Rechtsschutzversicherung kann die Hörerin im weiteren Vorgehen unterstützen."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Hörerin hat keine Chance mehr, ihr Geld zurückzubekommen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt noch Möglichkeiten, z.B. die Beschlagnahmung von Vermögenswerten in der Schweiz."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein schriftlicher Vertrag ist wichtig, wenn man jemandem Geld leiht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Vertrag dient als Beweismittel für die Forderung."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welchen Betrag hat die Hörerin dem Kollegen geliehen?",
+    "options": [
+      "10'000 Franken",
+      "15'000 Franken",
+      "20'000 Franken",
+      "25'000 Franken"
+    ],
+    "correctAnswer": "20'000 Franken",
+    "explanation": "Im Beitrag wird explizit von 20'000 Franken gesprochen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wo befindet sich der Kollege der Hörerin?",
+    "options": [
+      "In der Schweiz",
+      "In Deutschland",
+      "In Österreich",
+      "Im Ausland (nicht näher spezifiziert)"
+    ],
+    "correctAnswer": "Im Ausland (nicht näher spezifiziert)",
+    "explanation": "Es wird nur erwähnt, dass er sich im Ausland befindet, ohne ein bestimmtes Land zu nennen."
+  },
+  {
+    "id": "tf3",
+    "question": "Das Betreibungsamt kann den Zahlungsbefehl im Ausland vollstrecken.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Betreibungsamt ist nur in der Schweiz zuständig."
+  },
+    {
+    "id": "tf4",
+    "question": "Die Hörerin muss die Kosten für ein allfälliges Gerichtsverfahren im Ausland selbst tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Wenn die Hörerin gewinnt, müsste der Kollege die Kosten tragen. Nur wenn er kein Geld hat, muss sie die Kosten tragen."
+  },
+    {
+    "id": "mcq5",
+    "question": "Was ist ein Arrest im juristischen Sinne?",
+    "options": [
+      "Eine Gefängnisstrafe",
+      "Die Beschlagnahmung von Vermögenswerten",
+      "Ein schriftlicher Vertrag",
+      "Eine Busse"
+    ],
+    "correctAnswer": "Die Beschlagnahmung von Vermögenswerten",
+    "explanation": "Im Beitrag wird erklärt, dass ein Arrest die Beschlagnahmung von Vermögenswerten bedeutet."
+  },
+    {
+    "id": "mcq6",
+    "question": "Auf welches Konto hat die Hörerin das Geld überwiesen?",
+    "options": [
+      "Ein ausländisches Konto",
+      "Ein Schweizer Konto",
+      "Ein Gemeinschaftskonto",
+      "Das ist nicht bekannt"
+    ],
+    "correctAnswer": "Ein Schweizer Konto",
+    "explanation": "Es wird erwähnt, dass das Geld auf ein Konto einer Schweizer Bank überwiesen wurde."
+  },
+        {
+    "id": "tf5",
+    "question": "Der Kollege hat den Zahlungsbefehl angefochten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es wird erwähnt, dass kein Rechtsvorschlag eingegangen ist."
+  },
+        {
+    "id": "tf6",
+    "question": "Die Rechtsexpertin rät der Hörerin, die Angelegenheit selbst in die Hand zu nehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie rät ihr, sich an die Rechtsschutzversicherung zu wenden."
+  },
+  {
+    "id": "mcq7",
+    "question": "Was für ein Dokument hat die Hörerin mit dem Kollegen?",
+    "options": [
+      "Einen mündlichen Vertrag",
+      "Einen schriftlichen Darlehensvertrag",
+      "Eine Quittung",
+      "Gar kein Dokument"
+    ],
+    "correctAnswer": "Einen schriftlichen Darlehensvertrag",
+    "explanation": "Im Beitrag wird explizit von einem schriftlichen Darlehensvertrag gesprochen."
+  },
+  {
+    "id": "mcq8",
+    "question": "Wo findet man Informationen darüber, wie man einen Darlehensvertrag korrekt erstellt?",
+    "options": [
+      "Beim Betreibungsamt",
+      "Auf srf.ch/espresso",
+      "Beim Anwalt",
+      "Bei der Bank"
+    ],
+    "correctAnswer": "Auf srf.ch/espresso",
+    "explanation": "Am Ende des Beitrags wird auf srf.ch/espresso verwiesen."
+  }
+]

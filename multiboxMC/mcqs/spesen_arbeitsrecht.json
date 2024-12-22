@@ -1,0 +1,90 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Welches Gesetz regelt die Frage der Halbtax-Vergütung explizit?",
+    "options": [
+      "Kein Gesetz regelt diese Frage explizit.",
+      "Das Obligationenrecht.",
+      "Das Arbeitsgesetz.",
+      "Das Verkehrsgesetz."
+    ],
+    "correctAnswer": "Kein Gesetz regelt diese Frage explizit.",
+    "explanation": "Im Beitrag wird explizit erwähnt, dass es kein Gesetz gibt, das diese Frage klärt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was sagt das Obligationenrecht grundsätzlich zur Spesenvergütung?",
+    "options": [
+      "Angestellte können alle Kosten geltend machen, die im Zusammenhang mit der Arbeit entstehen.",
+      "Nur tatsächlich entstandene Kosten können als Spesen verrechnet werden.",
+      "Der Arbeitgeber kann die Spesenregelung frei bestimmen.",
+      "Die Spesen müssen immer pauschal abgegolten werden."
+    ],
+    "correctAnswer": "Nur tatsächlich entstandene Kosten können als Spesen verrechnet werden.",
+    "explanation": "Das Obligationenrecht beschränkt die Spesenvergütung auf effektiv angefallene Kosten."
+  },
+  {
+    "id": "tf1",
+    "question": "Es gibt bereits Gerichtsurteile, die die Frage der Halbtax-Vergütung geklärt haben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag wird erwähnt, dass es keine entsprechenden Gerichtsurteile gibt."
+  },
+  {
+    "id": "tf2",
+    "question": "Die meisten befragten Firmen übernehmen die Kosten für das Halbtax-Abo ihrer Angestellten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Journalist hat bei zehn Firmen nachgefragt und alle übernehmen die Kosten, wenn die Mitarbeiter regelmässig den ÖV nutzen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was wird im Beitrag als möglicher Vergleich zur Halbtax-Abo-Situation herangezogen?",
+    "options": [
+      "Die Vergütung von Verpflegungskosten.",
+      "Die Kostenübernahme für ein GA.",
+      "Die Spesenregelung für die Nutzung des Privatautos.",
+      "Die Kosten für Arbeitskleidung."
+    ],
+    "correctAnswer": "Die Spesenregelung für die Nutzung des Privatautos.",
+    "explanation": "Die Argumentation lautet, dass bei der Nutzung des Privatautos nicht nur die Benzinkosten, sondern auch Abnutzung und Unterhalt erstattet werden."
+  },
+    {
+    "id": "mcq4",
+    "question": "Welchen Tipp gibt der Journalist den Angestellten?",
+    "options": [
+      "Sie sollen sich an ein Gericht wenden.",
+      "Sie sollen eine Beschwerde bei der Gewerkschaft einreichen.",
+      "Sie sollen das Gespräch mit dem Arbeitgeber suchen.",
+      "Sie sollen auf die volle Kostenübernahme bestehen."
+    ],
+    "correctAnswer": "Sie sollen das Gespräch mit dem Arbeitgeber suchen.",
+    "explanation": "Der Journalist rät zu einem Gespräch und einer gemeinsamen Lösungsfindung."
+  },
+    {
+    "id": "tf3",
+    "question": "Angestellte, die ein Firmen-Halbtax besitzen, dürfen oft auch noch die Hälfte eines Erste-Klasse-Billetts verrechnen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Dies wird im Beitrag als gängige Praxis in einigen Unternehmen erwähnt."
+  },
+    {
+    "id": "tf4",
+    "question": "Arbeitgeber sind gesetzlich verpflichtet, die vollen Kosten für ein Halbtax-Abo zu übernehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt kein Gesetz, das Arbeitgeber dazu verpflichtet."
+  }
+]

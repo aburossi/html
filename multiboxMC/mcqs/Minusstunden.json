@@ -1,0 +1,159 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist das Thema des Radiobeitrags?",
+    "options": [
+      "Überstunden im Gastgewerbe",
+      "Minusstunden und Ferienverrechnung",
+      "Kurzarbeit während der Pandemie",
+      "Lohnfortzahlung bei Krankheit"
+    ],
+    "correctAnswer": "Minusstunden und Ferienverrechnung",
+    "explanation": "Der Beitrag behandelt die Frage, ob Arbeitgeber Minusstunden mit Ferientagen verrechnen dürfen."
+  },
+  {
+    "id": "mcq2",
+    "question": "In welchem Sektor arbeitet der Partner des Hörers?",
+    "options": [
+      "Detailhandel",
+      "Gastgewerbe",
+      "Gesundheitswesen",
+      "Baugewerbe"
+    ],
+    "correctAnswer": "Gastgewerbe",
+    "explanation": "Der Hörer erwähnt, dass sein Partner im Service eines Restaurants arbeitet."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Arbeitgeber darf Minusstunden immer mit den Ferientagen verrechnen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Arbeitgeber darf Minusstunden nur unter bestimmten Bedingungen, wie z.B. bei Vorkompensation, mit Ferientagen verrechnen."
+  },
+  {
+    "id": "tf2",
+    "question": "Vorkompensation bedeutet, dass der Arbeitnehmer in einer Woche weniger arbeitet und in der nächsten Woche mehr.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Vorkompensation dient dazu, Minusstunden auszugleichen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wie lange kann der Partner des Hörers seine Ansprüche geltend machen?",
+    "options": [
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Ansprüche aus dem Arbeitsverhältnis verjähren erst nach fünf Jahren."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was ist KEIN Beispiel für eine Situation, die zu Minusstunden führen kann?",
+    "options": [
+      "Krankheit",
+      "Kurzarbeit",
+      "Überstundenabbau",
+      "Betriebsferien"
+    ],
+    "correctAnswer": "Überstundenabbau",
+    "explanation": "Überstundenabbau führt zu weniger Arbeitszeit, aber nicht zu Minusstunden."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Partner des Hörers hat sich beim Arbeitgeber beschwert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Text steht, dass der Partner des Hörers keine \"Lämpen\" will und sich deshalb nicht wehrt."
+  },
+        {
+    "id": "tf4",
+    "question": "Die Expertin im Beitrag rät dem Partner des Hörers, die Ferientage am Ende des Arbeitsverhältnisses zurückzufordern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Gabriela Baumgartner rät dazu, die Ansprüche nach Beendigung des Arbeitsverhältnisses geltend zu machen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist ein Gesamtarbeitsvertrag?",
+    "options": [
+      "Ein Vertrag zwischen einem einzelnen Arbeitnehmer und dem Arbeitgeber.",
+      "Ein Vertrag zwischen allen Arbeitnehmern eines Betriebs und dem Arbeitgeber.",
+      "Ein Vertrag zwischen einer Gewerkschaft und dem Arbeitgeberverband.",
+      "Ein Vertrag zwischen dem Staat und den Arbeitgebern."
+    ],
+    "correctAnswer": "Ein Vertrag zwischen einer Gewerkschaft und dem Arbeitgeberverband.",
+    "explanation": "Ein GAV regelt die Arbeitsbedingungen für eine ganze Branche."
+  },
+        {
+    "id": "mcq6",
+    "question": "Welches Recht schützt den Arbeitnehmer vor ungerechtfertigten Abzügen vom Lohn?",
+    "options": [
+      "Mietrecht",
+      "Strafrecht",
+      "Arbeitsrecht",
+      "Verfassungsrecht"
+    ],
+    "correctAnswer": "Arbeitsrecht",
+    "explanation": "Das Arbeitsrecht regelt die Rechte und Pflichten von Arbeitnehmern und Arbeitgebern."
+  },
+          {
+    "id": "tf5",
+    "question": "Minusstunden entstehen, wenn der Arbeitnehmer weniger arbeitet als vertraglich vereinbart.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Minusstunden bedeuten, dass der Arbeitnehmer dem Arbeitgeber Arbeitszeit \"schuldet\"."
+  },
+            {
+    "id": "tf6",
+    "question": "Der Radiobeitrag erwähnt die Corona-Erwerbsausfallentschädigung als Beispiel für Minusstunden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Kurzarbeitsentschädigung wurde erwähnt, aber nicht als Beispiel für Minusstunden."
+  },
+{
+    "id": "mcq7",
+    "question": "Welcher Sender hat den Beitrag ausgestrahlt?",
+    "options": [
+      "SRF 1",
+      "SRF 2 Kultur",
+      "SRF 3",
+      "SRF Kassensturz-Espresso"
+    ],
+    "correctAnswer": "SRF Kassensturz-Espresso",
+    "explanation": "Der Beitrag stammt von der Sendung Kassensturz-Espresso."
+  },
+{
+    "id": "mcq8",
+    "question": "Aus welchem Kanton stammt der Hörer?",
+    "options": [
+      "Zürich",
+      "Bern",
+      "Basel",
+      "St. Gallen"
+    ],
+    "correctAnswer": "Zürich",
+    "explanation": "Im Text wird erwähnt, dass der Hörer aus dem Kanton Zürich stammt."
+  }
+
+]

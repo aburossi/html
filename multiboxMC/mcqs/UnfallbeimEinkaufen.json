@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum ist Irene Kieser im Laden gestürzt?",
+    "options": [
+      "Sie ist über eine herumliegende Einkaufstasche gestolpert.",
+      "Sie ist auf ausgelaufenem Waschmittel ausgerutscht.",
+      "Sie wurde von einem anderen Kunden angerempelt.",
+      "Sie hatte einen Schwächeanfall."
+    ],
+    "correctAnswer": "Sie ist auf ausgelaufenem Waschmittel ausgerutscht.",
+    "explanation": "Im Beitrag wird erwähnt, dass Waschmittel aus einem Gestell ausgelaufen ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wer ist laut Beitrag für die Sicherheit im Laden verantwortlich?",
+    "options": [
+      "Die Kunden",
+      "Der Hausbesitzer oder Mieter des Ladens",
+      "Die Reinigungskraft",
+      "Die Lieferanten der Produkte"
+    ],
+    "correctAnswer": "Der Hausbesitzer oder Mieter des Ladens",
+    "explanation": "Die Rechtsexpertin erklärt, dass der Hausbesitzer/Mieter für die Sicherheit verantwortlich ist."
+  },
+  {
+    "id": "tf1",
+    "question": "Irene Kieser ist über die Krankenkasse unfallversichert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie ist Rentnerin und daher über die Krankenkasse unfallversichert."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Rechtsexpertin rät Irene Kieser, sich direkt an die Haftpflichtversicherung des Ladens zu wenden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie rät ihr, zuerst den Filialleiter und dann die Geschäftsleitung zu kontaktieren."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist ein \"Klassiker\" für Rutschunfälle laut Beitrag?",
+    "options": [
+      "Herumliegende Einkaufswagen",
+      "Nasses Laub im Herbst",
+      "Schlecht beleuchtete Gänge",
+      "Zu enge Regale"
+    ],
+    "correctAnswer": "Nasses Laub im Herbst",
+    "explanation": "Nasses Laub und Eis im Winter werden als \"Klassiker\" genannt."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welchen Rat gibt die Rechtsexpertin im Beitrag?",
+    "options": [
+      "Den Vorfall der Polizei melden.",
+      "Einen Anwalt einschalten.",
+      "Den Filialleiter schriftlich kontaktieren.",
+      "Eine Anzeige in der Zeitung schalten."
+    ],
+    "correctAnswer": "Den Filialleiter schriftlich kontaktieren.",
+    "explanation": "Der Filialleiter und gegebenenfalls die Geschäftsleitung sollen kontaktiert werden."
+  },
+    {
+    "id": "tf3",
+    "question": "Ein Sturz auf nassem Laub im Wald wird im Beitrag als allgemeines Risiko bewertet.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag wird erklärt, dass man bei Regen mit nassem Laub rechnen muss."
+  },
+  {
+    "id": "tf4",
+    "question": "Irene Kieser muss keine Franchise und keinen Selbstbehalt bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da sie über die Krankenkasse versichert ist, muss sie diese Kosten tragen."
+  },
+  {
+    "id": "mcq5",
+    "question": "Was ist die zentrale Frage im Beitrag?",
+    "options": [
+      "Wie kann man Unfälle im Laden vermeiden?",
+      "Wer haftet bei einem Unfall im Laden?",
+      "Welche Versicherung zahlt bei einem Unfall im Laden?",
+      "Wie verhält man sich nach einem Unfall im Laden?"
+    ],
+    "correctAnswer": "Wer haftet bei einem Unfall im Laden?",
+    "explanation": "Der Beitrag dreht sich um die Frage der Haftung bei einem Unfall im Laden."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wo findet Irene Kieser weitere Informationen zu ähnlichen Fällen?",
+    "options": [
+      "Im Kassensturz-Magazin",
+      "Auf srf.ch/espresso",
+      "In der Zeitung",
+      "Beim Konsumentenschutz"
+    ],
+    "correctAnswer": "Auf srf.ch/espresso",
+    "explanation": "Am Ende des Beitrags wird auf srf.ch/espresso verwiesen."
+  },
+    {
+    "id": "tf5",
+    "question": "Der Filialleiter des Ladens hat sofort die Verantwortung für den Unfall übernommen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Filialleiter argumentierte, er habe keine Sorgfaltspflichten verletzt."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Espresso-Rechtsexpertin hatte selbst kürzlich einen Unfall.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie erwähnt, dass sie sich vor einem Jahr den Arm gebrochen hat."
+  },
+  {
+    "id": "mcq7",
+    "question": "Was war der Grund für die Verletzung von Irene Kieser?",
+    "options": [
+      "Sie hat sich den Fuss verstaucht.",
+      "Sie hat sich die Kniescheibe gebrochen.",
+      "Sie hat sich eine Gehirnerschütterung zugezogen.",
+      "Sie hat sich den Arm gebrochen."
+    ],
+    "correctAnswer": "Sie hat sich die Kniescheibe gebrochen.",
+    "explanation": "Im Beitrag wird erwähnt, dass sie sich die Knäuse gebrochen hat."
+  },
+  {
+    "id": "mcq8",
+    "question": "In welchem Kanton lebt Irene Kieser?",
+    "options": [
+      "St. Gallen",
+      "Zürich",
+      "Bern",
+      "Thurgau"
+    ],
+    "correctAnswer": "St. Gallen",
+    "explanation": "Sie lebt in Ebnat-Kappel im Kanton St. Gallen."
+  }
+]

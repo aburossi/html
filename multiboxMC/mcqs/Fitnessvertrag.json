@@ -1,0 +1,151 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum möchte die Frau aus dem Fitnessvertrag aussteigen?",
+    "options": [
+      "Sie zieht in eine andere Stadt.",
+      "Das Fitnessstudio ist zu teuer geworden.",
+      "Sie hat gesundheitliche Probleme aufgrund ihrer Schwangerschaft.",
+      "Sie hat keine Zeit mehr zum Trainieren."
+    ],
+    "correctAnswer": "Sie hat gesundheitliche Probleme aufgrund ihrer Schwangerschaft.",
+    "explanation": "Im Beitrag wird erwähnt, dass die Frau aufgrund von Schwangerschaftskomplikationen nicht mehr trainieren darf."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was bietet das Fitnesscenter der Frau an?",
+    "options": [
+      "Eine kostenlose Vertragsauflösung.",
+      "Die Rückerstattung der Abogebühren.",
+      "Das Hinterlegen des Abos für einen Monat.",
+      "Einen Wechsel in ein anderes Fitnessstudio."
+    ],
+    "correctAnswer": "Das Hinterlegen des Abos für einen Monat.",
+    "explanation": "Das Fitnesscenter erlaubt ihr, den Vertrag für einen Monat zu pausieren."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein schwerer Unfall kann ein wichtiger Grund für eine ausserordentliche Kündigung eines Fitnessvertrags sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Unfall, der nach Vertragsabschluss eintritt und das Trainieren verunmöglicht, gilt als wichtiger Grund."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Frau kann den Fitnessvertrag sofort und ohne Kündigungsfrist auflösen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch bei wichtigen Gründen gilt eine Kündigungsfrist von drei Monaten."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welches Dokument ist wichtig, um einen \"wichtigen Grund\" für die Kündigung zu belegen?",
+    "options": [
+      "Eine Bestätigung des Arbeitgebers.",
+      "Ein Arztzeugnis.",
+      "Eine Meldebestätigung der Gemeinde.",
+      "Ein Empfehlungsschreiben eines Trainers."
+    ],
+    "correctAnswer": "Ein Arztzeugnis.",
+    "explanation": "Ein Arztzeugnis dient als Beweis für gesundheitliche Probleme, die ein Trainieren verunmöglichen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was ist ein Beispiel für einen wichtigen Grund, der NICHT im Beitrag erwähnt wird?",
+    "options": [
+      "Ein Umzug ins Ausland.",
+      "Eine unerwartete Arbeitslosigkeit.",
+      "Eine plötzliche Allergie gegen Chlor im Schwimmbad.",
+      "Die Schliessung des Fitnessstudios."
+    ],
+    "correctAnswer": "Eine plötzliche Allergie gegen Chlor im Schwimmbad.",
+    "explanation": "Die anderen Optionen wurden im Beitrag als Beispiele für wichtige Gründe genannt oder sind offensichtlich."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Rechtsexpertin rät der Frau, den Vertrag sofort zu kündigen und das Geld zurückzufordern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie rät zu einem erneuten Gespräch mit dem Fitnesscenter und weist auf die dreimonatige Kündigungsfrist hin."
+  },
+    {
+    "id": "tf4",
+    "question": "Das Fitnessstudio ist rechtlich verpflichtet, die Kündigung der Frau zu akzeptieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Da ein wichtiger Grund vorliegt und die Kündigungsfrist eingehalten wird, muss das Fitnessstudio die Kündigung akzeptieren."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Frau kann das Abo an eine andere Person abtreten, wenn das Fitnessstudio zustimmt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Fitnessstudio muss einer Vertragsübernahme zustimmen, wenn die neue Person die gleichen Bedingungen erfüllt."
+  },
+        {
+    "id": "tf6",
+    "question": "Dauerschuldverhältnisse, wie ein Fitnessabo, können in der Regel aus wichtigen Gründen gekündigt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Dauerschuldverhältnisse sind langfristige Verträge, die aus wichtigen Gründen gekündigt werden können."
+  },
+        {
+    "id": "tf7",
+    "question": "Ein Fitnessstudio kann in seinen AGBs ausschliessen, dass man aus wichtigen Gründen kündigen kann.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein solcher Ausschluss in den AGBs wäre rechtlich unwirksam."
+  },
+        {
+    "id": "tf8",
+    "question": "Ein \"Timestop\" erlaubt es, das Abo für eine gewisse Zeit zu unterbrechen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein \"Timestop\" ist eine Möglichkeit, das Abo vorübergehend zu pausieren."
+  },
+        {
+    "id": "tf9",
+    "question": "Die Rechtsexpertin rät der Frau, sich an eine Konsumentenschutzorganisation zu wenden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Dieser Rat wird im Beitrag nicht explizit erwähnt."
+  },
+        {
+    "id": "tf10",
+    "question": "Der Beitrag handelt von den Rechten und Pflichten bei Fitnessverträgen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag thematisiert die rechtliche Situation bei Kündigungen von Fitnessverträgen."
+  }
+
+]

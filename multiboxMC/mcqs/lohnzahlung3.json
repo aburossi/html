@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was sollte man als erstes tun, wenn der Lohn ausbleibt?",
+    "options": [
+      "Den Arbeitgeber mündlich zur Zahlung auffordern.",
+      "Einen Anwalt kontaktieren.",
+      "Den Arbeitgeber schriftlich mahnen und eine Frist setzen.",
+      "Die Arbeit sofort niederlegen."
+    ],
+    "correctAnswer": "Den Arbeitgeber schriftlich mahnen und eine Frist setzen.",
+    "explanation": "Eine schriftliche Mahnung mit Fristsetzung ist der erste wichtige Schritt, um die Lohnforderung rechtlich abzusichern."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange muss man maximal auf den Lohn warten, bevor man die Arbeit niederlegen darf?",
+    "options": [
+      "Einen Monat",
+      "Zwei Wochen",
+      "Es gibt keine festgelegte Frist.",
+      "Solange, bis der Arbeitgeber den Lohn bezahlt oder eine plausible Erklärung liefert."
+    ],
+    "correctAnswer": "Es gibt keine festgelegte Frist.",
+    "explanation": "Nach Ablauf der in der Mahnung gesetzten Frist (maximal eine Woche) darf die Arbeit niedergelegt werden."
+  },
+  {
+    "id": "tf1",
+    "question": "Wenn der Arbeitgeber Konkurs geht, erhält man in jedem Fall den gesamten ausstehenden Lohn.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Konkursfall kann man eine Insolvenzentschädigung beantragen, die jedoch auf maximal vier Monatslöhne begrenzt ist."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Unfallversicherung zahlt keine Leistungen, wenn der Arbeitgeber die Prämien nicht bezahlt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Unfallversicherung zahlt die Leistungen an die Angestellten, auch wenn der Arbeitgeber die Prämien nicht bezahlt hat. Die Versicherung wird den Arbeitgeber aber separat mahnen und betreiben."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welche Leistungen deckt die Insolvenzentschädigung ab?",
+    "options": [
+      "Sämtliche Lohnausfälle seit Beginn des Arbeitsverhältnisses.",
+      "Maximal vier Monatslöhne.",
+      "Nur die Sozialversicherungsbeiträge.",
+      "Die Kosten für einen Anwalt."
+    ],
+    "correctAnswer": "Maximal vier Monatslöhne.",
+    "explanation": "Die Insolvenzentschädigung ist auf maximal vier Monatslöhne begrenzt."
+  },
+  {
+    "id": "mcq4",
+    "question": "An wen muss man sich wenden, um die Insolvenzentschädigung zu beantragen?",
+    "options": [
+      "An den Arbeitgeber",
+      "An die Ausgleichskasse",
+      "An die Arbeitslosenkasse",
+      "An das Betreibungsamt"
+    ],
+    "correctAnswer": "An die Arbeitslosenkasse",
+    "explanation": "Die Insolvenzentschädigung wird von der Arbeitslosenkasse ausbezahlt."
+  },
+  {
+    "id": "tf3",
+    "question": "Man muss die ausgefallene Arbeitszeit nacharbeiten, wenn man die Arbeit wegen Lohnrückständen niedergelegt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die ausgefallene Arbeitszeit muss nicht nachgearbeitet werden."
+  },
+  {
+    "id": "tf4",
+    "question": "Der Arbeitgeber muss die AHV-Beiträge jährlich abrechnen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Arbeitgeber ist verpflichtet, die AHV-Beiträge jährlich abzurechnen."
+  },
+        {
+    "id": "mcq5",
+    "question": "In welchem Monat muss der Arbeitgeber die AHV-Beiträge des Vorjahres abrechnen?",
+    "options": [
+      "Januar",
+      "März",
+      "Juni",
+      "Dezember"
+    ],
+    "correctAnswer": "Januar",
+    "explanation": "Die Abrechnung der AHV-Beiträge des Vorjahres muss bis Ende Januar erfolgen."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wie kann man überprüfen, ob der Arbeitgeber die AHV-Beiträge einbezahlt hat?",
+    "options": [
+      "Man fragt beim Arbeitgeber nach.",
+      "Man kontaktiert das Betreibungsamt.",
+      "Man verlangt einen Auszug von der Ausgleichskasse.",
+      "Man schaut im Arbeitsvertrag nach."
+    ],
+    "correctAnswer": "Man verlangt einen Auszug von der Ausgleichskasse.",
+    "explanation": "Die Ausgleichskasse kann einen Auszug über die einbezahlten AHV-Beiträge erstellen."
+  },
+  {
+    "id": "tf5",
+    "question": "Wenn der Arbeitgeber den Lohn nicht zahlt, darf man fristlos kündigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Bei anhaltendem Lohnausfall hat der Arbeitnehmer das Recht, fristlos zu kündigen."
+  },
+  {
+    "id": "tf6",
+    "question": "Es ist ratsam, fristlos zu kündigen, sobald der erste Lohn ausbleibt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine fristlose Kündigung ist ein schwerwiegender Schritt und sollte gut überlegt sein. Es ist ratsam, erst andere Massnahmen zu ergreifen und sich rechtlich beraten zu lassen."
+  },
+      {
+    "id": "mcq7",
+    "question": "Welchen Rat gibt die Rechtsexpertin im Beitrag?",
+    "options": [
+      "Abwarten und dem Arbeitgeber vertrauen.",
+      "Sofort einen Anwalt einschalten.",
+      "Den Arbeitgeber schriftlich mahnen und eine Frist setzen.",
+      "Sich direkt an die Medien wenden."
+    ],
+    "correctAnswer": "Den Arbeitgeber schriftlich mahnen und eine Frist setzen.",
+    "explanation": "Eine schriftliche Mahnung mit Fristsetzung ist der erste wichtige Schritt, um die Lohnforderung rechtlich abzusichern."
+  },
+  {
+    "id": "mcq8",
+    "question": "Wo findet man weitere Informationen zum Thema Lohnausfall?",
+    "options": [
+      "Auf der Website des Bundesamts für Justiz.",
+      "Im Arbeitsvertrag.",
+      "Auf srf.ch/espresso.",
+      "Im Telefonbuch."
+    ],
+    "correctAnswer": "Auf srf.ch/espresso.",
+    "explanation": "Der Beitrag verweist auf einen Artikel auf srf.ch/espresso, der weitere Informationen zum Thema Lohnausfall bietet."
+  }
+]

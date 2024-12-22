@@ -1,0 +1,152 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer muss die Kosten für das Entkalken eines Boilers in einer Mietwohnung übernehmen?",
+    "options": [
+      "Der Mieter",
+      "Der Vermieter",
+      "Der Sanitär",
+      "Die Hausverwaltung"
+    ],
+    "correctAnswer": "Der Vermieter",
+    "explanation": "Das Entkalken eines Boilers erfordert Fachwissen und gehört zum Unterhalt der Wohnung, der vom Vermieter zu tragen ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist der Grund, warum der Mieter die Rechnung für das Entkalken nicht bezahlen muss?",
+    "options": [
+      "Der Boiler war bereits beim Einzug defekt.",
+      "Das Entkalken ist Aufgabe des Mieters.",
+      "Das Entkalken erfordert Fachwissen.",
+      "Der Mieter hat den Boiler nicht selbst entkalkt."
+    ],
+    "correctAnswer": "Das Entkalken erfordert Fachwissen.",
+    "explanation": "Da für das Entkalken eines Boilers Fachwissen erforderlich ist, muss der Vermieter die Kosten übernehmen."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Mieter muss die Kosten für den Service einer Abwaschmaschine selbst tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch für den Service von Haushaltsgeräten wie Abwaschmaschinen muss der Vermieter aufkommen, da hierfür Fachwissen benötigt wird."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn der Mieter den Abfluss durch unsachgemässes Verhalten verstopft, muss er die Kosten für die Reparatur selbst tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Schäden, die durch den Mieter verursacht wurden, muss dieser selbst beheben."
+  },
+  {
+    "id": "mcq3",
+    "question": "An wen sollte sich der Hörer wenden, um die Rechnung zu klären?",
+    "options": [
+      "An den Sanitär",
+      "An die Hausverwaltung",
+      "An den Vermieter",
+      "An den Mieterverband"
+    ],
+    "correctAnswer": "An den Vermieter",
+    "explanation": "Der Vermieter ist für den Unterhalt der Wohnung zuständig und muss die Rechnung begleichen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Dokument sollte der Hörer dem Vermieter vorlegen?",
+    "options": [
+      "Die Rechnung des Sanitärs",
+      "Den Mietvertrag",
+      "Ein Merkblatt zum Mietrecht",
+      "Eine Bestätigung des Mieterverbands"
+    ],
+    "correctAnswer": "Die Rechnung des Sanitärs",
+    "explanation": "Der Hörer sollte dem Vermieter die Rechnung des Sanitärs vorlegen, damit dieser die Kosten übernehmen kann."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Rechtsexpertin rät dem Hörer, die Rechnung direkt zu bezahlen und sich das Geld vom Vermieter zurückzuholen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin rät dem Hörer, die Rechnung an den Vermieter weiterzuleiten und ihn aufzufordern, die Kosten zu übernehmen."
+  },
+    {
+    "id": "tf4",
+    "question": "Der Boiler ist ein Gerät zur Warmwasseraufbereitung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Boiler erwärmt Wasser für den Gebrauch in der Wohnung."
+  },
+    {
+    "id": "tf5",
+    "question": "Gabriela Baumgartner ist die Rechtsexpertin im Beitrag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Gabriela Baumgartner gibt im Beitrag Auskunft zur Rechtslage."
+  },
+    {
+    "id": "tf6",
+    "question": "Der Hörer wohnt in Trimbach bei Olten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer, der die Frage stellt, wohnt in Trimbach bei Olten."
+  },
+      {
+    "id": "tf7",
+    "question": "Der Betrag der Rechnung beläuft sich auf 4000 Franken.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Betrag der Rechnung beträgt 400 Franken."
+  },
+        {
+    "id": "tf8",
+    "question": "Im Beitrag wird empfohlen, den Sanitär über die Rechtslage zu informieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Es wird empfohlen, den Sanitär zu informieren, um Mahnungen zu vermeiden."
+  },
+        {
+    "id": "tf9",
+    "question": "Ein verstopfter Abfluss muss immer vom Vermieter bezahlt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nur wenn der Abfluss aufgrund von Altersschwäche verstopft ist, muss der Vermieter die Kosten übernehmen. Verschuldet der Mieter die Verstopfung, muss er die Kosten selbst tragen."
+  },
+        {
+    "id": "tf10",
+    "question": "Ein Merkblatt vom Mieterinnen- und Mieterverband ist online verfügbar.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag verweist auf ein online verfügbares Merkblatt."
+  }
+
+
+]
