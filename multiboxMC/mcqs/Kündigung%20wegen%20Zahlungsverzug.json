@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum ist das Paar auf Weltreise besorgt?",
+    "options": [
+      "Sie haben ihr Reisebudget überschritten.",
+      "Ihr Untermieter zahlt die Miete nicht.",
+      "Sie haben ihre Wohnung gekündigt.",
+      "Sie finden den Weg nach Thailand nicht."
+    ],
+    "correctAnswer": "Ihr Untermieter zahlt die Miete nicht.",
+    "explanation": "Der Untermieter hält sich nicht an den Mietvertrag und zahlt die Miete nicht, was die Reisenden in Sorge versetzt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welchen ersten Schritt müssen die Reisenden unternehmen?",
+    "options": [
+      "Die Polizei rufen.",
+      "Den Untermieter persönlich aufsuchen.",
+      "Einen Anwalt kontaktieren.",
+      "Den Untermieter schriftlich mahnen."
+    ],
+    "correctAnswer": "Den Untermieter schriftlich mahnen.",
+    "explanation": "Eine schriftliche Mahnung mit Fristsetzung ist der erste notwendige Schritt, um den Zahlungsverzug zu beheben."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Untermieter kann die Kündigung bei der Schlichtungsbehörde anfechten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bei Zahlungsverzug hat der Mieter keine Chance bei der Schlichtungsbehörde."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Reisenden können die Kündigung vom Ausland aus durchführen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie können jemanden in der Schweiz bevollmächtigen, die Kündigung in ihrem Namen durchzuführen oder den Brief selbst aus dem Ausland schicken."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wie lange dauert die Kündigungsfrist im Falle von Zahlungsverzug?",
+    "options": [
+      "3 Monate",
+      "30 Tage",
+      "1 Woche",
+      "6 Monate"
+    ],
+    "correctAnswer": "30 Tage",
+    "explanation": "Nach Ablauf der Mahnfrist kann mit einer Frist von 30 Tagen aufs nächste Monatsende gekündigt werden."
+  },
+    {
+    "id": "mcq4",
+    "question": "Was passiert, wenn der Untermieter die Wohnung nach der Kündigung nicht räumt?",
+    "options": [
+      "Die Vermieter müssen die Wohnung selbst räumen.",
+      "Die Polizei räumt die Wohnung.",
+      "Die Vermieter können das Gericht einschalten.",
+      "Die Vermieter müssen einen neuen Untermieter finden."
+    ],
+    "correctAnswer": "Die Vermieter können das Gericht einschalten.",
+    "explanation": "Das Gericht kann eine Ausweisung des Untermieters veranlassen."
+  },
+    {
+    "id": "tf3",
+    "question": "Ein mündliche Mahnung ist ausreichend, um den Untermieter zu kündigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Mahnung muss schriftlich erfolgen und per Einschreiben verschickt werden."
+  },
+    {
+    "id": "tf4",
+    "question": "Die Reisenden müssen persönlich in die Schweiz zurückkehren, um die Kündigung durchzuführen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie können jemanden bevollmächtigen oder den Brief aus dem Ausland schicken."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welches Dokument ist wichtig für die Kündigung?",
+    "options": [
+      "Ein Foto der Wohnung.",
+      "Eine Kopie des Reisepasses.",
+      "Der Mietvertrag.",
+      "Eine Vollmacht der Bank."
+    ],
+    "correctAnswer": "Der Mietvertrag.",
+    "explanation": "Der Mietvertrag regelt die Bedingungen des Mietverhältnisses und ist Grundlage für die Kündigung."
+  },
+        {
+    "id": "mcq6",
+    "question": "Wer führt die Ausweisung des Untermieters durch, wenn er die Wohnung nicht verlässt?",
+    "options": [
+      "Die Vermieter selbst.",
+      "Der Anwalt der Vermieter.",
+      "Die Polizei.",
+      "Die zuständige Behörde (z.B. Stadtamt)."
+    ],
+    "correctAnswer": "Die zuständige Behörde (z.B. Stadtamt).",
+    "explanation": "Die Ausweisung wird von der zuständigen Behörde durchgeführt, in der Regel mit Unterstützung der Polizei."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Reisenden müssen dem Untermieter die Möglichkeit geben, die Mietschulden innerhalb einer Frist zu begleichen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Mahnung muss eine Frist zur Zahlung der Mietschulden enthalten."
+  },
+        {
+    "id": "tf6",
+    "question": "Eine Vollmacht kann per E-Mail oder Post an die bevollmächtigte Person geschickt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine Vollmacht kann formlos erteilt werden, auch per E-Mail oder Post."
+  },
+      {
+    "id": "tf7",
+    "question": "Wenn der Untermieter nicht zahlt, dürfen die Vermieter die Wohnungsschlüssel eigenmächtig austauschen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das eigenmächtige Austauschen der Schlüssel ist verboten und kann rechtliche Konsequenzen haben."
+  },
+      {
+    "id": "tf8",
+    "question": "Die Kosten für das Mahnverfahren muss der säumige Untermieter tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Kosten des Mahnverfahrens und der allfälligen Ausweisung trägt der säumige Untermieter."
+  }
+
+]
