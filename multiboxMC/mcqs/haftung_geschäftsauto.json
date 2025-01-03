@@ -1,0 +1,158 @@
+[
+ {
+  "id": "mcq1",
+  "question": "Was war die Frage des Hörers an die Espresso-Redaktion?",
+  "options": [
+   "Ob er im Sommer Winterreifen fahren darf.",
+   "Ob er bei einem Unfall mit Winterreifen im Sommer haftbar gemacht werden kann.",
+   "Ob der Arbeitgeber die Winterreifen bezahlen muss.",
+   "Ob er die Winterreifen wechseln muss."
+  ],
+  "correctAnswer": "Ob er bei einem Unfall mit Winterreifen im Sommer haftbar gemacht werden kann.",
+  "explanation": "Der Hörer sorgt sich um die Haftung bei einem Unfall mit Winterreifen im Sommer."
+ },
+ {
+  "id": "mcq2",
+  "question": "Ist es in der Schweiz verboten, im Sommer mit Winterreifen zu fahren?",
+  "options": [
+   "Ja",
+   "Nein",
+   "Nur auf Autobahnen",
+   "Nur bei hohen Temperaturen"
+  ],
+  "correctAnswer": "Nein",
+  "explanation": "Es ist nicht verboten, im Sommer mit Winterreifen zu fahren, aber es wird nicht empfohlen."
+ },
+ {
+  "id": "tf1",
+  "question": "Winterreifen im Sommer führen zu einem kürzeren Bremsweg.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Falsch",
+  "explanation": "Winterreifen im Sommer führen zu einem längeren Bremsweg."
+ },
+ {
+  "id": "tf2",
+  "question": "Der Hörer kann bei einem Unfall haftbar gemacht werden, wenn er nachweislich zu wenig Abstand gehalten hat.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Richtig",
+  "explanation": "Unvorsichtiges Fahren trotz des längeren Bremswegs kann zu Haftung führen."
+ },
+ {
+  "id": "mcq3",
+  "question": "Wer bezahlt den Schaden am anderen Auto bei einem Unfall, den der Hörer verursacht?",
+  "options": [
+   "Der Hörer",
+   "Der Arbeitgeber",
+   "Die Haftpflichtversicherung",
+   "Die Kaskoversicherung"
+  ],
+  "correctAnswer": "Die Haftpflichtversicherung",
+  "explanation": "Die Haftpflichtversicherung deckt Schäden am anderen Fahrzeug."
+ },
+ {
+  "id": "mcq4",
+  "question": "Wann kann der Hörer für den Schaden am Geschäftsauto haftbar gemacht werden?",
+  "options": [
+   "Immer",
+   "Nur bei grober Fahrlässigkeit",
+   "Bei Fahrlässigkeit",
+   "Nie"
+  ],
+  "correctAnswer": "Bei Fahrlässigkeit",
+  "explanation": "Fahrlässiges Verhalten kann den Hörer haftbar machen."
+ },
+ {
+  "id": "tf3",
+  "question": "Es ist erlaubt, im Winter mit Sommerreifen zu fahren.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Falsch",
+  "explanation": "Es ist in der Schweiz verboten, im Winter mit Sommerreifen zu fahren."
+ },
+ {
+  "id": "tf4",
+  "question": "Bei einem Unfall im Winter mit Sommerreifen kann der Führerausweis entzogen werden.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Richtig",
+  "explanation": "Der Führerausweis kann entzogen werden, wenn der Unfall mit Winterreifen vermeidbar gewesen wäre."
+ },
+ {
+  "id": "mcq5",
+  "question": "Welches Verhalten kann im Zusammenhang mit der Bereifung zu einem Unfall führen?",
+  "options": [
+   "Angepasstes Fahren",
+   "Vorausschauendes Fahren",
+   "Zu geringer Abstand",
+   "Richtiges Bremsen"
+  ],
+  "correctAnswer": "Zu geringer Abstand",
+  "explanation": "Zu geringer Abstand in Kombination mit dem längeren Bremsweg von Winterreifen kann zu Unfällen führen."
+ },
+ {
+  "id": "mcq6",
+  "question": "Welche Reifenart wird im Sommer empfohlen?",
+  "options": [
+   "Winterreifen",
+   "Sommerreifen",
+   "Ganzjahresreifen",
+   "Es spielt keine Rolle"
+  ],
+  "correctAnswer": "Sommerreifen",
+  "explanation": "Im Sommer werden Sommerreifen empfohlen."
+ },
+ {
+  "id": "tf5",
+  "question": "Der Arbeitgeber ist immer für Schäden am Geschäftsauto verantwortlich.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Falsch",
+  "explanation": "Der Arbeitgeber ist nicht verantwortlich, wenn der Unfall durch Fahrlässigkeit des Mitarbeiters verursacht wurde."
+ },
+ {
+  "id": "tf6",
+  "question": "Winterreifen im Sommer erhöhen den Benzinverbrauch.",
+  "options": [
+   "Richtig",
+   "Falsch"
+  ],
+  "correctAnswer": "Richtig",
+  "explanation": "Winterreifen im Sommer erhöhen den Rollwiderstand und somit den Benzinverbrauch."
+ },
+ {
+  "id": "mcq7",
+  "question": "Was sollte der Hörer tun, um die Sicherheit im Strassenverkehr zu gewährleisten?",
+  "options": [
+   "Im Sommer Winterreifen fahren",
+   "Den Reifenluftdruck nicht kontrollieren",
+   "Die Reifen an die Jahreszeit anpassen",
+   "Schnell fahren"
+  ],
+  "correctAnswer": "Die Reifen an die Jahreszeit anpassen",
+  "explanation": "Die Anpassung der Reifen an die Jahreszeit erhöht die Fahrsicherheit."
+ },
+ {
+  "id": "mcq8",
+  "question": "Welche Versicherung kommt für Schäden am Geschäftsauto auf, wenn der Unfall nicht durch Fahrlässigkeit des Fahrers verursacht wurde?",
+  "options": [
+   "Haftpflichtversicherung",
+   "Kaskoversicherung",
+   "Unfallversicherung",
+   "Keine Versicherung"
+  ],
+  "correctAnswer": "Kaskoversicherung",
+  "explanation": "Die Kaskoversicherung deckt Schäden am eigenen Fahrzeug, auch am Geschäftsauto."
+ }
+]
