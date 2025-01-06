@@ -176,8 +176,8 @@
 
                 // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
                 storageKeys.sort((a, b) => {
-                    const suffixA = a.replace(STORAGE_PREFIX, '');
-                    const suffixB = b.replace(STORAGE_PREFIX, '');
+                    const suffixA = decodeURIComponent(a.replace(STORAGE_PREFIX, ''));
+                    const suffixB = decodeURIComponent(b.replace(STORAGE_PREFIX, ''));
                     return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
                 });
 
@@ -271,12 +271,20 @@
             }
         }
 
+        // Funktion zum Extrahieren des Suffix aus der URL
+        function getSuffixFromURL() {
+            // Angenommen, die URL ist https://aburossi.github.io/answers/output/Eigentuemerhaftung
+            const pathSegments = window.location.pathname.split('/').filter(segment => segment.length > 0);
+            const lastSegment = pathSegments[pathSegments.length - 1];
+            return lastSegment ? decodeURIComponent(lastSegment) : '';
+        }
+
         // Funktion zum Laden aller multibox-Antworten basierend auf dem Suffix
         function loadAllAnswers() {
             const draftContainer = document.getElementById("draftContainer");
             draftContainer.innerHTML = ""; // Container leeren
 
-            const suffix = getSuffixFromURL(); // Funktion zum Extrahieren des Suffix aus der URL
+            const suffix = getQueryParam('suffix'); // Lese den Suffix aus der URL
             if (!suffix) {
                 draftContainer.innerHTML = "<p>Kein Suffix gefunden. Bitte überprüfen Sie die URL.</p>";
                 return;
@@ -285,7 +293,7 @@
             const storageKeys = Object.keys(localStorage).filter(key => {
                 if (!key.startsWith(STORAGE_PREFIX)) return false;
                 const keySuffix = decodeURIComponent(key.replace(STORAGE_PREFIX, ''));
-                return keySuffix === suffix;
+                return keySuffix === suffix; // Strikte Übereinstimmung
             });
 
             console.log(`Gefundene ${storageKeys.length} gespeicherte multibox-Aufträge mit Suffix '${suffix}'`);
@@ -350,20 +358,10 @@
             });
         }
 
-        // Funktion zum Extrahieren des Suffix aus der URL
-        function getSuffixFromURL() {
-            // Angenommen, die URL ist https://aburossi.github.io/answers/output/Eigentuemerhaftung
-            const pathSegments = window.location.pathname.split('/').filter(segment => segment.length > 0);
-            const lastSegment = pathSegments[pathSegments.length - 1];
-            return lastSegment ? decodeURIComponent(lastSegment) : '';
-        }
-
-        // Funktion zum Aktualisieren der angezeigten Antworten
         function reloadAnswers() {
             loadAllAnswers();
         }
 
-        // Funktion zum Kopieren von Text in die Zwischenablage
         function copyToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(function() {
@@ -420,7 +418,7 @@
         function clearLocalStorage() {
             if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
                 // Entferne nur Schlüssel mit dem multibox-Präfix und dem spezifischen Suffix
-                const suffix = getSuffixFromURL();
+                const suffix = getQueryParam('suffix');
                 if (!suffix) {
                     alert("Kein Suffix gefunden. Keine Antworten wurden gelöscht.");
                     return;
@@ -444,7 +442,7 @@
 
         // Funktion zum Kopieren aller Antworten in die Zwischenablage
         function copyAllAnswersToClipboard() {
-            const suffix = getSuffixFromURL();
+            const suffix = getQueryParam('suffix');
             if (!suffix) {
                 alert("Kein Suffix gefunden. Keine Antworten zum Kopieren.");
                 return;
@@ -534,7 +532,6 @@
                 alert('Das Einfügen von Inhalten ist nicht erlaubt.');
             }
         });
-
     </script>
 </body>
 </html>
