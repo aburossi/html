@@ -171,6 +171,11 @@
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
+    <!-- Italic informational text -->
+    <p class="info-text">
+        Alle Antworten können am Ende dieser Seite heruntergeladen werden.
+    </p>
+
     <!-- Button-Container -->
     <div class="button-container">
         <button id="saveBtn" onclick="saveToLocal()">Antwort zwischenspeichern</button>
@@ -244,15 +249,13 @@
         }
 
         const STORAGE_PREFIX = 'multibox-assignment_'; // Eindeutiger Präfix für multibox
-        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+        const suffix = getQueryParam('suffix') || 'defaultSuffix'; // Lese den Suffix aus der URL
+        const assignmentId = 'assignment_' + suffix; // Erstelle einen eindeutigen assignmentId basierend auf dem Suffix
         const parentTitle = getParentPageTitle();
         const assignmentInfo = document.getElementById('assignmentInfo');
 
-        // Entferne das Präfix 'assignment', um das Suffix zu erhalten
-        const assignmentSuffix = decodeURIComponent(assignmentId.replace(/^assignment[_-]?/, ''));
-
         // Setze den Text auf 'Auftrag: {Suffix}'
-        assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
+        assignmentInfo.textContent = suffix ? `Auftrag: ${suffix}` : 'Auftrag';
 
         // Initialisiere den Quill-Editor
         const quill = new Quill('#answerBox', {
@@ -274,7 +277,7 @@
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
 
         // Lade gespeicherten Inhalt und setze ihn im Quill-Editor
-        const storageKey = STORAGE_PREFIX + assignmentId;
+        const storageKey = STORAGE_PREFIX + suffix;
         const savedText = localStorage.getItem(storageKey);
         if (savedText) {
             quill.root.innerHTML = savedText;
@@ -288,8 +291,8 @@
         function displaySavedAnswer(content) {
             // Kombiniere parentTitle und assignmentSuffix, falls verfügbar
             const titleText = parentTitle
-                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}`
-                : `Auftrag: ${assignmentSuffix}`;
+                ? `${parentTitle}\nAuftrag: ${suffix}`
+                : `Auftrag: ${suffix}`;
             savedAssignmentTitle.textContent = titleText;
             savedAnswer.innerHTML = content;
             savedAnswerContainer.style.display = 'block';
@@ -298,8 +301,8 @@
         // Funktion zum Kopieren des Textes in die Zwischenablage
         copyAnswerBtn.addEventListener('click', function() {
             const textToCopy = parentTitle
-                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`
-                : `Auftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+                ? `${parentTitle}\nAuftrag: ${suffix}\n${quill.root.innerHTML}`
+                : `Auftrag: ${suffix}\n${quill.root.innerHTML}`;
             copyTextToClipboard(textToCopy);
         });
 
@@ -364,18 +367,26 @@
         // Funktion zum Löschen aller gespeicherten Texte aus localStorage
         function clearLocalStorage() {
             // Bestätigung entfernen
-            // Entferne nur Schlüssel mit dem multibox-Präfix
+            // Entferne nur Schlüssel mit dem multibox-Präfix und dem spezifischen Suffix
+            const suffix = getQueryParam('suffix');
+            if (!suffix) {
+                alert("Kein Suffix gefunden. Keine Antworten wurden gelöscht.");
+                return;
+            }
             const keysToRemove = [];
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
                 if (key.startsWith(STORAGE_PREFIX)) {
-                    keysToRemove.push(key);
+                    const keySuffix = decodeURIComponent(key.replace(STORAGE_PREFIX, ''));
+                    if (keySuffix === suffix) {
+                        keysToRemove.push(key);
+                    }
                 }
             }
             keysToRemove.forEach(key => localStorage.removeItem(key));
             quill.setText(''); // Leere den Quill-Editor
             savedAnswerContainer.style.display = 'none';
-            console.log("Alle gespeicherten multibox-Texte wurden gelöscht");
+            console.log("Alle gespeicherten multibox-Texte mit dem spezifischen Suffix wurden gelöscht");
         }
 
         // Event Listener für den Button "Alle Antworten drucken / Als PDF speichern"
@@ -384,14 +395,14 @@
 
             console.log(`Gefundene ${storageKeys.length} gespeicherte multibox-Assignments zum Drucken`);
             if(storageKeys.length === 0) {
-                console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
+                console.log("Versuch, alle Texte zu drucken, aber keine gespeichert");
                 alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
                 return;
             }
 
-            console.log("Drucken aller Texte wird initiiert");
+            console.log("Drucken aller Antworten wird initiiert");
 
-            // Erstelle ein temporäres Div zum Drucken aller Texte
+            // Erstelle ein temporäres Div zum Drucken aller Antworten
             const printAllContent = document.createElement('div');
             printAllContent.id = 'printAllContent';
 
@@ -404,8 +415,8 @@
 
             // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
             storageKeys.sort((a, b) => {
-                const suffixA = a.replace(STORAGE_PREFIX, '');
-                const suffixB = b.replace(STORAGE_PREFIX, '');
+                const suffixA = decodeURIComponent(a.replace(STORAGE_PREFIX, ''));
+                const suffixB = decodeURIComponent(b.replace(STORAGE_PREFIX, ''));
                 return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
             });
 
@@ -441,8 +452,64 @@
             document.body.removeChild(printAllContent);
         });
 
+        // Event Listener für den Button "Alle Antworten in die Zwischenablage kopieren"
+        const copyAllBtn = document.getElementById("copyAllBtn");
+        copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
+
+        // Funktion zum Kopieren aller Antworten in die Zwischenablage
+        function copyAllAnswersToClipboard() {
+            const suffix = getQueryParam('suffix');
+            if (!suffix) {
+                alert("Kein Suffix gefunden. Keine Antworten zum Kopieren.");
+                return;
+            }
+
+            const storageKeys = Object.keys(localStorage).filter(key => {
+                if (!key.startsWith(STORAGE_PREFIX)) return false;
+                const keySuffix = decodeURIComponent(key.replace(STORAGE_PREFIX, ''));
+                return keySuffix === suffix;
+            });
+            
+            if(storageKeys.length === 0) {
+                alert("Keine gespeicherten Antworten zum Kopieren.");
+                console.log("Copy all attempted with no stored answers");
+                return;
+            }
+
+            // Sortiere die storageKeys basierend auf dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = decodeURIComponent(a.replace(STORAGE_PREFIX, ''));
+                const suffixB = decodeURIComponent(b.replace(STORAGE_PREFIX, ''));
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            let allText = '';
+            storageKeys.forEach(assignmentId => {
+                const text = localStorage.getItem(assignmentId);
+                if(text) {
+                    const assignmentIdClean = decodeURIComponent(assignmentId.replace(STORAGE_PREFIX, ''));
+                    allText += `Auftrag ${assignmentIdClean}:\n${text}\n\n`;
+                }
+            });
+
+            // Überprüfe, ob die Clipboard API verfügbar ist
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // Verwende die Clipboard API
+                navigator.clipboard.writeText(allText).then(function() {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("Alle Antworten erfolgreich kopiert");
+                }).catch(function(err) {
+                    console.error('Fehler beim Kopieren der Antworten: ', err);
+                    fallbackCopyTextToClipboard(allText);
+                });
+            } else {
+                // Fallback zu execCommand
+                fallbackCopyTextToClipboard(allText);
+            }
+        }
+
         // Optional: Logge den initialen Zustand von localStorage zur Fehlersuche
-        console.log("Anfangszustand von localStorage:");
+        console.log("Initialer Zustand von localStorage:");
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             console.log(`${key}: ${localStorage.getItem(key)}`);
@@ -481,7 +548,6 @@
                 alert('Das Einfügen von Inhalten ist nicht erlaubt.');
             }
         });
-
     </script>
 </body>
 
