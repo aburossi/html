@@ -300,11 +300,11 @@
         // Function to copy the answer to the clipboard
         copyAnswerBtn.addEventListener('click', function() {
             const textToCopy = parentTitle
-                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`
-                : `Auftrag: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.getText().trim()}`
+                : `Auftrag: ${assignmentSuffix}\n${quill.getText().trim()}`;
             copyTextToClipboard(textToCopy);
         });
-
+    
         // Function to copy text to the clipboard
         function copyTextToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -320,7 +320,7 @@
                 fallbackCopyTextToClipboard(text);
             }
         }
-
+    
         // Fallback function to copy text to the clipboard
         function fallbackCopyTextToClipboard(text) {
             const textarea = document.createElement("textarea");
@@ -331,7 +331,7 @@
             document.body.appendChild(textarea);
             textarea.focus();
             textarea.select();
-
+    
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
@@ -344,7 +344,56 @@
                 console.error('Error copying the answer (Fallback): ', err);
                 // Confirmation removed
             }
-
+    
+            document.body.removeChild(textarea);
+        }    // Function to copy the answer to the clipboard
+        copyAnswerBtn.addEventListener('click', function() {
+            const textToCopy = parentTitle
+                ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.getText().trim()}`
+                : `Auftrag: ${assignmentSuffix}\n${quill.getText().trim()}`;
+            copyTextToClipboard(textToCopy);
+        });
+    
+        // Function to copy text to the clipboard
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    // Confirmation removed
+                    console.log("Answer successfully copied");
+                }, function(err) {
+                    console.error('Error copying the answer: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback to execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+    
+        // Fallback function to copy text to the clipboard
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Hide the textarea element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+    
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    // Confirmation removed
+                    console.log("Answer successfully copied (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Error copying the answer (Fallback): ', err);
+                // Confirmation removed
+            }
+    
             document.body.removeChild(textarea);
         }
 
