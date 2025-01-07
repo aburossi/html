@@ -19,30 +19,36 @@
             margin-bottom: 20px;
         }
         button {
-            padding: 6px 12px; /* Smaller dimensions */
-            font-size: 12px;    /* Smaller font size */
+            padding: 6px 12px; /* Kleinere Abmessungen */
+            font-size: 12px;    /* Kleinere Schriftgröße */
             cursor: pointer;
             color: white;
             border: none;
             border-radius: 4px;
         }
         #reloadBtn {
-            background-color: #008CBA; /* Blue for Refresh */
+            background-color: #008CBA; /* Blau für Aktualisieren */
             display: flex;
             align-items: center;
             gap: 5px;
         }
         #downloadAllBtn {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; /* Grün */
         }
         #copyAllBtn {
-            background-color: #FFEB3B; /* Yellow */
-            color: black; /* Contrast text for yellow */
+            background-color: #FFEB3B; /* Gelb */
+            color: black; /* Kontrasttext für Gelb */
         }
         #clearBtn {
-            background-color: #f44336; /* Red */
+            background-color: #f44336; /* Rot */
         }
-        /* Display area for saved answers */
+        /* Bulk Action Container */
+        .bulk-action-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Anzeigebereich für gespeicherte Antworten */
         .draft {
             margin-bottom: 30px;
             border: 1px solid #ccc;
@@ -50,6 +56,7 @@
             border-radius: 5px;
             background-color: #f9f9f9;
             position: relative;
+            padding-left: 40px; /* Platz für die Checkbox */
         }
         .answerText {
             white-space: pre-wrap;
@@ -68,8 +75,8 @@
             margin-top: 10px;
         }
         .copyAnswerBtn {
-            background-color: #FFEB3B; /* Yellow */
-            color: black; /* Contrast text for yellow */
+            background-color: #FFEB3B; /* Gelb */
+            color: black; /* Kontrasttext für Gelb */
             flex: 1;
             margin-right: 5px;
             border: none;
@@ -77,7 +84,7 @@
             cursor: pointer;
         }
         .deleteAnswerBtn {
-            background-color: #f44336; /* Red */
+            background-color: #f44336; /* Rot */
             color: white;
             flex: 1;
             margin-left: 5px;
@@ -110,7 +117,7 @@
                 margin-bottom: 5px;
             }
             .answerText {
-                white-space: pre-wrap; /* Allow line breaks */
+                white-space: pre-wrap; /* Zeilenumbrüche erlauben */
                 font-size: 14px;
                 padding: 10px;
                 box-sizing: border-box;
@@ -118,7 +125,7 @@
                 background-color: #fff;
                 border: none;
             }
-            /* Optional: Style lists if needed */
+            /* Optional: Listen stylen, falls benötigt */
             .draft ul, .draft ol {
                 margin-left: 20px;
             }
@@ -139,6 +146,13 @@
     </div>
     
     <h2>Gespeicherte Antworten:</h2>
+
+    <!-- Bulk Action Container -->
+    <div class="bulk-action-container">
+        <input type="checkbox" id="selectAll">
+        <label for="selectAll"> Alle auswählen</label>
+        <button id="bulkDeleteBtn" disabled>Ausgewählte löschen</button>
+    </div>
     
     <div id="draftContainer">
         <!-- Drafts will be loaded here -->
@@ -210,6 +224,18 @@
             // Event Listener for the "Copy All Answers to Clipboard" button
             const copyAllBtn = document.getElementById("copyAllBtn");
             copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
+
+            // Event Listener for "Select All" Checkbox
+            const selectAllCheckbox = document.getElementById("selectAll");
+            selectAllCheckbox.addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll(".select-answer");
+                checkboxes.forEach(cb => cb.checked = selectAllCheckbox.checked);
+                toggleBulkDeleteButton();
+            });
+
+            // Event Listener for "Bulk Delete" Button
+            const bulkDeleteBtn = document.getElementById("bulkDeleteBtn");
+            bulkDeleteBtn.addEventListener('click', bulkDeleteAnswers);
         });
 
         function loadAllAnswers() {
@@ -240,49 +266,72 @@
                     console.log(`Lade Auftrag: ${assignmentId}`);
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
-                    
+
+                    // Erstelle eine Checkbox
+                    const checkboxDiv = document.createElement("div");
+                    checkboxDiv.style.position = "absolute";
+                    checkboxDiv.style.top = "10px";
+                    checkboxDiv.style.left = "10px";
+
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.className = "select-answer";
+                    checkbox.value = assignmentId; // Verwende assignmentId als Wert
+                    checkbox.addEventListener('change', toggleBulkDeleteButton);
+
+                    const checkboxLabel = document.createElement("label");
+                    checkboxLabel.textContent = " Auswählen";
+
+                    checkboxDiv.appendChild(checkbox);
+                    checkboxDiv.appendChild(checkboxLabel);
+                    draftDiv.appendChild(checkboxDiv);
+
                     const assignmentIdMatch = assignmentId.match(/^assignment(.+)$/);
                     const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
-                    
+
                     const title = document.createElement("h3");
                     title.textContent = `Auftrag ${assignmentIdClean}`;
                     draftDiv.appendChild(title);
-                    
+
                     const answerDiv = document.createElement("div");
                     answerDiv.className = "answerText";
                     answerDiv.innerHTML = text; // Render HTML content
+                    answerDiv.style.marginLeft = "30px"; // Platz für die Checkbox schaffen
                     draftDiv.appendChild(answerDiv);
-                    
+
                     // Create button group
                     const buttonGroup = document.createElement("div");
                     buttonGroup.className = "button-group";
-                    
+
                     // Create copy button
                     const copyBtn = document.createElement("button");
                     copyBtn.textContent = "Antwort kopieren";
                     copyBtn.className = "copyAnswerBtn";
-                    copyBtn.style.backgroundColor = "#FFEB3B"; // Yellow
-                    copyBtn.style.color = "black"; // Contrast text for yellow
+                    copyBtn.style.backgroundColor = "#FFEB3B"; // Gelb
+                    copyBtn.style.color = "black"; // Kontrasttext für Gelb
                     copyBtn.addEventListener('click', function() {
                         copyToClipboard(text);
                     });
                     buttonGroup.appendChild(copyBtn);
-                    
+
                     // Create delete button
                     const deleteBtn = document.createElement("button");
                     deleteBtn.textContent = "Antwort löschen";
                     deleteBtn.className = "deleteAnswerBtn";
-                    deleteBtn.style.backgroundColor = "#f44336"; // Red
+                    deleteBtn.style.backgroundColor = "#f44336"; // Rot
                     deleteBtn.addEventListener('click', function() {
                         deleteAnswer(assignmentId);
                     });
                     buttonGroup.appendChild(deleteBtn);
-                    
+
                     draftDiv.appendChild(buttonGroup);
-                    
+
                     draftContainer.appendChild(draftDiv);
                 }
             });
+
+            // Nach dem Laden der Antworten:
+            toggleBulkDeleteButton();
         }
 
         function reloadAnswers() {
@@ -304,53 +353,29 @@
             }
         }
 
-        // Fallback function to copy text to the clipboard
-        function fallbackCopyTextToClipboard(text) {
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            // Hide the textarea element
-            textarea.style.position = "fixed";
-            textarea.style.top = "-9999px";
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
-
-            try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    alert("Antwort wurde in die Zwischenablage kopiert.");
-                    console.log("Antwort erfolgreich kopiert (Fallback)");
-                } else {
-                    throw new Error("Fallback copy unsuccessful");
-                }
-            } catch (err) {
-                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
-                alert("Fehler beim Kopieren der Antwort.");
+        // Funktion für die Bulk Delete
+        function bulkDeleteAnswers() {
+            const selectedCheckboxes = document.querySelectorAll(".select-answer:checked");
+            if(selectedCheckboxes.length === 0) {
+                alert("Bitte wählen Sie mindestens eine Antwort zum Löschen aus.");
+                return;
             }
 
-            document.body.removeChild(textarea);
-        }
+            if(!confirm(`Sind Sie sicher, dass Sie ${selectedCheckboxes.length} ausgewählte Antwort(en) löschen möchten?`)) {
+                return;
+            }
 
-        // Function to delete a single answer
-        function deleteAnswer(assignmentId) {
-            if(confirm("Sind Sie sicher, dass Sie diese Antwort löschen möchten?")) {
+            selectedCheckboxes.forEach(cb => {
+                const assignmentId = cb.value;
                 localStorage.removeItem(assignmentId);
-                alert("Antwort wurde gelöscht.");
                 console.log(`Antwort für ${assignmentId} gelöscht.`);
-                loadAllAnswers(); // Update the list of saved answers
-            }
+            });
+
+            alert(`${selectedCheckboxes.length} Antwort(en) wurden gelöscht.`);
+            loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
         }
 
-        // Function to clear all saved answers from localStorage
-        function clearLocalStorage() {
-            if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
-                localStorage.clear();
-                alert("Alle gespeicherten Antworten wurden gelöscht.");
-                console.log("Alle localStorage-Elemente gelöscht");
-                loadAllAnswers(); // Update the list of saved answers
-            }
-        }
-
+        // Funktion zum Kopieren aller Antworten
         function copyAllAnswersToClipboard() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
             
@@ -391,6 +416,60 @@
                 // Fallback to execCommand
                 fallbackCopyTextToClipboard(allText);
             }
+        }
+
+        // Funktion zum Kopieren als Fallback
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecke das textarea Element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
+                alert("Fehler beim Kopieren der Antwort.");
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Funktion zum Löschen einer einzelnen Antwort
+        function deleteAnswer(assignmentId) {
+            if(confirm("Sind Sie sicher, dass Sie diese Antwort löschen möchten?")) {
+                localStorage.removeItem(assignmentId);
+                alert("Antwort wurde gelöscht.");
+                console.log(`Antwort für ${assignmentId} gelöscht.`);
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
+            }
+        }
+
+        // Funktion zum Löschen aller Antworten
+        function clearLocalStorage() {
+            if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
+                localStorage.clear();
+                alert("Alle gespeicherten Antworten wurden gelöscht.");
+                console.log("Alle localStorage-Elemente gelöscht");
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
+            }
+        }
+
+        // Funktion zum Aktivieren/Deaktivieren der Bulk Delete Schaltfläche
+        function toggleBulkDeleteButton() {
+            const selected = document.querySelectorAll(".select-answer:checked").length;
+            const bulkDeleteBtn = document.getElementById("bulkDeleteBtn");
+            bulkDeleteBtn.disabled = selected === 0;
         }
 
         // Optional: Log the initial state of localStorage for debugging
