@@ -1,159 +1,158 @@
 [
-  {
-    "id": "mcq1",
-    "question": "Warum wurde der Hörer trotz seiner Ablehnung ins Spital gebracht?",
-    "options": [
-      "Weil er nicht urteilsfähig war.",
-      "Weil er alkoholisiert war.",
-      "Weil er keine Krankenversicherung hatte.",
-      "Weil er sich geweigert hat, seine Personalien anzugeben."
-    ],
-    "correctAnswer": "Weil er nicht urteilsfähig war.",
-    "explanation": "Die Rettungssanitäter\*innen müssen in solchen Fällen die Urteilsfähigkeit prüfen und im Zweifelsfall handeln."
-  },
-  {
-    "id": "mcq2",
-    "question": "Wer muss die Kosten für den Rettungseinsatz übernehmen?",
-    "options": [
-      "Der Passant, der die Ambulanz gerufen hat.",
-      "Der Verunfallte.",
-      "Die Gemeinde.",
-      "Die Polizei."
-    ],
-    "correctAnswer": "Der Verunfallte.",
-    "explanation": "Die Kosten für Ambulanz und Spital müssen vom Verunfallten getragen werden, auch wenn er sie nicht selbst gerufen hat."
-  },
-  {
-    "id": "tf1",
-    "question": "Man kann in jedem Fall eine medizinische Behandlung ablehnen.",
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Falsch",
-    "explanation": "Man kann eine Behandlung nur ablehnen, wenn man urteilsfähig ist."
-  },
-  {
-    "id": "tf2",
-    "question": "Die Unfallversicherung übernimmt die gesamten Kosten des Rettungseinsatzes.",
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Falsch",
-    "explanation": "Die Unfallversicherung übernimmt nur einen Teil der Kosten, in diesem Fall 500 Franken."
-  },
-  {
-    "id": "mcq3",
-    "question": "Was ist ein wichtiges Kriterium zur Beurteilung der Urteilsfähigkeit?",
-    "options": [
-      "Das Alter der Person",
-      "Die körperliche Fitness der Person",
-      "Die Orientierung der Person",
-      "Der finanzielle Status der Person"
-    ],
-    "correctAnswer": "Die Orientierung der Person",
-    "explanation": "Die Rettungssanitäter\*innen prüfen unter anderem, ob die Person orientiert ist, d.h. wo sie sich befindet und was passiert ist."
-  },
-  {
-    "id": "mcq4",
-    "question": "Was sollte man tun, wenn man einen Unfall beobachtet?",
-    "options": [
-      "Sofort weglaufen",
-      "Fotos machen und im Internet teilen",
-      "Die Polizei rufen, wenn sich jemand verletzt hat",
-      "Nur helfen, wenn man dazu aufgefordert wird"
-    ],
-    "correctAnswer": "Die Polizei rufen, wenn sich jemand verletzt hat",
-    "explanation": "Bei einem Unfall mit Verletzten ist man verpflichtet, Hilfe zu leisten und die Polizei zu rufen."
-  },
-  {
-    "id": "tf3",
-    "question": "Der Hörer war beim Unfall alkoholisiert.",
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Falsch",
-    "explanation": "Im Text gibt es keine Hinweise darauf, dass der Hörer alkoholisiert war."
-  },
-  {
-    "id": "tf4",
-    "question": "Der Hörer ist ein ehemaliger Velorennfahrer.",
-
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Falsch",
-    "explanation": "Der Hörer ist ein ehemaliger \"Velorim-Fahrer\", nicht Rennfahrer."
-  },
-    {
-    "id": "mcq5",
-    "question": "In welchem Kanton ereignete sich der Unfall?",
-    "options": [
-      "Tessin",
-      "Zürich",
-      "Bern",
-      "Graubünden"
-    ],
-    "correctAnswer": "Tessin",
-    "explanation": "Der Unfall ereignete sich im Kanton Tessin."
-  },
-  {
-    "id": "mcq6",
-    "question": "Wie alt ist der verunfallte Hörer?",
-    "options": [
-      "69",
-      "59",
-      "79",
-      "49"
-    ],
-    "correctAnswer": "69",
-    "explanation": "Der Hörer ist 69 Jahre alt."
-  },
-  {
-    "id": "tf5",
-    "question": "Die Rettungssanitäterin im Beitrag heisst Anja Bodemann.",
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Richtig",
-    "explanation": "Anja Bodemann ist Rettungssanitäterin bei Schutz und Rettung Zürich."
-  },
-  {
-    "id": "tf6",
-    "question": "Die Rechtsexpertin im Beitrag heisst Tanja Bodemann.",
-    "options": [
-      "Richtig",
-      "Falsch"
-    ],
-    "correctAnswer": "Falsch",
-    "explanation": "Die Rechtsexpertin heisst Gabriela Baumgartner."
-  },
-        {
-    "id": "mcq7",
-    "question": "Wie hoch ist die Kostenbeteiligung der Unfallversicherung an den Ambulanzkosten?",
-    "options": [
-      "500 Franken",
-      "1000 Franken",
-      "2000 Franken",
-      "Die gesamten Kosten"
-    ],
-    "correctAnswer": "500 Franken",
-    "explanation": "Die Unfallversicherung beteiligt sich mit 500 Franken an den Ambulanzkosten."
-  },
-  {
-    "id": "mcq8",
-    "question": "Wo findet man zusätzliche Informationen zum Thema?",
-    "options": [
-      "Auf der Webseite von SRF Kassensturz",
-      "Auf der Webseite der Kantonspolizei Bern",
-      "Auf der Webseite von Schutz und Rettung Zürich",
-      "Alle Antworten sind richtig"
-    ],
-    "correctAnswer": "Alle Antworten sind richtig",
-    "explanation": "Im Beitrag werden alle drei Webseiten als Informationsquellen genannt."
-  }
-]
+    {
+      "id": "mcq1",
+      "question": "Warum musste der Velofahrer die Rechnung für die Ambulanz und die Spitaluntersuchung bezahlen?",
+      "options": [
+          "Weil er die Ambulanz selbst gerufen hatte.",
+          "Weil er sich geweigert hatte, die Behandlung abzulehnen.",
+          "Weil er nicht urteilsfähig war und die Behandlung nicht wirksam ablehnen konnte.",
+          "Weil er Passanten beschimpft hatte, die ihm helfen wollten."
+      ],
+      "correctAnswer": "Weil er nicht urteilsfähig war und die Behandlung nicht wirksam ablehnen konnte.",
+      "explanation": "Nur eine urteilsfähige Person kann eine medizinische Behandlung wirksam ablehnen."
+    },
+    {
+      "id": "mcq2",
+      "question": "Welche Versicherung übernimmt die Kosten für die Behandlung im Spital?",
+      "options": [
+          "Die Haftpflichtversicherung",
+          "Die Krankenkasse",
+          "Die Unfallversicherung",
+          "Die Lebensversicherung"
+      ],
+      "correctAnswer": "Die Krankenkasse",
+      "explanation": "Die Krankenkasse übernimmt die Kosten für die medizinische Behandlung."
+    },
+    {
+      "id": "tf1",
+      "question": "Der Velofahrer war verpflichtet, die Ambulanz zu rufen, da er einen Unfall hatte.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Der Velofahrer war nicht verpflichtet, die Ambulanz zu rufen, da er sich nicht verletzt fühlte."
+    },
+    {
+      "id": "tf2",
+      "question": "Die Rettungssanitäter dürfen eine Person gegen ihren Willen behandeln, wenn sie nicht urteilsfähig ist.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Die Rettungssanitäter müssen in diesem Fall die Polizei rufen, um die Person behandeln zu können."
+    },
+    {
+      "id": "mcq3",
+      "question": "Wer ist verpflichtet, bei einem Unfall Erste Hilfe zu leisten?",
+      "options": [
+          "Nur Personen, die einen Erste-Hilfe-Kurs absolviert haben.",
+          "Nur Personen, die in den Unfall verwickelt sind.",
+          "Jede Person, die Zeuge eines Unfalls wird.",
+          "Nur die Polizei und Rettungssanitäter."
+      ],
+      "correctAnswer": "Jede Person, die Zeuge eines Unfalls wird.",
+      "explanation": "Es besteht eine allgemeine Hilfeleistungspflicht bei Unfällen."
+    },
+    {
+      "id": "mcq4",
+      "question": "Was ist ein wichtiges Kriterium zur Beurteilung der Urteilsfähigkeit?",
+      "options": [
+          "Das Alter der Person",
+          "Die körperliche Fitness der Person",
+          "Die Orientierung der Person",
+          "Der Beruf der Person"
+      ],
+      "correctAnswer": "Die Orientierung der Person",
+      "explanation": "Die Orientierung der Person ist ein wichtiges Kriterium zur Beurteilung der Urteilsfähigkeit."
+    },
+    {
+      "id": "tf3",
+      "question": "Der Velofahrer hätte die Polizei rufen müssen, da er in einen Unfall verwickelt war.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Der Velofahrer war nicht verpflichtet, die Polizei zu rufen, da es sich um einen Alleinunfall handelte und er sich nicht verletzt fühlte."
+    },
+    {
+      "id": "tf4",
+      "question": "Die Unfallversicherung übernimmt die gesamten Kosten für die Ambulanz.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Die Unfallversicherung übernimmt nur einen Teil der Kosten für die Ambulanz."
+    },
+    {
+      "id": "mcq5",
+      "question": "In welchem Fall muss man bei einem Unfall unbedingt die Polizei rufen?",
+      "options": [
+          "Wenn der Verunfallte nicht ansprechbar ist.",
+          "Wenn der Verunfallte über Schmerzen klagt.",
+          "Wenn es sich um einen Verkehrsunfall handelt.",
+          "Wenn der Verunfallte eine blutende Wunde hat."
+      ],
+      "correctAnswer": "Wenn es sich um einen Verkehrsunfall handelt.",
+      "explanation": "Bei Verkehrsunfällen muss immer die Polizei gerufen werden."
+    },
+    {
+      "id": "mcq6",
+      "question": "Was ist die Aufgabe der Rettungssanitäter bei einem Unfall?",
+      "options": [
+          "Die Feststellung der Schuldfrage",
+          "Die medizinische Versorgung des Verunfallten",
+          "Die Bergung des Verunfallten",
+          "Die Sicherung der Unfallstelle"
+      ],
+      "correctAnswer": "Die medizinische Versorgung des Verunfallten",
+      "explanation": "Die Hauptaufgabe der Rettungssanitäter ist die medizinische Versorgung des Verunfallten."
+    },
+    {
+      "id": "tf5",
+      "question": "Der Velofahrer war topfit und ein ehemaliger Velorennfahrer.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Der Velofahrer war topfit und ein ehemaliger Velorennfahrer."
+    },
+    {
+      "id": "tf6",
+      "question": "Der Velofahrer ist mit dem Kopf auf dem Boden aufgeschlagen.",
+      "options": [
+          "Richtig",
+          "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Der Velofahrer ist mit dem Kopf auf dem Boden aufgeschlagen."
+    },
+    {
+      "id": "mcq7",
+      "question": "Wo findet man weitere Informationen zum Thema Unfall und Erste Hilfe?",
+      "options": [
+          "Auf der Webseite der Kantonspolizei Zürich",
+          "Im Online-Artikel von SRF Espresso",
+          "In der Broschüre des Schweizerischen Roten Kreuzes",
+          "Im Handbuch für Verkehrsteilnehmer"
+      ],
+      "correctAnswer": "Im Online-Artikel von SRF Espresso",
+      "explanation": "Im Online-Artikel von SRF Espresso findet man weitere Informationen zum Thema Unfall und Erste Hilfe."
+    },
+    {
+      "id": "mcq8",
+      "question": "Was ist die wichtigste Voraussetzung, um eine medizinische Behandlung ablehnen zu können?",
+      "options": [
+          "Volljährigkeit",
+          "Einwandfreier Gesundheitszustand",
+          "Urteilsfähigkeit",
+          "Mitgliedschaft bei einer Krankenkasse"
+      ],
+      "correctAnswer": "Urteilsfähigkeit",
+      "explanation": "Nur wer urteilsfähig ist, kann eine medizinische Behandlung wirksam ablehnen."
+    }
+  ]
