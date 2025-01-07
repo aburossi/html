@@ -47,6 +47,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
         }
         /* Anzeigebereich für gespeicherte Antworten */
         .draft {
@@ -91,6 +92,20 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+        }
+        /* Verbesserte Kontrastierung für die "Ausgewählte löschen" Schaltfläche */
+        #bulkDeleteBtn {
+            background-color: #d32f2f; /* Dunkleres Rot für besseren Kontrast */
+            color: #ffffff; /* Weißer Text */
+            padding: 6px 12px;
+            font-size: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #bulkDeleteBtn:disabled {
+            background-color: #e57373; /* Hellere Farbe, wenn deaktiviert */
+            cursor: not-allowed;
         }
         @media print {
             body * {
@@ -147,6 +162,13 @@
     
     <h2>Gespeicherte Antworten:</h2>
 
+    <!-- Erklärung für die Bulk Delete Funktion -->
+    <div class="bulk-action-explanation" style="margin-bottom: 10px;">
+        <p>
+            Falls ältere Antworten vorhanden sind, können Sie diese mithilfe der untenstehenden Kontrollkästchen auswählen und löschen.
+        </p>
+    </div>
+
     <!-- Bulk Action Container -->
     <div class="bulk-action-container">
         <input type="checkbox" id="selectAll">
@@ -155,14 +177,14 @@
     </div>
     
     <div id="draftContainer">
-        <!-- Drafts will be loaded here -->
+        <!-- Drafts werden hier geladen -->
     </div>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             loadAllAnswers();
 
-            // Event Listener for the "Print All Answers / Save as PDF" button
+            // Event Listener für die "Drucken / Als PDF speichern" Schaltfläche
             const downloadAllBtn = document.getElementById("downloadAllBtn");
             downloadAllBtn.addEventListener('click', function() {
                 const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
@@ -177,11 +199,11 @@
 
                 console.log("Drucken aller Antworten initiiert");
 
-                // Create a temporary div for printing all answers
+                // Temporäres Div für den Druck erstellen
                 const printAllContent = document.createElement('div');
                 printAllContent.id = 'printAllContent';
 
-                // Sort the storageKeys based on the numerical component or suffix
+                // Sortieren der storageKeys basierend auf dem Suffix
                 storageKeys.sort((a, b) => {
                     const suffixA = a.replace(/^assignment[_-]?/, '');
                     const suffixB = b.replace(/^assignment[_-]?/, '');
@@ -201,31 +223,31 @@
                         
                         const answerDiv = document.createElement("div");
                         answerDiv.className = "answerText";
-                        answerDiv.innerHTML = text; // Render HTML content
+                        answerDiv.innerHTML = text; // HTML-Inhalt rendern
                         draftDiv.appendChild(answerDiv);
                         
                         printAllContent.appendChild(draftDiv);
                     }
                 });
 
-                // Append to body
+                // An den Body anhängen
                 document.body.appendChild(printAllContent);
 
-                // Add 'print-all' class to body
+                // 'print-all' Klasse zum Body hinzufügen
                 document.body.classList.add('print-all');
 
                 window.print();
 
-                // Remove 'print-all' class and the printAllContent div after printing
+                // 'print-all' Klasse und das printAllContent Div nach dem Drucken entfernen
                 document.body.classList.remove('print-all');
                 document.body.removeChild(printAllContent);
             });
 
-            // Event Listener for the "Copy All Answers to Clipboard" button
+            // Event Listener für die "Alle Antworten kopieren" Schaltfläche
             const copyAllBtn = document.getElementById("copyAllBtn");
             copyAllBtn.addEventListener('click', copyAllAnswersToClipboard);
 
-            // Event Listener for "Select All" Checkbox
+            // Event Listener für die "Alle auswählen" Checkbox
             const selectAllCheckbox = document.getElementById("selectAll");
             selectAllCheckbox.addEventListener('change', function() {
                 const checkboxes = document.querySelectorAll(".select-answer");
@@ -233,14 +255,14 @@
                 toggleBulkDeleteButton();
             });
 
-            // Event Listener for "Bulk Delete" Button
+            // Event Listener für die "Ausgewählte löschen" Schaltfläche
             const bulkDeleteBtn = document.getElementById("bulkDeleteBtn");
             bulkDeleteBtn.addEventListener('click', bulkDeleteAnswers);
         });
 
         function loadAllAnswers() {
             const draftContainer = document.getElementById("draftContainer");
-            draftContainer.innerHTML = ""; // Clear the container
+            draftContainer.innerHTML = ""; // Container leeren
 
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
 
@@ -251,7 +273,7 @@
                 return;
             }
 
-            // Sort the storageKeys based on the numerical part of the assignmentId
+            // Sortieren der storageKeys basierend auf dem numerischen Teil der assignmentId
             storageKeys.sort((a, b) => {
                 const numA = parseInt(a.replace('assignment', ''), 10);
                 const numB = parseInt(b.replace('assignment', ''), 10);
@@ -267,7 +289,7 @@
                     const draftDiv = document.createElement("div");
                     draftDiv.className = "draft";
 
-                    // Erstelle eine Checkbox
+                    // Erstellen einer Checkbox
                     const checkboxDiv = document.createElement("div");
                     checkboxDiv.style.position = "absolute";
                     checkboxDiv.style.top = "10px";
@@ -276,7 +298,7 @@
                     const checkbox = document.createElement("input");
                     checkbox.type = "checkbox";
                     checkbox.className = "select-answer";
-                    checkbox.value = assignmentId; // Verwende assignmentId als Wert
+                    checkbox.value = assignmentId; // assignmentId als Wert verwenden
                     checkbox.addEventListener('change', toggleBulkDeleteButton);
 
                     const checkboxLabel = document.createElement("label");
@@ -295,15 +317,15 @@
 
                     const answerDiv = document.createElement("div");
                     answerDiv.className = "answerText";
-                    answerDiv.innerHTML = text; // Render HTML content
+                    answerDiv.innerHTML = text; // HTML-Inhalt rendern
                     answerDiv.style.marginLeft = "30px"; // Platz für die Checkbox schaffen
                     draftDiv.appendChild(answerDiv);
 
-                    // Create button group
+                    // Erstellen der Button-Gruppe
                     const buttonGroup = document.createElement("div");
                     buttonGroup.className = "button-group";
 
-                    // Create copy button
+                    // Kopieren-Schaltfläche
                     const copyBtn = document.createElement("button");
                     copyBtn.textContent = "Antwort kopieren";
                     copyBtn.className = "copyAnswerBtn";
@@ -314,7 +336,7 @@
                     });
                     buttonGroup.appendChild(copyBtn);
 
-                    // Create delete button
+                    // Löschen-Schaltfläche
                     const deleteBtn = document.createElement("button");
                     deleteBtn.textContent = "Antwort löschen";
                     deleteBtn.className = "deleteAnswerBtn";
@@ -348,7 +370,7 @@
                     fallbackCopyTextToClipboard(text);
                 });
             } else {
-                // Fallback to execCommand
+                // Fallback zu execCommand
                 fallbackCopyTextToClipboard(text);
             }
         }
@@ -385,7 +407,7 @@
                 return;
             }
 
-            // Sort the storageKeys based on the numerical part of the assignmentId
+            // Sortieren der storageKeys basierend auf dem numerischen Teil der assignmentId
             storageKeys.sort((a, b) => {
                 const numA = parseInt(a.replace('assignment', ''), 10);
                 const numB = parseInt(b.replace('assignment', ''), 10);
@@ -402,9 +424,9 @@
                 }
             });
 
-            // Check if the Clipboard API is available
+            // Überprüfen, ob die Clipboard API verfügbar ist
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                // Use the Clipboard API
+                // Verwenden der Clipboard API
                 navigator.clipboard.writeText(allText).then(function() {
                     alert("Alle Antworten wurden in die Zwischenablage kopiert.");
                     console.log("Alle Antworten erfolgreich kopiert");
@@ -413,7 +435,7 @@
                     fallbackCopyTextToClipboard(allText);
                 });
             } else {
-                // Fallback to execCommand
+                // Fallback zu execCommand
                 fallbackCopyTextToClipboard(allText);
             }
         }
