@@ -31,8 +31,8 @@
         }
 
         button {
-            padding: 6px 12px; /* Smaller dimensions */
-            font-size: 12px;    /* Smaller font size */
+            padding: 6px 12px; /* Kleinere Abmessungen */
+            font-size: 12px;    /* Kleinere Schriftgröße */
             cursor: pointer;
             color: white;
             border: none;
@@ -40,17 +40,17 @@
         }
 
         #saveBtn {
-            background-color: #008CBA; /* Blue */
+            background-color: #008CBA; /* Blau */
         }
 
         #clearBtn {
-            background-color: #f44336; /* Red */
+            background-color: #f44336; /* Rot */
         }
 
         #downloadAllBtn {
-            background-color: #555555; /* Dark gray */
-            padding: 6px 12px; /* Consistent dimensions */
-            font-size: 12px; /* Consistent font size */
+            background-color: #555555; /* Dunkelgrau */
+            padding: 6px 12px; /* Konsistente Abmessungen */
+            font-size: 12px; /* Konsistente Schriftgröße */
         }
 
         .info-text {
@@ -59,14 +59,14 @@
             margin-bottom: 20px;
         }
 
-        /* Display of saved answer */
+        /* Anzeige der gespeicherten Antwort */
         #savedAnswerContainer {
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
             background-color: #f9f9f9;
-            display: none; /* Hidden by default */
+            display: none; /* Standardmäßig versteckt */
             position: relative;
         }
 
@@ -92,7 +92,7 @@
             right: 10px;
             padding: 4px 8px;
             font-size: 12px;
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; /* Grün */
             color: white;
             border: none;
             border-radius: 4px;
@@ -104,29 +104,29 @@
             display: none;
             color: green;
             font-size: 12px;
-            margin-top: 5px;
+            margin-bottom: 10px; /* Anpassung für Platzierung über dem Editor */
         }
 
         /* Print styles */
         @media print {
-            /* Hide everything by default */
+            /* Alles standardmäßig ausblenden */
             body * {
                 visibility: hidden;
             }
 
-            /* Make printContent visible */
+            /* printContent sichtbar machen */
             body.print-single #printContent,
             body.print-single #printContent * {
                 visibility: visible;
             }
 
-            /* Make printAllContent visible */
+            /* printAllContent sichtbar machen */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
             }
 
-            /* Position the visible content */
+            /* Positionierung des sichtbaren Inhalts */
             #printContent, #printAllContent {
                 position: absolute;
                 left: 0;
@@ -134,12 +134,12 @@
                 width: 100%;
             }
 
-            /* Hide text areas in print */
+            /* Textbereiche im Druck ausblenden */
             .quill-editor {
                 display: none;
             }
 
-            /* Style pre elements for readability */
+            /* pre Elemente für bessere Lesbarkeit stylen */
             pre {
                 white-space: pre-wrap;
                 font-size: 14px;
@@ -148,10 +148,10 @@
                 width: 100%;
                 height: auto;
                 margin-bottom: 20px;
-                border: none; /* Remove borders */
+                border: none; /* Rahmen entfernen */
             }
 
-            /* Remove borders and padding for drafts in print */
+            /* Rahmen und Padding für Entwürfe im Druck entfernen */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
@@ -162,7 +162,7 @@
                 margin-bottom: 5px;
             }
 
-            /* Hide all buttons in print */
+            /* Alle Buttons im Druck ausblenden */
             button {
                 display: none;
             }
@@ -173,14 +173,17 @@
 <body>
     <!-- Section for printing a single answer -->
     <div id="printContent">
+        <!-- Verschobener Save Indicator -->
+        <div id="saveIndicator">Gespeichert</div>
+        
         <p id="assignmentInfo"></p>
         <div id="answerBox" class="quill-editor"></div>
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Italic informational text -->
+    <!-- Aktualisierter italic informational text -->
     <p class="info-text">
-        Alle Antworten können am Ende dieser Seite heruntergeladen werden.
+        Sie können diese einzelne Antwort hier herunterladen oder alle Antworten für diese Einheit am Ende der Einheit herunterladen.
     </p>
 
     <!-- Button Container -->
@@ -201,9 +204,6 @@
         <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     </div>
     
-    <!-- Save Indicator -->
-    <div id="saveIndicator">Gespeichert</div>
-
     <!-- Quill JS -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
@@ -397,13 +397,13 @@
             saveIndicator.style.display = 'block';
             setTimeout(() => {
                 saveIndicator.style.display = 'none';
-            }, 1000); // Hide after 1 second
+            }, 1000); // Verstecken nach 1 Sekunde
         }
 
         // Initialize Quill editor (existing code)
         // (Already initialized above)
 
-        // Debounced version of saveToLocal (e.g., saves 2 seconds after the user stops typing)
+        // Debounced version of saveToLocal (z.B. speichert 2 Sekunden nachdem der Benutzer aufgehört hat zu tippen)
         const debouncedSave = debounce(saveToLocal, 2000);
 
         // Add event listener for text changes to auto-save
@@ -496,7 +496,7 @@
 
         // Prevent pasting into Quill editor beyond basic formatting
         quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
-            // Customize as needed, e.g., strip unwanted formats
+            // Customize as needed, z.B. unerwünschte Formate entfernen
             return delta;
         });
 
