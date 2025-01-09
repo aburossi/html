@@ -9,71 +9,254 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <style>
+        /* Grundlegende Stile */
         body {
             font-family: Arial, sans-serif;
             padding: 10px;
             box-sizing: border-box;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
-
+    
         .quill-editor {
             height: 400px; /* Angepasst für ca. 20 Zeilen */
             margin-bottom: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: var(--editor-background);
+            border: 1px solid var(--border-color);
             border-radius: 4px;
         }
-
-        .button-container {
+    
+        .button-container, .button-container-top, .button-container-main {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             gap: 10px;
         }
-
+    
         button {
-            padding: 6px 12px; /* Kleinere Dimensionen */
-            font-size: 12px;    /* Kleinere Schriftgröße */
+            padding: 8px 16px; /* Größere Abmessungen für bessere Sichtbarkeit */
+            font-size: 14px;    /* Größere Schriftgröße */
             cursor: pointer;
-            color: white;
+            color: var(--button-text-color);
             border: none;
             border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        #saveBtn {
-            background-color: #008CBA; /* Blau */
+    
+        button:hover {
+            transform: translateY(-2px);
         }
-
-        #clearBtn {
-            background-color: #f44336; /* Rot */
+    
+        /* Spezifische Button-Stile für helle und dunkle Modi */
+        /* Heller Modus */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --background-color: #ffffff;
+                --text-color: #000000;
+                --editor-background: #ffffff;
+                --border-color: #cccccc;
+                --button-text-color: #ffffff;
+            }
+    
+            /* Antworten aktualisieren */
+            #reloadBtn {
+                background-color: #003f5c; /* Dunkelblau */
+            }
+            #reloadBtn:hover {
+                background-color: #2f4b7c; /* Mittelblau beim Hover */
+            }
+    
+            /* Alle Antworten drucken / Als PDF speichern */
+            #downloadAllBtnBulk {
+                background-color: #ffa600; /* Dunkelorange */
+            }
+            #downloadAllBtnBulk:hover {
+                background-color: #ffb347; /* Helleres Orange beim Hover */
+            }
+    
+            /* Alle Antworten in die Zwischenablage kopieren */
+            #copyAllBtn {
+                background-color: #2ca02c; /* Dunkelgrün */
+            }
+            #copyAllBtn:hover {
+                background-color: #3cb44b; /* Helleres Grün beim Hover */
+            }
+    
+            /* Alle Antworten löschen */
+            #clearAllBtn {
+                background-color: #d62728; /* Dunkelrot */
+            }
+            #clearAllBtn:hover {
+                background-color: #ff6347; /* Helleres Rot beim Hover */
+            }
+    
+            /* Weitere Buttons */
+            #saveBtn {
+                background-color: #008cba; /* Blau */
+            }
+            #saveBtn:hover {
+                background-color: #00aaff; /* Helleres Blau beim Hover */
+            }
+    
+            #clearBtn {
+                background-color: #f44336; /* Rot */
+            }
+            #clearBtn:hover {
+                background-color: #ff7961; /* Helleres Rot beim Hover */
+            }
+    
+            #downloadAllBtn {
+                background-color: #555555; /* Dunkelgrau */
+            }
+            #downloadAllBtn:hover {
+                background-color: #777777; /* Helleres Grau beim Hover */
+            }
+    
+            #copyAnswerBtn {
+                background-color: #4CAF50; /* Grün */
+            }
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Helleres Grün beim Hover */
+            }
+    
+            .copyAnswerBtn {
+                background-color: #FFEB3B; /* Gelb */
+                color: #000000; /* Schwarzer Text für Kontrast */
+            }
+            .copyAnswerBtn:hover {
+                background-color: #ffee58; /* Helleres Gelb beim Hover */
+            }
+    
+            .deleteAnswerBtn {
+                background-color: #f44336; /* Rot */
+                color: #ffffff;
+            }
+            .deleteAnswerBtn:hover {
+                background-color: #ff7961; /* Helleres Rot beim Hover */
+            }
+    
+            #bulkDeleteBtn {
+                background-color: #d32f2f; /* Dunkleres Rot für besseren Kontrast */
+                color: #ffffff; /* Weißer Text */
+            }
+            #bulkDeleteBtn:hover {
+                background-color: #e57373; /* Helleres Rot beim Hover */
+            }
         }
-
-        #downloadAllBtn {
-            background-color: #555555; /* Dunkelgrau */
-            padding: 6px 12px; /* Konsistente Dimensionen */
-            font-size: 12px; /* Konsistente Schriftgröße */
+    
+        /* Dunkler Modus */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #ffffff;
+                --editor-background: #1e1e1e;
+                --border-color: #333333;
+                --button-text-color: #ffffff;
+            }
+    
+            /* Antworten aktualisieren */
+            #reloadBtn {
+                background-color: #00adb5; /* Helles Blaugrün */
+            }
+            #reloadBtn:hover {
+                background-color: #0099a1; /* Dunkleres Blaugrün beim Hover */
+            }
+    
+            /* Alle Antworten drucken / Als PDF speichern */
+            #downloadAllBtnBulk {
+                background-color: #ff5722; /* Hellorange */
+            }
+            #downloadAllBtnBulk:hover {
+                background-color: #e64a19; /* Dunkleres Orange beim Hover */
+            }
+    
+            /* Alle Antworten in die Zwischenablage kopieren */
+            #copyAllBtn {
+                background-color: #4CAF50; /* Grün */
+            }
+            #copyAllBtn:hover {
+                background-color: #45a049; /* Dunkleres Grün beim Hover */
+            }
+    
+            /* Alle Antworten löschen */
+            #clearAllBtn {
+                background-color: #f44336; /* Rot */
+            }
+            #clearAllBtn:hover {
+                background-color: #e53935; /* Dunkleres Rot beim Hover */
+            }
+    
+            /* Weitere Buttons */
+            #saveBtn {
+                background-color: #2196F3; /* Blau */
+            }
+            #saveBtn:hover {
+                background-color: #1E88E5; /* Dunkleres Blau beim Hover */
+            }
+    
+            #clearBtn {
+                background-color: #e57373; /* Helles Rot */
+            }
+            #clearBtn:hover {
+                background-color: #ef5350; /* Dunkleres Rot beim Hover */
+            }
+    
+            #downloadAllBtn {
+                background-color: #757575; /* Grau */
+            }
+            #downloadAllBtn:hover {
+                background-color: #9e9e9e; /* Helleres Grau beim Hover */
+            }
+    
+            #copyAnswerBtn {
+                background-color: #81C784; /* Hellgrün */
+            }
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+            }
+    
+            .copyAnswerBtn {
+                background-color: #FFEB3B; /* Gelb */
+                color: #000000; /* Schwarzer Text für Kontrast */
+            }
+            .copyAnswerBtn:hover {
+                background-color: #FFF176; /* Helleres Gelb beim Hover */
+            }
+    
+            .deleteAnswerBtn {
+                background-color: #e53935; /* Rot */
+                color: #ffffff;
+            }
+            .deleteAnswerBtn:hover {
+                background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+            }
+    
+            #bulkDeleteBtn {
+                background-color: #f44336; /* Rotes Rot */
+                color: #ffffff; /* Weißer Text */
+            }
+            #bulkDeleteBtn:hover {
+                background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+            }
         }
-
-        .info-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
+    
         /* Anzeige der gespeicherten Antwort */
         #savedAnswerContainer {
             margin-top: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid var(--border-color);
             padding: 10px;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: var(--editor-background);
             display: none; /* Standardmäßig verborgen */
             position: relative;
         }
-
+    
         #savedAnswerContainer h3 {
             margin-bottom: 10px;
         }
-
+    
         #savedAnswer {
             white-space: pre-wrap;
             font-size: 14px;
@@ -81,51 +264,181 @@
             box-sizing: border-box;
             width: 100%;
             height: auto;
-            background-color: #f4f4f4;
+            background-color: var(--editor-background);
             overflow: auto;
             border: none;
         }
-
+    
         #copyAnswerBtn {
             position: absolute;
             top: 10px;
             right: 10px;
-            padding: 4px 8px;
-            font-size: 12px;
-            background-color: #4CAF50; /* Grün */
-            color: white;
+            padding: 6px 12px;
+            font-size: 14px;
+            background-color: var(--button-copy-bg);
+            color: var(--button-copy-text);
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-
-        /* Save Indicator */
-        #saveIndicator {
-            display: none;
-            color: green;
-            font-size: 12px;
-            margin-bottom: 10px; /* Platzierung über dem Editor */
+    
+        /* Button Copy Answer Styles */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --button-copy-bg: #4CAF50; /* Grün */
+                --button-copy-text: #ffffff;
+            }
+    
+            #copyAnswerBtn:hover {
+                background-color: #45a049; /* Dunkleres Grün beim Hover */
+            }
         }
-
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --button-copy-bg: #81C784; /* Hellgrün */
+                --button-copy-text: #000000; /* Schwarzer Text */
+            }
+    
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+            }
+        }
+    
+        /* Weitere Komponenten */
+        .info-text {
+            font-style: italic;
+            color: var(--text-secondary-color);
+            margin-bottom: 20px;
+        }
+    
+        @media (prefers-color-scheme: light) {
+            :root {
+                --text-secondary-color: #555555;
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-secondary-color: #cccccc;
+            }
+        }
+    
+        /* Anzeigebereich für gespeicherte Antworten */
+        .draft {
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 5px;
+            background-color: var(--editor-background);
+            position: relative;
+            padding-left: 40px; /* Platz für die Checkbox */
+        }
+    
+        .answerText {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: var(--editor-background);
+            overflow: auto;
+            border: none;
+            margin-top: 10px;
+        }
+    
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+    
+        .copyAnswerBtn {
+            background-color: #FFEB3B; /* Gelb */
+            color: #000000; /* Schwarzer Text für Kontrast */
+            flex: 1;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copyAnswerBtn:hover {
+            background-color: #FFF176; /* Helleres Gelb beim Hover */
+        }
+    
+        .deleteAnswerBtn {
+            background-color: #f44336; /* Rot */
+            color: #ffffff;
+            flex: 1;
+            margin-left: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .deleteAnswerBtn:hover {
+            background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+        }
+    
+        /* Verbesserte Kontrastierung für die "Ausgewählte löschen" Schaltfläche */
+        #bulkDeleteBtn {
+            background-color: var(--bulk-delete-bg);
+            color: var(--bulk-delete-text);
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        #bulkDeleteBtn:hover:not(:disabled) {
+            background-color: var(--bulk-delete-hover-bg);
+        }
+    
+        #bulkDeleteBtn:disabled {
+            background-color: #e57373; /* Hellere Farbe, wenn deaktiviert */
+            cursor: not-allowed;
+        }
+    
+        /* Bulk Delete Button Styles */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bulk-delete-bg: #d32f2f; /* Dunkleres Rot */
+                --bulk-delete-text: #ffffff;
+                --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bulk-delete-bg: #f44336; /* Rotes Rot */
+                --bulk-delete-text: #ffffff;
+                --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+            }
+        }
+    
         /* Druckstile */
         @media print {
             /* Alles standardmäßig ausblenden */
             body * {
                 visibility: hidden;
             }
-
+    
             /* printContent sichtbar machen */
             body.print-single #printContent,
             body.print-single #printContent * {
                 visibility: visible;
             }
-
+    
             /* printAllContent sichtbar machen */
             body.print-all #printAllContent,
             body.print-all #printAllContent * {
                 visibility: visible;
             }
-
+    
             /* Position des sichtbaren Inhalts */
             #printContent, #printAllContent {
                 position: absolute;
@@ -133,12 +446,12 @@
                 top: 0;
                 width: 100%;
             }
-
+    
             /* Textfelder im Druck ausblenden */
             .quill-editor {
                 display: none;
             }
-
+    
             /* Pre-Elemente für Lesbarkeit stylen */
             pre {
                 white-space: pre-wrap;
@@ -150,117 +463,25 @@
                 margin-bottom: 20px;
                 border: none; /* Rahmen entfernen */
             }
-
+    
             /* Rahmen und Padding für Entwürfe im Druck entfernen */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
                 margin-bottom: 20px;
             }
-
+    
             #printAllContent .draft h3 {
                 margin-bottom: 5px;
             }
-
+    
             /* Alle Buttons im Druck ausblenden */
             button {
                 display: none;
             }
         }
-
-        /* Zusätzliche Styles für die neue Funktionalität */
-
-        /* Top Button Container */
-        .button-container-top {
-            margin-bottom: 20px;
-        }
-
-        /* Main Button Container */
-        .button-container-main {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Bulk Action Container */
-        .bulk-action-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Anzeigebereich für gespeicherte Antworten */
-        .draft {
-            margin-bottom: 30px;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            position: relative;
-            padding-left: 40px; /* Platz für die Checkbox */
-        }
-
-        .answerText {
-            white-space: pre-wrap;
-            font-size: 14px;
-            padding: 10px;
-            box-sizing: border-box;
-            width: 100%;
-            background-color: #fff;
-            overflow: auto;
-            border: none;
-            margin-top: 10px;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .copyAnswerBtn {
-            background-color: #FFEB3B; /* Gelb */
-            color: black; /* Kontrasttext für Gelb */
-            flex: 1;
-            margin-right: 5px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .deleteAnswerBtn {
-            background-color: #f44336; /* Rot */
-            color: white;
-            flex: 1;
-            margin-left: 5px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Verbesserte Kontrastierung für die "Ausgewählte löschen" Schaltfläche */
-        #bulkDeleteBtn {
-            background-color: #d32f2f; /* Dunkleres Rot für besseren Kontrast */
-            color: #ffffff; /* Weißer Text */
-            padding: 6px 12px;
-            font-size: 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #bulkDeleteBtn:disabled {
-            background-color: #e57373; /* Hellere Farbe, wenn deaktiviert */
-            cursor: not-allowed;
-        }
-
-        /* Erklärung für die Bulk Delete Funktion */
-        .bulk-action-explanation {
-            margin-bottom: 10px;
-        }
     </style>
+
 </head>
 
 <body>
