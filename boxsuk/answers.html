@@ -260,7 +260,8 @@
         const assignmentInfo = document.getElementById('assignmentInfo');
 
         // Entferne das Präfix 'assignment', um das Suffix zu erhalten
-        const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
+        // Anpassung: Verwende einen case-insensitive regulären Ausdruck
+        const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/i, '');
 
         // Setze den Text auf 'Textsorte: {Suffix}'
         assignmentInfo.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
