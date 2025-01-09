@@ -9,7 +9,6 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <style>
-        /* Ihr bestehendes CSS */
         body {
             font-family: Arial, sans-serif;
             padding: 10px;
@@ -32,8 +31,8 @@
         }
 
         button {
-            padding: 6px 12px; /* Kleinere Abmessungen */
-            font-size: 12px;    /* Kleinere Schriftgröße */
+            padding: 6px 12px; /* Smaller dimensions */
+            font-size: 12px;    /* Smaller font size */
             cursor: pointer;
             color: white;
             border: none;
@@ -41,17 +40,17 @@
         }
 
         #saveBtn {
-            background-color: #008CBA; /* Blau */
+            background-color: #008CBA; /* Blue */
         }
 
         #clearBtn {
-            background-color: #f44336; /* Rot */
+            background-color: #f44336; /* Red */
         }
 
         #downloadAllBtn {
-            background-color: #555555; /* Dunkelgrau */
-            padding: 6px 12px; /* Konsistente Abmessungen */
-            font-size: 12px; /* Konsistente Schriftgröße */
+            background-color: #555555; /* Dark gray */
+            padding: 6px 12px; /* Consistent dimensions */
+            font-size: 12px; /* Consistent font size */
         }
 
         .info-text {
@@ -60,14 +59,14 @@
             margin-bottom: 20px;
         }
 
-        /* Anzeige der gespeicherten Antwort */
+        /* Display of saved answer */
         #savedAnswerContainer {
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
             background-color: #f9f9f9;
-            display: none; /* Standardmäßig versteckt */
+            display: none; /* Hidden by default */
             position: relative;
         }
 
@@ -93,7 +92,7 @@
             right: 10px;
             padding: 4px 8px;
             font-size: 12px;
-            background-color: #4CAF50; /* Grün */
+            background-color: #4CAF50; /* Green */
             color: white;
             border: none;
             border-radius: 4px;
@@ -110,18 +109,24 @@
 
         /* Print styles */
         @media print {
-            /* Verstecke alles standardmäßig */
+            /* Hide everything by default */
             body * {
                 visibility: hidden;
             }
 
-            /* Mache printContent sichtbar */
+            /* Make printContent visible */
             body.print-single #printContent,
             body.print-single #printContent * {
                 visibility: visible;
             }
 
-            /* Positioniere den sichtbaren Inhalt */
+            /* Make printAllContent visible */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
+                visibility: visible;
+            }
+
+            /* Position the visible content */
             #printContent, #printAllContent {
                 position: absolute;
                 left: 0;
@@ -129,12 +134,12 @@
                 width: 100%;
             }
 
-            /* Verstecke Textbereiche im Druck */
+            /* Hide text areas in print */
             .quill-editor {
                 display: none;
             }
 
-            /* Style für Pre-Elemente */
+            /* Style pre elements for readability */
             pre {
                 white-space: pre-wrap;
                 font-size: 14px;
@@ -143,10 +148,10 @@
                 width: 100%;
                 height: auto;
                 margin-bottom: 20px;
-                border: none; /* Entferne Rahmen */
+                border: none; /* Remove borders */
             }
 
-            /* Entferne Rahmen und Padding für Entwürfe im Druck */
+            /* Remove borders and padding for drafts in print */
             #printAllContent .draft {
                 border: none;
                 padding: 0;
@@ -157,28 +162,23 @@
                 margin-bottom: 5px;
             }
 
-            /* Verstecke alle Buttons im Druck */
+            /* Hide all buttons in print */
             button {
                 display: none;
-            }
-
-            /* Optional: Listen stylen, falls benötigt */
-            .draft ul, .draft ol {
-                margin-left: 20px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Bereich für den Druck einer einzelnen Antwort -->
+    <!-- Section for printing a single answer -->
     <div id="printContent">
         <p id="assignmentInfo"></p>
         <div id="answerBox" class="quill-editor"></div>
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Kursiv geschriebener Informationstext -->
+    <!-- Italic informational text -->
     <p class="info-text">
         Alle Antworten können am Ende dieser Seite heruntergeladen werden.
     </p>
@@ -189,14 +189,14 @@
         <button id="downloadAllBtn">Alle Antworten drucken / Als PDF speichern</button>
     </div>
 
-    <!-- Anzeige der gespeicherten Antwort -->
+    <!-- Display of saved answer -->
     <div id="savedAnswerContainer">
         <button id="copyAnswerBtn">Antwort kopieren</button>
         <h3 id="savedAssignmentTitle"></h3>
         <div id="savedAnswer"></div>
     </div>
 
-    <!-- Roter Löschen-Button unter dem savedAnswerContainer -->
+    <!-- Red delete button, moved under savedAnswerContainer -->
     <div class="button-container" style="margin-top: 10px;">
         <button id="clearBtn" onclick="clearLocalStorage()">Alle Antworten löschen</button>
     </div>
@@ -208,17 +208,17 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
     <script>
-        // Funktion zum Abrufen eines Query-Parameters nach Namen
+        // Function to retrieve a query parameter by name
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
-        // Funktion zum Extrahieren des Titels der Elternseite aus der Referrer-URL
+        // Function to extract the page title from the referrer URL
         function getParentPageTitle() {
             const referrer = document.referrer;
             if (!referrer) {
-                console.warn('Kein Referrer gefunden. Kann den Titel der Elternseite nicht abrufen.');
+                console.warn('No referrer found. Cannot retrieve parent page title.');
                 return '';
             }
 
@@ -226,34 +226,34 @@
                 const url = new URL(referrer);
                 const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
 
-                // Finden des Index des Segments 'allgemeinbildung' oder anderen relevanten Segments
+                // Find the index of 'allgemeinbildung'
                 const targetSegment = 'allgemeinbildung';
                 const targetIndex = pathSegments.indexOf(targetSegment);
 
                 if (targetIndex === -1) {
-                    console.warn(`Segment '${targetSegment}' wurde in der Referrer-URL nicht gefunden.`);
+                    console.warn(`Segment '${targetSegment}' not found in referrer URL path.`);
                     return '';
                 }
 
-                // Extrahiere alle Segmente nach 'allgemeinbildung'
+                // Extract all segments after 'allgemeinbildung'
                 const relevantSegments = pathSegments.slice(targetIndex + 1);
 
                 if (relevantSegments.length === 0) {
-                    console.warn('Keine Pfadsegmente nach dem Zielsegment gefunden.');
+                    console.warn('No path segments found after the target segment.');
                     return '';
                 }
 
-                // Ersetze '+', '-', '_' durch Leerzeichen und dekodiere URI-Komponenten
+                // Replace '+', '-', '_' with spaces and decode URI components
                 const formattedSegments = relevantSegments.map(segment => {
                     return decodeURIComponent(segment.replace(/[-_+]/g, ' ')).replace(/\b\w/g, char => char.toUpperCase());
                 });
 
-                // Verbinde die Segmente mit ' - ' als Trennzeichen
+                // Join the segments with ' - ' as a separator
                 const formattedTitle = formattedSegments.join(' - ');
 
                 return formattedTitle;
             } catch (e) {
-                console.error('Fehler beim Parsen der Referrer-URL:', e);
+                console.error('Error parsing referrer URL:', e);
                 return '';
             }
         }
@@ -262,13 +262,13 @@
         const parentTitle = getParentPageTitle();
         const assignmentInfo = document.getElementById('assignmentInfo');
 
-        // Entferne das Präfix 'assignment' und mögliche Sonderzeichen, um den Suffix zu erhalten
+        // Remove the 'assignment' prefix to get the suffix
         const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/, '');
 
-        // Setze den Text auf 'Auftrag: {Suffix}'
+        // Set the text to 'Auftrag: {Suffix}'
         assignmentInfo.textContent = assignmentSuffix ? `Auftrag: ${assignmentSuffix}` : 'Auftrag';
 
-        // Initialisiere den Quill-Editor
+        // Initialize Quill editor
         const quill = new Quill('#answerBox', {
             theme: 'snow',
             placeholder: 'Gib hier deine Antworten ein...',
@@ -281,16 +281,16 @@
             }
         });
 
-        // Anzeigeelemente
+        // Display elements
         const savedAnswerContainer = document.getElementById('savedAnswerContainer');
         const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
         const savedAnswer = document.getElementById('savedAnswer');
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
         const saveIndicator = document.getElementById('saveIndicator');
 
-        // Funktion zur Anzeige der gespeicherten Antwort
+        // Function to display the saved answer
         function displaySavedAnswer(content) {
-            // Kombiniere parentTitle und assignmentSuffix, falls verfügbar
+            // Combine parentTitle and assignmentSuffix, if available
             const titleText = parentTitle
                 ? `${parentTitle}\nAuftrag: ${assignmentSuffix}`
                 : `Auftrag: ${assignmentSuffix}`;
@@ -299,7 +299,7 @@
             savedAnswerContainer.style.display = 'block';
         }
 
-        // Funktion zum Kopieren der Antwort in die Zwischenablage
+        // Function to copy the answer to the clipboard
         function copyAnswer() {
             const textToCopy = parentTitle
                 ? `${parentTitle}\nAuftrag: ${assignmentSuffix}\n${quill.getText().trim()}`
@@ -307,30 +307,30 @@
             copyTextToClipboard(textToCopy);
         }
 
-        // Event Listener für die "Antwort kopieren" Schaltfläche
+        // Event Listener for the "Copy Answer" button
         copyAnswerBtn.addEventListener('click', copyAnswer);
 
-        // Funktion zum Kopieren von Text in die Zwischenablage
+        // Function to copy text to the clipboard
         function copyTextToClipboard(text) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(function() {
-                    // Optional: Feedback geben
+                    // Optionally, provide feedback
                     console.log("Antwort erfolgreich kopiert");
                 }, function(err) {
                     console.error('Fehler beim Kopieren der Antwort: ', err);
                     fallbackCopyTextToClipboard(text);
                 });
             } else {
-                // Fallback zu execCommand
+                // Fallback to execCommand
                 fallbackCopyTextToClipboard(text);
             }
         }
 
-        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        // Fallback function to copy text to the clipboard
         function fallbackCopyTextToClipboard(text) {
             const textarea = document.createElement("textarea");
             textarea.value = text;
-            // Verstecke das textarea Element
+            // Hide the textarea element
             textarea.style.position = "fixed";
             textarea.style.top = "-9999px";
             document.body.appendChild(textarea);
@@ -351,7 +351,7 @@
             document.body.removeChild(textarea);
         }
 
-        // Funktion zum Speichern der Antwort im localStorage
+        // Function to save the answer to localStorage
         function saveToLocal() {
             const htmlContent = quill.root.innerHTML;
             const textContent = quill.getText().trim();
@@ -362,37 +362,28 @@
             try {
                 localStorage.setItem(assignmentId, htmlContent);
                 console.log(`Text für ${assignmentId} gespeichert`);
-                displaySavedAnswer(htmlContent); // Aktualisiere die Anzeige der gespeicherten Antwort
-                showSaveIndicator(); // Zeige den "Gespeichert" Indikator
+                displaySavedAnswer(htmlContent); // Update the display of the saved answer
+                showSaveIndicator(); // Show the "Gespeichert" indicator
             } catch (e) {
                 console.error("Fehler beim Speichern des Textes:", e);
             }
         }
 
-        // Funktion zum Löschen aller Antworten aus dem localStorage
+        // Function to clear all saved answers from localStorage
         function clearLocalStorage() {
             if (confirm("Bist du sicher, dass du alle gespeicherten Antworten löschen möchtest?")) {
                 try {
-                    // Entferne nur die aktuelle assignmentId
-                    localStorage.removeItem(assignmentId);
-                    quill.setText(''); // Leere den Quill-Editor
+                    localStorage.clear();
+                    quill.setText(''); // Clear Quill editor
                     savedAnswerContainer.style.display = 'none';
-                    console.log("Gespeicherte Antwort gelöscht");
+                    console.log("Alle gespeicherten Antworten wurden gelöscht");
                 } catch (e) {
-                    console.error("Fehler beim Löschen der gespeicherten Antwort:", e);
+                    console.error("Fehler beim Löschen der gespeicherten Antworten:", e);
                 }
             }
         }
 
-        // Funktion zur Anzeige des "Gespeichert" Indikators
-        function showSaveIndicator() {
-            saveIndicator.style.display = 'block';
-            setTimeout(() => {
-                saveIndicator.style.display = 'none';
-            }, 1000); // Nach 1 Sekunde ausblenden
-        }
-
-        // Debounce-Funktion zur Begrenzung der Speicherrate
+        // Debounce function to limit the rate of function execution
         function debounce(func, wait) {
             let timeout;
             return function(...args) {
@@ -401,17 +392,28 @@
             };
         }
 
-        // Debounced-Version von saveToLocal (speichert 2 Sekunden nach dem letzten Tippen)
+        // Function to show the save indicator
+        function showSaveIndicator() {
+            saveIndicator.style.display = 'block';
+            setTimeout(() => {
+                saveIndicator.style.display = 'none';
+            }, 1000); // Hide after 1 second
+        }
+
+        // Initialize Quill editor (existing code)
+        // (Already initialized above)
+
+        // Debounced version of saveToLocal (e.g., saves 2 seconds after the user stops typing)
         const debouncedSave = debounce(saveToLocal, 2000);
 
-        // Event Listener für Textänderungen zur automatischen Speicherung
+        // Add event listener for text changes to auto-save
         quill.on('text-change', function(delta, oldDelta, source) {
-            if (source === 'user') { // Sicherstellen, dass die Änderung vom Benutzer stammt
+            if (source === 'user') { // Ensure that the change was made by the user
                 debouncedSave();
             }
         });
 
-        // Laden der gespeicherten Antwort, falls vorhanden
+        // Load saved content and set it in Quill
         const savedText = localStorage.getItem(assignmentId);
         if (savedText) {
             quill.root.innerHTML = savedText;
@@ -421,7 +423,7 @@
             console.log(`Kein gespeicherter Text für ${assignmentId} gefunden`);
         }
 
-        // Event Listener für den "Alle Antworten drucken / Als PDF speichern" Button
+        // Event Listener for the "Print All Answers / Save as PDF" button
         document.getElementById("downloadAllBtn").addEventListener('click', function() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith('assignment'));
 
@@ -433,18 +435,18 @@
 
             console.log("Druck aller Antworten wird initiiert");
 
-            // Erstelle ein temporäres Div für den Druck
+            // Create a temporary div for printing all answers
             const printAllContent = document.createElement('div');
             printAllContent.id = 'printAllContent';
 
-            // Füge den Titel der Elternseite hinzu, falls vorhanden
+            // Add parent page's title once
             if (parentTitle) {
                 const parentTitleElement = document.createElement('h2');
                 parentTitleElement.textContent = parentTitle;
                 printAllContent.appendChild(parentTitleElement);
             }
 
-            // Sortiere die storageKeys basierend auf dem Suffix
+            // Sort the storageKeys based on the numerical component or suffix
             storageKeys.sort((a, b) => {
                 const suffixA = a.replace(/^assignment[_-]?/, '');
                 const suffixB = b.replace(/^assignment[_-]?/, '');
@@ -463,7 +465,6 @@
                     draftDiv.appendChild(title);
                     
                     const answerDiv = document.createElement("div");
-                    answerDiv.className = "answerText";
                     answerDiv.innerHTML = text; // Render HTML content
                     draftDiv.appendChild(answerDiv);
                     
@@ -471,42 +472,54 @@
                 }
             });
 
-            // Füge den Inhalt zum Body hinzu
+            // Append to body
             document.body.appendChild(printAllContent);
 
-            // Füge die 'print-all' Klasse zum Body hinzu
+            // Add 'print-all' class to body
             document.body.classList.add('print-all');
 
             window.print();
 
-            // Entferne die 'print-all' Klasse und das printAllContent Div nach dem Drucken
+            // Remove 'print-all' class and the printAllContent div after printing
             document.body.classList.remove('print-all');
             document.body.removeChild(printAllContent);
         });
 
-        // Verhindere das Einfügen von Inhalten in den Quill-Editor
+        // Optional: Log the initial state of localStorage for debugging
+        console.log("Anfänglicher Zustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+        // **New Code to Prevent Pasting Content**
+
+        // Prevent pasting into Quill editor beyond basic formatting
         quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
-            // Entferne unerwünschte Formate oder passe die Delta-Objekte nach Bedarf an
+            // Customize as needed, e.g., strip unwanted formats
             return delta;
         });
 
-        // Verhindere das Einfügen via Kontextmenü, Drag-and-Drop und Tastaturkürzel
+        // Prevent pasting via context menu, drag-and-drop, and keyboard shortcuts
         quill.root.addEventListener('paste', function(e) {
             e.preventDefault();
             alert('Das Einfügen von Inhalten ist nicht erlaubt.');
-            // Optional: Erlaube das Einfügen von nur einfachem Text ohne Formatierung
+            // Optionally, allow plain text pasting without formatting
             const text = e.clipboardData.getData('text/plain');
             quill.insertText(quill.getSelection().index, text);
         });
 
+        // Prevent drag-and-drop into Quill editor
         quill.root.addEventListener('drop', function(e) {
             e.preventDefault();
         });
 
+        // Prevent context menu in Quill editor
         quill.root.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
 
+        // Additionally, prevent Ctrl+V and Cmd+V
         quill.root.addEventListener('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
                 e.preventDefault();
