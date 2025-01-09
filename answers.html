@@ -1,0 +1,1260 @@
+<!DOCTYPE html> 
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Antworten speichern und drucken</title>
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <style>
+        /* Grundlegende Stile */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        .quill-editor {
+            height: 400px; /* Angepasst für ca. 20 Zeilen */
+            margin-bottom: 10px;
+            background-color: var(--editor-background);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+    
+        .button-container, .button-container-top, .button-container-main {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+    
+        button {
+            padding: 8px 16px; /* Größere Abmessungen für bessere Sichtbarkeit */
+            font-size: 14px;    /* Größere Schriftgröße */
+            cursor: pointer;
+            color: var(--button-text-color);
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        button:hover {
+            transform: translateY(-2px);
+        }
+    
+        /* Spezifische Button-Stile für helle und dunkle Modi */
+        /* Heller Modus */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --background-color: #ffffff;
+                --text-color: #000000;
+                --editor-background: #ffffff;
+                --border-color: #cccccc;
+                --button-text-color: #ffffff;
+            }
+    
+            /* Antworten aktualisieren */
+            #reloadBtn {
+                background-color: #003f5c; /* Dunkelblau */
+            }
+            #reloadBtn:hover {
+                background-color: #2f4b7c; /* Mittelblau beim Hover */
+            }
+    
+            /* Alle Antworten drucken / Als PDF speichern */
+            #downloadAllBtnBulk {
+                background-color: #ffa600; /* Dunkelorange */
+            }
+            #downloadAllBtnBulk:hover {
+                background-color: #ffb347; /* Helleres Orange beim Hover */
+            }
+    
+            /* Alle Antworten in die Zwischenablage kopieren */
+            #copyAllBtn {
+                background-color: #2ca02c; /* Dunkelgrün */
+            }
+            #copyAllBtn:hover {
+                background-color: #3cb44b; /* Helleres Grün beim Hover */
+            }
+    
+            /* Alle Antworten löschen */
+            #clearAllBtn {
+                background-color: #d62728; /* Dunkelrot */
+            }
+            #clearAllBtn:hover {
+                background-color: #ff6347; /* Helleres Rot beim Hover */
+            }
+    
+            /* Weitere Buttons */
+            #saveBtn {
+                background-color: #008cba; /* Blau */
+            }
+            #saveBtn:hover {
+                background-color: #00aaff; /* Helleres Blau beim Hover */
+            }
+    
+            #clearBtn {
+                background-color: #f44336; /* Rot */
+            }
+            #clearBtn:hover {
+                background-color: #ff7961; /* Helleres Rot beim Hover */
+            }
+    
+            #downloadAllBtn {
+                background-color: #555555; /* Dunkelgrau */
+            }
+            #downloadAllBtn:hover {
+                background-color: #777777; /* Helleres Grau beim Hover */
+            }
+    
+            #copyAnswerBtn {
+                background-color: #4CAF50; /* Grün */
+            }
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Helleres Grün beim Hover */
+            }
+    
+            .copyAnswerBtn {
+                background-color: #FFEB3B; /* Gelb */
+                color: #000000; /* Schwarzer Text für Kontrast */
+            }
+            .copyAnswerBtn:hover {
+                background-color: #ffee58; /* Helleres Gelb beim Hover */
+            }
+    
+            .deleteAnswerBtn {
+                background-color: #f44336; /* Rot */
+                color: #ffffff;
+            }
+            .deleteAnswerBtn:hover {
+                background-color: #ff7961; /* Helleres Rot beim Hover */
+            }
+    
+            #bulkDeleteBtn {
+                background-color: #d32f2f; /* Dunkleres Rot für besseren Kontrast */
+                color: #ffffff; /* Weißer Text */
+            }
+            #bulkDeleteBtn:hover {
+                background-color: #e57373; /* Helleres Rot beim Hover */
+            }
+        }
+    
+        /* Dunkler Modus */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #ffffff;
+                --editor-background: #1e1e1e;
+                --border-color: #333333;
+                --button-text-color: #ffffff;
+            }
+    
+            /* Antworten aktualisieren */
+            #reloadBtn {
+                background-color: #00adb5; /* Helles Blaugrün */
+            }
+            #reloadBtn:hover {
+                background-color: #0099a1; /* Dunkleres Blaugrün beim Hover */
+            }
+    
+            /* Alle Antworten drucken / Als PDF speichern */
+            #downloadAllBtnBulk {
+                background-color: #ff5722; /* Hellorange */
+            }
+            #downloadAllBtnBulk:hover {
+                background-color: #e64a19; /* Dunkleres Orange beim Hover */
+            }
+    
+            /* Alle Antworten in die Zwischenablage kopieren */
+            #copyAllBtn {
+                background-color: #4CAF50; /* Grün */
+            }
+            #copyAllBtn:hover {
+                background-color: #45a049; /* Dunkleres Grün beim Hover */
+            }
+    
+            /* Alle Antworten löschen */
+            #clearAllBtn {
+                background-color: #f44336; /* Rot */
+            }
+            #clearAllBtn:hover {
+                background-color: #e53935; /* Dunkleres Rot beim Hover */
+            }
+    
+            /* Weitere Buttons */
+            #saveBtn {
+                background-color: #2196F3; /* Blau */
+            }
+            #saveBtn:hover {
+                background-color: #1E88E5; /* Dunkleres Blau beim Hover */
+            }
+    
+            #clearBtn {
+                background-color: #e57373; /* Helles Rot */
+            }
+            #clearBtn:hover {
+                background-color: #ef5350; /* Dunkleres Rot beim Hover */
+            }
+    
+            #downloadAllBtn {
+                background-color: #757575; /* Grau */
+            }
+            #downloadAllBtn:hover {
+                background-color: #9e9e9e; /* Helleres Grau beim Hover */
+            }
+    
+            #copyAnswerBtn {
+                background-color: #81C784; /* Hellgrün */
+            }
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+            }
+    
+            .copyAnswerBtn {
+                background-color: #FFEB3B; /* Gelb */
+                color: #000000; /* Schwarzer Text für Kontrast */
+            }
+            .copyAnswerBtn:hover {
+                background-color: #FFF176; /* Helleres Gelb beim Hover */
+            }
+    
+            .deleteAnswerBtn {
+                background-color: #e53935; /* Rot */
+                color: #ffffff;
+            }
+            .deleteAnswerBtn:hover {
+                background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+            }
+    
+            #bulkDeleteBtn {
+                background-color: #f44336; /* Rotes Rot */
+                color: #ffffff; /* Weißer Text */
+            }
+            #bulkDeleteBtn:hover {
+                background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+            }
+        }
+    
+        /* Anzeige der gespeicherten Antwort */
+        #savedAnswerContainer {
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--editor-background);
+            display: none; /* Standardmäßig verborgen */
+            position: relative;
+        }
+    
+        #savedAnswerContainer h3 {
+            margin-bottom: 10px;
+        }
+    
+        #savedAnswer {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+            background-color: var(--editor-background);
+            overflow: auto;
+            border: none;
+        }
+    
+        #copyAnswerBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            font-size: 14px;
+            background-color: var(--button-copy-bg);
+            color: var(--button-copy-text);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        /* Button Copy Answer Styles */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --button-copy-bg: #4CAF50; /* Grün */
+                --button-copy-text: #ffffff;
+            }
+    
+            #copyAnswerBtn:hover {
+                background-color: #45a049; /* Dunkleres Grün beim Hover */
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --button-copy-bg: #81C784; /* Hellgrün */
+                --button-copy-text: #000000; /* Schwarzer Text */
+            }
+    
+            #copyAnswerBtn:hover {
+                background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+            }
+        }
+    
+        /* Weitere Komponenten */
+        .info-text {
+            font-style: italic;
+            color: var(--text-secondary-color);
+            margin-bottom: 20px;
+        }
+    
+        @media (prefers-color-scheme: light) {
+            :root {
+                --text-secondary-color: #555555;
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-secondary-color: #cccccc;
+            }
+        }
+    
+        /* Anzeigebereich für gespeicherte Antworten */
+        .draft {
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 5px;
+            background-color: var(--editor-background);
+            position: relative;
+            padding-left: 40px; /* Platz für die Checkbox */
+        }
+    
+        .answerText {
+            white-space: pre-wrap;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: var(--editor-background);
+            overflow: auto;
+            border: none;
+            margin-top: 10px;
+        }
+    
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+    
+        .copyAnswerBtn {
+            background-color: #FFEB3B; /* Gelb */
+            color: #000000; /* Schwarzer Text für Kontrast */
+            flex: 1;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copyAnswerBtn:hover {
+            background-color: #FFF176; /* Helleres Gelb beim Hover */
+        }
+    
+        .deleteAnswerBtn {
+            background-color: #f44336; /* Rot */
+            color: #ffffff;
+            flex: 1;
+            margin-left: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .deleteAnswerBtn:hover {
+            background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+        }
+    
+        /* Verbesserte Kontrastierung für die "Ausgewählte löschen" Schaltfläche */
+        #bulkDeleteBtn {
+            background-color: var(--bulk-delete-bg);
+            color: var(--bulk-delete-text);
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        #bulkDeleteBtn:hover:not(:disabled) {
+            background-color: var(--bulk-delete-hover-bg);
+        }
+    
+        #bulkDeleteBtn:disabled {
+            background-color: #e57373; /* Hellere Farbe, wenn deaktiviert */
+            cursor: not-allowed;
+        }
+    
+        /* Bulk Delete Button Styles */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bulk-delete-bg: #d32f2f; /* Dunkleres Rot */
+                --bulk-delete-text: #ffffff;
+                --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bulk-delete-bg: #f44336; /* Rotes Rot */
+                --bulk-delete-text: #ffffff;
+                --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+            }
+        }
+    
+        /* Druckstile */
+        @media print {
+            /* Alles standardmäßig ausblenden */
+            body * {
+                visibility: hidden;
+            }
+    
+            /* printContent sichtbar machen */
+            body.print-single #printContent,
+            body.print-single #printContent * {
+                visibility: visible;
+            }
+    
+            /* printAllContent sichtbar machen */
+            body.print-all #printAllContent,
+            body.print-all #printAllContent * {
+                visibility: visible;
+            }
+    
+            /* Position des sichtbaren Inhalts */
+            #printContent, #printAllContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+    
+            /* Textfelder im Druck ausblenden */
+            .quill-editor {
+                display: none;
+            }
+    
+            /* Pre-Elemente für Lesbarkeit stylen */
+            pre {
+                white-space: pre-wrap;
+                font-size: 14px;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                border: none; /* Rahmen entfernen */
+            }
+    
+            /* Rahmen und Padding für Entwürfe im Druck entfernen */
+            #printAllContent .draft {
+                border: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+    
+            #printAllContent .draft h3 {
+                margin-bottom: 5px;
+            }
+    
+            /* Alle Buttons im Druck ausblenden */
+            button {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Bereich zum Drucken eines einzelnen Textes -->
+    <div id="printContent">
+        <!-- Gespeichert-Indikator -->
+        <div id="saveIndicator">Gespeichert</div>
+
+        <h3>Dein Text:</h3>
+        <p id="assignmentInfo"></p>
+        <div id="answerBox" class="quill-editor"></div>
+        <pre id="answerText" style="display: none;"></pre>
+    </div>
+    
+    <!-- Button-Container -->
+    <div class="button-container">
+        <button id="saveBtn" onclick="saveToLocal()">Text zwischenspeichern</button>
+        <button id="downloadAllBtn">Text drucken / als PDF speichern</button>
+    </div>
+
+    <!-- Anzeige des gespeicherten Textes -->
+    <div id="savedAnswerContainer">
+        <button id="copyAnswerBtn">Text kopieren</button>
+        <h3 id="savedAssignmentTitle"></h3>
+        <div id="savedAnswer"></div>
+    </div>
+
+    <!-- Roter Löschen-Button, unter savedAnswerContainer verschoben -->
+    <div class="button-container" style="margin-top: 10px;">
+        <button id="clearBtn" onclick="clearLocalStorage()">Text löschen</button>
+    </div>
+
+    <!-- Neue Sektion für die Verwaltung aller gespeicherten Antworten -->
+    <hr>
+    <div class="button-container-top">
+        <button id="reloadBtn" onclick="reloadAllAnswers()">🔁 Antworten aktualisieren</button>
+    </div>
+
+    <!-- Haupt-Button-Container für neue Funktionen -->
+    <div class="button-container-main">
+        <button id="downloadAllBtnBulk">Alle Antworten drucken / Als PDF speichern</button>
+        <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
+        <button id="clearAllBtn" onclick="clearAllLocalStorage()">Alle Antworten löschen</button>
+    </div>
+    
+    <h2>Gespeicherte Antworten:</h2>
+
+    <!-- Erklärung für die Bulk Delete Funktion -->
+    <div class="bulk-action-explanation">
+        <p>
+            Falls ältere Antworten vorhanden sind, können Sie diese mithilfe der untenstehenden Kontrollkästchen auswählen und löschen.
+        </p>
+    </div>
+
+    <!-- Bulk Action Container -->
+    <div class="bulk-action-container">
+        <input type="checkbox" id="selectAll">
+        <label for="selectAll"> Alle auswählen</label>
+        <button id="bulkDeleteBtn" disabled>Ausgewählte löschen</button>
+    </div>
+    
+    <div id="draftContainer">
+        <!-- Drafts werden hier geladen -->
+    </div>
+    
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script>
+        // Funktion zum Abrufen eines Abfrageparameters nach Name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Funktion zum Extrahieren des Seitentitels aus der Referrer-URL
+        function getParentPageTitle() {
+            const referrer = document.referrer;
+            if (!referrer) {
+                console.warn('Kein Referrer gefunden. Der übergeordnete Seitentitel kann nicht abgerufen werden.');
+                return '';
+            }
+
+            try {
+                const url = new URL(referrer);
+                const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
+
+                // Suche nach dem Segment 'allgemeinbildung'
+                const targetSegment = 'allgemeinbildung';
+                const targetIndex = pathSegments.indexOf(targetSegment);
+
+                if (targetIndex === -1) {
+                    console.warn(`Segment '${targetSegment}' wurde im Pfad der Referrer-URL nicht gefunden.`);
+                    return '';
+                }
+
+                // Extrahiere alle Segmente nach 'allgemeinbildung'
+                const relevantSegments = pathSegments.slice(targetIndex + 1);
+
+                if (relevantSegments.length === 0) {
+                    console.warn('Keine Pfadsegmente nach dem Zielsegment gefunden.');
+                    return '';
+                }
+
+                // Ersetze '+', '-', '_' durch Leerzeichen und dekodiere URI-Komponenten
+                const formattedSegments = relevantSegments.map(segment => {
+                    return decodeURIComponent(segment.replace(/[-_+]/g, ' ')).replace(/\b\w/g, char => char.toUpperCase());
+                });
+
+                // Verbinde die Segmente mit ' - ' als Trenner
+                const formattedTitle = formattedSegments.join(' - ');
+
+                return formattedTitle;
+            } catch (e) {
+                console.error('Fehler beim Parsen der Referrer-URL:', e);
+                return '';
+            }
+        }
+
+        const STORAGE_PREFIX = 'boxsuk-assignment_'; // Eindeutiger Präfix für boxsuk
+        const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
+        const parentTitle = getParentPageTitle();
+        const assignmentInfo = document.getElementById('assignmentInfo');
+
+        // Entferne das Präfix 'assignment', um das Suffix zu erhalten
+        // Anpassung: Verwende einen case-insensitive regulären Ausdruck
+        const assignmentSuffix = assignmentId.replace(/^assignment[_-]?/i, '');
+
+        // Setze den Text auf 'Textsorte: {Suffix}'
+        assignmentInfo.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+
+        // Initialisiere den Quill-Editor
+        const quill = new Quill('#answerBox', {
+            theme: 'snow',
+            placeholder: 'Gib hier deinen Text ein...',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['clean']
+                ]
+            }
+        });
+
+        // Anzeigeelemente
+        const savedAnswerContainer = document.getElementById('savedAnswerContainer');
+        const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
+        const savedAnswer = document.getElementById('savedAnswer');
+        const copyAnswerBtn = document.getElementById('copyAnswerBtn');
+        const saveIndicator = document.getElementById('saveIndicator'); // Save Indicator Element
+
+        // Funktion zur Anzeige des gespeicherten Textes
+        function displaySavedAnswer(content) {
+            // Kombiniere parentTitle und assignmentSuffix, falls verfügbar
+            const titleText = parentTitle
+                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}`
+                : `Textsorte: ${assignmentSuffix}`;
+            savedAssignmentTitle.textContent = titleText;
+            savedAnswer.innerHTML = content;
+            savedAnswerContainer.style.display = 'block';
+        }
+
+        // Funktion zum Kopieren des Textes in die Zwischenablage
+        copyAnswerBtn.addEventListener('click', function() {
+            const textToCopy = parentTitle
+                ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quill.root.innerHTML}`
+                : `Textsorte: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+            copyTextToClipboard(textToCopy);
+        });
+
+        // Funktion zum Kopieren von Text in die Zwischenablage
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    // Bestätigung entfernt
+                    console.log("Text erfolgreich kopiert");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren des Textes: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback zu execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecke das Textarea-Element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    // Bestätigung entfernt
+                    console.log("Text erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback-Kopieren nicht erfolgreich");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren des Textes (Fallback): ', err);
+                // Bestätigung entfernt
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Funktion zum Speichern des Textes in localStorage
+        function saveToLocal() {
+            const htmlContent = quill.root.innerHTML;
+            const textContent = quill.getText().trim();
+            if (textContent === "") {
+                // Bestätigung entfernt
+                console.log("Versuch, mit leerem Textfeld zu speichern");
+                return;
+            }
+            const storageKey = STORAGE_PREFIX + assignmentId;
+            localStorage.setItem(storageKey, htmlContent);
+            // Bestätigung entfernt
+            console.log(`Text für ${storageKey} gespeichert`);
+            displaySavedAnswer(htmlContent); // Aktualisiere die Anzeige des gespeicherten Textes
+            showSaveIndicator(); // Zeige den "Gespeichert"-Hinweis
+            loadAllAnswers(); // Aktualisiere die Liste aller gespeicherten Antworten
+        }
+
+        // Funktion zum Löschen aller gespeicherten Texte aus localStorage
+        function clearLocalStorage() {
+            // Bestätigung entfernen
+            // Entferne nur Schlüssel mit dem boxsuk-Präfix
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith(STORAGE_PREFIX)) {
+                    keysToRemove.push(key);
+                }
+            }
+            keysToRemove.forEach(key => localStorage.removeItem(key));
+            quill.setText(''); // Leere den Quill-Editor
+            savedAnswerContainer.style.display = 'none';
+            console.log("Alle gespeicherten boxsuk-Texte wurden gelöscht");
+            loadAllAnswers(); // Aktualisiere die Liste aller gespeicherten Antworten
+        }
+
+        // Funktion zum Löschen aller Antworten (Bulk)
+        function clearAllLocalStorage() {
+            if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
+                localStorage.clear();
+                quill.setText(''); // Leere den Quill-Editor
+                savedAnswerContainer.style.display = 'none';
+                console.log("Alle localStorage-Elemente gelöscht");
+                loadAllAnswers(); // Aktualisiere die Liste aller gespeicherten Antworten
+            }
+        }
+
+        // Event Listener für den Button "Text drucken / als PDF speichern"
+        document.getElementById("downloadAllBtn").addEventListener('click', function() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments zum Drucken`);
+            if(storageKeys.length === 0) {
+                console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
+                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                return;
+            }
+
+            console.log("Drucken aller Texte wird initiiert");
+
+            // Erstelle ein temporäres Div zum Drucken aller Texte
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
+
+            // Füge einmal den Titel der übergeordneten Seite hinzu
+            if (parentTitle) {
+                const parentTitleElement = document.createElement('h2');
+                parentTitleElement.textContent = parentTitle;
+                printAllContent.appendChild(parentTitleElement);
+            }
+
+            // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(STORAGE_PREFIX, '');
+                const suffixB = b.replace(STORAGE_PREFIX, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            storageKeys.forEach(assignmentKey => {
+                const text = localStorage.getItem(assignmentKey);
+                if(text) {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const assignmentSuffix = assignmentKey.replace(STORAGE_PREFIX, '');
+                    const title = document.createElement("h3");
+                    title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+                    draftDiv.appendChild(title);
+                    
+                    const answerDiv = document.createElement("div");
+                    answerDiv.innerHTML = text; // HTML-Inhalt rendern
+                    draftDiv.appendChild(answerDiv);
+                    
+                    printAllContent.appendChild(draftDiv);
+                }
+            });
+
+            // Füge zum Body hinzu
+            document.body.appendChild(printAllContent);
+
+            // Füge der Body-Klasse 'print-all' hinzu
+            document.body.classList.add('print-all');
+
+            window.print();
+
+            // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
+            document.body.classList.remove('print-all');
+            document.body.removeChild(printAllContent);
+        });
+
+        // Event Listener für die neue "Alle Antworten drucken / Als PDF speichern" Schaltfläche
+        document.getElementById("downloadAllBtnBulk").addEventListener('click', function() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments zum Drucken`);
+            if(storageKeys.length === 0) {
+                console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
+                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                return;
+            }
+
+            console.log("Drucken aller Texte wird initiiert");
+
+            // Erstelle ein temporäres Div zum Drucken aller Texte
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
+
+            // Füge einmal den Titel der übergeordneten Seite hinzu
+            if (parentTitle) {
+                const parentTitleElement = document.createElement('h2');
+                parentTitleElement.textContent = parentTitle;
+                printAllContent.appendChild(parentTitleElement);
+            }
+
+            // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(STORAGE_PREFIX, '');
+                const suffixB = b.replace(STORAGE_PREFIX, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            storageKeys.forEach(assignmentKey => {
+                const text = localStorage.getItem(assignmentKey);
+                if(text) {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const assignmentSuffix = assignmentKey.replace(STORAGE_PREFIX, '');
+                    const title = document.createElement("h3");
+                    title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+                    draftDiv.appendChild(title);
+                    
+                    const answerDiv = document.createElement("div");
+                    answerDiv.innerHTML = text; // HTML-Inhalt rendern
+                    draftDiv.appendChild(answerDiv);
+                    
+                    printAllContent.appendChild(draftDiv);
+                }
+            });
+
+            // Füge zum Body hinzu
+            document.body.appendChild(printAllContent);
+
+            // Füge der Body-Klasse 'print-all' hinzu
+            document.body.classList.add('print-all');
+
+            window.print();
+
+            // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
+            document.body.classList.remove('print-all');
+            document.body.removeChild(printAllContent);
+        });
+
+        // Optional: Logge den initialen Zustand von localStorage zur Fehlersuche
+        console.log("Anfangszustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+
+        // **Neuer Code zum Verhindern des Einfügens von Inhalten**
+
+        // Verhindere das Einfügen in den Quill-Editor über grundlegende Formatierungen hinaus
+        quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
+            // Anpassung nach Bedarf, z.B. unerwünschte Formate entfernen
+            return delta;
+        });
+
+        quill.root.addEventListener('paste', function(e) {
+            e.preventDefault();
+            alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+            // Optional: Ermögliche das Einfügen von nur einfachem Text ohne Formatierung
+            const text = e.clipboardData.getData('text/plain');
+            quill.insertText(quill.getSelection().index, text);
+        });
+
+        // Verhindere Drag-and-Drop in den Quill-Editor
+        quill.root.addEventListener('drop', function(e) {
+            e.preventDefault();
+        });
+
+        // Verhindere das Kontextmenü im Quill-Editor
+        quill.root.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Zusätzlich: Verhindere Ctrl+V und Cmd+V
+        quill.root.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+                e.preventDefault();
+                alert('Das Einfügen von Inhalten ist nicht erlaubt.');
+            }
+        });
+
+        // **Neuer Code für automatische Speicherung**
+
+        // Debounce-Funktion zur Begrenzung der Ausführungsrate
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Funktion zum Anzeigen des "Gespeichert"-Hinweises
+        function showSaveIndicator() {
+            saveIndicator.style.display = 'block';
+            setTimeout(() => {
+                saveIndicator.style.display = 'none';
+            }, 1000); // Verstecken nach 1 Sekunde
+        }
+
+        // Debounced-Version von saveToLocal (z.B. speichert 2 Sekunden nachdem der Benutzer aufgehört hat zu tippen)
+        const debouncedSave = debounce(saveToLocal, 2000);
+
+        // Event Listener für Textänderungen zur automatischen Speicherung
+        quill.on('text-change', function(delta, oldDelta, source) {
+            if (source === 'user') { // Stelle sicher, dass die Änderung vom Benutzer stammt
+                debouncedSave();
+            }
+        });
+
+        // Lade gespeicherten Inhalt und setze ihn im Quill-Editor
+        const savedText = localStorage.getItem(STORAGE_PREFIX + assignmentId);
+        if (savedText) {
+            quill.root.innerHTML = savedText;
+            console.log(`Gespeicherten Text für ${STORAGE_PREFIX + assignmentId} geladen`);
+            displaySavedAnswer(savedText);
+        } else {
+            console.log(`Kein gespeicherter Text für ${STORAGE_PREFIX + assignmentId} gefunden`);
+        }
+
+        // **Neue Funktionen zur Verwaltung aller gespeicherten Antworten**
+
+        // Event Listener für die "Alle Antworten drucken / Als PDF speichern" Schaltfläche
+        document.getElementById("downloadAllBtnBulk").addEventListener('click', function() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments zum Drucken`);
+            if(storageKeys.length === 0) {
+                console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
+                alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+                return;
+            }
+
+            console.log("Drucken aller Texte wird initiiert");
+
+            // Temporäres Div für den Druck erstellen
+            const printAllContent = document.createElement('div');
+            printAllContent.id = 'printAllContent';
+
+            // Sortieren der storageKeys basierend auf dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(STORAGE_PREFIX, '');
+                const suffixB = b.replace(STORAGE_PREFIX, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            storageKeys.forEach(assignmentKey => {
+                const text = localStorage.getItem(assignmentKey);
+                if(text) {
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+                    
+                    const assignmentSuffix = assignmentKey.replace(STORAGE_PREFIX, '');
+                    const title = document.createElement("h3");
+                    title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
+                    draftDiv.appendChild(title);
+                    
+                    const answerDiv = document.createElement("div");
+                    answerDiv.innerHTML = text; // HTML-Inhalt rendern
+                    draftDiv.appendChild(answerDiv);
+                    
+                    printAllContent.appendChild(draftDiv);
+                }
+            });
+
+            // Füge zum Body hinzu
+            document.body.appendChild(printAllContent);
+
+            // Füge der Body-Klasse 'print-all' hinzu
+            document.body.classList.add('print-all');
+
+            window.print();
+
+            // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
+            document.body.classList.remove('print-all');
+            document.body.removeChild(printAllContent);
+        });
+
+        // Event Listener für die "Alle Antworten kopieren" Schaltfläche
+        document.getElementById("copyAllBtn").addEventListener('click', copyAllAnswersToClipboard);
+
+        // Event Listener für die "Alle auswählen" Checkbox
+        document.getElementById("selectAll").addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll(".select-answer");
+            checkboxes.forEach(cb => cb.checked = this.checked);
+            toggleBulkDeleteButton();
+        });
+
+        // Event Listener für die "Ausgewählte löschen" Schaltfläche
+        document.getElementById("bulkDeleteBtn").addEventListener('click', bulkDeleteAnswers);
+
+        // Funktion zum Laden und Anzeigen aller gespeicherten Antworten
+        function loadAllAnswers() {
+            const draftContainer = document.getElementById("draftContainer");
+            draftContainer.innerHTML = ""; // Container leeren
+
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+
+            console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments`);
+
+            if(storageKeys.length === 0) {
+                draftContainer.innerHTML = "<p>Keine gespeicherten Antworten gefunden.</p>";
+                return;
+            }
+
+            // Sortieren der storageKeys basierend auf dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(STORAGE_PREFIX, '');
+                const suffixB = b.replace(STORAGE_PREFIX, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            console.log("Sortierte Assignment-IDs:", storageKeys);
+
+            storageKeys.forEach(assignmentId => {
+                const text = localStorage.getItem(assignmentId);
+                if(text) {
+                    console.log(`Lade Assignment: ${assignmentId}`);
+                    const draftDiv = document.createElement("div");
+                    draftDiv.className = "draft";
+
+                    // Erstellen einer Checkbox
+                    const checkboxDiv = document.createElement("div");
+                    checkboxDiv.style.position = "absolute";
+                    checkboxDiv.style.top = "10px";
+                    checkboxDiv.style.left = "10px";
+
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.className = "select-answer";
+                    checkbox.value = assignmentId; // assignmentId als Wert verwenden
+                    checkbox.addEventListener('change', toggleBulkDeleteButton);
+
+                    const checkboxLabel = document.createElement("label");
+                    checkboxLabel.textContent = " Auswählen";
+
+                    checkboxDiv.appendChild(checkbox);
+                    checkboxDiv.appendChild(checkboxLabel);
+                    draftDiv.appendChild(checkboxDiv);
+
+                    const assignmentIdMatch = assignmentId.match(/^boxsuk-assignment[_-]?(.+)$/);
+                    const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
+
+                    const title = document.createElement("h3");
+                    title.textContent = `Textsorte ${assignmentIdClean}`;
+                    draftDiv.appendChild(title);
+
+                    const answerDiv = document.createElement("div");
+                    answerDiv.className = "answerText";
+                    answerDiv.innerHTML = text; // HTML-Inhalt rendern
+                    answerDiv.style.marginLeft = "30px"; // Platz für die Checkbox schaffen
+                    draftDiv.appendChild(answerDiv);
+
+                    // Erstellen der Button-Gruppe
+                    const buttonGroup = document.createElement("div");
+                    buttonGroup.className = "button-group";
+
+                    // Kopieren-Schaltfläche
+                    const copyBtn = document.createElement("button");
+                    copyBtn.textContent = "Antwort kopieren";
+                    copyBtn.className = "copyAnswerBtn";
+                    copyBtn.addEventListener('click', function() {
+                        copyToClipboard(text);
+                    });
+                    buttonGroup.appendChild(copyBtn);
+
+                    // Löschen-Schaltfläche
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "Antwort löschen";
+                    deleteBtn.className = "deleteAnswerBtn";
+                    deleteBtn.addEventListener('click', function() {
+                        deleteAnswer(assignmentId);
+                    });
+                    buttonGroup.appendChild(deleteBtn);
+
+                    draftDiv.appendChild(buttonGroup);
+
+                    draftContainer.appendChild(draftDiv);
+                }
+            });
+
+            // Nach dem Laden der Antworten:
+            toggleBulkDeleteButton();
+        }
+
+        // Funktion zum Neuladen aller Antworten
+        function reloadAllAnswers() {
+            loadAllAnswers();
+        }
+
+        // Funktion zum Kopieren einer einzelnen Antwort
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert");
+                }, function(err) {
+                    console.error('Fehler beim Kopieren der Antwort: ', err);
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback zu execCommand
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        // Funktion für die Bulk Delete
+        function bulkDeleteAnswers() {
+            const selectedCheckboxes = document.querySelectorAll(".select-answer:checked");
+            if(selectedCheckboxes.length === 0) {
+                alert("Bitte wählen Sie mindestens eine Antwort zum Löschen aus.");
+                return;
+            }
+
+            if(!confirm(`Sind Sie sicher, dass Sie ${selectedCheckboxes.length} ausgewählte Antwort(en) löschen möchten?`)) {
+                return;
+            }
+
+            selectedCheckboxes.forEach(cb => {
+                const assignmentId = cb.value;
+                localStorage.removeItem(assignmentId);
+                console.log(`Antwort für ${assignmentId} gelöscht.`);
+            });
+
+            alert(`${selectedCheckboxes.length} Antwort(en) wurden gelöscht.`);
+            loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
+        }
+
+        // Funktion zum Kopieren aller Antworten
+        function copyAllAnswersToClipboard() {
+            const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+            
+            if(storageKeys.length === 0) {
+                alert("Keine gespeicherten Antworten zum Kopieren.");
+                console.log("Copy all attempted with no stored answers");
+                return;
+            }
+
+            // Sortieren der storageKeys basierend auf dem Suffix
+            storageKeys.sort((a, b) => {
+                const suffixA = a.replace(STORAGE_PREFIX, '');
+                const suffixB = b.replace(STORAGE_PREFIX, '');
+                return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+            });
+
+            let allText = '';
+            storageKeys.forEach(assignmentId => {
+                const text = localStorage.getItem(assignmentId);
+                if(text) {
+                    const assignmentIdMatch = assignmentId.match(/^boxsuk-assignment[_-]?(.+)$/);
+                    const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
+                    allText += `Textsorte ${assignmentIdClean}:\n${text}\n\n`;
+                }
+            });
+
+            // Überprüfen, ob die Clipboard API verfügbar ist
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // Verwenden der Clipboard API
+                navigator.clipboard.writeText(allText).then(function() {
+                    alert("Alle Antworten wurden in die Zwischenablage kopiert.");
+                    console.log("Alle Antworten erfolgreich kopiert");
+                }).catch(function(err) {
+                    console.error('Fehler beim Kopieren der Antworten: ', err);
+                    fallbackCopyTextToClipboard(allText);
+                });
+            } else {
+                // Fallback zu execCommand
+                fallbackCopyTextToClipboard(allText);
+            }
+        }
+
+        // Funktion zum Kopieren als Fallback
+        function fallbackCopyTextToClipboard(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            // Verstecke das textarea Element
+            textarea.style.position = "fixed";
+            textarea.style.top = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert("Antwort wurde in die Zwischenablage kopiert.");
+                    console.log("Antwort erfolgreich kopiert (Fallback)");
+                } else {
+                    throw new Error("Fallback copy unsuccessful");
+                }
+            } catch (err) {
+                console.error('Fehler beim Kopieren der Antwort (Fallback): ', err);
+                alert("Fehler beim Kopieren der Antwort.");
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        // Funktion zum Löschen einer einzelnen Antwort
+        function deleteAnswer(assignmentId) {
+            if(confirm("Sind Sie sicher, dass Sie diese Antwort löschen möchten?")) {
+                localStorage.removeItem(assignmentId);
+                alert("Antwort wurde gelöscht.");
+                console.log(`Antwort für ${assignmentId} gelöscht.`);
+                loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
+            }
+        }
+
+        // Funktion zum Aktivieren/Deaktivieren der Bulk Delete Schaltfläche
+        function toggleBulkDeleteButton() {
+            const selected = document.querySelectorAll(".select-answer:checked").length;
+            const bulkDeleteBtn = document.getElementById("bulkDeleteBtn");
+            bulkDeleteBtn.disabled = selected === 0;
+        }
+
+        // Funktion zum Laden und Anzeigen aller gespeicherten Antworten beim Laden der Seite
+        document.addEventListener("DOMContentLoaded", function() {
+            loadAllAnswers();
+        });
+
+        // Optional: Log the initial state of localStorage for debugging
+        console.log("Initialer Zustand von localStorage:");
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`${key}: ${localStorage.getItem(key)}`);
+        }
+    </script>
+</body>
+
+</html>
