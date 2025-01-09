@@ -99,6 +99,14 @@
             cursor: pointer;
         }
 
+        /* Save Indicator */
+        #saveIndicator {
+            display: none;
+            color: green;
+            font-size: 12px;
+            margin-bottom: 10px; /* Platzierung über dem Editor */
+        }
+
         /* Druckstile */
         @media print {
             /* Alles standardmäßig ausblenden */
@@ -165,6 +173,9 @@
 <body>
     <!-- Bereich zum Drucken eines einzelnen Textes -->
     <div id="printContent">
+        <!-- Gespeichert-Indikator -->
+        <div id="saveIndicator">Gespeichert</div>
+
         <h3>Dein Text:</h3>
         <p id="assignmentInfo"></p>
         <div id="answerBox" class="quill-editor"></div>
@@ -272,16 +283,7 @@
         const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
         const savedAnswer = document.getElementById('savedAnswer');
         const copyAnswerBtn = document.getElementById('copyAnswerBtn');
-
-        // Lade gespeicherten Inhalt und setze ihn im Quill-Editor
-        const savedText = localStorage.getItem(STORAGE_PREFIX + assignmentId);
-        if (savedText) {
-            quill.root.innerHTML = savedText;
-            console.log(`Gespeicherten Text für ${STORAGE_PREFIX + assignmentId} geladen`);
-            displaySavedAnswer(savedText);
-        } else {
-            console.log(`Kein gespeicherter Text für ${STORAGE_PREFIX + assignmentId} gefunden`);
-        }
+        const saveIndicator = document.getElementById('saveIndicator'); // Save Indicator Element
 
         // Funktion zur Anzeige des gespeicherten Textes
         function displaySavedAnswer(content) {
@@ -359,6 +361,7 @@
             // Bestätigung entfernt
             console.log(`Text für ${storageKey} gespeichert`);
             displaySavedAnswer(htmlContent); // Aktualisiere die Anzeige des gespeicherten Textes
+            showSaveIndicator(); // Zeige den "Gespeichert"-Hinweis
         }
 
         // Funktion zum Löschen aller gespeicherten Texte aus localStorage
@@ -378,7 +381,7 @@
             console.log("Alle gespeicherten boxsuk-Texte wurden gelöscht");
         }
 
-        // Event Listener für den Button "Text drucken / als PDF schreiben"
+        // Event Listener für den Button "Text drucken / als PDF speichern"
         document.getElementById("downloadAllBtn").addEventListener('click', function() {
             const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
 
@@ -481,6 +484,45 @@
                 alert('Das Einfügen von Inhalten ist nicht erlaubt.');
             }
         });
+
+        // **Neuer Code für automatische Speicherung**
+
+        // Debounce-Funktion zur Begrenzung der Ausführungsrate
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Funktion zum Anzeigen des "Gespeichert"-Hinweises
+        function showSaveIndicator() {
+            saveIndicator.style.display = 'block';
+            setTimeout(() => {
+                saveIndicator.style.display = 'none';
+            }, 1000); // Verstecken nach 1 Sekunde
+        }
+
+        // Debounced-Version von saveToLocal (z.B. speichert 2 Sekunden nachdem der Benutzer aufgehört hat zu tippen)
+        const debouncedSave = debounce(saveToLocal, 2000);
+
+        // Event Listener für Textänderungen zur automatischen Speicherung
+        quill.on('text-change', function(delta, oldDelta, source) {
+            if (source === 'user') { // Stelle sicher, dass die Änderung vom Benutzer stammt
+                debouncedSave();
+            }
+        });
+
+        // Lade gespeicherten Inhalt und setze ihn im Quill-Editor
+        const savedText = localStorage.getItem(STORAGE_PREFIX + assignmentId);
+        if (savedText) {
+            quill.root.innerHTML = savedText;
+            console.log(`Gespeicherten Text für ${STORAGE_PREFIX + assignmentId} geladen`);
+            displaySavedAnswer(savedText);
+        } else {
+            console.log(`Kein gespeicherter Text für ${STORAGE_PREFIX + assignmentId} gefunden`);
+        }
 
     </script>
 </body>
