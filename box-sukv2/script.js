@@ -555,10 +555,13 @@ function toggleBulkDeleteButton() {
 // Funktion zum Anzeigen des "Gespeichert"-Hinweises
 function showSaveIndicator() {
     saveIndicator.style.display = 'block';
+    saveIndicator.style.backgroundColor = 'green'; // Set background color to green
+    saveIndicator.style.color = 'white'; // Set text color to white for better contrast
     setTimeout(() => {
         saveIndicator.style.display = 'none';
-    }, 1000); // Verstecken nach 1 Sekunde
+    }, 2000); // Verstecken nach 1 Sekunde
 }
+
 
 // Debounce-Funktion zur Begrenzung der Ausführungsrate
 function debounce(func, wait) {
