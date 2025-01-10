@@ -11,6 +11,8 @@
     --bulk-delete-text: #ffffff;
     --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
     --text-secondary-color: #555555;
+    --button-print-all-bg: #4CAF50; /* Grün für den neuen Button */
+    --button-print-all-hover-bg: #45a049; /* Dunkleres Grün beim Hover */
 }
 
 body {
@@ -67,13 +69,6 @@ button:hover {
     background-color: #777777; /* Helleres Grau beim Hover */
 }
 
-#copyAllBtn {
-    background-color: #2ca02c; /* Dunkelgrün */
-}
-#copyAllBtn:hover {
-    background-color: #3cb44b; /* Helleres Grün beim Hover */
-}
-
 #clearAllBtn {
     background-color: #d62728; /* Dunkelrot */
 }
@@ -97,11 +92,8 @@ button:hover {
 }
 
 .copyAnswerBtn {
-    background-color: #FFEB3B; /* Gelb */
-    color: #000000; /* Schwarzer Text für Kontrast */
-}
-.copyAnswerBtn:hover {
-    background-color: #ffee58; /* Helleres Gelb beim Hover */
+    /* Diese Klasse wurde entfernt, da der Button entfernt wurde */
+    display: none;
 }
 
 .deleteAnswerBtn {
@@ -118,6 +110,15 @@ button:hover {
 }
 .printAnswerBtn:hover {
     background-color: #1E88E5; /* Dunkleres Blau beim Hover */
+}
+
+/* Neuer Stil für den "Alle Antworten drucken / Als PDF speichern" Button */
+#printAllBtn {
+    background-color: var(--button-print-all-bg); /* Grün */
+    color: var(--button-copy-text); /* Weißer Text */
+}
+#printAllBtn:hover {
+    background-color: var(--button-print-all-hover-bg); /* Dunkleres Grün beim Hover */
 }
 
 #bulkDeleteBtn {
@@ -168,17 +169,8 @@ button:hover {
 }
 
 #copyAnswerBtn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 6px 16px;
-    font-size: 14px;
-    background-color: var(--button-copy-bg);
-    color: var(--button-copy-text);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    /* Dieser Button wurde entfernt und daher auch die Positionierung */
+    display: none;
 }
 
 #savedAnswerContainer, .draft .answerText {
@@ -222,17 +214,8 @@ button:hover {
 }
 
 .copyAnswerBtn {
-    background-color: #FFEB3B; /* Gelb */
-    color: #000000; /* Schwarzer Text für Kontrast */
-    flex: 1;
-    margin-right: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.copyAnswerBtn:hover {
-    background-color: #FFF176; /* Helleres Gelb beim Hover */
+    /* Diese Klasse wurde entfernt, da der Button entfernt wurde */
+    display: none;
 }
 
 .deleteAnswerBtn {

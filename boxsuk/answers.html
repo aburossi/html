@@ -24,7 +24,6 @@
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Entfernt: Text zwischenspeichern Button -->
     <!-- Button-Container (nur downloadAllBtn bleibt) -->
     <div class="button-container">
         <button id="downloadAllBtn">Text drucken / als PDF speichern</button>
@@ -32,7 +31,6 @@
 
     <!-- Anzeige des gespeicherten Textes -->
     <div id="savedAnswerContainer">
-        <button id="copyAnswerBtn">Text kopieren</button>
         <h3 id="savedAssignmentTitle"></h3>
         <div id="savedAnswer"></div>
     </div>
@@ -42,21 +40,12 @@
         <button id="clearBtn" onclick="clearLocalStorage()">Text löschen</button>
     </div>
 
-    <!-- Entfernt: Alle Antworten drucken / Als PDF speichern Button -->
     <!-- Haupt-Button-Container für verbleibende Funktionen -->
     <div class="button-container-main">
-        <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
-        <button id="clearAllBtn" onclick="clearAllLocalStorage()">Alle Antworten löschen</button>
+        <!-- Entfernte Buttons: copyAllBtn und clearAllBtn -->
     </div>
     
     <h2>Gespeicherte Antworten:</h2>
-
-    <!-- Erklärung für die Bulk Delete Funktion, verschoben unter downloadAllBtn -->
-    <div class="bulk-action-explanation">
-        <p>
-            Falls ältere Antworten vorhanden sind, können Sie diese mithilfe der untenstehenden Kontrollkästchen auswählen und löschen.
-        </p>
-    </div>
 
     <!-- Verpackt in ein Dropdown-Menü -->
     <details>
@@ -67,6 +56,7 @@
             <input type="checkbox" id="selectAll">
             <label for="selectAll"> Alle auswählen</label>
             <button id="bulkDeleteBtn" disabled>Ausgewählte löschen</button>
+            <button id="printAllBtn">Alle Antworten drucken / Als PDF speichern</button>
         </div>
         
         <div id="draftContainer">

@@ -77,7 +77,6 @@ const quill = new Quill('#answerBox', {
 const savedAnswerContainer = document.getElementById('savedAnswerContainer');
 const savedAssignmentTitle = document.getElementById('savedAssignmentTitle');
 const savedAnswer = document.getElementById('savedAnswer');
-const copyAnswerBtn = document.getElementById('copyAnswerBtn');
 const saveIndicator = document.getElementById('saveIndicator'); // Save Indicator Element
 
 // Funktion zur Anzeige des gespeicherten Textes
@@ -92,17 +91,7 @@ function displaySavedAnswer(content) {
     savedAnswerContainer.style.display = 'block';
 }
 
-// Funktion zum Kopieren des Textes in die Zwischenablage
-copyAnswerBtn.addEventListener('click', function() {
-    // Verwenden Sie Quills getText(), um Zeilenumbrüche zu erhalten
-    const quillText = quill.getText().trim();
-    const textToCopy = parentTitle
-        ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quillText}`
-        : `Textsorte: ${assignmentSuffix}\n${quillText}`;
-    copyTextToClipboard(textToCopy);
-});
-
-// Funktion zum Kopieren von Text in die Zwischenablage
+// Funktion zum Kopieren von Text in die Zwischenablage (wird noch für einzelne Kopien verwendet)
 function copyTextToClipboard(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function() {
@@ -118,7 +107,7 @@ function copyTextToClipboard(text) {
     }
 }
 
-// Fallback-Funktion zum Kopieren von Text in die Zwischenablage
+// Funktion zum Kopieren von Text in die Zwischenablage (Fallback)
 function fallbackCopyTextToClipboard(text) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
@@ -150,7 +139,7 @@ function saveToLocal() {
     const htmlContent = quill.root.innerHTML;
     const textContent = quill.getText().trim();
     if (textContent === "") {
-        // Bestätigung entfernt
+        // Bestätigung entfernen
         console.log("Versuch, mit leerem Textfeld zu speichern");
         return;
     }
@@ -182,15 +171,29 @@ function clearLocalStorage() {
 }
 
 // Funktion zum Löschen aller Antworten (Bulk)
-function clearAllLocalStorage() {
-    if(confirm("Sind Sie sicher, dass Sie alle gespeicherten Antworten löschen möchten?")) {
-        localStorage.clear();
-        quill.setText(''); // Leere den Quill-Editor
-        savedAnswerContainer.style.display = 'none';
-        console.log("Alle localStorage-Elemente gelöscht");
-        loadAllAnswers(); // Aktualisiere die Liste aller gespeicherten Antworten
+function bulkDeleteAnswers() {
+    const selectedCheckboxes = document.querySelectorAll(".select-answer:checked");
+    if(selectedCheckboxes.length === 0) {
+        alert("Bitte wählen Sie mindestens eine Antwort zum Löschen aus.");
+        return;
     }
+
+    if(!confirm(`Sind Sie sicher, dass Sie ${selectedCheckboxes.length} ausgewählte Antwort(en) löschen möchten?`)) {
+        return;
+    }
+
+    selectedCheckboxes.forEach(cb => {
+        const assignmentId = cb.value;
+        localStorage.removeItem(assignmentId);
+        console.log(`Antwort für ${assignmentId} gelöscht.`);
+    });
+
+    alert(`${selectedCheckboxes.length} Antwort(en) wurden gelöscht.`);
+    loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
 }
+
+// Funktion zum Löschen aller Antworten (Bulk)
+// Da die Funktion clearAllLocalStorage() was separate in previous code, it's kept but not used if needed
 
 // Event Listener für den Button "Text drucken / Als PDF speichern" (nun nur aktuelle Antwort)
 document.getElementById("downloadAllBtn").addEventListener('click', function() {
@@ -214,10 +217,41 @@ document.getElementById("downloadAllBtn").addEventListener('click', function() {
     printSingleAnswer(titleText, savedText);
 });
 
-// Entfernt den Event Listener für "downloadAllBtnBulk" da dieser Button entfernt wurde
+// Event Listener für die "Alle Antworten drucken / Als PDF speichern" Schaltfläche
+document.getElementById("printAllBtn").addEventListener('click', function() {
+    const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
 
-// Event Listener für die "Alle Antworten kopieren" Schaltfläche
-document.getElementById("copyAllBtn").addEventListener('click', copyAllAnswersToClipboard);
+    if(storageKeys.length === 0) {
+        alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF vorhanden.");
+        console.log("Versuch, alle Antworten zu drucken, aber keine sind gespeichert");
+        return;
+    }
+
+    console.log("Drucken aller gespeicherten Antworten wird initiiert");
+
+    // Kombiniere alle gespeicherten Antworten
+    let allContent = '';
+    storageKeys.sort((a, b) => {
+        const suffixA = a.replace(STORAGE_PREFIX, '');
+        const suffixB = b.replace(STORAGE_PREFIX, '');
+        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
+    });
+
+    storageKeys.forEach(assignmentIdKey => {
+        const text = localStorage.getItem(assignmentIdKey);
+        if(text) {
+            const assignmentIdMatch = assignmentIdKey.match(/^boxsuk-assignment[_-]?(.+)$/);
+            const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentIdKey;
+            const title = `Textsorte ${assignmentIdClean}`;
+            allContent += `<h3>${title}</h3>`;
+            allContent += `<div>${text}</div>`;
+            allContent += `<hr>`;
+        }
+    });
+
+    // Drucken aller Antworten
+    printAllAnswers(allContent);
+});
 
 // Event Listener für die "Alle auswählen" Checkbox
 document.getElementById("selectAll").addEventListener('change', function() {
@@ -299,19 +333,6 @@ function loadAllAnswers() {
             const buttonGroup = document.createElement("div");
             buttonGroup.className = "button-group";
 
-            // Kopieren-Schaltfläche
-            const copyBtn = document.createElement("button");
-            copyBtn.textContent = "Antwort kopieren";
-            copyBtn.className = "copyAnswerBtn";
-            copyBtn.addEventListener('click', function() {
-                // Extrahiere reinen Text aus dem gespeicherten HTML
-                const tempDivCopy = document.createElement('div');
-                tempDivCopy.innerHTML = text;
-                const plainText = tempDivCopy.innerText.trim();
-                copyTextToClipboard(plainText);
-            });
-            buttonGroup.appendChild(copyBtn);
-
             // Löschen-Schaltfläche
             const deleteBtn = document.createElement("button");
             deleteBtn.textContent = "Antwort löschen";
@@ -391,21 +412,47 @@ function printSingleAnswer(title, content) {
     window.print();
 }
 
-// Funktion zum Kopieren einer einzelnen Antwort
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() {
-            alert("Antwort wurde in die Zwischenablage kopiert.");
-            console.log("Antwort erfolgreich kopiert");
-        }, function(err) {
-            console.error('Fehler beim Kopieren der Antwort: ', err);
-            fallbackCopyTextToClipboard(text);
-        });
-    } else {
-        // Fallback zu execCommand
-        fallbackCopyTextToClipboard(text);
+// Neue Funktion zum Drucken aller Antworten
+function printAllAnswers(allContent) {
+    // Entferne vorhandenes printAllContent, falls vorhanden
+    const existingPrintDiv = document.getElementById('printAllContent');
+    if (existingPrintDiv) {
+        document.body.removeChild(existingPrintDiv);
     }
+
+    // Erstelle ein temporäres Div
+    const printDiv = document.createElement('div');
+    printDiv.id = 'printAllContent';
+
+    // Füge den kombinierten Inhalt hinzu
+    printDiv.innerHTML = allContent;
+
+    // Füge das Div zum Body hinzu
+    document.body.appendChild(printDiv);
+
+    // Füge die Klasse 'print-all' zum Body hinzu
+    document.body.classList.add('print-all');
+
+    // Definiere die Handler-Funktion
+    function handleAfterPrint() {
+        document.body.classList.remove('print-all');
+        const printDivAfter = document.getElementById('printAllContent');
+        if (printDivAfter) {
+            document.body.removeChild(printDivAfter);
+        }
+        // Entferne den Event Listener
+        window.removeEventListener('afterprint', handleAfterPrint);
+    }
+
+    // Füge den Event Listener hinzu
+    window.addEventListener('afterprint', handleAfterPrint);
+
+    // Trigger den Druck
+    window.print();
 }
+
+// Funktion zum Kopieren einer einzelnen Antwort (entfernt, da "Antwort kopieren" Button entfernt wurde)
+// Diese Funktion wird nicht mehr benötigt und kann entfernt werden
 
 // Funktion für die Bulk Delete
 function bulkDeleteAnswers() {
@@ -427,53 +474,6 @@ function bulkDeleteAnswers() {
 
     alert(`${selectedCheckboxes.length} Antwort(en) wurden gelöscht.`);
     loadAllAnswers(); // Aktualisiere die Liste der gespeicherten Antworten
-}
-
-// Funktion zum Kopieren aller Antworten
-function copyAllAnswersToClipboard() {
-    const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
-    
-    if(storageKeys.length === 0) {
-        alert("Keine gespeicherten Antworten zum Kopieren.");
-        console.log("Copy all attempted with no stored answers");
-        return;
-    }
-
-    // Sortieren der storageKeys basierend auf dem Suffix in absteigender Reihenfolge (neueste zuerst)
-    storageKeys.sort((a, b) => {
-        const suffixA = a.replace(STORAGE_PREFIX, '');
-        const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
-    });
-
-    let allText = '';
-    storageKeys.forEach(assignmentId => {
-        const text = localStorage.getItem(assignmentId);
-        if(text) {
-            const assignmentIdMatch = assignmentId.match(/^boxsuk-assignment[_-]?(.+)$/);
-            const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
-            // Extrahiere reinen Text
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = text;
-            const plainText = tempDiv.innerText.trim();
-            allText += `Textsorte ${assignmentIdClean}:\n${plainText}\n\n`;
-        }
-    });
-
-    // Überprüfen, ob die Clipboard API verfügbar ist
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        // Verwenden der Clipboard API
-        navigator.clipboard.writeText(allText).then(function() {
-            alert("Alle Antworten wurden in die Zwischenablage kopiert.");
-            console.log("Alle Antworten erfolgreich kopiert");
-        }).catch(function(err) {
-            console.error('Fehler beim Kopieren der Antworten: ', err);
-            fallbackCopyTextToClipboard(allText);
-        });
-    } else {
-        // Fallback zu execCommand
-        fallbackCopyTextToClipboard(allText);
-    }
 }
 
 // Funktion zum Kopieren als Fallback
@@ -570,3 +570,14 @@ for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     console.log(`${key}: ${localStorage.getItem(key)}`);
 }
+
+// Funktion zum Verhindern des Pestens in den Quill-Editor
+quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
+    return new Delta(); // Leerer Delta, keine Änderungen werden eingefügt
+});
+
+// Alternative Methode: Event Listener zum Blockieren des Paste-Events
+quill.root.addEventListener('paste', function(e) {
+    e.preventDefault();
+    alert("Einfügen von Inhalten ist in diesem Editor deaktiviert.");
+});
