@@ -189,7 +189,7 @@ function clearAllLocalStorage() {
     }
 }
 
-// Event Listener für den Button "Text drucken / als PDF speichern"
+// Event Listener für den Button "Text drucken / Als PDF speichern"
 document.getElementById("downloadAllBtn").addEventListener('click', function() {
     const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
 
@@ -350,6 +350,16 @@ function loadAllAnswers() {
                 deleteAnswer(assignmentId);
             });
             buttonGroup.appendChild(deleteBtn);
+            
+            // Neuer Druck-Button
+            const printBtn = document.createElement("button");
+            printBtn.textContent = "Diese Antwort drucken / Als PDF speichern";
+            printBtn.className = "printAnswerBtn";
+            printBtn.addEventListener('click', function() {
+                printSingleAnswer(`Textsorte ${assignmentIdClean}`, text);
+            });
+            buttonGroup.appendChild(printBtn);
+            // Ende Druck-Button
 
             draftDiv.appendChild(buttonGroup);
 
@@ -361,9 +371,37 @@ function loadAllAnswers() {
     toggleBulkDeleteButton();
 }
 
-// Funktion zum Neuladen aller Antworten
-function reloadAllAnswers() {
-    loadAllAnswers();
+// Neue Funktion zum Drucken einer einzelnen Antwort
+function printSingleAnswer(title, content) {
+    // Erstelle ein temporäres Div
+    const printDiv = document.createElement('div');
+    printDiv.id = 'printSingleContent';
+
+    // Füge den Titel hinzu
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = title;
+    printDiv.appendChild(titleElement);
+
+    // Füge den Inhalt hinzu
+    const contentElement = document.createElement('div');
+    contentElement.innerHTML = content;
+    printDiv.appendChild(contentElement);
+
+    // Füge das Div zum Body hinzu
+    document.body.appendChild(printDiv);
+
+    // Füge die Klasse 'print-single' zum Body hinzu
+    document.body.classList.add('print-single');
+
+    // Trigger den Druck
+    window.print();
+
+    // Entferne die Klasse und das temporäre Div nach dem Drucken
+    window.onafterprint = function() {
+        document.body.classList.remove('print-single');
+        document.body.removeChild(printDiv);
+        window.onafterprint = null;
+    };
 }
 
 // Funktion zum Kopieren einer einzelnen Antwort
@@ -500,7 +538,6 @@ function showSaveIndicator() {
         saveIndicator.style.display = 'none';
     }, 2000); // Verstecken nach 2 Sekunden
 }
-
 
 // Debounce-Funktion zur Begrenzung der Ausführungsrate
 function debounce(func, wait) {
