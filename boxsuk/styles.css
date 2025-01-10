@@ -325,6 +325,14 @@ button:hover {
     details, summary {
         display: none;
     }
+
+    /* **Neu hinzugefügt:** Zeilenumbrüche und Leerzeichen beibehalten */
+    body.print-single #printSingleContent,
+    body.print-single #printSingleContent *,
+    body.print-all #printAllContent,
+    body.print-all #printAllContent * {
+        white-space: pre-wrap;
+    }
 }
 
 /* Stile für das Dropdown-Menü */
@@ -345,7 +353,6 @@ summary {
 details[open] summary::after {
     content: " ▲";
 }
-
 summary::after {
     content: " ▼";
     float: right;

@@ -87,15 +87,18 @@ function displaySavedAnswer(content) {
         ? `${parentTitle}\nTextsorte: ${assignmentSuffix}`
         : `Textsorte: ${assignmentSuffix}`;
     savedAssignmentTitle.textContent = titleText;
-    savedAnswer.innerHTML = content;
+    // Um reinen Text anzuzeigen, ersetze innerHTML durch innerText
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = content;
+    savedAnswer.innerText = tempDiv.innerText;
     savedAnswerContainer.style.display = 'block';
 }
 
 // Funktion zum Kopieren des Textes in die Zwischenablage
 copyAnswerBtn.addEventListener('click', function() {
     const textToCopy = parentTitle
-        ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quill.root.innerHTML}`
-        : `Textsorte: ${assignmentSuffix}\n${quill.root.innerHTML}`;
+        ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quill.getText().trim()}`
+        : `Textsorte: ${assignmentSuffix}\n${quill.getText().trim()}`;
     copyTextToClipboard(textToCopy);
 });
 
@@ -189,67 +192,26 @@ function clearAllLocalStorage() {
     }
 }
 
-// Event Listener für den Button "Text drucken / Als PDF speichern"
+// Event Listener für den Button "Text drucken / Als PDF speichern" (nun nur aktuelle Antwort)
 document.getElementById("downloadAllBtn").addEventListener('click', function() {
-    const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+    const currentStorageKey = STORAGE_PREFIX + assignmentId;
+    const savedText = localStorage.getItem(currentStorageKey);
 
-    console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments zum Drucken`);
-    if(storageKeys.length === 0) {
-        console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
-        alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
+    if (!savedText) {
+        alert("Keine gespeicherte Antwort zum Drucken oder Speichern als PDF vorhanden.");
+        console.log("Versuch, die aktuelle Antwort zu drucken, aber keine ist gespeichert");
         return;
     }
 
-    console.log("Drucken aller Texte wird initiiert");
+    console.log("Drucken der aktuellen Antwort wird initiiert");
 
-    // Erstelle ein temporäres Div zum Drucken aller Texte
-    const printAllContent = document.createElement('div');
-    printAllContent.id = 'printAllContent';
+    // Kombiniere parentTitle und assignmentSuffix für den Titel
+    const titleText = parentTitle
+        ? `${parentTitle} - Textsorte: ${assignmentSuffix}`
+        : `Textsorte: ${assignmentSuffix}`;
 
-    // Füge einmal den Titel der übergeordneten Seite hinzu
-    if (parentTitle) {
-        const parentTitleElement = document.createElement("h2");
-        parentTitleElement.textContent = parentTitle;
-        printAllContent.appendChild(parentTitleElement);
-    }
-
-    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix in absteigender Reihenfolge
-    storageKeys.sort((a, b) => {
-        const suffixA = a.replace(STORAGE_PREFIX, '');
-        const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
-    });
-
-    storageKeys.forEach(assignmentKey => {
-        const text = localStorage.getItem(assignmentKey);
-        if(text) {
-            const draftDiv = document.createElement("div");
-            draftDiv.className = "draft";
-            
-            const assignmentSuffix = assignmentKey.replace(STORAGE_PREFIX, '');
-            const title = document.createElement("h3");
-            title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
-            draftDiv.appendChild(title);
-            
-            const answerDiv = document.createElement("div");
-            answerDiv.innerHTML = text; // HTML-Inhalt rendern
-            draftDiv.appendChild(answerDiv);
-            
-            printAllContent.appendChild(draftDiv);
-        }
-    });
-
-    // Füge zum Body hinzu
-    document.body.appendChild(printAllContent);
-
-    // Füge der Body-Klasse 'print-all' hinzu
-    document.body.classList.add('print-all');
-
-    window.print();
-
-    // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
-    document.body.classList.remove('print-all');
-    document.body.removeChild(printAllContent);
+    // Nutze die vorhandene Funktion zum Drucken einer einzelnen Antwort
+    printSingleAnswer(titleText, savedText);
 });
 
 // Entfernt den Event Listener für "downloadAllBtnBulk" da dieser Button entfernt wurde
@@ -328,7 +290,10 @@ function loadAllAnswers() {
 
             const answerDiv = document.createElement("div");
             answerDiv.className = "answerText";
-            answerDiv.innerHTML = text; // HTML-Inhalt rendern
+            // Um reinen Text anzuzeigen, ersetze innerHTML durch innerText
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            answerDiv.innerText = tempDiv.innerText;
             answerDiv.style.marginLeft = "30px"; // Platz für die Checkbox schaffen
             draftDiv.appendChild(answerDiv);
 
@@ -341,9 +306,14 @@ function loadAllAnswers() {
             copyBtn.textContent = "Antwort kopieren";
             copyBtn.className = "copyAnswerBtn";
             copyBtn.addEventListener('click', function() {
-                copyToClipboard(text);
+                // Extrahiere reinen Text aus dem gespeicherten HTML
+                const tempDivCopy = document.createElement('div');
+                tempDivCopy.innerHTML = text;
+                const plainText = tempDivCopy.innerText.trim();
+                copyToClipboard(plainText);
             });
             buttonGroup.appendChild(copyBtn);
+
 
             // Löschen-Schaltfläche
             const deleteBtn = document.createElement("button");
@@ -359,7 +329,11 @@ function loadAllAnswers() {
             printBtn.textContent = "Diese Antwort drucken / Als PDF speichern";
             printBtn.className = "printAnswerBtn";
             printBtn.addEventListener('click', function() {
-                printSingleAnswer(`Textsorte ${assignmentIdClean}`, text);
+                // Extrahiere reinen Text für den Druck
+                const tempDivPrint = document.createElement('div');
+                tempDivPrint.innerHTML = text;
+                const plainTextPrint = tempDivPrint.innerText.trim();
+                printSingleAnswer(`Textsorte ${assignmentIdClean}`, plainTextPrint);
             });
             buttonGroup.appendChild(printBtn);
             // Ende Druck-Button
@@ -373,7 +347,6 @@ function loadAllAnswers() {
     // Nach dem Laden der Antworten:
     toggleBulkDeleteButton();
 }
-
 
 // Neue Funktion zum Drucken einer einzelnen Antwort
 function printSingleAnswer(title, content) {
@@ -394,7 +367,7 @@ function printSingleAnswer(title, content) {
 
     // Füge den Inhalt hinzu
     const contentElement = document.createElement('div');
-    contentElement.innerHTML = content;
+    contentElement.innerText = content; // Verwende innerText für reinen Text
     printDiv.appendChild(contentElement);
 
     // Füge das Div zum Body hinzu
@@ -403,20 +376,23 @@ function printSingleAnswer(title, content) {
     // Füge die Klasse 'print-single' zum Body hinzu
     document.body.classList.add('print-single');
 
-    // Trigger den Druck
-    window.print();
-
-    // Entferne die Klasse 'print-single' und das printSingleContent-Div nach dem Drucken
-    window.onafterprint = function() {
+    // Definiere die Handler-Funktion
+    function handleAfterPrint() {
         document.body.classList.remove('print-single');
         const printDivAfter = document.getElementById('printSingleContent');
         if (printDivAfter) {
             document.body.removeChild(printDivAfter);
         }
-        window.onafterprint = null;
-    };
-}
+        // Entferne den Event Listener
+        window.removeEventListener('afterprint', handleAfterPrint);
+    }
 
+    // Füge den Event Listener hinzu
+    window.addEventListener('afterprint', handleAfterPrint);
+
+    // Trigger den Druck
+    window.print();
+}
 
 // Funktion zum Kopieren einer einzelnen Antwort
 function copyToClipboard(text) {
@@ -479,7 +455,11 @@ function copyAllAnswersToClipboard() {
         if(text) {
             const assignmentIdMatch = assignmentId.match(/^boxsuk-assignment[_-]?(.+)$/);
             const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
-            allText += `Textsorte ${assignmentIdClean}:\n${text}\n\n`;
+            // Extrahiere reinen Text
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            const plainText = tempDiv.innerText.trim();
+            allText += `Textsorte ${assignmentIdClean}:\n${plainText}\n\n`;
         }
     });
 
