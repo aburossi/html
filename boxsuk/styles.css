@@ -181,6 +181,10 @@ button:hover {
     transition: background-color 0.3s;
 }
 
+#savedAnswerContainer, .draft .answerText {
+    white-space: pre-wrap; /* Beibehaltung von Zeilenumbrüchen */
+}
+
 /* Weitere Komponenten */
 .info-text {
     font-style: italic;

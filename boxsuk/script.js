@@ -87,18 +87,18 @@ function displaySavedAnswer(content) {
         ? `${parentTitle}\nTextsorte: ${assignmentSuffix}`
         : `Textsorte: ${assignmentSuffix}`;
     savedAssignmentTitle.textContent = titleText;
-    // Um reinen Text anzuzeigen, ersetze innerHTML durch innerText
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = content;
-    savedAnswer.innerText = tempDiv.innerText;
+    // Verwenden Sie innerHTML, um die Formatierung beizubehalten
+    savedAnswer.innerHTML = content;
     savedAnswerContainer.style.display = 'block';
 }
 
 // Funktion zum Kopieren des Textes in die Zwischenablage
 copyAnswerBtn.addEventListener('click', function() {
+    // Verwenden Sie Quills getText(), um Zeilenumbrüche zu erhalten
+    const quillText = quill.getText().trim();
     const textToCopy = parentTitle
-        ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quill.getText().trim()}`
-        : `Textsorte: ${assignmentSuffix}\n${quill.getText().trim()}`;
+        ? `${parentTitle}\nTextsorte: ${assignmentSuffix}\n${quillText}`
+        : `Textsorte: ${assignmentSuffix}\n${quillText}`;
     copyTextToClipboard(textToCopy);
 });
 
@@ -106,7 +106,7 @@ copyAnswerBtn.addEventListener('click', function() {
 function copyTextToClipboard(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function() {
-            // Bestätigung entfernt
+            // Bestätigung entfernen
             console.log("Text erfolgreich kopiert");
         }, function(err) {
             console.error('Fehler beim Kopieren des Textes: ', err);
@@ -132,14 +132,14 @@ function fallbackCopyTextToClipboard(text) {
     try {
         const successful = document.execCommand('copy');
         if (successful) {
-            // Bestätigung entfernt
+            // Bestätigung entfernen
             console.log("Text erfolgreich kopiert (Fallback)");
         } else {
             throw new Error("Fallback-Kopieren nicht erfolgreich");
         }
     } catch (err) {
         console.error('Fehler beim Kopieren des Textes (Fallback): ', err);
-        // Bestätigung entfernt
+        // Bestätigung entfernen
     }
 
     document.body.removeChild(textarea);
@@ -156,7 +156,7 @@ function saveToLocal() {
     }
     const storageKey = STORAGE_PREFIX + assignmentId;
     localStorage.setItem(storageKey, htmlContent);
-    // Bestätigung entfernt
+    // Bestätigung entfernen
     console.log(`Text für ${storageKey} gespeichert`);
     displaySavedAnswer(htmlContent); // Aktualisiere die Anzeige des gespeicherten Textes
     showSaveIndicator(); // Zeige den "Gespeichert"-Hinweis
@@ -290,10 +290,8 @@ function loadAllAnswers() {
 
             const answerDiv = document.createElement("div");
             answerDiv.className = "answerText";
-            // Um reinen Text anzuzeigen, ersetze innerHTML durch innerText
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = text;
-            answerDiv.innerText = tempDiv.innerText;
+            // Verwenden Sie innerHTML, um die Formatierung beizubehalten
+            answerDiv.innerHTML = text;
             answerDiv.style.marginLeft = "30px"; // Platz für die Checkbox schaffen
             draftDiv.appendChild(answerDiv);
 
@@ -310,10 +308,9 @@ function loadAllAnswers() {
                 const tempDivCopy = document.createElement('div');
                 tempDivCopy.innerHTML = text;
                 const plainText = tempDivCopy.innerText.trim();
-                copyToClipboard(plainText);
+                copyTextToClipboard(plainText);
             });
             buttonGroup.appendChild(copyBtn);
-
 
             // Löschen-Schaltfläche
             const deleteBtn = document.createElement("button");
@@ -332,7 +329,7 @@ function loadAllAnswers() {
                 // Extrahiere reinen Text für den Druck
                 const tempDivPrint = document.createElement('div');
                 tempDivPrint.innerHTML = text;
-                const plainTextPrint = tempDivPrint.innerText.trim();
+                const plainTextPrint = tempDivPrint.innerHTML; // Verwenden Sie innerHTML für Formatierungen
                 printSingleAnswer(`Textsorte ${assignmentIdClean}`, plainTextPrint);
             });
             buttonGroup.appendChild(printBtn);
@@ -367,7 +364,7 @@ function printSingleAnswer(title, content) {
 
     // Füge den Inhalt hinzu
     const contentElement = document.createElement('div');
-    contentElement.innerText = content; // Verwende innerText für reinen Text
+    contentElement.innerHTML = content; // Verwenden Sie innerHTML für formatierte Inhalte
     printDiv.appendChild(contentElement);
 
     // Füge das Div zum Body hinzu
