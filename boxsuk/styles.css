@@ -30,7 +30,7 @@ body {
     border-radius: 4px;
 }
 
-.button-container, .button-container-top, .button-container-main {
+.button-container, .button-container-main {
     display: flex;
     align-items: center;
     margin-bottom: 10px;

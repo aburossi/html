@@ -213,11 +213,11 @@ document.getElementById("downloadAllBtn").addEventListener('click', function() {
         printAllContent.appendChild(parentTitleElement);
     }
 
-    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix in absteigender Reihenfolge
     storageKeys.sort((a, b) => {
         const suffixA = a.replace(STORAGE_PREFIX, '');
         const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
     });
 
     storageKeys.forEach(assignmentKey => {
@@ -276,11 +276,11 @@ document.getElementById("downloadAllBtnBulk").addEventListener('click', function
         printAllContent.appendChild(parentTitleElement);
     }
 
-    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix
+    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix in absteigender Reihenfolge
     storageKeys.sort((a, b) => {
         const suffixA = a.replace(STORAGE_PREFIX, '');
         const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
     });
 
     storageKeys.forEach(assignmentKey => {
@@ -342,11 +342,11 @@ function loadAllAnswers() {
         return;
     }
 
-    // Sortieren der storageKeys basierend auf dem Suffix
+    // Sortieren der storageKeys basierend auf dem Suffix in absteigender Reihenfolge (neueste zuerst)
     storageKeys.sort((a, b) => {
         const suffixA = a.replace(STORAGE_PREFIX, '');
         const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
     });
 
     console.log("Sortierte Assignment-IDs:", storageKeys);
@@ -475,11 +475,11 @@ function copyAllAnswersToClipboard() {
         return;
     }
 
-    // Sortieren der storageKeys basierend auf dem Suffix
+    // Sortieren der storageKeys basierend auf dem Suffix in absteigender Reihenfolge (neueste zuerst)
     storageKeys.sort((a, b) => {
         const suffixA = a.replace(STORAGE_PREFIX, '');
         const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixA.localeCompare(suffixB, undefined, {numeric: true, sensitivity: 'base'});
+        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
     });
 
     let allText = '';
@@ -559,7 +559,7 @@ function showSaveIndicator() {
     saveIndicator.style.color = 'white'; // Set text color to white for better contrast
     setTimeout(() => {
         saveIndicator.style.display = 'none';
-    }, 2000); // Verstecken nach 1 Sekunde
+    }, 2000); // Verstecken nach 2 Sekunden
 }
 
 
