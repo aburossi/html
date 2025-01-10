@@ -272,7 +272,10 @@ function loadAllAnswers() {
     const draftContainer = document.getElementById("draftContainer");
     draftContainer.innerHTML = ""; // Container leeren
 
-    const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
+    const currentStorageKey = STORAGE_PREFIX + assignmentId;
+    const storageKeys = Object.keys(localStorage).filter(key => 
+        key.startsWith(STORAGE_PREFIX) && key !== currentStorageKey
+    );
 
     console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments`);
 
@@ -290,10 +293,10 @@ function loadAllAnswers() {
 
     console.log("Sortierte Assignment-IDs:", storageKeys);
 
-    storageKeys.forEach(assignmentId => {
-        const text = localStorage.getItem(assignmentId);
+    storageKeys.forEach(assignmentIdKey => {
+        const text = localStorage.getItem(assignmentIdKey);
         if(text) {
-            console.log(`Lade Assignment: ${assignmentId}`);
+            console.log(`Lade Assignment: ${assignmentIdKey}`);
             const draftDiv = document.createElement("div");
             draftDiv.className = "draft";
 
@@ -306,7 +309,7 @@ function loadAllAnswers() {
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.className = "select-answer";
-            checkbox.value = assignmentId; // assignmentId als Wert verwenden
+            checkbox.value = assignmentIdKey; // assignmentId als Wert verwenden
             checkbox.addEventListener('change', toggleBulkDeleteButton);
 
             const checkboxLabel = document.createElement("label");
@@ -316,8 +319,8 @@ function loadAllAnswers() {
             checkboxDiv.appendChild(checkboxLabel);
             draftDiv.appendChild(checkboxDiv);
 
-            const assignmentIdMatch = assignmentId.match(/^boxsuk-assignment[_-]?(.+)$/);
-            const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentId;
+            const assignmentIdMatch = assignmentIdKey.match(/^boxsuk-assignment[_-]?(.+)$/);
+            const assignmentIdClean = assignmentIdMatch ? assignmentIdMatch[1] : assignmentIdKey;
 
             const title = document.createElement("h3");
             title.textContent = `Textsorte ${assignmentIdClean}`;
@@ -347,7 +350,7 @@ function loadAllAnswers() {
             deleteBtn.textContent = "Antwort löschen";
             deleteBtn.className = "deleteAnswerBtn";
             deleteBtn.addEventListener('click', function() {
-                deleteAnswer(assignmentId);
+                deleteAnswer(assignmentIdKey);
             });
             buttonGroup.appendChild(deleteBtn);
             
@@ -371,8 +374,15 @@ function loadAllAnswers() {
     toggleBulkDeleteButton();
 }
 
+
 // Neue Funktion zum Drucken einer einzelnen Antwort
 function printSingleAnswer(title, content) {
+    // Entferne vorhandenes printSingleContent, falls vorhanden
+    const existingPrintDiv = document.getElementById('printSingleContent');
+    if (existingPrintDiv) {
+        document.body.removeChild(existingPrintDiv);
+    }
+
     // Erstelle ein temporäres Div
     const printDiv = document.createElement('div');
     printDiv.id = 'printSingleContent';
@@ -396,13 +406,17 @@ function printSingleAnswer(title, content) {
     // Trigger den Druck
     window.print();
 
-    // Entferne die Klasse und das temporäre Div nach dem Drucken
+    // Entferne die Klasse 'print-single' und das printSingleContent-Div nach dem Drucken
     window.onafterprint = function() {
         document.body.classList.remove('print-single');
-        document.body.removeChild(printDiv);
+        const printDivAfter = document.getElementById('printSingleContent');
+        if (printDivAfter) {
+            document.body.removeChild(printDivAfter);
+        }
         window.onafterprint = null;
     };
 }
+
 
 // Funktion zum Kopieren einer einzelnen Antwort
 function copyToClipboard(text) {
