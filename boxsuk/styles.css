@@ -60,11 +60,11 @@ button:hover {
     background-color: #2f4b7c; /* Mittelblau beim Hover */
 }
 
-#downloadAllBtnBulk {
-    background-color: #ffa600; /* Dunkelorange */
+#downloadAllBtn {
+    background-color: #555555; /* Dunkelgrau */
 }
-#downloadAllBtnBulk:hover {
-    background-color: #ffb347; /* Helleres Orange beim Hover */
+#downloadAllBtn:hover {
+    background-color: #777777; /* Helleres Grau beim Hover */
 }
 
 #copyAllBtn {
@@ -81,25 +81,11 @@ button:hover {
     background-color: #ff6347; /* Helleres Rot beim Hover */
 }
 
-#saveBtn {
-    background-color: #008cba; /* Blau */
-}
-#saveBtn:hover {
-    background-color: #00aaff; /* Helleres Blau beim Hover */
-}
-
 #clearBtn {
     background-color: #f44336; /* Rot */
 }
 #clearBtn:hover {
     background-color: #ff7961; /* Helleres Rot beim Hover */
-}
-
-#downloadAllBtn {
-    background-color: #555555; /* Dunkelgrau */
-}
-#downloadAllBtn:hover {
-    background-color: #777777; /* Helleres Grau beim Hover */
 }
 
 #copyAnswerBtn {
@@ -310,4 +296,33 @@ button:hover {
     button {
         display: none;
     }
+
+    /* Dropdown im Druck ausblenden */
+    details, summary {
+        display: none;
+    }
+}
+
+/* Stile für das Dropdown-Menü */
+details {
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--editor-background);
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+details[open] summary::after {
+    content: " ▲";
+}
+
+summary::after {
+    content: " ▼";
+    float: right;
 }

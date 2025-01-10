@@ -24,9 +24,9 @@
         <pre id="answerText" style="display: none;"></pre>
     </div>
     
-    <!-- Button-Container -->
+    <!-- Entfernt: Text zwischenspeichern Button -->
+    <!-- Button-Container (nur downloadAllBtn bleibt) -->
     <div class="button-container">
-        <button id="saveBtn" onclick="saveToLocal()">Text zwischenspeichern</button>
         <button id="downloadAllBtn">Text drucken / als PDF speichern</button>
     </div>
 
@@ -42,40 +42,37 @@
         <button id="clearBtn" onclick="clearLocalStorage()">Text löschen</button>
     </div>
 
-    <!-- Entfernt: Neue Sektion für die Verwaltung aller gespeicherten Antworten -->
-    <!--
-    <hr>
-    <div class="button-container-top">
-        <button id="reloadBtn" onclick="reloadAllAnswers()">🔁 Antworten aktualisieren</button>
-    </div>
-    -->
-
-    <!-- Haupt-Button-Container für neue Funktionen -->
+    <!-- Entfernt: Alle Antworten drucken / Als PDF speichern Button -->
+    <!-- Haupt-Button-Container für verbleibende Funktionen -->
     <div class="button-container-main">
-        <button id="downloadAllBtnBulk">Alle Antworten drucken / Als PDF speichern</button>
         <button id="copyAllBtn">Alle Antworten in die Zwischenablage kopieren</button>
         <button id="clearAllBtn" onclick="clearAllLocalStorage()">Alle Antworten löschen</button>
     </div>
     
     <h2>Gespeicherte Antworten:</h2>
 
-    <!-- Erklärung für die Bulk Delete Funktion -->
+    <!-- Erklärung für die Bulk Delete Funktion, verschoben unter downloadAllBtn -->
     <div class="bulk-action-explanation">
         <p>
             Falls ältere Antworten vorhanden sind, können Sie diese mithilfe der untenstehenden Kontrollkästchen auswählen und löschen.
         </p>
     </div>
 
-    <!-- Bulk Action Container -->
-    <div class="bulk-action-container">
-        <input type="checkbox" id="selectAll">
-        <label for="selectAll"> Alle auswählen</label>
-        <button id="bulkDeleteBtn" disabled>Ausgewählte löschen</button>
-    </div>
-    
-    <div id="draftContainer">
-        <!-- Drafts werden hier geladen -->
-    </div>
+    <!-- Verpackt in ein Dropdown-Menü -->
+    <details>
+        <summary>Antworten anzeigen</summary>
+        
+        <!-- Bulk Action Container -->
+        <div class="bulk-action-container">
+            <input type="checkbox" id="selectAll">
+            <label for="selectAll"> Alle auswählen</label>
+            <button id="bulkDeleteBtn" disabled>Ausgewählte löschen</button>
+        </div>
+        
+        <div id="draftContainer">
+            <!-- Drafts werden hier geladen -->
+        </div>
+    </details>
     
     <!-- Quill JS -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>

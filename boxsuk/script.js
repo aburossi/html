@@ -252,68 +252,7 @@ document.getElementById("downloadAllBtn").addEventListener('click', function() {
     document.body.removeChild(printAllContent);
 });
 
-// Event Listener für die neue "Alle Antworten drucken / Als PDF speichern" Schaltfläche
-document.getElementById("downloadAllBtnBulk").addEventListener('click', function() {
-    const storageKeys = Object.keys(localStorage).filter(key => key.startsWith(STORAGE_PREFIX));
-
-    console.log(`Gefundene ${storageKeys.length} gespeicherte boxsuk-Assignments zum Drucken`);
-    if(storageKeys.length === 0) {
-        console.log("Versuch, alle Texte zu drucken, aber keine sind gespeichert");
-        alert("Keine gespeicherten Antworten zum Drucken oder Speichern als PDF.");
-        return;
-    }
-
-    console.log("Drucken aller Texte wird initiiert");
-
-    // Erstelle ein temporäres Div zum Drucken aller Texte
-    const printAllContent = document.createElement('div');
-    printAllContent.id = 'printAllContent';
-
-    // Füge einmal den Titel der übergeordneten Seite hinzu
-    if (parentTitle) {
-        const parentTitleElement = document.createElement("h2");
-        parentTitleElement.textContent = parentTitle;
-        printAllContent.appendChild(parentTitleElement);
-    }
-
-    // Sortiere die storageKeys basierend auf der numerischen Komponente oder dem Suffix in absteigender Reihenfolge
-    storageKeys.sort((a, b) => {
-        const suffixA = a.replace(STORAGE_PREFIX, '');
-        const suffixB = b.replace(STORAGE_PREFIX, '');
-        return suffixB.localeCompare(suffixA, undefined, {numeric: true, sensitivity: 'base'});
-    });
-
-    storageKeys.forEach(assignmentKey => {
-        const text = localStorage.getItem(assignmentKey);
-        if(text) {
-            const draftDiv = document.createElement("div");
-            draftDiv.className = "draft";
-            
-            const assignmentSuffix = assignmentKey.replace(STORAGE_PREFIX, '');
-            const title = document.createElement("h3");
-            title.textContent = assignmentSuffix ? `Textsorte: ${assignmentSuffix}` : 'Textsorte';
-            draftDiv.appendChild(title);
-            
-            const answerDiv = document.createElement("div");
-            answerDiv.innerHTML = text; // HTML-Inhalt rendern
-            draftDiv.appendChild(answerDiv);
-            
-            printAllContent.appendChild(draftDiv);
-        }
-    });
-
-    // Füge zum Body hinzu
-    document.body.appendChild(printAllContent);
-
-    // Füge der Body-Klasse 'print-all' hinzu
-    document.body.classList.add('print-all');
-
-    window.print();
-
-    // Entferne die Klasse 'print-all' und das printAllContent-Div nach dem Drucken
-    document.body.classList.remove('print-all');
-    document.body.removeChild(printAllContent);
-});
+// Entfernt den Event Listener für "downloadAllBtnBulk" da dieser Button entfernt wurde
 
 // Event Listener für die "Alle Antworten kopieren" Schaltfläche
 document.getElementById("copyAllBtn").addEventListener('click', copyAllAnswersToClipboard);
