@@ -130,9 +130,9 @@
 
         const assignmentId = getQueryParam('assignmentId') || 'defaultAssignment';
 
-        // Funktion zum Umwandeln der Assignment ID für die Anzeige (Unterstriche durch Leerzeichen ersetzen)
+        // Funktion zum Umwandeln der Assignment ID für die Anzeige (keine Änderung nötig, aber kann angepasst werden)
         function formatAssignmentId(id) {
-            return id.replace(/_/g, ' ');
+            return id.replace(/-/g, ' ');
         }
 
         // Setzen des Assignment-Titels (kann nach Bedarf angepasst werden)
@@ -150,10 +150,16 @@
         // Funktion zum Abrufen der Fragen aus dem mcqs-Ordner
         async function fetchQuestions(assignmentId) {
             try {
-                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${assignmentId}.json`);
+                // Encode the assignmentId to ensure it's URL-friendly
+                const encodedAssignmentId = encodeURIComponent(assignmentId);
+                
+                // Construct the fetch URL with the encoded assignmentId
+                const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${encodedAssignmentId}.json`);
+                
                 if (!response.ok) {
                     throw new Error(`Fragedatei für ${assignmentId} nicht gefunden.`);
                 }
+                
                 const questions = await response.json();
                 return questions;
             } catch (error) {
