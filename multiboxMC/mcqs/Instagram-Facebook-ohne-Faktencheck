@@ -1,0 +1,152 @@
+[
+    {
+        "id": "mcq1",
+        "question": "Was plant Meta mit dem Faktencheck auf Facebook und Instagram?",
+        "options": [
+            "Ihn zu verstärken",
+            "Ihn abzuschaffen",
+            "Ihn durch Community Notes zu ersetzen",
+            "Ihn auf externe Anbieter auszulagern"
+        ],
+        "correctAnswer": "Ihn durch Community Notes zu ersetzen",
+        "explanation": "Meta plant, den Faktencheck durch Community Notes zu ersetzen, bei denen die Nutzer selbst die Richtigkeit von Informationen bewerten."
+    },
+    {
+        "id": "mcq2",
+        "question": "Wer ist David Schraven?",
+        "options": [
+            "Der CEO von Meta",
+            "Ein Politiker der US-Regierung",
+            "Der Chef von Correctiv, einer Organisation für Faktenchecks",
+            "Ein bekannter Influencer auf Instagram"
+        ],
+        "correctAnswer": "Der Chef von Correctiv, einer Organisation für Faktenchecks",
+        "explanation": "David Schraven ist der Chef von Correctiv, einer deutschen Rechercheorganisation, die Faktenchecks durchführt."
+    },
+    {
+        "id": "tf1",
+        "question": "Community Notes sind ein neues System, das von Meta erfunden wurde.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Falsch",
+        "explanation": "Community Notes wurden bereits von Elon Musk auf Twitter/X eingeführt."
+    },
+    {
+        "id": "tf2",
+        "question": "Die EU hat keine Handhabe gegen Metas Entscheidung zum Faktencheck.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Falsch",
+        "explanation": "Die EU kann Meta mit hohen Geldstrafen belegen, wenn die Plattform gegen das Gesetz über digitale Dienste verstösst."
+    },
+    {
+        "id": "mcq3",
+        "question": "Welche negativen Auswirkungen hatten Community Notes auf Twitter/X?",
+        "options": [
+            "Zunahme von Hassrede und Falschinformationen",
+            "Abwanderung von Werbekunden",
+            "Wertverlust der Plattform",
+            "Alle oben genannten Punkte"
+        ],
+        "correctAnswer": "Alle oben genannten Punkte",
+        "explanation": "Auf Twitter/X führten Community Notes zu einer Zunahme von Hassrede und Falschinformationen, Abwanderung von Werbekunden und einem Wertverlust der Plattform."
+    },
+    {
+        "id": "mcq4",
+        "question": "Welche zwei zusätzlichen Gründe, neben der Meinungsfreiheit, werden für Metas Entscheidung genannt?",
+        "options": [
+            "Technische Schwierigkeiten und politischer Druck",
+            "Wirtschaftliche Interessen und höhere Nutzerzahlen",
+            "Konkurrenzdruck und neue Technologien",
+            "Verbesserte Algorithmen und steigende Kosten"
+        ],
+        "correctAnswer": "Technische Schwierigkeiten und politischer Druck",
+        "explanation": "Neben der Meinungsfreiheit werden technische Schwierigkeiten bei der Inhaltsmoderation und der politische Druck der kommenden US-Regierung als Gründe für Metas Entscheidung genannt."
+    },
+    {
+        "id": "tf3",
+        "question": "Mark Zuckerberg hat angekündigt, mit Unterstützung der US-Regierung gegen die EU-Regulierung vorzugehen.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Richtig",
+        "explanation": "Mark Zuckerberg plant, mit Unterstützung der US-Regierung unter Trump gegen die EU-Regulierung vorzugehen."
+    },
+    {
+        "id": "mcq5",
+        "question": "Wie hoch ist die mögliche Geldstrafe der EU gegen Meta?",
+        "options": [
+            "Bis zu 6% des weltweiten Umsatzes",
+            "Bis zu 10% des Jahresgewinns",
+            "Eine fixe Summe von 1 Milliarde Dollar",
+            "Es gibt keine festgelegte Strafe"
+        ],
+        "correctAnswer": "Bis zu 6% des weltweiten Umsatzes",
+        "explanation": "Die EU kann Meta mit einer Geldstrafe von bis zu 6% des weltweiten Umsatzes belegen."
+    },
+        {
+        "id": "tf4",
+        "question": "David Schraven glaubt, dass die Abschaffung des Faktenchecks auch in Europa kommen wird.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Richtig",
+        "explanation": "David Schraven befürchtet, dass die Abschaffung des Faktenchecks auch auf europäische Plattformen übergreifen wird."
+    },
+    {
+        "id": "tf5",
+        "question": "Meta hat den Faktencheck 2021 eingeführt.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Falsch",
+        "explanation": "Meta hat den Faktencheck 2016 eingeführt."
+    },
+        {
+        "id": "tf6",
+        "question": "Correctiv arbeitet seit 2017 mit Meta zusammen.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Richtig",
+        "explanation": "Correctiv arbeitet seit 2017 mit Meta im Bereich Faktencheck zusammen."
+    },
+    {
+        "id": "tf7",
+        "question": "Meta hat den Faktencheck abgeschafft, weil es zu teuer war.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Falsch",
+        "explanation": "Meta hat den Faktencheck nicht aufgrund der Kosten abgeschafft, sondern wegen angeblicher politischer Voreingenommenheit und Vertrauensverlust."
+    },
+        {
+        "id": "tf8",
+        "question": "Donald Trump wurde 2021 von Facebook gesperrt.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Richtig",
+        "explanation": "Donald Trump wurde 2021 nach dem Sturm aufs Kapitol temporär von Facebook gesperrt."
+    },
+        {
+        "id": "tf9",
+        "question": "Meta hat mehrere Milliarden Nutzer.",
+        "options": [
+            "Richtig",
+            "Falsch"
+        ],
+        "correctAnswer": "Richtig",
+        "explanation": "Meta-Plattformen haben mehrere Milliarden Nutzer weltweit."
+    }
+]
