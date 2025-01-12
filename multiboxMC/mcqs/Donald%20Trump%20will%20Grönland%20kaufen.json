@@ -1,0 +1,152 @@
+[
+    {
+      "id": "mcq1",
+      "question": "Warum will Donald Trump Grönland kaufen?",
+      "options": [
+        "Aus rein wirtschaftlichen Interessen",
+        "Um die Beziehungen zu Dänemark zu stärken",
+        "Aus strategischen und sicherheitspolitischen Gründen",
+        "Um dort einen Golfplatz zu bauen"
+      ],
+      "correctAnswer": "Aus strategischen und sicherheitspolitischen Gründen",
+      "explanation": "Trump begründet sein Interesse an Grönland mit der strategischen Lage der Insel und der nationalen Sicherheit der USA."
+    },
+    {
+      "id": "mcq2",
+      "question": "Zu welchem Land gehört Grönland?",
+      "options": [
+        "USA",
+        "Kanada",
+        "Island",
+        "Dänemark"
+      ],
+      "correctAnswer": "Dänemark",
+      "explanation": "Grönland gehört zu Dänemark, hat aber eine weitgehende Autonomie."
+    },
+    {
+      "id": "tf1",
+      "question": "Das Völkerrecht verbietet den Kauf von Ländern grundsätzlich.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Das Völkerrecht schliesst einen Landkauf nicht grundsätzlich aus, aber es gelten bestimmte Bedingungen."
+    },
+    {
+      "id": "tf2",
+      "question": "Die Bevölkerung Grönlands muss einem Verkauf der Insel zustimmen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Das Selbstbestimmungsrecht der Völker erfordert die Zustimmung der Bevölkerung in einem Referendum."
+    },
+    {
+      "id": "mcq3",
+      "question": "Welche Rolle spielt der Klimawandel im Zusammenhang mit Grönland?",
+      "options": [
+        "Er macht die Insel unbewohnbar.",
+        "Er erhöht das Risiko von Naturkatastrophen.",
+        "Er ermöglicht den Zugang zu Bodenschätzen und neuen Schifffahrtswegen.",
+        "Er spielt keine Rolle."
+      ],
+      "correctAnswer": "Er ermöglicht den Zugang zu Bodenschätzen und neuen Schifffahrtswegen.",
+      "explanation": "Durch das Schmelzen des Eises werden Bodenschätze zugänglich und neue Schifffahrtswege nutzbar."
+    },
+    {
+      "id": "mcq4",
+      "question": "Was war die Reaktion Dänemarks auf Trumps Kaufangebot?",
+      "options": [
+        "Dänemark hat das Angebot angenommen.",
+        "Dänemark hat das Angebot abgelehnt.",
+        "Dänemark verhandelt noch mit den USA.",
+        "Dänemark hat kein offizielles Statement abgegeben."
+      ],
+      "correctAnswer": "Dänemark hat das Angebot abgelehnt.",
+      "explanation": "Dänemark hat deutlich gemacht, dass Grönland nicht zum Verkauf steht."
+    },
+    {
+      "id": "mcq5",
+      "question": "Welches historische Beispiel für einen Landkauf durch die USA wird im Beitrag genannt?",
+      "options": [
+        "Grönland",
+        "Hawaii",
+        "Alaska",
+        "Kuba"
+      ],
+      "correctAnswer": "Alaska",
+      "explanation": "Die USA haben Alaska von Russland gekauft."
+    },
+      {
+      "id": "tf3",
+      "question": "Donald Trump ist der erste US-Präsident, der Interesse an einem Kauf Grönlands gezeigt hat.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Auch frühere US-Präsidenten haben versucht, Grönland zu kaufen oder dort eine Militärbasis zu errichten."
+    },
+      {
+      "id": "tf4",
+      "question": "Ein unter militärischem Druck zustande gekommener Landkauf wäre völkerrechtlich gültig.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Ein solcher Vertrag wäre ungültig und ein Verstoss gegen das Gewaltverbot."
+    },
+      {
+      "id": "tf5",
+      "question": "Grönland ist ein unabhängiger Staat.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Grönland gehört zu Dänemark, hat aber eine weitgehende Autonomie."
+    },
+      {
+      "id": "tf6",
+      "question": "Die USA haben in der Vergangenheit noch nie Land von anderen Staaten gekauft.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Die USA haben in der Vergangenheit Territorien von Frankreich, Spanien, Mexiko und Russland gekauft."
+    },
+          {
+      "id": "tf7",
+      "question": "Grönland hat grosse Vorkommen an Bodenschätzen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Grönland verfügt über wertvolle Bodenschätze, die durch das Schmelzen des Eises zunehmend zugänglich werden."
+    },
+          {
+      "id": "tf8",
+      "question": "Die Bewohner Grönlands haben sich in einem Referendum für den Verkauf der Insel ausgesprochen.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Falsch",
+      "explanation": "Es gab kein Referendum zu diesem Thema. Die grönländische Bevölkerung und die dänische Regierung lehnen einen Verkauf ab."
+    },
+          {
+      "id": "tf9",
+      "question": "Die strategische Lage Grönlands im Nordatlantik spielt eine wichtige Rolle für das Interesse der USA.",
+      "options": [
+        "Richtig",
+        "Falsch"
+      ],
+      "correctAnswer": "Richtig",
+      "explanation": "Die Lage Grönlands ist sowohl militärisch als auch handelstechnisch von Bedeutung für die USA."
+    }
+  ]
