@@ -51,11 +51,6 @@
             background: #f0f0f0;
         }
 
-        .selected {
-            border-color: #4CAF50;
-            background: #f8fff8;
-        }
-
         .correct {
             background: #e8f5e9 !important;
             border-color: #4CAF50 !important;
@@ -73,16 +68,8 @@
             padding: 15px;
             border-radius: 5px;
             display: none;
-        }
-
-        .correct-feedback {
-            background: #e8f5e9;
-            border: 1px solid #4CAF50;
-        }
-
-        .incorrect-feedback {
-            background: #ffebee;
-            border: 1px solid #f44336;
+            background: #e3f2fd;
+            border: 2px solid #90caf9;
         }
 
         button {
@@ -112,6 +99,52 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .donut-chart {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            transform: rotate(-90deg);
+        }
+
+        .donut-segment {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .review-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .review-question {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .user-answer {
+            margin: 5px 0;
+        }
+
+        .user-answer.correct {
+            color: #4CAF50;
+        }
+
+        .user-answer.incorrect {
+            color: #f44336;
+        }
+
+        .explanation {
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
         }
 
         @keyframes correctAnim {
@@ -155,9 +188,18 @@
     <div id="resultContainer" class="hidden">
         <div class="results">
             <h2>Ergebnis</h2>
+            <svg class="donut-chart" viewBox="0 0 40 40">
+                <circle class="donut-segment" cx="20" cy="20" r="15" 
+                        stroke="#eeeeee" stroke-width="8" fill="none"/>
+                <circle class="donut-segment" cx="20" cy="20" r="15" 
+                        stroke="#4CAF50" stroke-width="8" 
+                        stroke-dasharray="0 100" fill="none"
+                        id="correctSegment"/>
+            </svg>
             <p id="scoreText"></p>
             <p id="resultMessage"></p>
             <button onclick="location.reload()">Neues Quiz</button>
+            <div id="reviewSection"></div>
         </div>
     </div>
 
@@ -166,6 +208,7 @@ let currentQuestion = 0;
 let score = 0;
 let questions = [];
 let quizTitle = "";
+let userResponses = [];
 
 async function initializeQuiz() {
     const params = new URLSearchParams(window.location.search);
@@ -208,7 +251,15 @@ function showQuestion(index) {
 function handleAnswer(selectedAnswer, question) {
     const options = document.getElementsByClassName('option');
     
-    // Disable all options after selection
+    // Save user response
+    userResponses[currentQuestion] = {
+        question: question.question,
+        selected: selectedAnswer,
+        correct: selectedAnswer === question.correctAnswer,
+        explanation: question.explanation
+    };
+
+    // Disable all options
     Array.from(options).forEach(opt => {
         opt.style.pointerEvents = 'none';
         if (opt.textContent === question.correctAnswer) {
@@ -261,9 +312,13 @@ function showResults() {
     document.getElementById('quizContainer').classList.add('hidden');
     document.getElementById('resultContainer').classList.remove('hidden');
     
-    const percentage = Math.round((score / questions.length) * 100);
+    const percentage = (score / questions.length) * 100;
+    const circumference = 2 * Math.PI * 15;
+    const dashArray = `${(circumference * percentage) / 100} ${circumference}`;
+    document.getElementById('correctSegment').setAttribute('stroke-dasharray', dashArray);
+
     document.getElementById('scoreText').textContent = 
-        `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).`;
+        `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${Math.round(percentage)}%).`;
 
     const messages = {
         90: "Herzlichen Glückwunsch! Ausgezeichnetes Ergebnis!",
@@ -281,6 +336,25 @@ function showResults() {
     }
     
     document.getElementById('resultMessage').textContent = resultMessage;
+    showReviewSection();
+}
+
+function showReviewSection() {
+    const reviewSection = document.getElementById('reviewSection');
+    reviewSection.innerHTML = '<h3>Antwort-Übersicht:</h3>';
+    
+    userResponses.forEach((response, index) => {
+        reviewSection.innerHTML += `
+            <div class="review-item">
+                <div class="review-question">${index + 1}. ${response.question}</div>
+                <div class="user-answer ${response.correct ? 'correct' : 'incorrect'}">
+                    Ihre Antwort: ${response.selected}
+                </div>
+                ${!response.correct ? 
+                    `<div class="explanation">Erklärung: ${response.explanation || ''}</div>` : ''}
+            </div>
+        `;
+    });
 }
 
 function shuffleArray(array) {
