@@ -48,8 +48,6 @@
             box-sizing: border-box;
             transition: transform 0.5s ease-in-out;
             transform: translateX(100%);
-            display: flex;
-            flex-direction: column;
         }
 
         .question-slide.active {
@@ -61,33 +59,28 @@
         }
 
         #optionsContainer {
-            flex: 1;
+            height: 250px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 15px 0;
+            justify-content: space-between;
+            margin-top: 20px;
         }
 
         .option {
-            flex: 0 1 auto;
-            min-height: 60px;
+            flex: 1;
             display: flex;
             align-items: center;
             padding: 15px;
+            margin: 5px 0;
             background: #f8f8f8;
             border: 2px solid #ddd;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.2s ease;
-            word-break: break-word;
         }
 
-        .option.tf-option {
-            min-height: 80px;
-            justify-content: center;
-            text-align: center;
-            font-size: 1.1em;
-            padding: 20px;
+        .option:hover {
+            background: #f0f0f0;
         }
 
         .correct {
@@ -103,12 +96,15 @@
         }
 
         .feedback {
+            height: 250px;
+            display: none;
+            align-items: center;
+            justify-content: center;
             padding: 15px;
             border-radius: 5px;
             background: #e3f2fd;
             border: 2px solid #90caf9;
-            margin-top: auto;
-            word-break: break-word;
+            margin-top: 20px;
         }
 
         button {
@@ -255,18 +251,25 @@ function showQuestion(index) {
     const container = document.querySelector('.question-container');
     const currentSlide = document.getElementById('currentSlide');
     
+    // Create new slide
     const newSlide = document.createElement('div');
     newSlide.className = 'question-slide';
     newSlide.innerHTML = `
         <div class="question">${question.question}</div>
         <div id="optionsContainer">
             ${question.options.map(opt => `
-                <div class="option ${question.options.length <= 2 ? 'tf-option' : ''}">${opt}</div>
+                <div class="option">${opt}</div>
             `).join('')}
         </div>
         <div id="feedback" class="feedback"></div>
     `;
 
+    // Add event listeners
+    newSlide.querySelectorAll('.option').forEach((opt, i) => {
+        opt.onclick = () => handleAnswer(question.options[i], question);
+    });
+
+    // Animation
     if (currentSlide) {
         currentSlide.classList.remove('active');
         currentSlide.classList.add('prev');
@@ -278,13 +281,10 @@ function showQuestion(index) {
         newSlide.id = 'currentSlide';
     }, 10);
 
+    // Remove old slide after animation
     setTimeout(() => {
         if (currentSlide) currentSlide.remove();
     }, 500);
-
-    newSlide.querySelectorAll('.option').forEach((opt, i) => {
-        opt.onclick = () => handleAnswer(question.options[i], question);
-    });
 }
 
 function handleAnswer(selectedAnswer, question) {
@@ -308,7 +308,7 @@ function handleAnswer(selectedAnswer, question) {
     });
 
     const feedback = document.getElementById('feedback');
-    feedback.style.display = 'block';
+    feedback.style.display = 'flex';
     
     if (selectedAnswer === question.correctAnswer) {
         score++;
