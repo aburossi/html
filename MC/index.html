@@ -20,6 +20,8 @@
 
         #quizContainer {
             display: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .progress {
@@ -162,14 +164,11 @@
 
         .hidden {
             display: none;
-        }
-        /* New animation styles */
-        .slide-out {
-            animation: slideOutLeft 0.3s forwards;
+            opacity: 0;
         }
 
-        .slide-in {
-            animation: slideInRight 0.3s forwards;
+        .slide-out {
+            animation: slideOutLeft 0.3s forwards;
         }
 
         @keyframes slideOutLeft {
@@ -177,21 +176,15 @@
             to { transform: translateX(-100%); opacity: 0; }
         }
 
+        .slide-in {
+            animation: slideInRight 0.3s forwards;
+        }
+
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
-
-        #quizContainer {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .question-container {
-            transition: transform 0.3s ease;
-        }
     </style>
-
 </head>
 <body>
     <div id="startScreen">
@@ -318,14 +311,13 @@ function nextQuestion() {
         showQuestion(currentQuestion);
         updateProgress();
     } else {
-        // Trigger slide animation
         const quizContainer = document.getElementById('quizContainer');
         quizContainer.classList.add('slide-out');
         
-        // After animation completes, show results
         quizContainer.addEventListener('animationend', () => {
             quizContainer.classList.add('hidden');
             showResults();
+            document.getElementById('resultContainer').classList.remove('hidden');
             document.getElementById('resultContainer').classList.add('slide-in');
         }, {once: true});
     }
@@ -343,10 +335,6 @@ function updateProgress() {
 }
 
 function showResults() {
-    const resultContainer = document.getElementById('resultContainer');
-    resultContainer.classList.remove('hidden');
-    
-    // Update results content (same as before)
     const percentage = (score / questions.length) * 100;
     const circumference = 2 * Math.PI * 15;
     const dashArray = `${(circumference * percentage) / 100} ${circumference}`;
@@ -361,19 +349,6 @@ function showResults() {
         50: "Nicht schlecht, aber noch etwas Übung könnte helfen.",
         0: "Bitte wiederholen Sie den Lernstoff und versuchen Sie es erneut."
     };
-
-    let resultMessage = "";
-    for (let threshold in messages) {
-        if (percentage >= threshold) {
-            resultMessage = messages[threshold];
-            break;
-        }
-    }
-    
-    document.getElementById('resultMessage').textContent = resultMessage;
-    showReviewSection();
-}
-
 
     let resultMessage = "";
     for (let threshold in messages) {
@@ -413,7 +388,9 @@ function shuffleArray(array) {
     return array;
 }
 
-initializeQuiz();
+document.addEventListener('DOMContentLoaded', function() {
+    initializeQuiz();
+});
 </script>
 </body>
 </html>
