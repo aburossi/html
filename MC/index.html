@@ -35,43 +35,11 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin: 20px 0;
-            position: relative;
-            min-height: 400px;
-            overflow: hidden;
-        }
-
-        .question-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: transform 0.5s ease-in-out;
-            transform: translateX(100%);
-        }
-
-        .question-slide.active {
-            transform: translateX(0);
-        }
-
-        .question-slide.prev {
-            transform: translateX(-100%);
-        }
-
-        #optionsContainer {
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-top: 20px;
         }
 
         .option {
-            flex: 1;
-            display: flex;
-            align-items: center;
             padding: 15px;
-            margin: 5px 0;
+            margin: 10px 0;
             background: #f8f8f8;
             border: 2px solid #ddd;
             border-radius: 5px;
@@ -96,15 +64,12 @@
         }
 
         .feedback {
-            height: 250px;
-            display: none;
-            align-items: center;
-            justify-content: center;
+            margin-top: 15px;
             padding: 15px;
             border-radius: 5px;
+            display: none;
             background: #e3f2fd;
             border: 2px solid #90caf9;
-            margin-top: 20px;
         }
 
         button {
@@ -158,6 +123,30 @@
             text-align: left;
         }
 
+        .review-question {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .user-answer {
+            margin: 5px 0;
+        }
+
+        .user-answer.correct {
+            color: #4CAF50;
+        }
+
+        .user-answer.incorrect {
+            color: #f44336;
+        }
+
+        .explanation {
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         @keyframes correctAnim {
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
@@ -186,11 +175,9 @@
         <div class="progress">Frage <span id="current">1</span> von <span id="total">7</span></div>
         
         <div class="question-container">
-            <div class="question-slide active" id="currentSlide">
-                <div class="question" id="questionText"></div>
-                <div id="optionsContainer"></div>
-                <div id="feedback" class="feedback"></div>
-            </div>
+            <div class="question" id="questionText"></div>
+            <div id="optionsContainer"></div>
+            <div id="feedback" class="feedback"></div>
         </div>
 
         <div class="button-container">
@@ -248,47 +235,21 @@ function startQuiz() {
 
 function showQuestion(index) {
     const question = questions[index];
-    const container = document.querySelector('.question-container');
-    const currentSlide = document.getElementById('currentSlide');
-    
-    // Create new slide
-    const newSlide = document.createElement('div');
-    newSlide.className = 'question-slide';
-    newSlide.innerHTML = `
-        <div class="question">${question.question}</div>
-        <div id="optionsContainer">
-            ${question.options.map(opt => `
-                <div class="option">${opt}</div>
-            `).join('')}
-        </div>
-        <div id="feedback" class="feedback"></div>
-    `;
+    document.getElementById('questionText').textContent = question.question;
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
 
-    // Add event listeners
-    newSlide.querySelectorAll('.option').forEach((opt, i) => {
-        opt.onclick = () => handleAnswer(question.options[i], question);
+    question.options.forEach(option => {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option';
+        optionDiv.textContent = option;
+        optionDiv.onclick = () => handleAnswer(option, question);
+        optionsContainer.appendChild(optionDiv);
     });
-
-    // Animation
-    if (currentSlide) {
-        currentSlide.classList.remove('active');
-        currentSlide.classList.add('prev');
-    }
-    
-    container.appendChild(newSlide);
-    setTimeout(() => {
-        newSlide.classList.add('active');
-        newSlide.id = 'currentSlide';
-    }, 10);
-
-    // Remove old slide after animation
-    setTimeout(() => {
-        if (currentSlide) currentSlide.remove();
-    }, 500);
 }
 
 function handleAnswer(selectedAnswer, question) {
-    const options = document.querySelectorAll('.option');
+    const options = document.getElementsByClassName('option');
     
     userResponses[currentQuestion] = {
         question: question.question,
@@ -297,7 +258,7 @@ function handleAnswer(selectedAnswer, question) {
         explanation: question.explanation
     };
 
-    options.forEach(opt => {
+    Array.from(options).forEach(opt => {
         opt.style.pointerEvents = 'none';
         if (opt.textContent === question.correctAnswer) {
             opt.classList.add('correct');
@@ -308,15 +269,15 @@ function handleAnswer(selectedAnswer, question) {
     });
 
     const feedback = document.getElementById('feedback');
-    feedback.style.display = 'flex';
+    feedback.style.display = 'block';
     
     if (selectedAnswer === question.correctAnswer) {
         score++;
+        feedback.classList.add('correct-feedback');
         feedback.textContent = "✓ Richtige Antwort!";
-        feedback.className = "feedback correct-feedback";
     } else {
+        feedback.classList.add('incorrect-feedback');
         feedback.textContent = `✗ Falsch. ${question.explanation || ''}`;
-        feedback.className = "feedback incorrect-feedback";
     }
 
     document.getElementById('nextBtn').style.display = 'block';
@@ -325,13 +286,18 @@ function handleAnswer(selectedAnswer, question) {
 function nextQuestion() {
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
+        resetQuestionState();
         showQuestion(currentQuestion);
         updateProgress();
     } else {
-        document.getElementById('quizContainer').style.display = 'none';
-        document.getElementById('resultContainer').classList.remove('hidden');
         showResults();
     }
+}
+
+function resetQuestionState() {
+    document.getElementById('feedback').style.display = 'none';
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('optionsContainer').innerHTML = '';
 }
 
 function updateProgress() {
@@ -340,6 +306,9 @@ function updateProgress() {
 }
 
 function showResults() {
+    document.getElementById('quizContainer').classList.add('hidden');
+    document.getElementById('resultContainer').classList.remove('hidden');
+    
     const percentage = (score / questions.length) * 100;
     const circumference = 2 * Math.PI * 15;
     const dashArray = `${(circumference * percentage) / 100} ${circumference}`;
