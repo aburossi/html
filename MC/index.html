@@ -236,7 +236,7 @@ async function initializeQuiz() {
     const assignmentId = params.get('assignmentId') || 'default';
     
     try {
-        const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${encodeURIComponent(assignmentId)}.json`);
+        const response = await fetch(`https://aburossi.github.io/html/MC/mcqs/${encodeURIComponent(assignmentId)}.json`);
         const data = await response.json();
         questions = shuffleArray(data).slice(0, 7);
         quizTitle = assignmentId.replace(/-/g, ' ');
