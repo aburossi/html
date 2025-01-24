@@ -96,6 +96,30 @@
     "explanation": "Kausalhaftung ist die Haftung für Schäden, die man ohne eigenes Verschulden verursacht. (Seite 151)"
   },
   {
+    "id": "mcq9",
+    "question": "Warum ist eine Privathaftpflichtversicherung empfehlenswert?",
+    "options": [
+      "Weil sie gesetzlich vorgeschrieben ist.",
+      "Weil sie Schäden abdeckt, die man sich selbst zufügt.",
+      "Weil sie Schäden abdeckt, die man Drittpersonen zufügt, und oft von Vermietern verlangt wird.",
+      "Weil sie Schäden durch Naturkatastrophen abdeckt."
+    ],
+    "correctAnswer": "Weil sie Schäden abdeckt, die man Drittpersonen zufügt, und oft von Vermietern verlangt wird.",
+    "explanation": "Eine Privathaftpflichtversicherung ist empfehlenswert, weil sie Schäden abdeckt, die man Drittpersonen zufügt, und oft von Vermietern verlangt wird. (Seite 152)"
+  },
+  {
+    "id": "mcq10",
+    "question": "Was ist eine Bonusschutzversicherung?",
+    "options": [
+      "Eine Versicherung, die den Bonus in der Haftpflichtversicherung schützt.",
+      "Eine Versicherung, die die Prämien für Neulenker senkt.",
+      "Eine Versicherung, die Schäden durch Naturkatastrophen abdeckt.",
+      "Eine Versicherung, die die Selbstbehalte reduziert."
+    ],
+    "correctAnswer": "Eine Versicherung, die den Bonus in der Haftpflichtversicherung schützt.",
+    "explanation": "Die Bonusschutzversicherung schützt den im Prämienstufensystem erworbenen Bonus in der Haftpflichtversicherung. (Seite 151)"
+  },
+  {
     "id": "tf1",
     "question": "Die Motorfahrzeughaftpflichtversicherung ist in der Schweiz obligatorisch.",
     "options": [
@@ -174,5 +198,25 @@
     ],
     "correctAnswer": "Falsch",
     "explanation": "Die Privathaftpflichtversicherung deckt Schäden ab, die man Drittpersonen zufügt, sofern keine grobe Fahrlässigkeit vorliegt. (Seite 151)"
+  },
+  {
+    "id": "tf9",
+    "question": "Vermieter verlangen oft den Abschluss einer Privathaftpflichtversicherung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Vermieter verlangen oft den Abschluss einer Privathaftpflichtversicherung im Hinblick auf allfällige Schäden beim Auszug. (Seite 152)"
+  },
+  {
+    "id": "tf10",
+    "question": "Die Privathaftpflichtversicherung deckt Schäden ab, die durch Naturkatastrophen verursacht werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Privathaftpflichtversicherung deckt Schäden ab, die man Drittpersonen zufügt, nicht jedoch Schäden durch Naturkatastrophen. (Seite 151)"
   }
 ]
