@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist der Hauptgrund für die Kündigung der Wohnung der Frau?",
+    "options": [
+      "Eigenbedarf des Vermieters",
+      "Zahlungsverzug der Mieterin",
+      "Schäden an der Wohnung",
+      "Lärmbelästigung"
+    ],
+    "correctAnswer": "Eigenbedarf des Vermieters",
+    "explanation": "Der Vermieter möchte die Wohnung selbst bewohnen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welches Problem hat die Frau im Zusammenhang mit der Kündigung?",
+    "options": [
+      "Sie findet keine neue Wohnung.",
+      "Ihr Einbürgerungsverfahren ist gefährdet.",
+      "Sie kann sich die neue Miete nicht leisten.",
+      "Sie hat keine Verwandten in der Nähe."
+    ],
+    "correctAnswer": "Ihr Einbürgerungsverfahren ist gefährdet.",
+    "explanation": "Für die Einbürgerung muss sie eine bestimmte Zeit in der gleichen Gemeinde wohnen."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Frau kann die Kündigung nicht anfechten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie kann die Kündigung bei der Mietschlichtungsbehörde anfechten und eine Erstreckung der Kündigungsfrist beantragen."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein laufendes Einbürgerungsverfahren kann ein Härtegrund für eine Fristverlängerung sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Einbürgerungsverfahren ist ein anerkannter Härtegrund."
+  },
+    {
+    "id": "mcq3",
+    "question": "Was muss die Frau tun, um eine Erstreckung zu erhalten?",
+    "options": [
+      "Sie muss dem Vermieter ein ärztliches Attest vorlegen.",
+      "Sie muss beweisen, dass sie aktiv eine neue Wohnung sucht.",
+      "Sie muss eine Petition einreichen.",
+      "Sie muss den Vermieter bestechen."
+    ],
+    "correctAnswer": "Sie muss beweisen, dass sie aktiv eine neue Wohnung sucht.",
+    "explanation": "Die aktive Wohnungssuche ist eine Voraussetzung für die Erstreckung."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wo kann sich die Frau kostenlos rechtlich beraten lassen?",
+    "options": [
+      "Bei einem Anwalt ihrer Wahl.",
+      "Beim Mieterverband.",
+      "Bei der Gemeindeverwaltung.",
+      "Bei der Polizei."
+    ],
+    "correctAnswer": "Beim Mieterverband.",
+    "explanation": "Der Mieterverband bietet kostenlose Rechtsberatung für Mitglieder an."
+  },
+  {
+    "id": "tf3",
+    "question": "Das Verfahren vor der Mietschlichtungsbehörde ist kostenlos.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Verfahren ist für beide Parteien kostenlos."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Frau muss einen Anwalt zur Mietschlichtungsbehörde mitnehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Anwalt ist nicht zwingend erforderlich."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wie lange muss die Frau in der Schweiz leben, um sich einbürgern lassen zu können?",
+    "options": [
+      "5 Jahre",
+      "8 Jahre",
+      "10 Jahre",
+      "12 Jahre"
+    ],
+    "correctAnswer": "10 Jahre",
+    "explanation": "Die Mindestaufenthaltsdauer für die Einbürgerung beträgt 10 Jahre."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wie lange muss die Frau in der Gemeinde gewohnt haben, um sich einbürgern lassen zu können?",
+    "options": [
+      "Zwischen 2 und 5 Jahren, je nach Kanton.",
+      "Immer 5 Jahre.",
+      "Immer 2 Jahre.",
+      "Zwischen 1 und 3 Jahren, je nach Kanton."
+    ],
+    "correctAnswer": "Zwischen 2 und 5 Jahren, je nach Kanton.",
+    "explanation": "Die genaue Dauer des Wohnsitzes in der Gemeinde variiert je nach kantonalen Bestimmungen."
+  },
+  {
+    "id": "tf5",
+    "question": "Der Vermieter weiss im Voraus, ob ein Mieter eine Erstreckung der Kündigungsfrist erhält.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter kann nicht wissen, ob die Mietschlichtungsbehörde eine Erstreckung gewährt."
+  },
+  {
+    "id": "tf6",
+    "question": "Langes Wohnen an einem Ort kann ein Härtegrund für eine Fristverlängerung sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Verwurzelung an einem Ort ist ein möglicher Härtegrund."
+  },
+          {
+    "id": "tf7",
+    "question": "Kinder im schulpflichtigen Alter können ein Härtegrund für eine Fristverlängerung sein.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Schulwechsel kann ein Härtegrund sein."
+  },
+
+  {
+    "id": "tf8",
+    "question": "Die Frau muss sich einen Anwalt nehmen, um vor der Mietschlichtungsbehörde Erfolg zu haben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Anwalt ist nicht zwingend notwendig, aber empfehlenswert."
+  }
+]

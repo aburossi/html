@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was gilt als Annahme einer Erbschaft?",
+    "options": [
+      "Das Bezahlen der Beerdigungskosten.",
+      "Das Räumen der Wohnung des Verstorbenen.",
+      "Die Kontaktaufnahme mit dem Notar.",
+      "Die Anfrage beim Betreibungsamt nach Schulden des Verstorbenen."
+    ],
+    "correctAnswer": "Das Räumen der Wohnung des Verstorbenen.",
+    "explanation": "Das Räumen der Wohnung des Verstorbenen wird als aktive Handlung im Umgang mit dem Nachlass gewertet und somit als Annahme der Erbschaft interpretiert."
+  },
+  {
+    "id": "mcq2",
+    "question": "Innerhalb welcher Frist kann man eine Erbschaft ausschlagen?",
+    "options": [
+      "1 Woche",
+      "1 Monat",
+      "3 Monate",
+      "1 Jahr"
+    ],
+    "correctAnswer": "3 Monate",
+    "explanation": "Die Ausschlagungsfrist für eine Erbschaft beträgt 3 Monate nach Kenntnis des Todesfalls."
+  },
+  {
+    "id": "tf1",
+    "question": "Wenn man die Erbschaft einmal angenommen hat, kann man sie später nicht mehr ausschlagen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Annahme einer Erbschaft ist unwiderruflich."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein öffentliches Inventar ist kostenlos.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein öffentliches Inventar kostet mehrere Tausend Franken."
+  },
+    {
+    "id": "mcq3",
+    "question": "Wo kann man sich zum Thema Erbrecht beraten lassen?",
+    "options": [
+      "Beim Bestattungsinstitut.",
+      "Bei der Gemeindeverwaltung.",
+      "Beim Gericht.",
+      "Bei der Bank des Verstorbenen."
+    ],
+    "correctAnswer": "Beim Gericht.",
+    "explanation": "Gerichte bieten Rechtsauskünfte an, auch zum Thema Erbrecht."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Dokument gibt Aufschluss über die finanzielle Situation des Verstorbenen?",
+    "options": [
+      "Der Mietvertrag.",
+      "Die Steuererklärung.",
+      "Der Krankenkassennachweis.",
+      "Das Testament."
+    ],
+    "correctAnswer": "Die Steuererklärung.",
+    "explanation": "Die Steuererklärung gibt Einblick in die Einkommens- und Vermögensverhältnisse des Verstorbenen."
+  },
+  {
+    "id": "tf3",
+    "question": "Man erbt nur das Vermögen, nicht aber die Schulden einer verstorbenen Person.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Mit der Annahme einer Erbschaft übernimmt man sowohl Vermögen als auch Schulden."
+  },
+  {
+    "id": "tf4",
+    "question": "Es ist ratsam, sich vor der Annahme einer Erbschaft beraten zu lassen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine Beratung hilft, die rechtlichen und finanziellen Konsequenzen einer Erbschaft abzuschätzen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist ein wichtiges Indiz für eine mögliche Überschuldung des Verstorbenen?",
+    "options": [
+      "Ein teures Auto.",
+      "Eine grosse Wohnung.",
+      "Der Bezug von Sozialhilfe.",
+      "Ein wertvolles Schmuckstück."
+    ],
+    "correctAnswer": "Der Bezug von Sozialhilfe.",
+    "explanation": "Der Bezug von Sozialhilfe kann ein Hinweis auf finanzielle Schwierigkeiten und mögliche Schulden sein."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was sollte man vermeiden, bevor man über die Annahme der Erbschaft entschieden hat?",
+    "options": [
+      "Die Wohnung des Verstorbenen betreten.",
+      "Mit dem Bestattungsinstitut sprechen.",
+      "Wertgegenstände des Verstorbenen verkaufen.",
+      "Sich über die Bestattungskosten informieren."
+    ],
+    "correctAnswer": "Wertgegenstände des Verstorbenen verkaufen.",
+    "explanation": "Der Verkauf von Wertgegenständen wird als Annahme der Erbschaft gewertet."
+  },
+  {
+    "id": "tf5",
+    "question": "Rechnungen von Krankenkassen verjähren nach 3 Jahren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Forderungen von Krankenkassen verjähren erst nach 5 Jahren."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Beratung bei einem Erbrechts-Experten ist in jedem Fall kostenlos.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Kosten für eine Beratung sind abhängig vom Anbieter und sollten im Voraus geklärt werden."
+  },
+      {
+    "id": "tf7",
+    "question": "Wenn die Erbschaft überschuldet ist, haften die Erben für die Schulden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Erben haften für die Schulden des Verstorbenen, wenn sie die Erbschaft annehmen."
+  },
+        {
+    "id": "tf8",
+    "question": "Das Erbe kann auch nach der Beerdigung noch ausgeschlagen werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Erbe kann innerhalb von 3 Monaten nach Kenntnis des Todesfalls ausgeschlagen werden, unabhängig vom Zeitpunkt der Beerdigung."
+  }
+
+]

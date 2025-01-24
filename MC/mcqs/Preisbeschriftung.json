@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Weshalb wollte die Kundin das Buch für einen tieferen Preis kaufen?",
+    "options": [
+      "Weil es beschädigt war.",
+      "Weil es in einer Aktionskiste mit 70% Rabatt lag.",
+      "Weil sie einen Gutschein hatte.",
+      "Weil sie Stammkundin war."
+    ],
+    "correctAnswer": "Weil es in einer Aktionskiste mit 70% Rabatt lag.",
+    "explanation": "Die Kundin fand das Buch in einer Kiste, die mit 70% Rabatt angeschrieben war."
+  },
+  {
+    "id": "mcq2",
+    "question": "Auf welche rechtliche Grundlage bezieht sich die Kundin?",
+    "options": [
+      "Auf das Konsumkreditgesetz.",
+      "Auf das Obligationenrecht.",
+      "Auf die Preisbekanntgabeverordnung.",
+      "Auf das Datenschutzgesetz."
+    ],
+    "correctAnswer": "Auf die Preisbekanntgabeverordnung.",
+    "explanation": "Die Preisbekanntgabeverordnung regelt die Preisangaben im Detailhandel."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Buchhändler ist verpflichtet, das Buch mit 70% Rabatt zu verkaufen, da es in der Aktionskiste lag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Buchhändler kann sich auf einen Irrtum berufen, wenn das Buch versehentlich in der Aktionskiste lag."
+  },
+  {
+    "id": "tf2",
+    "question": "Preise in Prospekten und Katalogen sind immer verbindlich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Preise in Prospekten und Katalogen gelten als Einladung zur Offertstellung und sind somit unverbindlich."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist ein 'wesentlicher Irrtum' im Zusammenhang mit Preisangaben?",
+    "options": [
+      "Ein kleiner Schreibfehler im Preis.",
+      "Eine Preisdifferenz von wenigen Rappen.",
+      "Eine erhebliche Preisdifferenz.",
+      "Ein Tippfehler im Produktnamen."
+    ],
+    "correctAnswer": "Eine erhebliche Preisdifferenz.",
+    "explanation": "Ein wesentlicher Irrtum liegt vor, wenn der Preis deutlich vom tatsächlichen Wert des Produkts abweicht."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Beispiel beschreibt einen wesentlichen Irrtum?",
+    "options": [
+      "CHF 19.95 statt CHF 20.-",
+      "CHF 99.- statt CHF 100.-",
+      "CHF 10.- statt CHF 100.-",
+      "CHF 4.95 statt CHF 5.-"
+    ],
+    "correctAnswer": "CHF 10.- statt CHF 100.-",
+    "explanation": "Eine Preisdifferenz von CHF 90.- bei einem Produktwert von CHF 100.- ist ein erheblicher Irrtum."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Kundin hätte das Recht gehabt, auf dem angeschriebenen Preis zu bestehen, auch wenn es sich um einen Irrtum handelte.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bei einem wesentlichen Irrtum kann der Verkäufer den Verkauf zum falschen Preis verweigern."
+  },
+    {
+    "id": "tf4",
+    "question": "Online-Preise sind in der Regel verbindlich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Online-Preise sind oft freibleibend und können sich kurzfristig ändern."
+  },
+        {
+    "id": "tf5",
+    "question": "Wenn ein Kunde ein Produkt in die falsche Aktionskiste legt, ist der Händler verpflichtet, den Rabatt zu gewähren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Händler ist nur verpflichtet, den angeschriebenen Preis zu gewähren, wenn er selbst den Fehler gemacht hat."
+  },
+        {
+    "id": "tf6",
+    "question": "Die Sendung \"Espresso\" riet der Hörerin, den Fall unbedingt vor Gericht zu bringen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Espresso erklärte die Rechtslage, riet aber nicht explizit zu einem Gerichtsverfahren."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist der Unterschied zwischen einem verbindlichen und einem unverbindlichen Preis?",
+    "options": [
+      "Ein verbindlicher Preis kann jederzeit geändert werden, ein unverbindlicher Preis nicht.",
+      "Ein verbindlicher Preis muss eingehalten werden, ein unverbindlicher Preis nicht.",
+      "Ein verbindlicher Preis gilt nur für Stammkunden, ein unverbindlicher Preis für alle.",
+      "Es gibt keinen Unterschied."
+    ],
+    "correctAnswer": "Ein verbindlicher Preis muss eingehalten werden, ein unverbindlicher Preis nicht.",
+    "explanation": "Ein verbindlicher Preis ist ein fester Preis, an den sich der Verkäufer halten muss. Ein unverbindlicher Preis ist eine Preisangabe, die sich noch ändern kann."
+  },
+        {
+    "id": "mcq6",
+    "question": "In welchem Fall ist ein angeschriebener Preis in der Regel verbindlich?",
+    "options": [
+      "Im Online-Shop.",
+      "Im Prospekt.",
+      "Im Katalog.",
+      "Im Laden."
+    ],
+    "correctAnswer": "Im Laden.",
+    "explanation": "Angeschriebene Preise im Laden sind grundsätzlich verbindlich, ausser bei wesentlichen Irrtümern."
+  },
+        {
+    "id": "tf7",
+    "question": "Die Hörerin hat das Buch schlussendlich zum reduzierten Preis erhalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Buchhändler hat den Verkauf zum reduzierten Preis verweigert."
+  },
+        {
+    "id": "tf8",
+    "question": "Der Buchhändler hat sich falsch verhalten, indem er den Rabatt nicht gewährt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da es sich um einen wesentlichen Irrtum handelte, durfte der Buchhändler den Rabatt verweigern."
+  }
+
+]

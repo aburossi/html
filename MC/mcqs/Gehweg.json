@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum ist die Hörerin besorgt über das Verhalten ihres Nachbarn?",
+    "options": [
+      "Weil der Schnee den Gehweg blockiert.",
+      "Weil der Nachbar den Schnee auf ihren Balkon wirft.",
+      "Weil der Nachbar Schnee vom 10. Stock auf einen viel benutzten Gehweg wirft.",
+      "Weil der Nachbar zu laut Schnee räumt."
+    ],
+    "correctAnswer": "Weil der Nachbar Schnee vom 10. Stock auf einen viel benutzten Gehweg wirft.",
+    "explanation": "Der Gehweg wird von vielen Menschen benutzt, darunter Kinder und Senioren, was die Gefahr erhöht."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche rechtliche Konsequenz könnte das Verhalten des Nachbarn haben?",
+    "options": [
+      "Er muss den Schnee selbst wieder wegräumen.",
+      "Er muss ein Bussgeld bezahlen.",
+      "Er könnte wegen Körperverletzung belangt werden, wenn er jemanden verletzt.",
+      "Es gibt keine rechtlichen Konsequenzen."
+    ],
+    "correctAnswer": "Er könnte wegen Körperverletzung belangt werden, wenn er jemanden verletzt.",
+    "explanation": "Das Werfen von Schnee aus grosser Höhe kann zu Verletzungen führen und strafrechtlich relevant sein."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Rechtsexpertin empfiehlt der Hörerin, sofort gerichtliche Schritte einzuleiten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin empfiehlt zunächst das Gespräch, die Kontaktaufnahme mit der Verwaltung oder Mediation."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist erlaubt, Schnee vom Balkon zu werfen, solange niemand unten steht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Werfen von Schnee vom Balkon ist generell gefährlich und kann zu Unfällen führen."
+  },
+    {
+    "id": "mcq3",
+    "question": "Was empfiehlt die Rechtsexpertin als ersten Schritt?",
+    "options": [
+      "Die Polizei rufen.",
+      "Mit dem Nachbarn sprechen.",
+      "Einen Anwalt kontaktieren.",
+      "Zum Mieterverband gehen."
+    ],
+    "correctAnswer": "Mit dem Nachbarn sprechen.",
+    "explanation": "Ein Gespräch kann helfen, die Situation zu klären und eine einvernehmliche Lösung zu finden."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Alternative zum Schneeräumen vom Balkon wird im Beitrag NICHT genannt?",
+    "options": [
+      "Den Schnee in Behältern runterbringen.",
+      "Den Schnee in der Badewanne schmelzen lassen.",
+      "Den Schnee auf dem Balkon liegen lassen.",
+      "Den Schnee vom Dach werfen."
+    ],
+    "correctAnswer": "Den Schnee vom Dach werfen.",
+    "explanation": "Das Werfen von Schnee vom Dach ist genauso gefährlich wie vom Balkon und wird daher nicht empfohlen."
+  },
+  {
+    "id": "tf3",
+    "question": "Der Nachbar wirft neben Schnee auch andere Gegenstände vom Balkon.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag wird erwähnt, dass der Nachbar auch Sträucher und eine Sonnenstore vom Balkon geworfen hat."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Hörerin wohnt im selben Stockwerk wie der Nachbar.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hörerin wohnt vermutlich in einem tieferen Stockwerk oder im Nachbarhaus."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wo befindet sich das Haus, in dem die Hörerin wohnt?",
+    "options": [
+      "Im Bündnerland.",
+      "Im Kanton Zürich.",
+      "Im Wallis.",
+      "Im Tessin."
+    ],
+    "correctAnswer": "Im Bündnerland.",
+    "explanation": "Die Hörerin schreibt aus dem Bündnerland."
+  },
+  {
+    "id": "mcq6",
+    "question": "In welcher Sendung wurde der Fall besprochen?",
+    "options": [
+      "Kassensturz.",
+      "Espresso.",
+      "10vor10.",
+      "Tagesschau."
+    ],
+    "correctAnswer": "Espresso.",
+    "explanation": "Der Beitrag ist Teil der Sendung \"Espresso\"."
+  },
+  {
+    "id": "tf5",
+    "question": "Der Nachbar hat sich bereits für sein Verhalten entschuldigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag wird nicht erwähnt, dass sich der Nachbar entschuldigt hat."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Rechtsexpertin rät davon ab, sofort einen Anwalt einzuschalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie empfiehlt zuerst den Weg des Gesprächs oder die Mediation."
+  },
+  {
+    "id": "tf7",
+    "question": "Es gibt keine Alternativen zum Schneeräumen vom Balkon.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag werden Alternativen wie das Schmelzen des Schnees oder das Sammeln in Behältern genannt."
+  },
+    {
+    "id": "tf8",
+    "question": "Der Nachbar könnte für Schäden, die durch den fallenden Schnee entstehen, haftbar gemacht werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Wer durch unsachgemässes Schneeräumen Schäden verursacht, kann haftbar gemacht werden."
+  }
+]

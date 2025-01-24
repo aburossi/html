@@ -1,0 +1,80 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Darf die Chefin verlangen, dass die kranke Mitarbeiterin während ihrer Krankmeldung dienstliche E-Mails beantwortet?",
+    "options": [
+      "Ja, immer.",
+      "Ja, wenn es sich um eine dringende Angelegenheit handelt.",
+      "Nein, grundsätzlich nicht.",
+      "Nein, ausser die Mitarbeiterin hat sich dazu bereit erklärt."
+    ],
+    "correctAnswer": "Nein, grundsätzlich nicht.",
+    "explanation": "Eine kranke Mitarbeiterin muss sich erholen und nicht arbeiten. Daher darf die Chefin grundsätzlich nicht verlangen, dass sie während ihrer Krankmeldung dienstliche E-Mails beantwortet."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was gehört zur Treuepflicht der Mitarbeiterin im Krankheitsfall?",
+    "options": [
+      "Ständige Erreichbarkeit per Telefon.",
+      "Regelmässige Updates über den Gesundheitszustand per E-Mail.",
+      "Sofortige Meldung der Krankheit an den Arbeitgeber.",
+      "Teilnahme an Teambesprechungen per Videokonferenz."
+    ],
+    "correctAnswer": "Sofortige Meldung der Krankheit an den Arbeitgeber.",
+    "explanation": "Die sofortige Meldung der Krankheit ist Teil der Treuepflicht, damit der Arbeitgeber planen kann."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Chefin darf der Mitarbeiterin auch auf ihr privates Handy schreiben, um ihr gute Besserung zu wünschen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Nachfragen nach dem Befinden sind in Ordnung, solange keine Arbeitsaufträge erteilt oder Kontrollen durchgeführt werden."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Grad der Arbeitsunfähigkeit spielt keine Rolle bei der Frage, ob die Mitarbeiterin während der Krankmeldung erreichbar sein muss.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Grad der Arbeitsunfähigkeit (ganz oder teilweise) kann eine Rolle spielen, dies ist aber eine medizinische Frage und muss vom Arzt beurteilt werden."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welches Kommunikationsmittel ist im Krankheitsfall am besten geeignet?",
+    "options": [
+      "WhatsApp",
+      "SMS",
+      "E-Mail",
+      "Es kommt auf die betriebliche Vereinbarung an."
+    ],
+    "correctAnswer": "Es kommt auf die betriebliche Vereinbarung an.",
+    "explanation": "Die Wahl des Kommunikationsmittels sollte im Vorfeld zwischen Arbeitgeber und Arbeitnehmer abgesprochen werden."
+  },
+    {
+    "id": "mcq4",
+    "question": "Was sollte im Krankheitsfall mit dem Arbeitgeber abgeklärt werden?",
+    "options": [
+      "Auf welchen Kanälen kommuniziert wird.",
+      "Wie oft Updates erfolgen.",
+      "Beides.",
+      "Keines von beiden."
+    ],
+    "correctAnswer": "Beides.",
+    "explanation": "Klare Absprachen über Kommunikationskanäle und Update-Häufigkeit sind wichtig, um Konflikte zu vermeiden."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Mitarbeiterin muss im Krankheitsfall auf jede Nachricht der Chefin sofort reagieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Wenn klare Absprachen getroffen wurden, muss nicht auf jede Nachricht sofort reagiert werden."
+  }
+]

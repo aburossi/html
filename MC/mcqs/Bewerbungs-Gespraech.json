@@ -1,0 +1,157 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Welche Fragen sind in einem Vorstellungsgespräch erlaubt?",
+    "options": [
+      "Fragen zur Familienplanung",
+      "Fragen zu Vorstrafen",
+      "Fragen zu Qualifikationen",
+      "Fragen zum Gesundheitszustand"
+    ],
+    "correctAnswer": "Fragen zu Qualifikationen",
+    "explanation": "Fragen zu Qualifikationen sind relevant für die Beurteilung der Eignung eines Bewerbers."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist das «Notwehrrecht der Lüge»?",
+    "options": [
+      "Das Recht, im Vorstellungsgespräch zu lügen, um sich besser darzustellen.",
+      "Das Recht, bei unzulässigen Fragen zu lügen, um sich zu schützen.",
+      "Das Recht, im Lebenslauf zu lügen, um die Chancen auf eine Stelle zu erhöhen.",
+      "Das Recht, im Arbeitsvertrag zu lügen, um bessere Konditionen zu erhalten."
+    ],
+    "correctAnswer": "Das Recht, bei unzulässigen Fragen zu lügen, um sich zu schützen.",
+    "explanation": "Das «Notwehrrecht der Lüge» schützt Bewerber vor Diskriminierung durch unzulässige Fragen."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Frage nach dem Grund für den Stellenwechsel ist zulässig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Diese Frage ist unzulässig, da sie nicht relevant für die zukünftige Tätigkeit ist."
+  },
+  {
+    "id": "tf2",
+    "question": "Bewerber für Kaderstellen müssen sich im Vergleich zu Praktikanten mehr gefallen lassen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Von Bewerbern für Kaderstellen werden höhere Anforderungen erwartet, daher müssen sie sich mehr gefallen lassen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welcher Tipp wird für die Vorbereitung auf ein Vorstellungsgespräch NICHT genannt?",
+    "options": [
+      "Überlegung möglicher Fragen",
+      "Vorbereitung von Antworten",
+      "Auswendiglernen des Lebenslaufs",
+      "Konzentration"
+    ],
+    "correctAnswer": "Auswendiglernen des Lebenslaufs",
+    "explanation": "Es wird empfohlen, sich auf mögliche Fragen vorzubereiten, aber nicht, den Lebenslauf auswendig zu lernen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Frage ist im Vorstellungsgespräch zulässig?",
+    "options": [
+      "Sind Sie schwanger?",
+      "Haben Sie Kinder?",
+      "Welche Krankheiten haben Sie?",
+      "Wie gehen Sie mit Stress um?"
+    ],
+    "correctAnswer": "Wie gehen Sie mit Stress um?",
+    "explanation": "Diese Frage ist relevant für die Beurteilung der Eignung eines Bewerbers."
+  },
+    {
+    "id": "mcq5",
+    "question": "Was sollte man bei der Beantwortung von Fragen im Vorstellungsgespräch beachten?",
+    "options": [
+      "Ausschweifend und detailliert antworten",
+      "Sich kurz und prägnant fassen",
+      "Die Fragen möglichst schnell abarbeiten",
+      "Dem Arbeitgeber die gewünschten Antworten geben, unabhängig von der Wahrheit"
+    ],
+    "correctAnswer": "Sich kurz und prägnant fassen",
+    "explanation": "Im Vorstellungsgespräch ist es wichtig, die Fragen konzentriert und auf den Punkt zu beantworten."
+  },
+    {
+    "id": "tf3",
+    "question": "Es ist ratsam, sich vor dem Vorstellungsgespräch über die Firma zu informieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Durch die Auseinandersetzung mit der Firma zeigt man Interesse an der Stelle."
+  },
+      {
+    "id": "tf4",
+    "question": "Man sollte im Vorstellungsgespräch bei allen Fragen die Wahrheit sagen, auch wenn sie unangemessen sind.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bei unzulässigen Fragen darf man lügen, um sich zu schützen («Notwehrrecht der Lüge»)."
+  },
+        {
+    "id": "mcq6",
+    "question": "Welches Beispiel für eine unzulässige Frage wird im Beitrag genannt?",
+    "options": [
+      "Welche Qualifikationen haben Sie?",
+      "Welche Aufgaben haben Sie früher ausgeführt?",
+      "Wie gehen Sie mit Stress um?",
+      "Sind Sie schon mal verurteilt worden?"
+    ],
+    "correctAnswer": "Sind Sie schon mal verurteilt worden?",
+    "explanation": "Fragen nach Vorstrafen sind im Vorstellungsgespräch unzulässig."
+  },
+          {
+    "id": "mcq7",
+    "question": "Was wird im Beitrag als wichtiger Punkt für die Vorbereitung auf ein Vorstellungsgespräch genannt?",
+    "options": [
+      "Sich über mögliche Fragen Gedanken machen",
+      "Sich den Lebenslauf auswendig lernen",
+      "Dem Arbeitgeber möglichst viele private Details erzählen",
+      "Sich über die Konkurrenz informieren"
+    ],
+    "correctAnswer": "Sich über mögliche Fragen Gedanken machen",
+    "explanation": "Es ist wichtig, sich im Voraus Gedanken über mögliche Fragen und die entsprechenden Antworten zu machen."
+  },
+{
+    "id": "tf5",
+    "question": "Im Vorstellungsgespräch darf man bei Fragen zu den Qualifikationen lügen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bei Fragen zu den Qualifikationen muss man die Wahrheit sagen."
+  },
+{
+    "id": "tf6",
+    "question": "Es ist empfehlenswert, im Vorstellungsgespräch eigene Fragen an den Arbeitgeber zu stellen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eigene Fragen zeigen Interesse an der Stelle und der Firma."
+  },
+{
+    "id": "tf7",
+    "question": "Das Thema des Radiobeitrags ist die rechtliche Situation von Bewerbern in Vorstellungsgesprächen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag befasst sich mit den Rechten und Pflichten von Bewerbern in Vorstellungsgesprächen."
+  }
+
+]

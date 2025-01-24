@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was geschah mit dem Hörer während seiner Probezeit?",
+    "options": [
+      "Er wurde befördert.",
+      "Er wurde krank und erhielt die Kündigung.",
+      "Er kündigte selbst.",
+      "Er wechselte die Abteilung."
+    ],
+    "correctAnswer": "Er wurde krank und erhielt die Kündigung.",
+    "explanation": "Der Hörer wurde während seiner Probezeit krank und anschliessend gekündigt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Gilt der Kündigungsschutz während der Probezeit?",
+    "options": [
+      "Ja, uneingeschränkt.",
+      "Nein, gar nicht.",
+      "Nur bei Krankheit.",
+      "Nur bei Schwangerschaft."
+    ],
+    "correctAnswer": "Nein, gar nicht.",
+    "explanation": "Während der Probezeit gilt der Kündigungsschutz nicht."
+  },
+  {
+    "id": "tf1",
+    "question": "Eine erneute Probezeit nach einem Temporäreinsatz ist unzulässig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine erneute Probezeit nach einem Temporäreinsatz ist zulässig."
+  },
+  {
+    "id": "tf2",
+    "question": "Bei Krankheit während der Probezeit hat man immer Anspruch auf Lohnfortzahlung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es besteht kein genereller Anspruch auf Lohnfortzahlung, ausser durch eine Krankentaggeldversicherung."
+  },
+    {
+    "id": "mcq3",
+    "question": "In welchem Fall kann innerhalb des gleichen Betriebs eine neue Probezeit vereinbart werden?",
+    "options": [
+      "Bei gleichbleibender Tätigkeit und Abteilung.",
+      "Bei Krankheit des Arbeitnehmers.",
+      "Bei Übernahme einer Führungsfunktion oder einer neuen Tätigkeit.",
+      "Nach Ablauf eines Jahres."
+    ],
+    "correctAnswer": "Bei Übernahme einer Führungsfunktion oder einer neuen Tätigkeit.",
+    "explanation": "Eine neue Probezeit ist möglich, wenn der Arbeitnehmer eine neue Funktion oder Tätigkeit übernimmt."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte ein Arbeitnehmer bei Krankheit während der Probezeit tun?",
+    "options": [
+      "Den Arbeitgeber nicht informieren.",
+      "Im Arbeitsvertrag prüfen, ob eine Krankentaggeldversicherung besteht.",
+      "Sich selbstständig krankschreiben.",
+      "Einen Anwalt konsultieren."
+    ],
+    "correctAnswer": "Im Arbeitsvertrag prüfen, ob eine Krankentaggeldversicherung besteht.",
+    "explanation": "Der Arbeitnehmer sollte prüfen, ob eine Krankentaggeldversicherung besteht und den Arbeitgeber informieren."
+  },
+    {
+    "id": "tf3",
+    "question": "Die maximale Dauer der Probezeit beträgt in der Regel drei Monate.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Probezeit darf in der Regel nicht länger als drei Monate dauern."
+  },
+      {
+    "id": "tf4",
+    "question": "Der Hörer arbeitete im Bereich Maschinenbau.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer arbeitete im Maschinenbau."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wer hat die Rechtsauskunft im Beitrag gegeben?",
+    "options": [
+      "Stefan Wüterich",
+      "Gabriela Baumgartner",
+      "Der Hörer selbst",
+      "Ein unbekannter Anwalt"
+    ],
+    "correctAnswer": "Gabriela Baumgartner",
+    "explanation": "Gabriela Baumgartner gab die Rechtsauskunft im Beitrag."
+  },
+    {
+    "id": "mcq6",
+    "question": "Aus welchem Kanton kam der Hörer?",
+    "options": [
+      "Zürich",
+      "Bern",
+      "St. Gallen",
+      "Aargau"
+    ],
+    "correctAnswer": "St. Gallen",
+    "explanation": "Der Hörer kam aus dem Kanton St. Gallen."
+  },
+      {
+    "id": "tf5",
+    "question": "Der Hörer war mit seiner Arbeit zufrieden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer und seine Vorgesetzten waren mit seiner Arbeit zufrieden."
+  },
+        {
+    "id": "tf6",
+    "question": "Der Arbeitgeber muss die Kündigung während der Probezeit begründen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Arbeitgeber muss die Kündigung während der Probezeit nicht begründen."
+  },
+          {
+    "id": "mcq7",
+    "question": "Welcher Aspekt ist bei einer Krankheit während der Probezeit besonders wichtig?",
+    "options": [
+      "Die Dauer der Krankheit",
+      "Das Vorliegen eines Arztzeugnisses",
+      "Die Art der Krankheit",
+      "Das Bestehen einer Krankentaggeldversicherung"
+    ],
+    "correctAnswer": "Das Bestehen einer Krankentaggeldversicherung",
+    "explanation": "Das Bestehen einer Krankentaggeldversicherung ist wichtig, da sonst kein Lohnfortzahlungsanspruch besteht."
+  },
+            {
+    "id": "mcq8",
+    "question": "Wie lange arbeitete der Hörer temporär, bevor er fest angestellt wurde?",
+    "options": [
+      "Einen Monat",
+      "Es wird nicht genau genannt",
+      "Drei Monate",
+      "Sechs Monate"
+    ],
+    "correctAnswer": "Es wird nicht genau genannt",
+    "explanation": "Die genaue Dauer des Temporäreinsatzes wird im Beitrag nicht erwähnt."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wann muss der Lohn gemäss Gesetz ausbezahlt werden?",
+    "options": [
+      "Bis zum 15. des Folgemonats",
+      "Bis zum Ende des Monats",
+      "Bis zum Ende der Woche",
+      "Innerhalb von 10 Tagen nach Monatsende"
+    ],
+    "correctAnswer": "Bis zum Ende des Monats",
+    "explanation": "Der Lohn muss bis zum letzten Tag des Monats auf dem Konto des Arbeitnehmers sein."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was kann ein Arbeitnehmer tun, wenn der Lohn nicht pünktlich eintrifft?",
+    "options": [
+      "Den Arbeitgeber mündlich ermahnen",
+      "Die Arbeit sofort niederlegen",
+      "Den Arbeitgeber schriftlich mahnen",
+      "Einen Kollegen um Hilfe bitten"
+    ],
+    "correctAnswer": "Den Arbeitgeber schriftlich mahnen",
+    "explanation": "Es ist wichtig, den Arbeitgeber schriftlich zu mahnen, um einen Beweis für die Reklamation zu haben."
+  },
+  {
+    "id": "tf1",
+    "question": "Es ist erlaubt, den Lohn erst im Folgemonat auszuzahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Lohn muss bis zum Ende des Monats ausbezahlt werden, ausser es wurde etwas anderes vereinbart."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn ein Arbeitnehmer dreimal einen zu tiefen Lohn akzeptiert, ohne zu protestieren, gilt der tiefere Lohn als neuer Lohn.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Durch die dreimalige Annahme ohne Protest akzeptiert der Arbeitnehmer den tieferen Lohn rechtlich."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wie lange kann ein Arbeitnehmer zu Hause bleiben, wenn der Lohn nicht bezahlt wird?",
+    "options": [
+      "Einen Tag",
+      "Eine Woche",
+      "Bis der Lohn bezahlt wird",
+      "Einen Monat"
+    ],
+    "correctAnswer": "Bis der Lohn bezahlt wird",
+    "explanation": "Der Arbeitnehmer hat das Recht, die Arbeit einzustellen, bis der Lohn bezahlt ist."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Kommunikationsform ist am besten geeignet, um den Arbeitgeber wegen ausbleibender Lohnzahlung zu mahnen?",
+    "options": [
+      "Mündlich",
+      "Per SMS",
+      "Per E-Mail",
+      "Per eingeschriebenen Brief"
+    ],
+    "correctAnswer": "Per eingeschriebenen Brief",
+    "explanation": "Ein eingeschriebener Brief bietet den besten Beweis für die erfolgte Mahnung."
+  },
+    {
+    "id": "tf3",
+    "question": "Im Beitrag von SRF Espresso geht es um einen Arbeitgeber, der den Lohn um 20% gekürzt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es ging um einen Arbeitgeber, der die zusätzlichen 20% Lohn für die erhöhte Arbeitsleistung nicht rechtzeitig ausbezahlt hat."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Hörerin im Beitrag hat sich mit ihrem Arbeitgeber geeinigt, dass sie die zusätzlichen 20% als Überstunden ausbezahlt bekommt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Hörerin und der Arbeitgeber einigten sich auf die Auszahlung als Überstunden mit einem Zuschlag."
+  },
+  {
+    "id": "mcq5",
+    "question": "Was droht einem Arbeitgeber, der den Lohn nicht bezahlt und betrieben wird?",
+    "options": [
+      "Eine Busse",
+      "Ein Konkursverfahren",
+      "Eine Gefängnisstrafe",
+      "Eine Verwarnung"
+    ],
+    "correctAnswer": "Ein Konkursverfahren",
+    "explanation": "Eine Betreibung kann zu einem Konkursverfahren führen, wenn der Arbeitgeber nicht zahlt."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wie viel Prozent mehr Lohn hätte die Hörerin im Beitrag erhalten sollen?",
+    "options": [
+      "10%",
+      "15%",
+      "20%",
+      "25%"
+    ],
+    "correctAnswer": "20%",
+    "explanation": "Die Hörerin hatte ihr Pensum um 20% erhöht und hätte dementsprechend 20% mehr Lohn erhalten sollen."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Hörerin im Beitrag hat ihren Arbeitgeber betrieben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hörerin hat ihren Arbeitgeber nicht betrieben. Sie hat das Gespräch gesucht und eine Einigung erzielt."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Arbeitgeber im Beitrag hat sich geweigert, den ausstehenden Lohn zu bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Arbeitgeber hat sich nach dem Gespräch mit der Hörerin entschuldigt und den Lohn als Überstunden ausbezahlt."
+  },
+    {
+    "id": "tf7",
+    "question": "Gemäss Beitrag ist es ratsam, bei Lohnproblemen zuerst das Gespräch mit dem Arbeitgeber zu suchen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag wird empfohlen, zuerst mit dem Arbeitgeber zu sprechen und zu reklamieren."
+  },
+  {
+    "id": "tf8",
+    "question": "Im Beitrag wird empfohlen, bei Lohnstreitigkeiten immer sofort einen Anwalt einzuschalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es wird empfohlen, zuerst das Gespräch zu suchen und schriftlich zu mahnen, bevor man einen Anwalt einschaltet."
+  }
+]

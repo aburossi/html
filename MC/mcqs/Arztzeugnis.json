@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum möchte die Hörerin nicht jedes Mal zum Arzt gehen, wenn sie einen Migräneanfall hat?",
+    "options": [
+      "Weil ihr der Arztbesuch zu teuer ist.",
+      "Weil sie keine Krankenversicherung hat.",
+      "Weil ihr der Arzt bei einem Migräneanfall nicht helfen kann und es ihr zu schlecht geht, um das Haus zu verlassen.",
+      "Weil sie Angst vor Ärzten hat."
+    ],
+    "correctAnswer": "Weil ihr der Arzt bei einem Migräneanfall nicht helfen kann und es ihr zu schlecht geht, um das Haus zu verlassen.",
+    "explanation": "Die Hörerin leidet unter starken Migräneanfällen, die sie buchstäblich lahmlegen. Ein Arztbesuch während eines solchen Anfalls ist für sie eine Qual."
+  },
+  {
+    "id": "mcq2",
+    "question": "Ab wann darf der Chef ein Arztzeugnis verlangen?",
+    "options": [
+      "Ab dem ersten Krankheitstag.",
+      "Ab dem dritten Krankheitstag.",
+      "Ab dem fünften Krankheitstag.",
+      "Das ist im Gesetz nicht geregelt."
+    ],
+    "correctAnswer": "Das ist im Gesetz nicht geregelt.",
+    "explanation": "Im Gesetz ist nicht festgelegt, ab wann ein Arztzeugnis vorgelegt werden muss. Dies kann im Arbeitsvertrag oder Gesamtarbeitsvertrag geregelt sein."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist die gängige Praxis in Arbeitsverträgen und Gesamtarbeitsverträgen bezüglich der Arztzeugnispflicht?",
+    "options": [
+      "Ein Arztzeugnis wird in der Regel nach drei Krankheitstagen verlangt.",
+      "Ein Arztzeugnis wird in der Regel nach einer Woche verlangt.",
+      "Ein Arztzeugnis wird in der Regel ab dem ersten Krankheitstag verlangt.",
+      "Es gibt keine gängige Praxis."
+    ],
+    "correctAnswer": "Ein Arztzeugnis wird in der Regel nach drei Krankheitstagen verlangt.",
+    "explanation": "Die meisten Arbeitsverträge und Gesamtarbeitsverträge sehen vor, dass ein Arztzeugnis nach drei Krankheitstagen vorgelegt werden muss."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Probleme sieht die Rechtsexpertin in der Forderung des Chefs, bei jedem Migräneanfall ein Arztzeugnis vorzulegen?",
+    "options": [
+      "Sie sieht die Gefahr von Schikane und Rechtsmissbrauch.",
+      "Sie findet die Forderung des Chefs unnötig und übertrieben.",
+      "Sie befürchtet, dass die Hörerin ihren Arbeitsplatz verlieren könnte.",
+      "Sie hat keine Probleme mit der Forderung des Chefs."
+    ],
+    "correctAnswer": "Sie sieht die Gefahr von Schikane und Rechtsmissbrauch.",
+    "explanation": "Die Rechtsexpertin findet die Forderung des Chefs, bei jedem Migräneanfall ein Arztzeugnis vorzulegen, absurd und an der Grenze zu Schikane."
+  },
+  {
+    "id": "mcq5",
+    "question": "Welche Lösungsansätze schlägt die Rechtsexpertin der Hörerin vor?",
+    "options": [
+      "Sie soll sich einen neuen Job suchen.",
+      "Sie soll mit dem Chef sprechen und ihm die Situation erklären.",
+      "Sie soll sich krankschreiben lassen.",
+      "Sie soll mit dem Arzt sprechen und ein Zeugnis über die chronische Erkrankung und die damit verbundenen Arbeitsausfälle ausstellen lassen."
+    ],
+    "correctAnswer": "Sie soll mit dem Arzt sprechen und ein Zeugnis über die chronische Erkrankung und die damit verbundenen Arbeitsausfälle ausstellen lassen.",
+    "explanation": "Die Rechtsexpertin rät der Hörerin, mit dem Arzt zu sprechen und ein Zeugnis über die chronische Erkrankung und die Arbeitsausfälle ausstellen zu lassen. Dieses Zeugnis soll dem Arbeitgeber vorgelegt werden, um eine gemeinsame Lösung zu finden."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wie kann ein Arzt in dieser Situation helfen?",
+    "options": [
+      "Er kann der Hörerin Medikamente gegen Migräne verschreiben.",
+      "Er kann die Hörerin krankschreiben.",
+      "Er kann ein Zeugnis über die chronische Erkrankung und die Arbeitsausfälle ausstellen.",
+      "Er kann den Chef der Hörerin überzeugen, dass sie kein Arztzeugnis vorlegen muss."
+    ],
+    "correctAnswer": "Er kann ein Zeugnis über die chronische Erkrankung und die Arbeitsausfälle ausstellen.",
+    "explanation": "Ein Arztzeugnis über die chronische Erkrankung und die Arbeitsausfälle kann die Situation der Hörerin gegenüber dem Arbeitgeber stärken."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Hörerin hat Angst, ihren Arbeitsplatz zu verlieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Text wird nicht erwähnt, dass die Hörerin Angst hat, ihren Arbeitsplatz zu verlieren."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Chef der Hörerin hat Verständnis für ihre Situation.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Chef der Hörerin verlangt bei jedem Migräneanfall ein Arztzeugnis, was auf wenig Verständnis für ihre Situation schliessen lässt."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Rechtsexpertin findet die Forderung des Chefs nach einem Arztzeugnis bei jedem Migräneanfall gerechtfertigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin findet die Forderung des Chefs absurd und an der Grenze zu Schikane."
+  },
+  {
+    "id": "tf4",
+    "question": "Ein Arztzeugnis ist der einzige Beweis für eine Arbeitsunfähigkeit.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch andere Beweise, wie z.B. die Aussage eines Zeugen, können eine Arbeitsunfähigkeit belegen."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Hörerin sollte sich einen neuen Job suchen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin rät der Hörerin nicht, sich einen neuen Job zu suchen, sondern schlägt andere Lösungsansätze vor."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Hörerin sollte das Gespräch mit ihrem Chef suchen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin rät der Hörerin, das Gespräch mit dem Chef zu suchen und gemeinsam eine Lösung zu finden."
+  },
+  {
+    "id": "tf7",
+    "question": "Es ist wichtig, dass Arbeitnehmer und Arbeitgeber eine gemeinsame Lösung für den Umgang mit Krankheit am Arbeitsplatz finden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine gemeinsame Lösung für den Umgang mit Krankheit am Arbeitsplatz ist wichtig, um Konflikte zu vermeiden und ein gutes Arbeitsklima zu erhalten."
+  },
+  {
+    "id": "tf8",
+    "question": "Migräne ist eine Krankheit, die nur Frauen betrifft.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Migräne kann sowohl Frauen als auch Männer betreffen."
+  }
+]

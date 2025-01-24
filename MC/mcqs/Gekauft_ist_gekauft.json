@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wie viel hat das Coldplay-Ticket gekostet?",
+    "options": [
+      "200 Franken",
+      "300 Franken",
+      "400 Franken",
+      "500 Franken"
+    ],
+    "correctAnswer": "300 Franken",
+    "explanation": "Im Beitrag wird erwähnt, dass das Ticket 300 Franken gekostet hat."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wo hat die 16-Jährige das Ticket gekauft?",
+    "options": [
+      "Im offiziellen Vorverkauf",
+      "An der Abendkasse",
+      "Auf einer Auktionsplattform",
+      "Von einem Freund"
+    ],
+    "correctAnswer": "Auf einer Auktionsplattform",
+    "explanation": "Der Beitrag erwähnt, dass das Ticket auf einer Auktionsplattform gekauft wurde. "
+  },
+  {
+    "id": "tf1",
+    "question": "Die 16-Jährige hat die Einwilligung ihrer Eltern für den Kauf benötigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da die 16-Jährige das Ticket von ihrem eigenen Lehrlingslohn bezahlt hat, benötigte sie keine Einwilligung der Eltern."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Verkäufer kann die 16-Jährige betreiben, wenn sie nicht zahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Da der Kaufvertrag gültig ist, kann der Verkäufer die Käuferin betreiben, wenn sie die Zahlung verweigert."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist eine mögliche Konsequenz einer Betreibung?",
+    "options": [
+      "Ein Eintrag im Strafregister",
+      "Ein Eintrag im Betreibungsregister",
+      "Eine Gefängnisstrafe",
+      "Gemeinnützige Arbeit"
+    ],
+    "correctAnswer": "Ein Eintrag im Betreibungsregister",
+    "explanation": "Eine Betreibung führt zu einem Eintrag im Betreibungsregister, was zukünftige Miet- oder Kreditanträge erschweren kann."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wie hoch ist der Monatslohn der 16-Jährigen?",
+    "options": [
+      "400 Franken",
+      "500 Franken",
+      "600 Franken",
+      "700 Franken"
+    ],
+    "correctAnswer": "600 Franken",
+    "explanation": "Im Beitrag wird erwähnt, dass die 16-Jährige ca. 600 Franken im Monat verdient."
+  },
+    {
+    "id": "tf3",
+    "question": "Bei Kaufverträgen hat man grundsätzlich ein Rücktrittsrecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bei Kaufverträgen gibt es grundsätzlich kein Rücktrittsrecht. Ausnahmen bestehen z.B. beim Online-Kauf mit Widerrufsrecht."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Eltern der 16-Jährigen müssen die Betreibung bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die 16-Jährige ist für die Bezahlung des Tickets selbst verantwortlich, da sie den Kaufvertrag selbst abgeschlossen hat."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist ein Rechtsvorschlag?",
+    "options": [
+      "Ein Vorschlag für ein neues Gesetz",
+      "Eine Einigung zwischen Käufer und Verkäufer",
+      "Ein Widerspruch gegen eine Betreibung",
+      "Eine Anzeige bei der Polizei"
+    ],
+    "correctAnswer": "Ein Widerspruch gegen eine Betreibung",
+    "explanation": "Mit einem Rechtsvorschlag kann man sich gegen eine ungerechtfertigte Betreibung wehren."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welcher Sender hat über den Fall berichtet?",
+    "options": [
+      "SRF 3",
+      "SRF 4 News",
+      "SRF 1",
+      "SRF Espresso"
+    ],
+    "correctAnswer": "SRF Espresso",
+    "explanation": "Der Beitrag stammt von der Sendung SRF Espresso."
+  },
+    {
+    "id": "tf5",
+    "question": "Der Vater der 16-Jährigen hat sich an die Redaktion gewandt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Vater der 16-Jährigen hat die Frage an die Rechtsexpertin gestellt."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Rechtsexpertin rät der 16-Jährigen, das Ticket zu bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin rät zur Zahlung, um eine Betreibung zu vermeiden."
+  },
+      {
+    "id": "mcq7",
+    "question": "Für welches Konzert wurde das Ticket gekauft?",
+    "options": [
+      "Ed Sheeran",
+      "Coldplay",
+      "Taylor Swift",
+      "Harry Styles"
+    ],
+    "correctAnswer": "Coldplay",
+    "explanation": "Es handelt sich um ein Ticket für ein Coldplay-Konzert."
+  },
+  {
+    "id": "mcq8",
+    "question": "Was macht die 16-Jährige beruflich?",
+    "options": [
+      "Schülerin",
+      "Studentin",
+      "Lehrtochter",
+      "Angestellte"
+    ],
+    "correctAnswer": "Lehrtochter",
+    "explanation": "Die 16-Jährige macht eine Lehre und verdient dadurch ihr eigenes Geld."
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum verlangte die Vermieterin die Entfernung der Fahne?",
+    "options": [
+      "Sie unterstützte die Initiative nicht.",
+      "Die Fahne war zu gross.",
+      "Das Aufhängen von Fahnen am Balkongeländer ist nicht erlaubt.",
+      "Die Fahne störte die Nachbarn."
+    ],
+    "correctAnswer": "Das Aufhängen von Fahnen am Balkongeländer ist nicht erlaubt.",
+    "explanation": "Das Balkongeländer gehört nicht zur Mietwohnung."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wo darf die WG die Fahne aufhängen?",
+    "options": [
+      "Am Balkongeländer",
+      "An der Hausfassade",
+      "Innerhalb des Balkons",
+      "Auf dem Dach"
+    ],
+    "correctAnswer": "Innerhalb des Balkons",
+    "explanation": "Innerhalb der Wohnung hat der Mieter das Recht, seine Meinung auszudrücken."
+  },
+  {
+    "id": "tf1",
+    "question": "Schweizer Fahnen dürfen am 1. August immer aufgehängt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch für Schweizer Fahnen gilt die Regelung, dass sie nicht am Balkongeländer aufgehängt werden dürfen."
+  },
+  {
+    "id": "tf2",
+    "question": "Die WG darf die Fahne innerhalb der Wohnung aufhängen, sodass sie von aussen sichtbar ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Innerhalb der Wohnung darf die WG ihre Meinung frei äussern."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist die rechtliche Begründung für das Verbot?",
+    "options": [
+      "Das Balkongeländer gehört nicht zur Mietwohnung.",
+      "Politische Meinungsäusserung ist in Mietwohnungen verboten.",
+      "Die Fahne störte das ästhetische Erscheinungsbild des Hauses.",
+      "Der Vermieter hat das Recht, alle Dekorationen zu verbieten."
+    ],
+    "correctAnswer": "Das Balkongeländer gehört nicht zur Mietwohnung.",
+    "explanation": "Der Mieter hat nur Nutzungsrecht an den gemieteten Räumlichkeiten."
+  },
+    {
+    "id": "mcq4",
+    "question": "Welches Recht wird durch das Aufhängen der Fahne eingeschränkt?",
+    "options": [
+      "Das Recht auf freie Meinungsäusserung",
+      "Das Recht auf Privatsphäre",
+      "Das Nutzungsrecht des Vermieters an der Fassade",
+      "Das Recht auf freie Religionsausübung"
+    ],
+    "correctAnswer": "Das Nutzungsrecht des Vermieters an der Fassade",
+    "explanation": "Die Fassade gehört dem Vermieter."
+  },
+    {
+    "id": "tf3",
+    "question": "Blumenkästen sind am Balkongeländer immer erlaubt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch für Blumenkästen gilt die gleiche Regelung wie für Fahnen."
+  },
+        {
+    "id": "tf4",
+    "question": "Weihnachtsbeleuchtung ist immer erlaubt, solange sie nicht zu hell ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt Regelungen und Gerichtsurteile, die die Helligkeit und Dauer von Weihnachtsbeleuchtung einschränken."
+  },
+  {
+    "id": "mcq5",
+    "question": "Bis wann müssen Weihnachtsbeleuchtungen laut Bundesgericht toleriert werden (zwischen 1. April und 6. Januar)?",
+    "options": [
+      "22:00 Uhr",
+      "23:00 Uhr",
+      "00:00 Uhr",
+      "01:00 Uhr"
+    ],
+    "correctAnswer": "01:00 Uhr",
+    "explanation": "Das Bundesgericht hat entschieden, dass Weihnachtsbeleuchtungen bis 1 Uhr nachts toleriert werden müssen."
+  },
+    {
+    "id": "mcq6",
+    "question": "In welchem Fall darf der Vermieter die Fahne innerhalb der Wohnung verbieten?",
+    "options": [
+      "Wenn sie die Nachbarn stört.",
+      "Wenn sie zu gross ist.",
+      "Wenn das Haus denkmalgeschützt ist und in einem historischen Ortskern steht.",
+      "Wenn der Vermieter die politische Meinung nicht teilt."
+    ],
+    "correctAnswer": "Wenn das Haus denkmalgeschützt ist und in einem historischen Ortskern steht.",
+    "explanation": "In diesem Fall kann der Vermieter das Aufhängen von Fahnen verbieten, um das historische Erscheinungsbild zu wahren."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Meinungsäusserungsfreiheit ist in Mietwohnungen eingeschränkt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Meinungsäusserungsfreiheit ist im Kontext des Mietrechts eingeschränkt, z.B. durch das Verbot, Fahnen am Balkongeländer aufzuhängen."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Vermieter darf das Aufhängen von Fahnen verbieten, wenn ihm die politische Botschaft nicht passt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter darf die Fahne nicht wegen ihres Inhalts verbieten, sondern nur wegen ihres Platzes am Balkongeländer."
+  },
+      {
+    "id": "tf7",
+    "question": "Das Aufhängen von Fussballfahnen am Balkongeländer ist erlaubt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gilt die gleiche Regel wie für alle anderen Fahnen."
+  },
+        {
+    "id": "tf8",
+    "question": "Das Anbringen von Satellitenschüsseln an der Fassade ist grundsätzlich verboten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Satellitenschüsseln sind in der Regel erlaubt, solange sie keine Schäden an der Fassade verursachen und nicht übermässig gross sind."
+  }
+
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist der erste Schritt, den man unternehmen sollte, wenn man eine berechtigte Betreibung erhält und die Rechnung nicht sofort bezahlen kann?",
+    "options": [
+      "Sich beim Betreibungsamt melden und einen Rechtsvorschlag einreichen.",
+      "Die Rechnung ignorieren und hoffen, dass sie verschwindet.",
+      "Sich an eine Schuldenberatungsstelle wenden.",
+      "Den Gläubiger anrufen und drohen."
+    ],
+    "correctAnswer": "Sich an eine Schuldenberatungsstelle wenden.",
+    "explanation": "Eine Schuldenberatungsstelle kann helfen, eine Lösung mit den Gläubigern zu finden."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange ist ein Eintrag im Betreibungsregister sichtbar, wenn die Betreibung nicht zurückgezogen wird?",
+    "options": [
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Ein Betreibungseintrag bleibt 5 Jahre im Register sichtbar."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Rechtsvorschlag bedeutet, dass man die Schuld anerkennt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Rechtsvorschlag bedeutet, dass man die Forderung bestreitet."
+  },
+  {
+    "id": "tf2",
+    "question": "Man kann einen Rechtsvorschlag nur schriftlich beim Betreibungsamt einreichen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Man kann den Rechtsvorschlag auch direkt beim Postboten abgeben."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wie hoch sind die Kosten für die Löschung eines ungerechtfertigten Betreibungseintrags?",
+    "options": [
+      "20 Franken",
+      "40 Franken",
+      "60 Franken",
+      "80 Franken"
+    ],
+    "correctAnswer": "40 Franken",
+    "explanation": "Die Löschung kostet 40 Franken."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wie lange muss man nach einem Rechtsvorschlag warten, bevor man die Löschung eines ungerechtfertigten Betreibungseintrags beantragen kann?",
+    "options": [
+      "1 Monat",
+      "2 Monate",
+      "3 Monate",
+      "6 Monate"
+    ],
+    "correctAnswer": "3 Monate",
+    "explanation": "Man muss 3 Monate warten."
+  },
+  {
+    "id": "tf3",
+    "question": "Eine Betreibung kann auch erfolgen, wenn man eine Rechnung versehentlich nicht bezahlt hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Auch unbezahlte Rechnungen, unabhängig von der Absicht, können zu einer Betreibung führen."
+  },
+    {
+    "id": "tf4",
+    "question": "Wenn der Gläubiger die Betreibung zurückzieht, entstehen keine Kosten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Gläubiger kann für den Rückzug der Betreibung Gebühren verlangen (bis 200 CHF)."
+  },
+      {
+    "id": "mcq5",
+    "question": "Wer hilft bei der Suche nach einer Lösung mit den Gläubigern?",
+    "options": [
+      "Der Postbote",
+      "Die Polizei",
+      "Eine Schuldenberatungsstelle",
+      "Das Betreibungsamt"
+    ],
+    "correctAnswer": "Eine Schuldenberatungsstelle",
+    "explanation": "Schuldenberatungsstellen vermitteln und helfen bei der Findung von Lösungen."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was ist ein Zahlungsbefehl?",
+    "options": [
+      "Eine Rechnung",
+      "Eine Mahnung",
+      "Die Ankündigung einer Betreibung",
+      "Ein Brief vom Gericht"
+    ],
+    "correctAnswer": "Die Ankündigung einer Betreibung",
+    "explanation": "Mit dem Zahlungsbefehl wird die Betreibung offiziell angekündigt."
+  },
+          {
+    "id": "tf5",
+    "question": "Wenn man eine Betreibung erhält, sollte man sofort einen Rechtsvorschlag einreichen, egal ob die Forderung berechtigt ist oder nicht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Rechtsvorschlag sollte nur eingereicht werden, wenn man die Forderung bestreitet."
+  },
+            {
+    "id": "tf6",
+    "question": "Ein Eintrag im Betreibungsregister kann die Kreditwürdigkeit beeinflussen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Betreibungseintrag wirkt sich negativ auf die Kreditwürdigkeit aus."
+  },
+              {
+    "id": "tf7",
+    "question": "Man kann eine Betreibung verhindern, indem man alle Rechnungen pünktlich bezahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Wer seine Rechnungen bezahlt, erhält keine Betreibung."
+  },
+                {
+    "id": "tf8",
+    "question": "Das Betreibungsamt ist zuständig für die Ausstellung von Rechnungen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Betreibungsamt ist für die Durchführung von Betreibungen zuständig, nicht für die Rechnungsstellung."
+  }
+
+]

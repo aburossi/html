@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum möchte die Verkäuferin vom Autokauf zurücktreten?",
+    "options": [
+      "Sie hat ein besseres Angebot erhalten.",
+      "Das Auto hat einen technischen Defekt.",
+      "Ihre Tochter möchte das Auto kaufen.",
+      "Sie hat sich über den Preis geirrt."
+    ],
+    "correctAnswer": "Ihre Tochter möchte das Auto kaufen.",
+    "explanation": "Im Beitrag wird erwähnt, dass die Tochter der Verkäuferin Interesse am Auto bekundet hat, nachdem der Kaufvertrag bereits abgeschlossen war."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Art von Vertrag wurde für den Autokauf geschlossen?",
+    "options": [
+      "Schriftlicher Vertrag",
+      "Mündlicher Vertrag",
+      "Online-Vertrag",
+      "Notarieller Vertrag"
+    ],
+    "correctAnswer": "Mündlicher Vertrag",
+    "explanation": "Der Beitrag betont, dass ein mündlicher Vertrag genauso verbindlich ist wie ein schriftlicher."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Verkäuferin kann vom Kaufvertrag zurücktreten, da noch keine Woche vergangen ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Widerrufsrecht gilt in diesem Fall nicht, da die Verkäuferin nicht die Konsumentin ist."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein mündlicher Kaufvertrag ist rechtlich nicht bindend.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Mündliche Verträge sind genauso bindend wie schriftliche Verträge."
+  },
+  {
+    "id": "mcq3",
+    "question": "Bei welcher Art von Geschäften hat man als Konsument ein Widerrufsrecht?",
+    "options": [
+      "Beim Kauf eines Occasionsautos von privat.",
+      "Bei Haustürgeschäften.",
+      "Beim Kauf von Lebensmitteln im Supermarkt.",
+      "Beim Kauf einer Immobilie."
+    ],
+    "correctAnswer": "Bei Haustürgeschäften.",
+    "explanation": "Haustürgeschäfte, Telefonkäufe, Leasing- und Versicherungsverträge fallen unter das Widerrufsrecht."
+  },
+    {
+    "id": "mcq4",
+    "question": "Wie lange gilt die gesetzliche Garantie bei einem Occasionsauto, wenn nichts anderes vereinbart wurde?",
+    "options": [
+      "6 Monate",
+      "1 Jahr",
+      "2 Jahre",
+      "5 Jahre"
+    ],
+    "correctAnswer": "1 Jahr",
+    "explanation": "Laut Gesetz gilt bei Occasionsautos eine einjährige Garantie, sofern diese nicht ausgeschlossen wurde."
+  },
+      {
+    "id": "tf3",
+    "question": "Die Verkäuferin hätte die Garantie im Vertrag ausschliessen können.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "In einem schriftlichen Vertrag kann die Garantie ausgeschlossen werden."
+  },
+        {
+    "id": "tf4",
+    "question": "Die Anzahlung des Käufers spielt keine Rolle für die Gültigkeit des Vertrags.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Anzahlung macht den mündlichen Vertrag zusätzlich verbindlich."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wo hat die Verkäuferin das Auto zum Verkauf angeboten?",
+    "options": [
+      "Im lokalen Anzeigenblatt.",
+      "Auf einem Online-Portal.",
+      "Durch Mundpropaganda.",
+      "Bei einem Autohändler."
+    ],
+    "correctAnswer": "Auf einem Online-Portal.",
+    "explanation": "Im Beitrag wird erwähnt, dass das Auto auf einer Online-Plattform ausgeschrieben war."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was ist die Empfehlung der Rechtsexpertin für den Verkauf von teuren Gegenständen?",
+    "options": [
+      "Immer einen mündlichen Vertrag abschliessen.",
+      "Immer einen schriftlichen Vertrag abschliessen.",
+      "Nur online verkaufen.",
+      "Nur über einen Händler verkaufen."
+    ],
+    "correctAnswer": "Immer einen schriftlichen Vertrag abschliessen.",
+    "explanation": "Gerade bei teuren Dingen ist ein schriftlicher Vertrag immer empfehlenswert."
+  },
+          {
+    "id": "tf5",
+    "question": "Der Käufer kann rechtlich auf die Erfüllung des Kaufvertrags bestehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Da ein gültiger Vertrag besteht, kann der Käufer auf die Übergabe des Autos bestehen."
+  },
+            {
+    "id": "tf6",
+    "question": "Das Widerrufsrecht gilt nur für Verkäufer, nicht für Käufer.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Widerrufsrecht gilt nur für Konsumenten, die ausserhalb von Geschäftsräumen einen Vertrag abschliessen, unabhängig davon, ob sie Käufer oder Verkäufer sind."
+  },
+{
+    "id": "tf7",
+    "question": "Ein schriftlicher Vertrag bietet mehr Sicherheit als ein mündlicher Vertrag.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein schriftlicher Vertrag dokumentiert die Vereinbarung und beugt Missverständnissen vor."
+  },
+{
+    "id": "tf8",
+    "question": "Die Rechtsexpertin rät, bei Occasionsautos immer einen schriftlichen Vertrag aufzusetzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin empfiehlt, bei teuren Gütern wie Autos immer einen schriftlichen Vertrag zu machen."
+  }
+]

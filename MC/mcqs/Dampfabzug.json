@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer ist grundsätzlich für die Kosten eines defekten Dampfabzugs verantwortlich?",
+    "options": [
+      "Der Mieter",
+      "Der Vermieter",
+      "Beide je zur Hälfte",
+      "Die Gebäudeversicherung"
+    ],
+    "correctAnswer": "Der Vermieter",
+    "explanation": "Der Vermieter ist für den Unterhalt der Wohnung verantwortlich, inklusive der darin befindlichen Geräte."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Ausnahme gibt es von dieser Regel?",
+    "options": [
+      "Wenn das Gerät älter als 10 Jahre ist.",
+      "Wenn der Mieter das Gerät unsachgemäss bedient hat.",
+      "Wenn der Mieter den Defekt selbst beheben kann.",
+      "Wenn der Vermieter eine Gebäudeversicherung hat."
+    ],
+    "correctAnswer": "Wenn der Mieter das Gerät unsachgemäss bedient hat.",
+    "explanation": "In diesem Fall kann der Vermieter die Kosten vom Mieter zurückfordern."
+  },
+  {
+    "id": "tf1",
+    "question": "Raphael Vogel musste sich an den Kosten des neuen Dampfabzugs beteiligen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da kein unsachgemässer Gebrauch vorlag, musste der Vermieter die Kosten übernehmen."
+  },
+  {
+    "id": "tf2",
+    "question": "Das Alter des Geräts spielt im Fall von Raphael Vogel eine Rolle.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Alter des Geräts ist nur relevant, wenn der Schaden durch den Mieter verursacht wurde."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist ein Beispiel für eine kleine Reparatur, die der Mieter selbst übernehmen muss?",
+    "options": [
+      "Austausch des Kühlschranks",
+      "Reparatur der Heizung",
+      "Entstopfen des Siphons",
+      "Austausch des Dampfabzugs"
+    ],
+    "correctAnswer": "Entstopfen des Siphons",
+    "explanation": "Dies ist eine kleine Reparatur, die ohne Fachwissen erledigt werden kann."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wo findet man weitere Informationen zum Thema Mietrecht?",
+    "options": [
+      "Beim Hauseigentümerverband",
+      "Beim MieterInnenverband",
+      "Beim Bundesamt für Wohnungswesen",
+      "Bei der Gemeindeverwaltung"
+    ],
+    "correctAnswer": "Beim MieterInnenverband",
+    "explanation": "Der MieterInnenverband bietet Informationen und Beratung zu Mietrechtsfragen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Vermieter darf die Kosten für eine Reparatur immer auf den Mieter abwälzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter ist für den Unterhalt der Wohnung verantwortlich, ausser bei kleinen Reparaturen oder Schäden durch den Mieter."
+  },
+    {
+    "id": "tf4",
+    "question": "Kleine Reparaturen, die der Mieter selbst erledigen kann, muss er auch selbst bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Für kleine Reparaturen, die ohne Fachwissen erledigt werden können, ist der Mieter selbst verantwortlich."
+  },
+{
+    "id": "mcq5",
+    "question": "Welches Argument verwendete der Vermieter, um die Kostenbeteiligung zu begründen?",
+    "options": [
+      "Der Mieter hat den Dampfabzug falsch bedient.",
+      "Der Dampfabzug ist noch nicht alt genug, um ersetzt zu werden.",
+      "Der Mieter ist für alle Reparaturen in der Wohnung verantwortlich.",
+      "Der Vermieter hat keine Versicherung für solche Fälle."
+    ],
+    "correctAnswer": "Der Dampfabzug ist noch nicht alt genug, um ersetzt zu werden.",
+    "explanation": "Der Vermieter argumentierte, dass der Dampfabzug eine Lebensdauer von 10 Jahren habe und erst 8 Jahre alt sei."
+  },
+  {
+    "id": "mcq6",
+    "question": "In welcher Sendung wurde der Fall von Raphael Vogel behandelt?",
+    "options": [
+      "Kassensturz",
+      "Espresso",
+      "10vor10",
+      "Tagesschau"
+    ],
+    "correctAnswer": "Espresso",
+    "explanation": "Die Sendung \"Espresso\" behandelt regelmässig Rechtsfragen von Hörern."
+  },
+      {
+    "id": "tf5",
+    "question": "Ein defekter Kühlschrank muss vom Vermieter ersetzt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Kühlschrank gehört zur Wohnung und dessen Reparatur oder Ersatz ist Sache des Vermieters."
+  },
+        {
+    "id": "tf6",
+    "question": "Ein verstopfter Abfluss muss vom Mieter selbst gereinigt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Reinigen eines verstopften Abflusses gehört zu den kleinen Reparaturen, die der Mieter selbst erledigen muss."
+  },
+{
+    "id": "mcq7",
+    "question": "Was sollte man als Mieter tun, wenn ein Gerät in der Wohnung kaputt geht?",
+    "options": [
+      "Das Gerät selbst reparieren.",
+      "Den Vermieter informieren.",
+      "Ein neues Gerät kaufen und die Rechnung dem Vermieter schicken.",
+      "Nichts tun und warten, bis der Vermieter es bemerkt."
+    ],
+    "correctAnswer": "Den Vermieter informieren.",
+    "explanation": "Der Mieter sollte den Vermieter über den Defekt informieren, damit dieser die notwendigen Schritte einleiten kann."
+  },
+  {
+    "id": "mcq8",
+    "question": "Welches Dokument kann helfen, die Rechte und Pflichten im Mietverhältnis zu klären?",
+    "options": [
+      "Der Mietvertrag",
+      "Die Hausordnung",
+      "Das Gebäudeversicherungspolice",
+      "Der Ausweis des Mieters"
+    ],
+    "correctAnswer": "Der Mietvertrag",
+    "explanation": "Im Mietvertrag sind die Rechte und Pflichten von Mieter und Vermieter festgehalten."
+  }
+]

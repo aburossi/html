@@ -1,0 +1,151 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum hat der Nachbar ein Problem mit dem Vogelhäuschen?",
+    "options": [
+      "Er mag keine Vögel.",
+      "Er fühlt sich durch das Vogelhäuschen gestört.",
+      "Das Vogelhäuschen ist zu gross.",
+      "Das Vogelhäuschen ist nicht schön."
+    ],
+    "correctAnswer": "Er fühlt sich durch das Vogelhäuschen gestört.",
+    "explanation": "Im Beitrag wird erwähnt, dass der Nachbar sich durch die Anwesenheit des Vogelhäuschens gestört fühlt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist gemäss der Rechtsexpertin ein wichtiger Faktor im Mietrecht?",
+    "options": [
+      "Die Ästhetik des Balkons.",
+      "Die Anzahl der Vögel.",
+      "Die Grösse des Vogelhäuschens.",
+      "Ob die Handlung andere übermässig stört."
+    ],
+    "correctAnswer": "Ob die Handlung andere übermässig stört.",
+    "explanation": "Die Rechtsexpertin betont, dass im Mietrecht die Frage relevant ist, ob eine Handlung andere übermässig stört."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Mieterin muss das Vogelhäuschen entfernen, weil es in der Hausordnung verboten ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Im Beitrag wird explizit erwähnt, dass in der Hausordnung nichts gegen das Aufstellen eines Vogelhäuschens steht."
+  },
+  {
+    "id": "tf2",
+    "question": "Das Füttern von Tauben kann zu Problemen führen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin erklärt, dass Taubenfütterung wegen des vielen Drecks und möglicher Schäden an der Fassade problematisch sein kann."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welchen Rat gibt die Rechtsexpertin der Mieterin?",
+    "options": [
+      "Sie soll das Vogelhäuschen entfernen.",
+      "Sie soll mit dem Nachbar streiten.",
+      "Sie soll mit dem Vermieter sprechen.",
+      "Sie soll die Polizei rufen."
+    ],
+    "correctAnswer": "Sie soll mit dem Vermieter sprechen.",
+    "explanation": "Die Rechtsexpertin rät der Mieterin, das Gespräch mit dem Vermieter zu suchen und ihn auf ihre Rechte hinzuweisen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was ist eine mögliche Lösung für den Konflikt?",
+    "options": [
+      "Den Nachbarn ignorieren.",
+      "Das Vogelhäuschen verkaufen.",
+      "Einen anderen Platz für das Vogelhäuschen finden.",
+      "Ausziehen."
+    ],
+    "correctAnswer": "Einen anderen Platz für das Vogelhäuschen finden.",
+    "explanation": "Das Finden eines anderen Platzes für das Vogelhäuschen wird als eine mögliche Lösung für den Konflikt vorgeschlagen."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Nachbar hat das Recht, der Mieterin das Aufstellen eines Vogelhäuschens zu verbieten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Nachbar hat kein Recht, der Mieterin das Aufstellen eines Vogelhäuschens zu verbieten, solange es keine übermässige Störung darstellt und die Hausordnung nichts Gegenteiliges vorschreibt."
+  },
+    {
+    "id": "tf4",
+    "question": "Grillieren auf dem Balkon ist immer verboten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Grillieren ist nicht immer verboten, sondern nur, wenn es andere Mieter übermässig stört."
+  },
+    {
+    "id": "tf5",
+    "question": "Die Rechtsexpertin rät der Mieterin, die Tauben zu füttern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin rät explizit davon ab, Tauben zu füttern, da dies zu Problemen führen kann."
+  },
+    {
+    "id": "tf6",
+    "question": "Die Hausordnung ist irrelevant im Mietrecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hausordnung ist ein wichtiger Bestandteil des Mietrechts und regelt das Zusammenleben im Mehrfamilienhaus."
+  },
+        {
+    "id": "tf7",
+    "question": "Die Mieterin darf auf ihrem Balkon grundsätzlich machen, was sie will.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Mieterin darf auf ihrem Balkon grundsätzlich machen, was sie will, solange sie niemanden übermässig stört."
+  },
+        {
+    "id": "tf8",
+    "question": "Übermässige Störungen müssen im Einzelfall geprüft werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Was als übermässige Störung gilt, muss im Einzelfall beurteilt werden."
+  },
+        {
+    "id": "tf9",
+    "question": "Der Nachbar hat sich über den Lärm der Singvögel beschwert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Nachbar hat sich nicht über den Lärm der Singvögel beschwert, sondern über das Vogelhäuschen im Allgemeinen."
+  },
+        {
+    "id": "tf10",
+    "question": "Die Rechtsexpertin hat der Mieterin geraten, sofort einen Anwalt einzuschalten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin hat der Mieterin geraten, zuerst das Gespräch mit dem Vermieter zu suchen."
+  }
+
+]

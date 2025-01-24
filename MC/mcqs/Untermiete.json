@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Ein Vermieter darf die Untermiete verbieten, wenn...",
+    "options": [
+      "der Untermieter raucht.",
+      "die Hauptmieterin auszieht und die Wohnung selbst nicht mehr bewohnt.",
+      "der Untermieter ein Haustier hat.",
+      "die Hauptmieterin einen zu niedrigen Mietzins verlangt."
+    ],
+    "correctAnswer": "die Hauptmieterin auszieht und die Wohnung selbst nicht mehr bewohnt.",
+    "explanation": "Wenn die Hauptmieterin auszieht, darf der Vermieter die Untermiete verbieten."
+  },
+  {
+    "id": "mcq2",
+    "question": "Ein überrissener Mietzins für eine Untermiete liegt vor, wenn er...",
+    "options": [
+      "höher ist als der Mietzins der Hauptmieterin.",
+      "mehr als 30% des Mietzinses für die gesamte Wohnung beträgt.",
+      "niedriger ist als der Mietzins der Hauptmieterin.",
+      "vom Untermieter als zu hoch empfunden wird."
+    ],
+    "correctAnswer": "mehr als 30% des Mietzinses für die gesamte Wohnung beträgt.",
+    "explanation": "Das Bundesgericht definiert einen überrissenen Mietzins als mehr als 30% des Gesamtmietzinses."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Verwaltung darf die Untermiete befristen, wenn sie dies im Mietvertrag festgehalten hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Befristung der Untermiete ist nur aus den drei genannten Gründen zulässig."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Hörerin kann die Mietschlechtungsbehörde kontaktieren, wenn die Verwaltung die Untermiete ungerechtfertigt verweigert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Mietschlechtungsbehörde kann bei Streitigkeiten zwischen Mieter und Vermieter vermitteln."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welches der folgenden Argumente ist KEIN zulässiger Grund für einen Vermieter, die Untermiete zu verbieten?",
+    "options": [
+      "Die Wohnung wäre überbelegt.",
+      "Der Untermieter hat keine Hausratversicherung.",
+      "Die Hauptmieterin zieht aus.",
+      "Es wird ein überhöhter Mietzins verlangt."
+    ],
+    "correctAnswer": "Der Untermieter hat keine Hausratversicherung.",
+    "explanation": "Eine Hausratversicherung ist Sache des Untermieters und kein Grund für ein Verbot der Untermiete."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte die Hörerin der Vermieterin bezüglich der Untermiete mitteilen?",
+    "options": [
+      "Die finanziellen Verhältnisse des Untermieters.",
+      "Den genauen Mietzins und die Mietbedingungen.",
+      "Die persönlichen Daten des Untermieters, einschliesslich AHV-Nummer.",
+      "Die Gründe, warum sie untervermieten möchte."
+    ],
+    "correctAnswer": "Den genauen Mietzins und die Mietbedingungen.",
+    "explanation": "Die Hörerin muss den Mietzins und die Bedingungen der Untermiete offenlegen."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Rechtsexpertin rät der Hörerin, die Befristung der Untermiete zu akzeptieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin rät der Hörerin, die Befristung nicht zu akzeptieren, da sie nicht rechtens ist."
+  },
+  {
+    "id": "tf4",
+    "question": "Ein Verfahren bei der Mietschlechtungsbehörde ist in der Regel kostenlos.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Verfahren bei der Mietschlechtungsbehörde ist in der Regel kostenlos."
+  },
+  {
+    "id": "mcq5",
+    "question": "In welchem Fall darf die Vermieterin die Untermiete verbieten?",
+    "options": [
+      "Wenn der Untermieter jünger als 18 Jahre ist.",
+      "Wenn die Hauptmieterin weiterhin in der Wohnung wohnt.",
+      "Wenn die Wohnung durch die Untermiete überbelegt wäre.",
+      "Wenn der Untermieter keiner geregelten Arbeit nachgeht."
+    ],
+    "correctAnswer": "Wenn die Wohnung durch die Untermiete überbelegt wäre.",
+    "explanation": "Überbelegung ist ein zulässiger Grund für ein Verbot der Untermiete."
+  },
+    {
+    "id": "mcq6",
+    "question": "Wer ist Gabriele Baumgartner im Kontext des Radiobeitrags?",
+    "options": [
+      "Die Hörerin, die untervermieten möchte.",
+      "Die Vermieterin der Wohnung.",
+      "Eine Rechtsexpertin.",
+      "Eine Mitarbeiterin der Mietschlechtungsbehörde."
+    ],
+    "correctAnswer": "Eine Rechtsexpertin.",
+    "explanation": "Gabriele Baumgartner gibt im Radiobeitrag Auskunft zur Rechtslage."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Hauptmieterin darf die Untermiete jederzeit und ohne Angabe von Gründen kündigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Für die Kündigung einer Untermiete gelten die gleichen Regeln wie für die Kündigung eines normalen Mietvertrags."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Radiobeitrag wurde in der Sendung Kassensturz ausgestrahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Beitrag wurde in der Sendung Espresso ausgestrahlt."
+  },
+  {
+    "id": "mcq7",
+    "question": "Wo findet man weitere Informationen zum Thema Untermiete?",
+    "options": [
+      "Auf der Website des Bundesamts für Wohnungswesen.",
+      "Auf srf.ch/espresso.",
+      "Im Schweizerischen Zivilgesetzbuch.",
+      "Auf der Website des Mieterinnen- und Mieterverbands."
+    ],
+    "correctAnswer": "Auf srf.ch/espresso.",
+    "explanation": "Im Radiobeitrag wird auf srf.ch/espresso verwiesen."
+  },
+  {
+    "id": "mcq8",
+    "question": "Was ist die 'Pick at Home' Funktion der Post im Zusammenhang mit der Rücksendung?",
+    "options": [
+      "Die Post holt das Paket an einem vereinbarten Ort ab.",
+      "Die Rücksendung erfolgt über einen Paketshop.",
+      "Das Paket wird direkt an den Online-Händler zurückgeschickt.",
+      "Die Rücksendung erfolgt über eine spezielle Paketbox."
+    ],
+    "correctAnswer": "Die Post holt das Paket an einem vereinbarten Ort ab.",
+    "explanation": "Mit der 'Pick at Home' Funktion holt die Post die Rücksendung ab."
+  }
+]

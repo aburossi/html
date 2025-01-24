@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum klagt die Hörerin über die Hitze in ihrer Wohnung?",
+    "options": [
+      "Die Heizung ist zu stark eingestellt.",
+      "Die Fenster lassen sich nicht öffnen.",
+      "Die Wohnung liegt direkt unter dem Dach und hat Dachfenster.",
+      "Es gibt keine Klimaanlage."
+    ],
+    "correctAnswer": "Die Wohnung liegt direkt unter dem Dach und hat Dachfenster.",
+    "explanation": "Die Hörerin wohnt in einer Dachwohnung mit Dachfenstern, wodurch sich die Wohnung stark aufheizt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was kann die Hörerin vom Vermieter verlangen?",
+    "options": [
+      "Den Einbau einer Klimaanlage.",
+      "Die Montage von Rollläden oder Sonnenschutzfolien.",
+      "Eine Mietzinsreduktion.",
+      "Die Kündigung des Mietvertrags ohne Frist."
+    ],
+    "correctAnswer": "Die Montage von Rollläden oder Sonnenschutzfolien.",
+    "explanation": "Die Hörerin kann Massnahmen verlangen, die die Überhitzung der Wohnung reduzieren, wie z.B. Rollläden oder Sonnenschutzfolien."
+  },
+  {
+    "id": "tf1",
+    "question": "Eine übermässig heisse Wohnung kann unter Umständen als Mietmangel gelten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Wenn die Hitze durch Massnahmen des Vermieters reduziert werden könnte, kann eine überhitzte Wohnung als Mangel gelten."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Vermieter ist immer verpflichtet, eine Klimaanlage einzubauen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es besteht keine generelle Pflicht zur Installation einer Klimaanlage, ausser bei einem Mangel, der die Wohnung übermässig aufheizt."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welches Beispiel wurde im Beitrag für einen Mietmangel im Zusammenhang mit Hitze genannt?",
+    "options": [
+      "Eine Wohnung ohne Balkon.",
+      "Eine Wohnung mit grossen Fenstern nach Süden.",
+      "Eine Wohnung mit fehlenden Storen an den Fenstern.",
+      "Eine Wohnung im obersten Stockwerk."
+    ],
+    "correctAnswer": "Eine Wohnung mit fehlenden Storen an den Fenstern.",
+    "explanation": "Im Beitrag wurde der Fall einer überhitzten Wohnung aufgrund fehlender Storen als Beispiel für einen Mietmangel genannt."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Temperatur wurde im erwähnten Bundesgerichtsentscheid als zu hoch bewertet?",
+    "options": [
+      "20°C",
+      "25°C",
+      "30°C",
+      "35°C"
+    ],
+    "correctAnswer": "25°C",
+    "explanation": "Im Entscheid wurden 25°C bei einer Aussentemperatur von 3°C als zu hoch bewertet."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Hörerin kann den Mietvertrag fristlos kündigen, weil es in ihrer Wohnung zu heiss ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine fristlose Kündigung ist nur in schwerwiegenden Fällen gerechtfertigt. Die Hörerin sollte zuerst den Vermieter kontaktieren und Massnahmen verlangen."
+  },
+    {
+    "id": "tf4",
+    "question": "Lüften und Ventilatoren sind gemäss Beitrag sinnvolle Massnahmen gegen Hitze.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag werden Lüften und Ventilatoren als sinnvolle Massnahmen gegen Hitze in der Wohnung erwähnt."
+  },
+    {
+    "id": "mcq5",
+    "question": "In welchem Kanton wohnt die Hörerin?",
+    "options": [
+      "Zürich",
+      "Bern",
+      "Aargau",
+      "Basel"
+    ],
+    "correctAnswer": "Aargau",
+    "explanation": "Die Hörerin wohnt im Kanton Aargau."
+  },
+    {
+    "id": "mcq6",
+    "question": "Welche Sendung hat den Beitrag ausgestrahlt?",
+    "options": [
+      "Kassensturz",
+      "Espresso",
+      "10vor10",
+      "Tagesschau"
+    ],
+    "correctAnswer": "Espresso",
+    "explanation": "Der Beitrag wurde von der Sendung Espresso ausgestrahlt."
+  },
+    {
+    "id": "tf5",
+    "question": "Im Beitrag wurde erwähnt, dass es eine klare Richtlinie gibt, wie heiss es in einer Wohnung sein darf.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt keine klare Richtlinie, wie heiss es in einer Wohnung sein darf."
+  },
+    {
+    "id": "tf6",
+    "question": "Die Hörerin hat keine Storen an ihren Dachfenstern.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Hörerin erwähnt, dass die Sonne direkt auf die Dachfenster scheint, was impliziert, dass keine Storen vorhanden sind."
+  },
+  {
+    "id": "mcq7",
+    "question": "Wer wurde im Beitrag als Rechtsexpertin befragt?",
+    "options": [
+      "Gabriela Muster",
+      "Gabriela Baumgartner",
+      "Gabriele Meier",
+      "Gabriele Müller"
+    ],
+    "correctAnswer": "Gabriela Baumgartner",
+    "explanation": "Gabriela Baumgartner wurde als Rechtsexpertin befragt."
+  },
+  {
+    "id": "mcq8",
+    "question": "Welches Gericht wurde im Zusammenhang mit einem ähnlichen Fall erwähnt?",
+    "options": [
+      "Kantonsgericht",
+      "Bundesgericht",
+      "Bezirksgericht",
+      "Europäischer Gerichtshof"
+    ],
+    "correctAnswer": "Bundesgericht",
+    "explanation": "Das Bundesgericht wurde im Zusammenhang mit einem ähnlichen Fall erwähnt."
+  }
+]

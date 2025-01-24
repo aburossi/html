@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum wurde Sujata Richard gekündigt?",
+    "options": [
+      "Sie hat im Bewerbungsgespräch einen schlechten Eindruck hinterlassen.",
+      "Der Arbeitgeber behauptete, zu viele Leute eingestellt zu haben.",
+      "Sie hat die Probezeit nicht bestanden.",
+      "Sie hat sich zu oft krankgemeldet."
+    ],
+    "correctAnswer": "Der Arbeitgeber behauptete, zu viele Leute eingestellt zu haben.",
+    "explanation": "Im Beitrag wird erwähnt, dass der Arbeitgeber wirtschaftliche Gründe und zu viele Angestellte als Begründung für die Kündigung angab."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie hat Sujata Richard von ihrer Kündigung erfahren?",
+    "options": [
+      "Per Telefonanruf",
+      "Persönlich vom Chef",
+      "Per E-Mail und eingeschriebenen Brief",
+      "Über ein soziales Netzwerk"
+    ],
+    "correctAnswer": "Per E-Mail und eingeschriebenen Brief",
+    "explanation": "Sujata Richard erhielt die Kündigung zuerst per E-Mail und anschliessend per eingeschriebenen Brief."
+  },
+  {
+    "id": "tf1",
+    "question": "Sujata Richard hatte bereits bei der \"Sonne\" angefangen zu arbeiten, als sie die Kündigung erhielt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sujata Richard erhielt die Kündigung vor ihrem ersten Arbeitstag."
+  },
+  {
+    "id": "tf2",
+    "question": "Das Hotel-Restaurant \"Sonne\" hat Sujata Richard den gesamten geforderten Lohn bezahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die \"Sonne\" zahlte nur einen Teil des geforderten Lohns, nachdem sich Espresso eingeschaltet hatte."
+  },
+  {
+    "id": "mcq3",
+    "question": "An wen wandte sich Sujata Richard, um Hilfe zu erhalten?",
+    "options": [
+      "An die Polizei",
+      "An das RAV und die Frauenzentrale",
+      "An ihre Familie",
+      "An die Gewerkschaft"
+    ],
+    "correctAnswer": "An das RAV und die Frauenzentrale",
+    "explanation": "Sujata Richard suchte Hilfe beim RAV und liess sich in der Frauenzentrale beraten."
+  },
+    {
+    "id": "mcq4",
+    "question": "Was war die Reaktion des Hotel-Restaurant \"Sonne\" auf die Anfrage von Espresso?",
+    "options": [
+      "Sie antworteten sofort und entschuldigten sich.",
+      "Sie verweigerten die Aussage und verwiesen an ihre Anwältin.",
+      "Sie boten Sujata Richard eine andere Stelle an.",
+      "Sie ignorierten die Anfrage."
+    ],
+    "correctAnswer": "Sie verweigerten die Aussage und verwiesen an ihre Anwältin.",
+    "explanation": "Der Chef der \"Sonne\" verweigerte die Aussage und verwies an die Anwältin des Betriebs."
+  },
+    {
+    "id": "tf3",
+    "question": "Sujata Richard hatte einen schriftlichen Arbeitsvertrag mit dem Hotel-Restaurant \"Sonne\".",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sujata Richard hatte einen schriftlichen Arbeitsvertrag, der die Grundlage für ihre Lohnforderung bildete."
+  },
+        {
+    "id": "tf4",
+    "question": "Gemäss Roger Rudolph, Professor für Arbeitsrecht, ist eine Kündigung vor Stellenantritt grundsätzlich nicht möglich.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Kündigung vor Stellenantritt ist möglich, aber es besteht in der Regel Anspruch auf Lohn für die ersten Tage gemäss Kündigungsfrist."
+  },
+        {
+    "id": "mcq5",
+    "question": "Wie lange hat man rechtlich Zeit, eine Klage wegen Lohnforderungen einzureichen?",
+    "options": [
+      "1 Jahr",
+      "3 Jahre",
+      "5 Jahre",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Die Verjährungsfrist für Lohnforderungen beträgt 5 Jahre."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was war der Hauptgrund für Sujata Richards Kündigung?",
+    "options": [
+      "Fehlverhalten",
+      "Unzureichende Qualifikationen",
+      "Wirtschaftliche Gründe des Arbeitgebers",
+      "Persönliche Differenzen mit dem Chef"
+    ],
+    "correctAnswer": "Wirtschaftliche Gründe des Arbeitgebers",
+    "explanation": "Der Arbeitgeber begründete die Kündigung mit wirtschaftlichen Gründen und zu vielen Angestellten."
+  },
+        {
+    "id": "tf5",
+    "question": "Sujata Richard war alleinerziehend und auf das Einkommen aus der neuen Stelle angewiesen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Beitrag wird erwähnt, dass Sujata Richard Mutter von zwei Kindern ist und auf das Geld angewiesen war."
+  },
+        {
+    "id": "tf6",
+    "question": "Der Chef des Restaurants hat sich persönlich bei Espresso zum Fall geäussert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Chef verweigerte die Aussage und verwies an die Anwältin des Betriebs."
+  },
+          {
+    "id": "mcq7",
+    "question": "Welchen Betrag forderte Sujata Richard von ihrem Arbeitgeber?",
+    "options": [
+      "ca. 500 Franken",
+      "ca. 900 Franken",
+      "ca. 1200 Franken",
+      "ca. 1500 Franken"
+    ],
+    "correctAnswer": "ca. 900 Franken",
+    "explanation": "Sujata Richard forderte Lohn für die erste Arbeitswoche, was einem Betrag von rund 900 Franken entsprach."
+  },
+          {
+    "id": "mcq8",
+    "question": "Welchen Betrag bezahlte der Arbeitgeber schliesslich an Sujata Richard?",
+    "options": [
+      "ca. 500 Franken",
+      "ca. 800 Franken",
+      "ca. 900 Franken",
+      "ca. 1000 Franken"
+    ],
+    "correctAnswer": "ca. 800 Franken",
+    "explanation": "Nach der Intervention von Espresso bezahlte der Arbeitgeber 800 Franken."
+  }
+]

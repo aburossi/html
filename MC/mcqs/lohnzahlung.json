@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was war das Problem des Hörers, der sich bei Espresso gemeldet hat?",
+    "options": [
+      "Er hat seinen Lohn zu spät erhalten.",
+      "Sein Lohn wurde nicht korrekt berechnet.",
+      "Er hat trotz erhöhtem Pensum den alten Lohn erhalten.",
+      "Sein Arbeitgeber hat ihm gekündigt."
+    ],
+    "correctAnswer": "Er hat trotz erhöhtem Pensum den alten Lohn erhalten.",
+    "explanation": "Der Hörer hatte sein Pensum erhöht, erhielt aber nicht den entsprechenden Lohn."
+  },
+  {
+    "id": "mcq2",
+    "question": "Bis wann muss der Lohn in der Schweiz gemäss Gesetz auf dem Konto des Arbeitnehmers sein?",
+    "options": [
+      "Bis Mitte des Monats",
+      "Bis Ende des Monats",
+      "Bis zur Mitte des Folgemonats",
+      "Es gibt keine gesetzliche Frist."
+    ],
+    "correctAnswer": "Bis Ende des Monats",
+    "explanation": "Der Lohn muss bis zum letzten Tag des Monats überwiesen sein, ausser es wurde etwas anderes vereinbart."
+  },
+  {
+    "id": "tf1",
+    "question": "Wenn ein Arbeitnehmer dreimal hintereinander einen zu tiefen Lohn akzeptiert, ohne zu protestieren, hat er rechtlich gesehen den tieferen Lohn akzeptiert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Durch die dreimalige Annahme ohne Protest gilt der tiefere Lohn als akzeptiert."
+  },
+  {
+    "id": "tf2",
+    "question": "Ein Arbeitnehmer darf die Arbeit einstellen, wenn der Arbeitgeber den Lohn nicht zahlt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Arbeitnehmer hat das Recht, die Arbeit einzustellen, bis er seinen Lohn erhält."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist der erste Schritt, den ein Arbeitnehmer unternehmen sollte, wenn der Lohn nicht stimmt?",
+    "options": [
+      "Den Arbeitgeber betreiben.",
+      "Die Arbeit einstellen.",
+      "Mit dem Chef sprechen.",
+      "Eine Beschwerde bei der Gewerkschaft einreichen."
+    ],
+    "correctAnswer": "Mit dem Chef sprechen.",
+    "explanation": "Ein Gespräch mit dem Arbeitgeber ist der erste Schritt, um die Situation zu klären."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Art von Beweis ist im Falle eines Lohnstreits besonders wichtig?",
+    "options": [
+      "Mündliche Vereinbarungen",
+      "E-Mails",
+      "Schriftliche Mahnungen",
+      "Zeugnisse von Kollegen"
+    ],
+    "correctAnswer": "Schriftliche Mahnungen",
+    "explanation": "Schriftliche Mahnungen dienen als Beweismittel im Falle eines Lohnstreits."
+  },
+  {
+    "id": "tf3",
+    "question": "Der Arbeitgeber darf den Lohn auch im Folgemonat auszahlen, wenn er dies dem Arbeitnehmer vorher ankündigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Lohn muss bis Ende des Monats gezahlt werden, ausser es wurde etwas anderes vereinbart."
+  },
+    {
+    "id": "tf4",
+    "question": "Im Beitrag von Espresso wurde der Fall des Hörers positiv gelöst.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Arbeitgeber hat sich entschuldigt und die Lohnzahlung korrigiert."
+  },
+      {
+    "id": "mcq5",
+    "question": "Wie hat der Arbeitgeber im Beitrag von Espresso auf die Beschwerde des Hörers reagiert?",
+    "options": [
+      "Er hat die Beschwerde ignoriert.",
+      "Er hat den Hörer entlassen.",
+      "Er hat sich entschuldigt und den Lohn korrigiert.",
+      "Er hat den Hörer verklagt."
+    ],
+    "correctAnswer": "Er hat sich entschuldigt und den Lohn korrigiert.",
+    "explanation": "Nach dem Gespräch mit dem Hörer hat der Arbeitgeber seinen Fehler eingesehen."
+  },
+        {
+    "id": "mcq6",
+    "question": "Welchen Tipp gibt die Rechtsexpertin im Beitrag von Espresso?",
+    "options": [
+      "Man sollte immer sofort einen Anwalt einschalten.",
+      "Man sollte den Arbeitgeber sofort betreiben.",
+      "Man sollte zuerst das Gespräch mit dem Arbeitgeber suchen.",
+      "Man sollte die Arbeit sofort einstellen."
+    ],
+    "correctAnswer": "Man sollte zuerst das Gespräch mit dem Arbeitgeber suchen.",
+    "explanation": "Ein Gespräch ist der erste Schritt, um die Situation zu klären."
+  },
+          {
+    "id": "tf5",
+    "question": "Eine Lohnforderung sollte man immer schriftlich stellen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine schriftliche Forderung dient als Beweismittel."
+  },
+            {
+    "id": "tf6",
+    "question": "Der Beitrag von Espresso befasste sich mit dem Thema Arbeitsrecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag behandelte die Rechte und Pflichten bei der Lohnzahlung."
+  },
+              {
+    "id": "mcq7",
+    "question": "Wo findet man weitere Informationen zum Thema Lohnzahlung auf SRF?",
+    "options": [
+      "Im Kassensturz-Archiv",
+      "Auf der Espresso-Webseite",
+      "In der Tagesschau-App",
+      "Im Meteo-Newsletter"
+    ],
+    "correctAnswer": "Auf der Espresso-Webseite",
+    "explanation": "Espresso bietet online weitere Tipps zum Thema Lohnzahlung."
+  },
+                {
+    "id": "mcq8",
+    "question": "In welchem Fall ist es besonders wichtig, den Lohn schriftlich einzufordern?",
+    "options": [
+      "Wenn der Lohn zu früh kommt.",
+      "Wenn der Lohn korrekt ist.",
+      "Wenn der Lohn über einen längeren Zeitraum zu tief ist.",
+      "Wenn der Lohn bar ausbezahlt wird."
+    ],
+    "correctAnswer": "Wenn der Lohn über einen längeren Zeitraum zu tief ist.",
+    "explanation": "Eine schriftliche Forderung dient als Beweismittel, besonders bei längerfristigen Problemen."
+  }
+]

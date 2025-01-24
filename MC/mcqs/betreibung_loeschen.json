@@ -1,0 +1,159 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist der erste Schritt im Betreibungsprozess?",
+    "options": [
+      "Der Gläubiger schickt eine Betreibung.",
+      "Der Gläubiger schickt eine Mahnung.",
+      "Der Gläubiger geht zum Betreibungsamt.",
+      "Der Gläubiger pfändet den Lohn des Schuldners."
+    ],
+    "correctAnswer": "Der Gläubiger schickt eine Mahnung.",
+    "explanation": "Vor einer Betreibung muss der Gläubiger mindestens eine Mahnung schicken."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Behörde ist für Betreibungen zuständig?",
+    "options": [
+      "Die Polizei",
+      "Das Gericht",
+      "Das Betreibungsamt",
+      "Die Gemeinde"
+    ],
+    "correctAnswer": "Das Betreibungsamt",
+    "explanation": "Das Betreibungsamt ist die zuständige Behörde für Betreibungen."
+  },
+  {
+    "id": "tf1",
+    "question": "Eine Betreibung kann die Kreditwürdigkeit beeinträchtigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine Betreibung hat negative Auswirkungen auf die Kreditwürdigkeit."
+  },
+  {
+    "id": "tf2",
+    "question": "Man kann eine Betreibung löschen lassen, ohne die Schulden zu bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Zur Löschung einer Betreibung müssen die Schulden und die Betreibungskosten beglichen werden."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was sollte man tun, wenn man eine Betreibung erhält?",
+    "options": [
+      "Die Betreibung ignorieren.",
+      "Sich beim Gläubiger melden und die Forderung prüfen.",
+      "Sich verstecken.",
+      "Sofort einen Anwalt einschalten."
+    ],
+    "correctAnswer": "Sich beim Gläubiger melden und die Forderung prüfen.",
+    "explanation": "Es ist wichtig, die Forderung zu prüfen und mit dem Gläubiger Kontakt aufzunehmen."
+  },
+    {
+    "id": "mcq4",
+    "question": "Welcher Faktor beeinflusst die Kosten einer Betreibungslöschung?",
+    "options": [
+      "Die Haarfarbe des Schuldners",
+      "Die Höhe der Forderung",
+      "Das Wetter",
+      "Der Wochentag"
+    ],
+    "correctAnswer": "Die Höhe der Forderung",
+    "explanation": "Die Kosten der Betreibungslöschung sind abhängig von der Höhe der ursprünglichen Forderung."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Experte im Beitrag rät, bei einer Betreibung sofort in Panik zu geraten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Experte rät, Ruhe zu bewahren und die Situation zu analysieren."
+  },
+    {
+    "id": "tf4",
+    "question": "Eine Betreibung kann zu Lohnpfändung führen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Im Extremfall kann eine Betreibung zu Lohnpfändung führen."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was ist KEINE Folge einer Betreibung?",
+    "options": [
+      "Schwierigkeiten bei der Wohnungssuche",
+      "Einschränkung der Kreditwürdigkeit",
+      "Gewinn im Lotto",
+      "Kontosperrung"
+    ],
+    "correctAnswer": "Gewinn im Lotto",
+    "explanation": "Ein Lottogewinn hat nichts mit den Folgen einer Betreibung zu tun."
+  },
+        {
+    "id": "mcq6",
+    "question": "Wie kann man eine Betreibung verhindern?",
+    "options": [
+      "Rechnungen ignorieren",
+      "Rechnungen rechtzeitig bezahlen",
+      "Sich beim Betreibungsamt anmelden",
+      "Ins Ausland flüchten"
+    ],
+    "correctAnswer": "Rechnungen rechtzeitig bezahlen",
+    "explanation": "Rechtzeitiges Bezahlen von Rechnungen verhindert Betreibungen."
+  },
+        {
+    "id": "tf5",
+    "question": "Das Betreibungsamt ist eine private Organisation.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Betreibungsamt ist eine staatliche Behörde."
+  },
+        {
+    "id": "tf6",
+    "question": "Man sollte den Empfang einer Betreibung immer sofort bestätigen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Man sollte den Empfang nicht bestätigen bevor man die Forderung geprüft hat."
+  },
+          {
+    "id": "mcq7",
+    "question": "Was ist ein Zahlungsbefehl?",
+    "options": [
+      "Eine Grusskarte",
+      "Eine Rechnung",
+      "Ein offizielles Schreiben des Betreibungsamtes",
+      "Ein Mahnung"
+    ],
+    "correctAnswer": "Ein offizielles Schreiben des Betreibungsamtes",
+    "explanation": "Ein Zahlungsbefehl ist ein offizielles Schreiben, das den Schuldner zur Zahlung auffordert."
+  },
+          {
+    "id": "mcq8",
+    "question": "Wo kann man sich bei finanziellen Schwierigkeiten Hilfe suchen?",
+    "options": [
+      "Bei der Polizei",
+      "Bei einer Schuldnerberatung",
+      "Im Casino",
+      "Bei einem Wahrsager"
+    ],
+    "correctAnswer": "Bei einer Schuldnerberatung",
+    "explanation": "Eine Schuldnerberatung bietet professionelle Hilfe bei finanziellen Problemen."
+  }
+
+]

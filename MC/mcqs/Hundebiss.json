@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer haftet gemäss Beitrag, wenn ein freilaufender Hund eine angeleinte Katze beisst?",
+    "options": [
+      "Die Katzenhalterin",
+      "Die Hundebesitzerin",
+      "Beide Halterinnen zu gleichen Teilen",
+      "Niemand"
+    ],
+    "correctAnswer": "Die Hundebesitzerin",
+    "explanation": "Die Halterin des freilaufenden Hundes haftet, da sie ihre Aufsichtspflicht verletzt hat."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist gemäss Beitrag die rechtliche Grundlage der Tierhalterhaftung?",
+    "options": [
+      "Das Tierhaltergesetz",
+      "Das Tierschutzgesetz",
+      "Das Obligationenrecht",
+      "Das Strafgesetzbuch"
+    ],
+    "correctAnswer": "Das Obligationenrecht",
+    "explanation": "Die Tierhalterhaftung ist im Obligationenrecht geregelt."
+  },
+  {
+    "id": "tf1",
+    "question": "Es spielt keine Rolle, ob Leinenpflicht besteht oder nicht, die Halterin des freilaufenden Hundes haftet immer.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Auch ohne Leinenpflicht gilt die Aufsichtspflicht. Ein freilaufender Hund gilt als nicht beaufsichtigt."
+  },
+  {
+    "id": "tf2",
+    "question": "Wenn die Katze den Hund verletzt, haftet die Katzenhalterin.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hundebesitzerin haftet, da ihr Hund die angeleinte Katze angegriffen hat und nicht beaufsichtigt war."
+  },
+    {
+    "id": "mcq3",
+    "question": "In welcher Stadt lebt die Hörerin, die die Frage gestellt hat?",
+    "options": [
+      "Zürich",
+      "Bern",
+      "Basel",
+      "Genf"
+    ],
+    "correctAnswer": "Zürich",
+    "explanation": "Die Hörerin kommt aus Zürich, wie im Beitrag erwähnt."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Tier sah die Hörerin zuerst?",
+    "options": [
+      "Einen Hund",
+      "Eine Katze",
+      "Ein Bärchen",
+      "Ein Frettchen"
+    ],
+    "correctAnswer": "Ein Bärchen",
+    "explanation": "Die Hörerin dachte zuerst, sie sehe ein Bärchen."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Hörerin hatte ihren Hund an der Leine.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hund der Hörerin war nicht an der Leine."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Katze war an der Leine.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Katze war an der Leine."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was für eine Leine hatte die Katze?",
+    "options": [
+      "Eine Flexileine",
+      "Eine feste Leine",
+      "Eine Schleppleine",
+      "Eine Kette"
+    ],
+    "correctAnswer": "Eine Flexileine",
+    "explanation": "Die Katze war an einer Flexileine."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wo hat der Reporter die User nach ihrer Meinung gefragt?",
+    "options": [
+      "Instagram",
+      "Facebook",
+      "Twitter",
+      "TikTok"
+    ],
+    "correctAnswer": "Facebook",
+    "explanation": "Der Reporter hat auf Facebook einen Aufruf gestartet."
+  },
+  {
+    "id": "tf5",
+    "question": "Alle User waren der Meinung, dass die Hundehalterin haften würde.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Nicht alle User waren dieser Meinung."
+  },
+  {
+    "id": "tf6",
+    "question": "Gabriela Baumgartner ist Rechtsexpertin.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Gabriela Baumgartner ist Rechtsexpertin."
+  },
+          {
+    "id": "mcq7",
+    "question": "Was sollte man gemäss Tierschutzorganisation Vier Pfoten verwenden, um eine Katze an der Leine zu führen?",
+    "options": [
+      "Eine Halsbande",
+      "Ein Geschirr",
+      "Eine Flexileine",
+      "Eine Kette"
+    ],
+    "correctAnswer": "Ein Geschirr",
+    "explanation": "Man sollte ein Geschirr verwenden."
+  },
+    {
+    "id": "mcq8",
+    "question": "Was ist ein Synonym für «behaupten»?",
+    "options": [
+      "bestätigen",
+      "beweisen",
+      "beteuern",
+      "begründen"
+    ],
+    "correctAnswer": "beteuern",
+    "explanation": "Behaupten bedeutet, etwas als Tatsache darzustellen, ohne es unbedingt beweisen zu können. Beteuern ist ein passendes Synonym."
+  }
+]

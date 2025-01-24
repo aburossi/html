@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was war der Auslöser für den Rechtsstreit um die Überwachungskameras?",
+    "options": [
+      "Lärmbelästigung durch die Kameras",
+      "Die Kosten für die Installation der Kameras",
+      "Verletzung der Privatsphäre eines Mieters",
+      "Unstimmigkeiten über die Anzahl der Kameras"
+    ],
+    "correctAnswer": "Verletzung der Privatsphäre eines Mieters",
+    "explanation": "Ein Mieter fühlte sich durch die Positionierung einer Kamera, die seinen Wohnungseingang filmte, in seiner Privatsphäre verletzt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welches Gericht fällte das endgültige Urteil in diesem Fall?",
+    "options": [
+      "Das Bezirksgericht",
+      "Das Obergericht",
+      "Das Bundesgericht",
+      "Das Europäische Gerichtshof für Menschenrechte"
+    ],
+    "correctAnswer": "Das Bundesgericht",
+    "explanation": "Der Fall ging durch mehrere Instanzen und wurde schliesslich vom Bundesgericht entschieden."
+  },
+  {
+    "id": "tf1",
+    "question": "Das Bundesgericht entschied, dass alle Überwachungskameras entfernt werden müssen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Bundesgericht entschied, dass nur die Kamera, die den Wohnungseingang des klagenden Mieters filmte, entfernt werden muss. Die übrigen Kameras wurden als zulässig erachtet."
+  },
+  {
+    "id": "tf2",
+    "question": "Eine Schlichtungsstelle kann ein rechtskräftiges Urteil fällen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine Schlichtungsstelle versucht, eine gütliche Einigung zwischen den Streitparteien zu vermitteln. Sie fällt kein Urteil."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welches Problem hatte der Mieter mit den Überwachungskameras?",
+    "options": [
+      "Sie waren zu laut.",
+      "Sie waren zu teuer.",
+      "Sie filmten seinen Wohnungseingang.",
+      "Sie waren nicht ausreichend gesichert."
+    ],
+    "correctAnswer": "Sie filmten seinen Wohnungseingang.",
+    "explanation": "Der Mieter fühlte sich durch die Kamera, die seinen Wohnungseingang filmte, in seiner Privatsphäre gestört."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was war das Hauptargument der Vermieterin für die Installation der Kameras?",
+    "options": [
+      "Abschreckung von Einbrechern",
+      "Überwachung der Mieter",
+      "Kosteneinsparungen",
+      "Verbesserung der Energieeffizienz"
+    ],
+    "correctAnswer": "Abschreckung von Einbrechern",
+    "explanation": "Die Vermieterin argumentierte, dass die Kameras dazu dienen, Einbrüche zu verhindern, da es in der Vergangenheit wiederholt zu solchen Vorfällen gekommen war."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Mieter gewann den Prozess vor allen Gerichtsinstanzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Mieter gewann zwar vor dem Bundesgericht, aber nicht unbedingt vor den vorherigen Instanzen (Schlichtungsstelle und Mietgericht)."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Kosten eines Gerichtsverfahrens müssen immer von der Partei getragen werden, die den Prozess verliert.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Partei, die den Prozess verliert, muss in der Regel die Gerichtskosten und die Anwaltskosten beider Parteien tragen."
+  },
+    {
+    "id": "mcq5",
+    "question": "Wozu dient eine Schlichtungsstelle?",
+    "options": [
+      "Ein rechtskräftiges Urteil fällen",
+      "Eine gütliche Einigung zwischen den Parteien vermitteln",
+      "Beweise im Streitfall sammeln",
+      "Die Polizei bei Ermittlungen unterstützen"
+    ],
+    "correctAnswer": "Eine gütliche Einigung zwischen den Parteien vermitteln",
+    "explanation": "Die Schlichtungsstelle versucht, eine aussergerichtliche Einigung zu erzielen, um ein Gerichtsverfahren zu vermeiden."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welche Aussage trifft auf die Kosten eines Gerichtsverfahrens zu?",
+    "options": [
+      "Sie sind immer gleich hoch.",
+      "Sie werden von der Schlichtungsstelle übernommen.",
+      "Sie können sehr hoch sein, besonders bei komplexen Fällen.",
+      "Sie müssen nur von der Partei bezahlt werden, die den Prozess gewinnt."
+    ],
+    "correctAnswer": "Sie können sehr hoch sein, besonders bei komplexen Fällen.",
+    "explanation": "Die Kosten eines Gerichtsverfahrens hängen von verschiedenen Faktoren ab, wie der Dauer des Verfahrens und der Komplexität des Falls."
+  },
+    {
+    "id": "tf5",
+    "question": "Der Mieter war mit der Installation aller Überwachungskameras einverstanden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Mieter war nur mit der Positionierung der Kamera, die seinen Wohnungseingang filmte, nicht einverstanden."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Vermieterin argumentierte, dass die Kameras die Sicherheit der Mieter erhöhen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Vermieterin begründete die Installation der Kameras mit der Notwendigkeit, die Sicherheit der Mieter zu gewährleisten und Einbrüche zu verhindern."
+  },
+    {
+    "id": "mcq7",
+    "question": "Was war die Folge des Urteils des Bundesgerichts?",
+    "options": [
+      "Alle Kameras mussten entfernt werden.",
+      "Nur die Kamera, die den Wohnungseingang filmte, musste entfernt werden.",
+      "Dem Mieter wurde eine Entschädigung zugesprochen.",
+      "Die Vermieterin musste die Kosten des Verfahrens nicht tragen."
+    ],
+    "correctAnswer": "Nur die Kamera, die den Wohnungseingang filmte, musste entfernt werden.",
+    "explanation": "Das Bundesgericht entschied, dass nur die eine Kamera entfernt werden muss, die die Privatsphäre des Mieters verletzte."
+  },
+  {
+    "id": "mcq8",
+    "question": "Welche Aussage zum Ablauf des Rechtsstreits ist korrekt?",
+    "options": [
+      "Der Fall wurde direkt vor dem Bundesgericht verhandelt.",
+      "Der Fall ging zuerst vor die Schlichtungsstelle, dann vor das Mietgericht und schliesslich vor das Bundesgericht.",
+      "Der Fall wurde nur vor der Schlichtungsstelle verhandelt.",
+      "Der Fall ging zuerst vor das Obergericht und dann vor das Bundesgericht."
+    ],
+    "correctAnswer": "Der Fall ging zuerst vor die Schlichtungsstelle, dann vor das Mietgericht und schliesslich vor das Bundesgericht.",
+    "explanation": "Der Rechtsstreit durchlief mehrere Instanzen, beginnend mit der Schlichtungsstelle."
+  }
+]

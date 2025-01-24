@@ -1,0 +1,98 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was macht mündliche Verträge rechtlich bindend?",
+    "options": [
+      "Die Zustimmung beider Parteien und eine Leistungserbringung.",
+      "Nur schriftliche Unterlagen.",
+      "Ein Zeuge, der die Vereinbarung belegt.",
+      "Das Gesetz für Haustürgeschäfte."
+    ],
+    "correctAnswer": "Die Zustimmung beider Parteien und eine Leistungserbringung.",
+    "explanation": "Mündliche Verträge sind verbindlich, wenn beide Parteien eine Übereinkunft und eine Leistung erbracht haben."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wann gilt das Widerrufsrecht?",
+    "options": [
+      "Bei Haustürgeschäften oder ähnlichen Situationen.",
+      "Bei allen mündlichen Verträgen.",
+      "Nur bei Verkäufen von teuren Waren.",
+      "Wenn der Käufer unzufrieden ist."
+    ],
+    "correctAnswer": "Bei Haustürgeschäften oder ähnlichen Situationen.",
+    "explanation": "Das Widerrufsrecht gilt nur bei spezifischen Vertragssituationen wie Haustürgeschäften."
+  },
+  {
+    "id": "mcq3",
+    "question": "Warum lohnt sich ein schriftlicher Vertrag beim Autoverkauf?",
+    "options": [
+      "Er verhindert Missverständnisse und Konflikte.",
+      "Er ist rechtlich vorgeschrieben.",
+      "Ohne Vertrag gibt es keine Garantie.",
+      "Er erhöht den Verkaufspreis."
+    ],
+    "correctAnswer": "Er verhindert Missverständnisse und Konflikte.",
+    "explanation": "Ein schriftlicher Vertrag klärt Bedingungen eindeutig und beugt Missverständnissen vor."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welche Regelung gilt, wenn keine Garantie ausgeschlossen wurde?",
+    "options": [
+      "Der Käufer hat ein Jahr Garantie auf die Ware.",
+      "Die Garantie entfällt automatisch.",
+      "Der Verkäufer muss eine lebenslange Garantie geben.",
+      "Es gibt keine gesetzliche Regelung."
+    ],
+    "correctAnswer": "Der Käufer hat ein Jahr Garantie auf die Ware.",
+    "explanation": "Wenn keine Garantie ausgeschlossen wird, gilt gesetzlich eine einjährige Garantie."
+  },
+  {
+    "id": "mcq5",
+    "question": "Warum ist das Widerrufsrecht für die Hörerin des Beitrags nicht anwendbar?",
+    "options": [
+      "Weil sie als Verkäuferin agiert.",
+      "Weil das Auto ein teures Gut ist.",
+      "Weil der Vertrag schriftlich war.",
+      "Weil die Tochter das Auto beansprucht hat."
+    ],
+    "correctAnswer": "Weil sie als Verkäuferin agiert.",
+    "explanation": "Das Widerrufsrecht gilt nur für Konsumenten, nicht für Verkäufer."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welche Option hat die Verkäuferin, um das Problem zu lösen?",
+    "options": [
+      "Sie kann mit dem Käufer verhandeln.",
+      "Sie kann den Vertrag einseitig widerrufen.",
+      "Sie kann die Polizei einschalten.",
+      "Sie hat keine Optionen."
+    ],
+    "correctAnswer": "Sie kann mit dem Käufer verhandeln.",
+    "explanation": "Die Verkäuferin kann versuchen, eine Einigung durch Verhandlungen zu erzielen."
+  },
+  {
+    "id": "mcq7",
+    "question": "Was passiert, wenn ein schriftlicher Vertrag fehlt?",
+    "options": [
+      "Das Gesetz tritt automatisch in Kraft.",
+      "Der Vertrag ist ungültig.",
+      "Die Garantie entfällt.",
+      "Der Käufer kann den Vertrag widerrufen."
+    ],
+    "correctAnswer": "Das Gesetz tritt automatisch in Kraft.",
+    "explanation": "Ohne schriftlichen Vertrag gelten die gesetzlichen Regelungen."
+  },
+  {
+    "id": "mcq8",
+    "question": "Warum empfiehlt Gabriela Baumgartner schriftliche Verträge?",
+    "options": [
+      "Weil sie rechtlich vorgeschrieben sind.",
+      "Weil sie das Vertrauen stärken.",
+      "Weil sie Garantien und Bedingungen klar regeln.",
+      "Weil sie günstiger sind."
+    ],
+    "correctAnswer": "Weil sie Garantien und Bedingungen klar regeln.",
+    "explanation": "Schriftliche Verträge schaffen Klarheit und helfen, Konflikte zu vermeiden."
+  }
+]

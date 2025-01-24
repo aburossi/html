@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist das Problem in der Wohnung der Hörerin?",
+    "options": [
+      "Schimmelbefall im Badezimmer",
+      "Undichte Dusche",
+      "Feuchte Wand im Schlafzimmer",
+      "Defekte Bodenheizung"
+    ],
+    "correctAnswer": "Feuchte Wand im Schlafzimmer",
+    "explanation": "Die Hörerin beklagt sich über eine feuchte Wand im Schlafzimmer ihres Sohnes."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange besteht das Problem bereits?",
+    "options": [
+      "Seit 6 Monaten",
+      "Seit 1 Jahr",
+      "Seit 1.5 Jahren",
+      "Seit 2 Jahren"
+    ],
+    "correctAnswer": "Seit 1.5 Jahren",
+    "explanation": "Im Beitrag wird erwähnt, dass die Familie seit 1.5 Jahren mit der feuchten Wand lebt."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Verwaltung hat die Ursache des Wasserschadens gefunden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Trotz Suche konnten die Handwerker die Ursache des Wasserschadens nicht finden."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Mieterin kann die Miete selbstständig reduzieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine eigenmächtige Mietzinsreduktion ist ein Kündigungsgrund. Die Mieterin muss die Reduktion schriftlich verlangen und mit der Schlichtungsbehörde abklären."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was sollte die Mieterin als erstes tun?",
+    "options": [
+      "Die Miete reduzieren",
+      "Ausziehen",
+      "Die Verwaltung schriftlich kontaktieren",
+      "Einen Anwalt beauftragen"
+    ],
+    "correctAnswer": "Die Verwaltung schriftlich kontaktieren",
+    "explanation": "Die Rechtsexpertin empfiehlt, die Verwaltung schriftlich mit eingeschriebenem Brief zu kontaktieren und eine Frist zu setzen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welches Druckmittel kann die Mieterin einsetzen?",
+    "options": [
+      "Mietstreik",
+      "Anzeige bei der Polizei",
+      "Mietzinshinterlegung bei der Schlichtungsbehörde",
+      "Öffentliche Beschwerde"
+    ],
+    "correctAnswer": "Mietzinshinterlegung bei der Schlichtungsbehörde",
+    "explanation": "Die Androhung einer Mietzinshinterlegung kann die Vermieterschaft dazu bewegen, den Mangel schneller zu beheben."
+  },
+  {
+    "id": "tf3",
+    "question": "Das Schlichtungsverfahren ist kostenlos.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Schlichtungsbehörde bietet ein kostenloses Schlichtungsverfahren an."
+  },
+  {
+    "id": "tf4",
+    "question": "Die Mieterin hat Anspruch auf Schadenersatz für die Reinigung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Da die Mieterin selbst geputzt hat und keine weiteren Schäden entstanden sind, hat sie keinen Anspruch auf Schadenersatz."
+  },
+    {
+    "id": "mcq5",
+    "question": "Wo findet man weitere Informationen zu Mietrechten?",
+    "options": [
+      "Auf der Website des Mieterverbandes",
+      "Im Mietvertrag",
+      "Bei der Polizei",
+      "Beim Einwohnermeldeamt"
+    ],
+    "correctAnswer": "Auf der Website des Mieterverbandes",
+    "explanation": "Der Beitrag verweist auf die Website des Mieterverbandes für weitere Informationen."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welcher Mangel wird im Beitrag besprochen?",
+    "options": [
+      "Lärmbelästigung",
+      "Wasserschaden",
+      "Schimmelbefall",
+      "Defekte Heizung"
+    ],
+    "correctAnswer": "Wasserschaden",
+    "explanation": "Der Beitrag thematisiert einen Wasserschaden in einer Mietwohnung."
+  },
+  {
+    "id": "tf5",
+    "question": "Die Mieterin muss die entstandenen Kosten für die Reparatur selbst tragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Kosten für die Reparatur des Wasserschadens muss der Vermieter tragen."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Rechtsexpertin rät der Mieterin, einen Anwalt zu kontaktieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Rechtsexpertin rät zunächst zu einem schriftlichen Kontakt mit der Verwaltung und einem Schlichtungsverfahren."
+  },
+    {
+    "id": "mcq7",
+    "question": "In welchem Raum befindet sich der Wasserschaden?",
+    "options": [
+      "Küche",
+      "Wohnzimmer",
+      "Schlafzimmer",
+      "Badezimmer"
+    ],
+    "correctAnswer": "Schlafzimmer",
+    "explanation": "Der Wasserschaden befindet sich im Schlafzimmer des Sohnes der Hörerin."
+  },
+  {
+    "id": "mcq8",
+    "question": "Wer hat die Rechtsfrage beantwortet?",
+    "options": [
+      "Stefan Wüthrich",
+      "Raffaella Reichlin",
+      "Die Hörerin selbst",
+      "Ein Handwerker"
+    ],
+    "correctAnswer": "Raffaella Reichlin",
+    "explanation": "Die Rechtsexpertin Raffaella Reichlin beantwortet die Rechtsfrage der Hörerin."
+  }
+]

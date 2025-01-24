@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum hat der Espressohörer seine Reise annulliert?",
+    "options": [
+      "Er hat seinen Job verloren.",
+      "Er ist krank geworden.",
+      "Er hat sich von seiner Partnerin getrennt.",
+      "Er hat ein besseres Angebot gefunden."
+    ],
+    "correctAnswer": "Er hat sich von seiner Partnerin getrennt.",
+    "explanation": "Der Hörer hat die Reise aufgrund seiner Trennung annulliert."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was hat der Reiseveranstalter nach der Annullierung verlangt?",
+    "options": [
+      "Die Hälfte der Reisekosten.",
+      "Eine kleine Bearbeitungsgebühr.",
+      "Die vollen Reisekosten.",
+      "Gar nichts."
+    ],
+    "correctAnswer": "Die vollen Reisekosten.",
+    "explanation": "Der Reiseveranstalter hat zunächst die vollen Kosten der Reise verlangt."
+  },
+  {
+    "id": "tf1",
+    "question": "Gemäss Pauschalreisegesetz ist es möglich, eine Reise auf eine andere Person zu übertragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Pauschalreisegesetz erlaubt die Übertragung einer Reise."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Reiseveranstalter darf eine hohe Gebühr für die Umschreibung einer Reise verlangen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Reiseveranstalter darf nur eine kleine Gebühr unter 100 Franken verlangen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welche Kosten musste der Hörer nach der Intervention von Espresso schlussendlich tragen?",
+    "options": [
+      "Die vollen Reisekosten.",
+      "Nur die Flugkosten.",
+      "Nur die Hotelkosten.",
+      "Gar keine Kosten."
+    ],
+    "correctAnswer": "Nur die Flugkosten.",
+    "explanation": "Nach der Intervention von Espresso musste der Hörer nur noch die Flugkosten tragen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was wäre dem Hörer im Vorfeld geraten worden?",
+    "options": [
+      "Sich über die AGB zu informieren.",
+      "Die Reise sofort zu annullieren.",
+      "Sich über die Möglichkeit der Reiseübertragung zu informieren.",
+      "Den Reiseveranstalter nicht zu kontaktieren."
+    ],
+    "correctAnswer": "Sich über die Möglichkeit der Reiseübertragung zu informieren.",
+    "explanation": "Dem Hörer wäre geraten worden, sich über die Möglichkeit der Reiseübertragung zu informieren, bevor er die Reise annulliert."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Reiseveranstalter hat sich korrekt verhalten, indem er die AGB angewendet hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Reiseveranstalter hat sich nicht korrekt verhalten, da er den Kunden nicht auf seine Rechte hingewiesen hat."
+  },
+    {
+    "id": "tf4",
+    "question": "Die Sendung Espresso hat im Fall des Hörers keine Rolle gespielt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Sendung Espresso hat im Fall des Hörers eine entscheidende Rolle gespielt, indem sie interveniert und den Reiseveranstalter zum Einlenken bewegt hat."
+  },
+    {
+    "id": "mcq5",
+    "question": "Welches Gesetz regelt die Rechte und Pflichten bei Pauschalreisen?",
+    "options": [
+      "Das Konsumkreditgesetz.",
+      "Das Obligationenrecht.",
+      "Das Pauschalreisegesetz.",
+      "Das Mietrecht."
+    ],
+    "correctAnswer": "Das Pauschalreisegesetz.",
+    "explanation": "Das Pauschalreisegesetz regelt die Rechte und Pflichten bei Pauschalreisen."
+  },
+    {
+    "id": "mcq6",
+    "question": "Was ist eine Pauschalreise?",
+    "options": [
+      "Eine Reise, die nur den Flug beinhaltet.",
+      "Eine Reise, die nur die Unterkunft beinhaltet.",
+      "Eine Reise, die Flug und Unterkunft kombiniert.",
+      "Eine Reise, die individuell zusammengestellt wird."
+    ],
+    "correctAnswer": "Eine Reise, die Flug und Unterkunft kombiniert.",
+    "explanation": "Eine Pauschalreise kombiniert in der Regel mindestens zwei Reiseleistungen, wie z.B. Flug und Unterkunft."
+  },
+        {
+    "id": "tf5",
+    "question": "AGB können zwingende gesetzliche Bestimmungen ausser Kraft setzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "AGB können zwingende gesetzliche Bestimmungen nicht ausser Kraft setzen."
+  },
+        {
+    "id": "tf6",
+    "question": "Der Hörer hat die Reise direkt beim Reiseveranstalter gebucht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Hörer hat die Reise direkt beim Reiseveranstalter gebucht."
+  },
+          {
+    "id": "tf7",
+    "question": "Der Hörer hat versucht, die Reise auf eine andere Person umzuschreiben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hörer hat die Reise annulliert, anstatt zu versuchen, sie umzuschreiben."
+  },
+          {
+    "id": "tf8",
+    "question": "Der Fall des Hörers zeigt, wie wichtig die richtige Kommunikation mit dem Reiseveranstalter ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Fall zeigt, dass die richtige Wortwahl und die Kommunikation mit dem Reiseveranstalter entscheidend sein können."
+  }
+]

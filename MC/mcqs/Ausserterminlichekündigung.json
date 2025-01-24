@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wann hat die Mieterin gekündigt?",
+    "options": [
+      "Im Frühling",
+      "Im Sommer",
+      "Im Herbst",
+      "Im Winter"
+    ],
+    "correctAnswer": "Im Herbst",
+    "explanation": "Die Mieterin hat im letzten Herbst gekündigt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Auf welchen Zeitpunkt hat die Mieterin gekündigt?",
+    "options": [
+      "Ende Januar",
+      "Ende Februar",
+      "Ende März",
+      "Ende April"
+    ],
+    "correctAnswer": "Ende Februar",
+    "explanation": "Sie kündigte auf Ende Februar."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Vermieter hat erst im Dezember einen Nachmieter gefunden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter fand bereits im November einen Nachmieter."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Mieterin muss die Miete für März nicht bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die beiden Parteien einigten sich darauf, dass die Mieterin die Märzmiete nicht bezahlen muss."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was war das Problem in diesem Fall?",
+    "options": [
+      "Der Vermieter fand keinen Nachmieter.",
+      "Die Mieterin fand keinen Nachmieter.",
+      "Der Vermieter fand zu schnell einen Nachmieter.",
+      "Die Mieterin kündigte zu spät."
+    ],
+    "correctAnswer": "Der Vermieter fand zu schnell einen Nachmieter.",
+    "explanation": "Dadurch hatte die Mieterin keine Chance mehr, selbst jemanden zu finden, der früher einziehen würde."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was hätte der Vermieter besser machen sollen?",
+    "options": [
+      "Gar keinen Nachmieter suchen.",
+      "Mit der Mieterin Rücksprache halten, bevor er den Vertrag mit dem Nachmieter abschliesst.",
+      "Den Nachmieter erst auf Ende Februar einziehen lassen.",
+      "Die Mieterin für die Märzmiete belangen."
+    ],
+    "correctAnswer": "Mit der Mieterin Rücksprache halten, bevor er den Vertrag mit dem Nachmieter abschliesst.",
+    "explanation": "So hätte er der Mieterin die Möglichkeit gegeben, selbst einen Nachmieter zu suchen."
+  },
+  {
+    "id": "tf3",
+    "question": "Die Mieterin und der Vermieter mussten vor die Schlichtungsstelle.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Sie konnten sich aussergerichtlich einigen."
+  },
+  {
+    "id": "tf4",
+    "question": "Der Vermieter hat in böser Absicht gehandelt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es wird nicht erwähnt, dass er böse Absicht hatte. Er wollte lediglich schnell einen Nachmieter finden."
+  },
+    {
+    "id": "mcq5",
+    "question": "Welches Recht hat ein Mieter bei ausserterminlicher Kündigung?",
+    "options": [
+      "Das Recht, die Wohnung sofort zu verlassen.",
+      "Das Recht, die Miete nicht mehr zu bezahlen.",
+      "Das Recht, einen Nachmieter vorzuschlagen.",
+      "Das Recht, den Mietvertrag jederzeit zu kündigen."
+    ],
+    "correctAnswer": "Das Recht, einen Nachmieter vorzuschlagen.",
+    "explanation": "Der Mieter hat das Recht, einen Nachmieter vorzuschlagen, um die Mietzahlungspflicht zu beenden."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist ein offizieller Zügeltermin?",
+    "options": [
+      "Der 31. März",
+      "Der 1. April",
+      "Der 30. Juni",
+      "Der 1. Oktober"
+    ],
+    "correctAnswer": "Der 1. April",
+    "explanation": "Im Beitrag wird der 1. April als offizieller Zügeltermin genannt."
+  },
+  {
+    "id": "tf5",
+    "question": "Der Vermieter ist verpflichtet, den ersten vorgeschlagenen Nachmieter zu akzeptieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter hat das Recht, einen Nachmieter abzulehnen, wenn triftige Gründe vorliegen."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Mieterin hat sich bei der Schlichtungsstelle gemeldet.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Mieterin und der Vermieter konnten sich aussergerichtlich einigen, ein Gang vor die Schlichtungsstelle war nicht nötig."
+  },
+    {
+    "id": "mcq7",
+    "question": "In welchem Kanton wohnt der Vermieter?",
+    "options": [
+      "Nidwalden",
+      "Obwalden",
+      "Uri",
+      "Schwyz"
+    ],
+    "correctAnswer": "Nidwalden",
+    "explanation": "Der Vermieter wohnt in Ennettbürgen im Kanton Nidwalden."
+  },
+  {
+    "id": "mcq8",
+    "question": "Von wem stammt die E-Mail, die im Beitrag vorgelesen wird?",
+    "options": [
+      "Von der Mieterin",
+      "Vom Vermieter",
+      "Von der Schlichtungsstelle",
+      "Von einem Anwalt"
+    ],
+    "correctAnswer": "Vom Vermieter",
+    "explanation": "Die Mail stammt von Severin Achermann, dem Vermieter."
+  }
+]

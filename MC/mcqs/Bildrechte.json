@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum erhielt der Hörer eine Rechnung?",
+    "options": [
+      "Weil er die Webseite seiner Mutter kommerziell nutzte.",
+      "Weil er ein Bild ohne Erlaubnis verwendet hat.",
+      "Weil er die Webseite vor dem 1. April 2020 erstellt hat.",
+      "Weil er das Bild aus einer deutschen Datenbank heruntergeladen hat."
+    ],
+    "correctAnswer": "Weil er ein Bild ohne Erlaubnis verwendet hat.",
+    "explanation": "Die Nutzung von urheberrechtlich geschützten Bildern ohne Erlaubnis kann zu Schadenersatzforderungen führen."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange gilt der Urheberrechtsschutz in der Schweiz?",
+    "options": [
+      "50 Jahre nach Tod des Urhebers",
+      "70 Jahre nach Tod des Urhebers",
+      "100 Jahre nach Tod des Urhebers",
+      "Ewig"
+    ],
+    "correctAnswer": "70 Jahre nach Tod des Urhebers",
+    "explanation": "Der Urheberrechtsschutz gilt in der Schweiz 70 Jahre nach dem Tod des Urhebers."
+  },
+  {
+    "id": "tf1",
+    "question": "Schnappschüsse waren vor dem 1. April 2020 in der Schweiz nicht urheberrechtlich geschützt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Seit dem 1. April 2020 sind auch Schnappschüsse urheberrechtlich geschützt."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist immer illegal, Bilder aus dem Internet zu verwenden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt lizenzfreie Bilder und Bilder mit Creative Commons Lizenzen, die unter bestimmten Bedingungen verwendet werden dürfen."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welches Argument kann der Hörer verwenden, um die Kosten zu reduzieren?",
+    "options": [
+      "Die Webseite hat wenig Besucher.",
+      "Das Bild wurde aus Deutschland heruntergeladen.",
+      "Er hat das Bild nur für seine Mutter verwendet.",
+      "Er wusste nicht, dass er das Bild nicht verwenden darf."
+    ],
+    "correctAnswer": "Die Webseite hat wenig Besucher.",
+    "explanation": "Der geringe Traffic auf der Webseite kann als Argument für eine Reduktion der Schadenersatzforderung verwendet werden."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wo findet man kostenlose Bilder?",
+    "options": [
+      "Auf Webseiten mit lizenzfreien Bildern.",
+      "Auf allen Webseiten im Internet.",
+      "Nur auf privaten Webseiten.",
+      "Nur auf Webseiten von Fotografen."
+    ],
+    "correctAnswer": "Auf Webseiten mit lizenzfreien Bildern.",
+    "explanation": "Es gibt Webseiten, die lizenzfreie Bilder zur kostenlosen Nutzung anbieten."
+  },
+    {
+    "id": "tf3",
+    "question": "Man sollte die Lizenzbedingungen von kostenlosen Bildern immer prüfen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Auch bei kostenlosen Bildern können Lizenzbedingungen gelten, die man beachten muss."
+  },
+      {
+    "id": "mcq5",
+    "question": "Was sollte man bei einer Abmahnung wegen Urheberrechtsverletzung tun?",
+    "options": [
+      "Das betroffene Bild sofort entfernen.",
+      "Die Rechnung ignorieren.",
+      "Den Fotografen kontaktieren und sich entschuldigen.",
+      "Einen Anwalt kontaktieren."
+    ],
+    "correctAnswer": "Das betroffene Bild sofort entfernen.",
+    "explanation": "Das Entfernen des Bildes ist der erste Schritt, um weitere Kosten zu vermeiden."
+  },
+    {
+    "id": "mcq6",
+    "question": "Was ist ein \"Schnappschuss\" im Kontext des Urheberrechts?",
+    "options": [
+      "Ein Foto ohne künstlerischen Wert.",
+      "Ein Foto mit künstlerischem Wert.",
+      "Ein Foto von einem Schnappschuss.",
+      "Ein schnell gemachtes Foto."
+    ],
+    "correctAnswer": "Ein Foto ohne künstlerischen Wert.",
+    "explanation": "Im Kontext des Urheberrechts wird ein Schnappschuss als ein Foto ohne individuellen Charakter betrachtet."
+  },
+        {
+    "id": "tf4",
+    "question": "Der Hörer muss auf jeden Fall die volle Rechnung bezahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hörer kann versuchen, mit der fordernden Firma zu verhandeln und die Kosten zu reduzieren."
+  },
+{
+    "id": "mcq7",
+    "question": "Was ist eine wichtige Anlaufstelle für Fragen zu Bildrechten?",
+    "options": [
+      "Schweizerische Arbeitsgemeinschaft der Bildagenturen und Archive",
+      "Bundesamt für Kommunikation (BAKOM)",
+      "Schweizerischer Gewerbeverband",
+      "Konsumentenschutz"
+    ],
+    "correctAnswer": "Schweizerische Arbeitsgemeinschaft der Bildagenturen und Archive",
+    "explanation": "Die SAB bietet Informationen und Empfehlungen zu Bildhonoraren."
+  },
+{
+    "id": "tf5",
+    "question": "Kostenlose Bilder dürfen immer ohne Einschränkungen verwendet werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch kostenlose Bilder können Lizenzbedingungen haben, die man beachten muss."
+  },
+{
+    "id": "mcq8",
+    "question": "Was ist der erste Schritt, wenn man eine Abmahnung wegen Urheberrechtsverletzung erhält?",
+    "options": [
+      "Das betroffene Bild entfernen.",
+      "Die Rechnung bezahlen.",
+      "Einen Anwalt kontaktieren.",
+      "Die Abmahnung ignorieren."
+    ],
+    "correctAnswer": "Das betroffene Bild entfernen.",
+    "explanation": "Das Entfernen des Bildes ist der erste Schritt, um weitere Kosten zu vermeiden."
+  },
+{
+    "id": "tf6",
+    "question": "Urheberrechtsschutz gilt auch für Texte.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Urheberrechtsschutz gilt für verschiedene kreative Inhalte, einschliesslich Texte."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist der Unterschied zwischen Garantie und Gewährleistung?",
+    "options": [
+      "Die Garantie ist gesetzlich vorgeschrieben, die Gewährleistung ist freiwillig.",
+      "Die Gewährleistung ist gesetzlich vorgeschrieben, die Garantie ist freiwillig.",
+      "Es gibt keinen Unterschied.",
+      "Die Garantie gilt für Neuwaren, die Gewährleistung für Gebrauchtwaren."
+    ],
+    "correctAnswer": "Die Gewährleistung ist gesetzlich vorgeschrieben, die Garantie ist freiwillig.",
+    "explanation": "Die Gewährleistung ist im Gesetz verankert, während die Garantie eine freiwillige Leistung des Herstellers oder Händlers ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange dauert die gesetzliche Gewährleistung in der Schweiz?",
+    "options": [
+      "1 Jahr",
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre"
+    ],
+    "correctAnswer": "2 Jahre",
+    "explanation": "Die gesetzliche Gewährleistung beträgt zwei Jahre."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Garantieschein ist zwingend notwendig, um Garantieansprüche geltend zu machen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Kaufbeleg ist ausreichend, um Garantieansprüche geltend zu machen."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Garantie deckt in der Regel Schäden ab, die durch unsachgemässen Gebrauch entstanden sind.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Garantie deckt in der Regel keine Schäden ab, die durch unsachgemässen Gebrauch entstanden sind."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welcher der folgenden Punkte ist KEIN gültiger Beweis für einen Kauf im Garantiefall?",
+    "options": [
+      "Quittung",
+      "Rechnung",
+      "Kontoauszug",
+      "Mündliche Vereinbarung"
+    ],
+    "correctAnswer": "Mündliche Vereinbarung",
+    "explanation": "Eine mündliche Vereinbarung ist im Garantiefall kein gültiger Beweis."
+  },
+    {
+    "id": "mcq4",
+    "question": "Bei welcher Art von Produkten ist eine Garantie besonders wichtig?",
+    "options": [
+      "Lebensmittel",
+      "Kleidung",
+      "Elektronikartikel",
+      "Bücher"
+    ],
+    "correctAnswer": "Elektronikartikel",
+    "explanation": "Bei teuren und langlebigen Produkten wie Elektronikartikeln ist die Garantie besonders wichtig."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Gewährleistung kann durch den Verkäufer vertraglich ausgeschlossen werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Gewährleistung ist gesetzlich vorgeschrieben und kann nicht ausgeschlossen werden."
+  },
+    {
+    "id": "tf4",
+    "question": "Wenn ein Produkt innerhalb der Gewährleistungsfrist einen Mangel aufweist, muss der Verkäufer in jedem Fall für die Reparatur aufkommen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Verkäufer muss nicht für Schäden aufkommen, die durch unsachgemässen Gebrauch entstanden sind."
+  },
+        {
+    "id": "mcq5",
+    "question": "Was sollte man mit Kaufbelegen und Garantiescheinen tun?",
+    "options": [
+      "Wegwerfen",
+      "Sorgfältig aufbewahren",
+      "Dem Verkäufer zurückgeben",
+      "Egal"
+    ],
+    "correctAnswer": "Sorgfältig aufbewahren",
+    "explanation": "Kaufbelege und Garantiescheine sollten sorgfältig aufbewahrt werden, um im Garantiefall die Ansprüche geltend machen zu können."
+  },
+        {
+    "id": "mcq6",
+    "question": "Wer ist in der Regel für die Garantie zuständig?",
+    "options": [
+      "Der Verkäufer",
+      "Der Hersteller",
+      "Die Konsumentenschutzorganisation",
+      "Der Staat"
+    ],
+    "correctAnswer": "Der Hersteller",
+    "explanation": "Die Garantie ist eine freiwillige Leistung, die in der Regel vom Hersteller gewährt wird."
+  },
+        {
+    "id": "tf5",
+    "question": "Die Garantie beginnt erst mit Ablauf der Gewährleistungsfrist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Garantie und die Gewährleistung laufen in der Regel parallel."
+  },
+        {
+    "id": "tf6",
+    "question": "Ein Produkt kann sowohl eine Garantie als auch eine Gewährleistung haben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Produkt kann sowohl eine Garantie als auch eine Gewährleistung haben."
+  },
+          {
+    "id": "tf7",
+    "question": "Der Verkäufer kann die Dauer der Gewährleistung beliebig verkürzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Gewährleistungsdauer ist gesetzlich festgelegt und kann nicht verkürzt werden."
+  },
+          {
+    "id": "tf8",
+    "question": "Wenn ein Mangel innerhalb der Garantiezeit auftritt, hat der Konsument immer Anspruch auf ein neues Produkt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Anspruch auf ein neues Produkt hängt von den Garantiebedingungen ab. In der Regel wird zuerst versucht, das Produkt zu reparieren."
+  }
+]

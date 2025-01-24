@@ -1,0 +1,159 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist ein Rechtsvorschlag?",
+    "options": [
+      "Eine Zustimmung zur Betreibung",
+      "Ein Einspruch gegen eine Betreibung",
+      "Eine Zahlungsaufforderung",
+      "Ein Antrag auf Ratenzahlung"
+    ],
+    "correctAnswer": "Ein Einspruch gegen eine Betreibung",
+    "explanation": "Mit einem Rechtsvorschlag erklärt man, dass man die Forderung nicht anerkennt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wo kann man einen Rechtsvorschlag erheben?",
+    "options": [
+      "Bei der Polizei",
+      "Beim Gericht",
+      "Beim Betreibungsamt",
+      "Beim Gemeinderat"
+    ],
+    "correctAnswer": "Beim Betreibungsamt",
+    "explanation": "Der Rechtsvorschlag muss beim Betreibungsamt eingereicht werden."
+  },
+  {
+    "id": "tf1",
+    "question": "Die Frist für die Erhebung eines Rechtsvorschlags beträgt 20 Tage.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Frist beträgt 10 Tage ab Erhalt des Zahlungsbefehls."
+  },
+  {
+    "id": "tf2",
+    "question": "Das Betreibungsamt prüft die Rechtmässigkeit der Forderung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Betreibungsamt prüft nicht die Rechtmässigkeit, sondern leitet lediglich die Betreibung ein."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was passiert, wenn kein Rechtsvorschlag erhoben wird?",
+    "options": [
+      "Die Betreibung wird automatisch eingestellt.",
+      "Die Forderung verfällt.",
+      "Der Gläubiger kann weitere Schritte einleiten.",
+      "Man erhält eine Mahnung."
+    ],
+    "correctAnswer": "Der Gläubiger kann weitere Schritte einleiten.",
+    "explanation": "Ohne Rechtsvorschlag kann die Betreibung fortgesetzt werden."
+  },
+  {
+    "id": "mcq4",
+    "question": "Wie lange bleibt ein Eintrag im Betreibungsregister bestehen?",
+    "options": [
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Der Eintrag verschwindet nach 5 Jahren automatisch, wenn keine weiteren Massnahmen erfolgen."
+  },
+    {
+    "id": "tf3",
+    "question": "Ein Rechtsvorschlag kann nur schriftlich erfolgen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Rechtsvorschlag kann schriftlich oder mündlich (beim Betreibungsamt) erfolgen."
+  },
+        {
+    "id": "tf4",
+    "question": "«Opposition» ist die französische Übersetzung für «Rechtsvorschlag».",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "«Opposition» bzw. «Oppositione» (italienisch) verdeutlicht die Bedeutung von Widerspruch besser als «Rechtsvorschlag»."
+  },
+{
+    "id": "mcq5",
+    "question": "In welchem Fall ist ein Rechtsvorschlag besonders wichtig?",
+    "options": [
+      "Wenn man die Forderung anerkennt.",
+      "Wenn man die Forderung bezahlen kann.",
+      "Wenn man die Forderung bestreitet.",
+      "Wenn man mit dem Gläubiger befreundet ist."
+    ],
+    "correctAnswer": "Wenn man die Forderung bestreitet.",
+    "explanation": "Der Rechtsvorschlag dient dazu, sich gegen ungerechtfertigte Forderungen zu wehren."
+  },
+  {
+    "id": "mcq6",
+    "question": "Wer muss nach Erhebung eines Rechtsvorschlags aktiv werden?",
+    "options": [
+      "Das Betreibungsamt",
+      "Der Schuldner",
+      "Der Gläubiger",
+      "Die Polizei"
+    ],
+    "correctAnswer": "Der Gläubiger",
+    "explanation": "Der Gläubiger muss beweisen, dass die Forderung berechtigt ist."
+  },
+  {
+    "id": "tf5",
+    "question": "Man benötigt einen Anwalt, um einen Rechtsvorschlag zu erheben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Man kann einen Rechtsvorschlag selbst erheben, anwaltliche Hilfe ist nicht zwingend."
+  },
+  {
+    "id": "tf6",
+    "question": "Ein Rechtsvorschlag stoppt das Betreibungsverfahren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Durch den Rechtsvorschlag wird das Verfahren vorläufig gestoppt."
+  },
+  {
+    "id": "mcq7",
+    "question": "Welches Dokument erhält man vom Betreibungsamt?",
+    "options": [
+      "Eine Rechnung",
+      "Einen Zahlungsbefehl",
+      "Eine Quittung",
+      "Einen Mahnbescheid"
+    ],
+    "correctAnswer": "Einen Zahlungsbefehl",
+    "explanation": "Das Betreibungsamt schickt einen Zahlungsbefehl."
+  },
+    {
+    "id": "mcq8",
+    "question": "Was bedeutet der Begriff «Rechtsvorschlag» etymologisch?",
+    "options": [
+      "Recht vorschlagen",
+      "Vor Gericht gehen",
+      "Rechtliche Beratung",
+      "Rechtliche Schritte einleiten"
+    ],
+    "correctAnswer": "Vor Gericht gehen",
+    "explanation": "Der Begriff «Rechtsvorschlag» kommt von «Rechtvorschlagen», was so viel wie «vor Gericht gehen» bedeutet."
+  }
+
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "id": "mcq1",
+        "question": "Was ist die Hauptstadt von Deutschland?",
+        "options": ["Berlin", "München", "Hamburg", "Frankfurt"],
+        "correctAnswer": "Berlin",
+        "explanation": "Berlin ist die Hauptstadt von Deutschland seit der Wiedervereinigung 1990."
+    },
+    {
+        "id": "mcq2",
+        "question": "Welches Element hat das chemische Symbol 'O'?",
+        "options": ["Gold", "Oxygen", "Silber", "Wasserstoff"],
+        "correctAnswer": "Oxygen",
+        "explanation": "Das chemische Symbol 'O' steht für Oxygen, das auch als Sauerstoff bekannt ist."
+    }
+]

@@ -1,0 +1,157 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist der Unterschied zwischen Garantie und Gewährleistung?",
+    "options": [
+      "Garantie ist gesetzlich vorgeschrieben, Gewährleistung ist freiwillig.",
+      "Gewährleistung ist gesetzlich vorgeschrieben, Garantie ist freiwillig.",
+      "Garantie und Gewährleistung sind dasselbe.",
+      "Garantie gilt für Dienstleistungen, Gewährleistung für Produkte."
+    ],
+    "correctAnswer": "Gewährleistung ist gesetzlich vorgeschrieben, Garantie ist freiwillig.",
+    "explanation": "Die Gewährleistung ist ein gesetzlicher Anspruch, während die Garantie eine freiwillige Leistung des Verkäufers ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie lange gilt die gesetzliche Gewährleistung in der Schweiz?",
+    "options": [
+      "1 Jahr",
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre"
+    ],
+    "correctAnswer": "2 Jahre",
+    "explanation": "In der Schweiz gilt eine gesetzliche Gewährleistungspflicht von zwei Jahren."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Verkäufer darf die gesetzliche Gewährleistung verkürzen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein Verkäufer darf die gesetzliche Gewährleistung nicht verkürzen, sondern nur ausschliessen und durch eine eigene Garantie ersetzen."
+  },
+  {
+    "id": "tf2",
+    "question": "Eine vertragliche Garantie kann über die gesetzliche Gewährleistung hinausgehen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Eine vertragliche Garantie ist eine freiwillige Leistung und kann zusätzliche Vorteile bieten."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was sollte man tun, wenn man mit einer unfairen Garantieklausel konfrontiert wird?",
+    "options": [
+      "Das Produkt trotzdem kaufen.",
+      "Sich an den Verkäufer wenden.",
+      "Nichts unternehmen.",
+      "Sich an eine Konsumentenschutzorganisation wenden."
+    ],
+    "correctAnswer": "Sich an den Verkäufer wenden.",
+    "explanation": "Im ersten Schritt sollte man versuchen, die Angelegenheit direkt mit dem Verkäufer zu klären. Gelingt dies nicht, kann man sich an eine Konsumentenschutzorganisation wenden."
+  },
+    {
+    "id": "mcq4",
+    "question": "Im Beitrag wird das Beispiel einer Kundin erwähnt, die ein bestimmtes Produkt kaufen wollte. Um welches Produkt handelte es sich?",
+    "options": [
+      "Ein Mikrofon",
+      "Einen Koffer",
+      "Eine Jacke",
+      "Ein Handy"
+    ],
+    "correctAnswer": "Ein Mikrofon",
+    "explanation": "Die Kundin wollte ein Mikrofon kaufen und stiess dabei auf eine Klausel zum Ausschluss der Gewährleistung."
+  },
+    {
+    "id": "tf3",
+    "question": "Der Radiobeitrag empfiehlt, die AGB vor einem Kauf genau zu prüfen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die AGB enthalten wichtige Informationen zu Garantie und Gewährleistung, die man vor dem Kauf kennen sollte."
+  },
+    {
+    "id": "mcq5",
+    "question": "Welcher Begriff wird im Gesetz verwendet?",
+    "options": [
+      "Garantie",
+      "Gewährleistung",
+      "Beides",
+      "Keiner der beiden"
+    ],
+    "correctAnswer": "Gewährleistung",
+    "explanation": "Im Gesetz wird der Begriff \"Gewährleistung\" verwendet."
+  },
+      {
+    "id": "mcq6",
+    "question": "Was ist ein Beispiel für eine zusätzliche Garantie?",
+    "options": [
+      "Verkürzung der Gewährleistungsfrist",
+      "Ausschluss der Gewährleistung",
+      "Kostenloser Ersatz des Produkts",
+      "Reduzierter Preis"
+    ],
+    "correctAnswer": "Kostenloser Ersatz des Produkts",
+    "explanation": "Ein kostenloser Ersatz des Produkts ist ein Beispiel für eine zusätzliche Garantie, die über die gesetzliche Gewährleistung hinausgeht."
+  },
+        {
+    "id": "tf4",
+    "question": "Garantie und Gewährleistung bedeuten im rechtlichen Sinn dasselbe.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Garantie und Gewährleistung sind rechtlich unterschiedliche Begriffe."
+  },
+          {
+    "id": "mcq7",
+    "question": "Wo findet man Informationen zum Thema Garantie beim SRF?",
+    "options": [
+      "srf.ch-kassensturz",
+      "srf.ch-espresso",
+      "srf.ch-meteo",
+      "srf.ch-sport"
+    ],
+    "correctAnswer": "srf.ch-espresso",
+    "explanation": "Die Sendung Espresso bietet ein Merkblatt zum Thema Garantie auf ihrer Website srf.ch-espresso an."
+  },
+            {
+    "id": "tf5",
+    "question": "Die Hörerin im Beitrag hat einen Koffer gekauft.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Hörerin wollte ein Mikrofon kaufen."
+  },
+              {
+    "id": "tf6",
+    "question": "Ein Verkäufer muss den Kunden auf Klauseln zum Ausschluss der Gewährleistung hinweisen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Verkäufer muss den Kunden klar und deutlich auf solche Klauseln hinweisen."
+  },
+                {
+    "id": "tf7",
+    "question": "Es ist ratsam, die AGB vor einem Kauf zu lesen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die AGB enthalten wichtige Informationen zu Garantie und Gewährleistung."
+  }
+
+]

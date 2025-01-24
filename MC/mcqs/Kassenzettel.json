@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist neu am Self-Checkout bei Coop?",
+    "options": [
+      "Man kann bargeldlos bezahlen.",
+      "Man kann selbst scannen und bezahlen.",
+      "Man kann wählen, ob man einen Kassenzettel möchte.",
+      "Man kann Rabatte direkt am Automaten einlösen."
+    ],
+    "correctAnswer": "Man kann wählen, ob man einen Kassenzettel möchte.",
+    "explanation": "Coop bietet die Option, den Ausdruck des Kassenzettels zu unterdrücken."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wo ist der Hörer Simon Gauci aufgefallen, dass man den Kassenzettel mitnehmen muss?",
+    "options": [
+      "In Deutschland",
+      "In Frankreich",
+      "In Italien",
+      "In Österreich"
+    ],
+    "correctAnswer": "In Italien",
+    "explanation": "Im Beitrag wird Italien als Beispiel für ein Land genannt, in dem die Mitnahmepflicht besteht."
+  },
+  {
+    "id": "tf1",
+    "question": "In der Schweiz ist man verpflichtet, den Kassenzettel mitzunehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Man ist nicht verpflichtet, den Kassenzettel mitzunehmen, aber die Geschäfte müssen ihn anbieten."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Mitnahmepflicht im Ausland dient der Steuerkontrolle.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Dadurch soll sichergestellt werden, dass alle Verkäufe korrekt verbucht werden."
+  },
+  {
+    "id": "mcq3",
+    "question": "Wer wird in der Schweiz von den Steuerbehörden kontrolliert?",
+    "options": [
+      "Nur die Kunden",
+      "Nur die Unternehmen",
+      "Sowohl Kunden als auch Unternehmen",
+      "Weder Kunden noch Unternehmen"
+    ],
+    "correctAnswer": "Nur die Unternehmen",
+    "explanation": "In der Schweiz werden nur die Unternehmen auf korrekte Abrechnung geprüft."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was ist der Nachteil, wenn man bei einer Taschenkontrolle keinen Kassenzettel hat?",
+    "options": [
+      "Man muss eine Busse bezahlen.",
+      "Man wird wegen Diebstahls angezeigt.",
+      "Es kann der Verdacht entstehen, dass man die Ware nicht bezahlt hat.",
+      "Man muss die Ware zurückgeben."
+    ],
+    "correctAnswer": "Es kann der Verdacht entstehen, dass man die Ware nicht bezahlt hat.",
+    "explanation": "Ohne Kassenzettel ist es schwieriger zu beweisen, dass man die Ware ehrlich erworben hat."
+  },
+  {
+    "id": "tf3",
+    "question": "Es ist empfehlenswert, den Kassenzettel für langlebige Güter aufzuheben.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Kassenzettel dient als Beweis für Garantieansprüche."
+  },
+    {
+    "id": "mcq5",
+    "question": "Wie lange gilt die Garantie auf Produkte in der Schweiz?",
+    "options": [
+      "1 Jahr",
+      "2 Jahre",
+      "3 Jahre",
+      "5 Jahre"
+    ],
+    "correctAnswer": "2 Jahre",
+    "explanation": "Gesetzlich gilt eine Garantie von 2 Jahren."
+  },
+        {
+    "id": "mcq6",
+    "question": "Was ist ein Kassenzettel?",
+    "options": [
+      "Ein Gutschein",
+      "Eine Rechnung / Quittung",
+      "Eine Garantie",
+      "Ein Zahlungsversprechen"
+    ],
+    "correctAnswer": "Eine Rechnung / Quittung",
+    "explanation": "Der Kassenzettel ist der Beweis für einen Kauf und dient als Quittung."
+  },
+        {
+    "id": "tf4",
+    "question": "Coop hat die Kassenzettel-Option abgeschafft.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Coop bietet die Wahlmöglichkeit an, ob man einen Kassenzettel möchte oder nicht."
+  },
+        {
+    "id": "mcq7",
+    "question": "Was ist der Vorteil, wenn man keinen Kassenzettel druckt?",
+    "options": [
+      "Man spart Geld",
+      "Man spart Papier",
+      "Man spart Zeit",
+      "Man spart Energie"
+    ],
+    "correctAnswer": "Man spart Papier",
+    "explanation": "Durch den Verzicht auf den Ausdruck wird Papier gespart."
+  },
+        {
+    "id": "tf5",
+    "question": "Der Hörer findet die neue Kassenzettel-Option schlecht.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hörer findet die Option gut, da so Papier gespart werden kann."
+  },
+        {
+    "id": "mcq8",
+    "question": "Was ist die Aufgabe von Gabriela Baumgartner im Beitrag?",
+    "options": [
+      "Sie ist die Moderatorin.",
+      "Sie ist die Hörerin.",
+      "Sie ist die Rechtsexpertin.",
+      "Sie ist die Verkäuferin bei Coop."
+    ],
+    "correctAnswer": "Sie ist die Rechtsexpertin.",
+    "explanation": "Gabriela Baumgartner klärt die Rechtslage in Bezug auf Kassenzettel."
+  },
+        {
+    "id": "tf6",
+    "question": "Man kann in der Schweiz für das Nichtmitnehmen des Kassenzettels bestraft werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt keine rechtlichen Konsequenzen, wenn man den Kassenzettel nicht mitnimmt."
+  }
+]

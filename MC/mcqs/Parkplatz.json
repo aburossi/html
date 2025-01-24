@@ -1,0 +1,167 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum kündigte der Vermieter Herrn Grüter den Parkplatz?",
+    "options": [
+      "Weil Herr Grüter die Miete nicht bezahlt hat.",
+      "Weil Herr Grüter seinen Wohnwagen auf dem Parkplatz abstellt.",
+      "Weil der Vermieter den Parkplatz selbst benötigt.",
+      "Weil Herr Grüter die Parkplatzordnung nicht eingehalten hat."
+    ],
+    "correctAnswer": "Weil Herr Grüter seinen Wohnwagen auf dem Parkplatz abstellt.",
+    "explanation": "Im Beitrag wird erwähnt, dass der Vermieter den Parkplatz wegen des Wohnwagens kündigte."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was ist das Problem mit Herrn Grüters Wohnwagen?",
+    "options": [
+      "Er ist zu gross für den Parkplatz.",
+      "Er ist nicht eingelöst.",
+      "Er ist beschädigt.",
+      "Er blockiert die Zufahrt."
+    ],
+    "correctAnswer": "Er ist nicht eingelöst.",
+    "explanation": "Herr Grüter kann den Wohnwagen nicht auf einen öffentlichen Platz stellen, weil er nicht eingelöst ist."
+  },
+  {
+    "id": "tf1",
+    "question": "Der Vermieter darf den Parkplatz kündigen, obwohl Herr Grüter auch die Wohnung gemietet hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Gemäss der Rechtsexpertin gehören Wohnung und Parkplatz rechtlich zusammen, auch bei separaten Verträgen. Daher ist die Kündigung unzulässig."
+  },
+  {
+    "id": "tf2",
+    "question": "Herr Grüter sollte die Kündigung des Parkplatzes bei der Mietschlichtungsstelle anfechten.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Rechtsexpertin empfiehlt, die Kündigung anzufechten."
+  },
+    {
+    "id": "mcq3",
+    "question": "Was sollte Herr Grüter idealerweise als Erstes tun?",
+    "options": [
+      "Den Wohnwagen verkaufen.",
+      "Einen Anwalt kontaktieren.",
+      "Mit dem Vermieter sprechen.",
+      "Den Wohnwagen auf der Strasse parkieren."
+    ],
+    "correctAnswer": "Mit dem Vermieter sprechen.",
+    "explanation": "Die Rechtsexpertin rät, zuerst ein Gespräch mit dem Vermieter zu suchen."
+  },
+    {
+    "id": "mcq4",
+    "question": "Welchen Vergleich verwendet die Rechtsexpertin, um die rechtliche Situation zu erklären?",
+    "options": [
+      "Balkon",
+      "Keller",
+      "Garten",
+      "Dachstock"
+    ],
+    "correctAnswer": "Garten",
+    "explanation": "Die Rechtsexpertin erwähnt den Garten als Beispiel für Zubehör, das rechtlich zur Wohnung gehört."
+  },
+      {
+    "id": "mcq5",
+    "question": "Was ist die Folge, wenn Herr Grüter den Wohnwagen nicht vom Parkplatz entfernt?",
+    "options": [
+      "Der Vermieter darf den Wohnwagen abschleppen lassen.",
+      "Der Vermieter darf die Wohnung kündigen.",
+      "Der Vermieter darf die Miete erhöhen.",
+      "Es gibt keine direkten Konsequenzen."
+    ],
+    "correctAnswer": "Der Vermieter darf den Wohnwagen abschleppen lassen.",
+    "explanation": "Obwohl der Parkplatz nicht gekündigt werden darf, darf der Vermieter Massnahmen ergreifen."
+  },
+        {
+    "id": "tf3",
+    "question": "Eine Kündigung der Wohnung wegen des Parkplatzproblems wäre rechtmässig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Eine solche Kündigung wäre unverhältnismässig und rechtsmissbräuchlich."
+  },
+          {
+    "id": "tf4",
+    "question": "Herr Grüter muss sich keine Sorgen machen, da die Kündigung des Parkplatzes unzulässig ist.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Er sollte die Situation aktiv klären und die Kündigung anfechten."
+  },
+            {
+    "id": "mcq6",
+    "question": "Wo findet man weitere Informationen zum Thema Mietrecht?",
+    "options": [
+      "Auf der Website des Hauseigentümerverbands.",
+      "Auf der Website von SRF Espresso.",
+      "Im Schweizerischen Zivilgesetzbuch.",
+      "Beim zuständigen Gemeindeamt."
+    ],
+    "correctAnswer": "Auf der Website von SRF Espresso.",
+    "explanation": "Im Beitrag wird auf ein Merkblatt auf srf.ch/espresso verwiesen."
+  },
+              {
+    "id": "mcq7",
+    "question": "Welcher Begriff beschreibt die rechtliche Bewertung der Kündigung?",
+    "options": [
+      "Unverhältnismässig",
+      "Rechtswidrig",
+      "Ungültig",
+      "Nichtig"
+    ],
+    "correctAnswer": "Unverhältnismässig",
+    "explanation": "Die Rechtsexpertin verwendet den Begriff 'unverhältnismässig'."
+  },
+{
+    "id": "tf5",
+    "question": "Der Name 'Egon Grüter' ist der richtige Name des Hörers.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Hörer möchte anonym bleiben und verwendet ein Pseudonym."
+  },
+{
+    "id": "tf6",
+    "question": "Die Rechtsexpertin im Beitrag heisst Gabriela Baumgartner.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie wird im Beitrag namentlich genannt."
+  },
+{
+    "id": "tf7",
+    "question": "Die Sendung \"Espresso\" behandelt regelmässig Rechtsfragen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Beitrag erwähnt die Rubrik \"Rechtsfrage\"."
+  },
+
+{
+    "id": "tf8",
+    "question": "Herr Grüter hat den Parkplatz gekündigt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Der Vermieter hat den Parkplatz gekündigt."
+  }
+]

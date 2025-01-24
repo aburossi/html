@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wer haftet bei einem Diebstahl aus einem Schliessfach im Schwimmbad?",
+    "options": [
+      "Das Schwimmbad",
+      "Die Versicherung des Schwimmbads",
+      "Niemand",
+      "Der Badegast"
+    ],
+    "correctAnswer": "Der Badegast",
+    "explanation": "Die Bereitstellung eines Schliessfachs ist eine Gebrauchsleihe, aus der keine Haftung abgeleitet werden kann."
+  },
+  {
+    "id": "mcq2",
+    "question": "Welche Versicherung könnte den Schaden eines Diebstahls aus einem Schliessfach übernehmen?",
+    "options": [
+      "Die Krankenversicherung",
+      "Die Hausratversicherung",
+      "Die Haftpflichtversicherung",
+      "Die Unfallversicherung"
+    ],
+    "correctAnswer": "Die Hausratversicherung",
+    "explanation": "Eine Hausratversicherung mit dem Zusatz Diebstahl auswärts könnte den Schaden übernehmen."
+  },
+  {
+    "id": "tf1",
+    "question": "Man kann vom Schwimmbad verlangen, dass Wertgegenstände an der Kasse aufbewahrt werden.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Man kann nicht verlangen, dass Wertgegenstände an der Kasse aufbewahrt werden, aber man kann nachfragen."
+  },
+  {
+    "id": "tf2",
+    "question": "Es ist ratsam, einen Diebstahl aus einem Schliessfach im Schwimmbad an der Kasse zu melden und zu dokumentieren.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Meldung und Dokumentation des Diebstahls dient als Beweis für eine spätere Versicherungsmeldung."
+  },
+  {
+    "id": "mcq3",
+    "question": "Was ist eine Gebrauchsleihe?",
+    "options": [
+      "Ein Kaufvertrag",
+      "Ein Mietvertrag",
+      "Eine unentgeltliche Überlassung einer Sache zum Gebrauch",
+      "Eine Schenkung"
+    ],
+    "correctAnswer": "Eine unentgeltliche Überlassung einer Sache zum Gebrauch",
+    "explanation": "Bei der Gebrauchsleihe wird eine Sache unentgeltlich zum Gebrauch überlassen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was ist ein Selbstbehalt bei einer Versicherung?",
+    "options": [
+      "Der Betrag, den die Versicherung im Schadensfall zahlt",
+      "Der Betrag, den der Versicherte im Schadensfall selbst zahlen muss",
+      "Die Prämie, die der Versicherte monatlich zahlt",
+      "Die Laufzeit des Versicherungsvertrags"
+    ],
+    "correctAnswer": "Der Betrag, den der Versicherte im Schadensfall selbst zahlen muss",
+    "explanation": "Der Selbstbehalt ist der Betrag, der vom Versicherten im Schadensfall selbst getragen werden muss."
+  },
+    {
+    "id": "mcq5",
+    "question": "Was sollte man im Schwimmbad mit Wertgegenständen machen, die man nicht mitnehmen möchte?",
+    "options": [
+      "Im Auto lassen",
+      "Zu Hause lassen",
+      "In den Schuhen verstecken",
+      "Unbeaufsichtigt am Badetuch liegen lassen"
+    ],
+    "correctAnswer": "Zu Hause lassen",
+    "explanation": "Wertgegenstände, die man nicht benötigt, sollten am besten zu Hause gelassen werden, um das Risiko eines Diebstahls zu minimieren."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist der erste Schritt, den man unternehmen sollte, wenn ein Schliessfach im Schwimmbad aufgebrochen wurde?",
+    "options": [
+      "Den Bademeister rufen",
+      "Die Polizei rufen",
+      "Den Vorfall an der Kasse melden und Fotos machen",
+      "Die Versicherung anrufen"
+    ],
+    "correctAnswer": "Den Vorfall an der Kasse melden und Fotos machen",
+    "explanation": "Der erste Schritt ist, den Vorfall an der Kasse zu melden und Fotos vom aufgebrochenen Schliessfach zu machen, um Beweise zu sichern."
+  },
+  {
+    "id": "tf3",
+    "question": "Bargeld wird von der Versicherung im Falle eines Diebstahls aus einem Schliessfach in der Regel ersetzt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Bargeld wird von den meisten Versicherungen im Falle eines Diebstahls aus einem Schliessfach nicht ersetzt."
+  },
+  {
+    "id": "tf4",
+    "question": "Ein Schild mit dem Hinweis 'Für Garderobe wird keine Haftung übernommen' ist in Schwimmbädern rechtlich notwendig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Ein solches Schild ist nicht notwendig, da Schwimmbäder rechtlich gesehen nicht für Diebstähle aus Schliessfächern haften."
+  },
+  {
+    "id": "mcq7",
+    "question": "Was ist der Hauptgrund dafür, dass Schwimmbäder für Diebstähle aus Schliessfächern nicht haften?",
+    "options": [
+      "Sie haben kein Geld, um die Schäden zu ersetzen.",
+      "Sie wollen die Badegäste nicht verärgern.",
+      "Die Bereitstellung eines Schliessfachs gilt als Gebrauchsleihe.",
+      "Sie haben keine Möglichkeit, die Schliessfächer ausreichend zu sichern."
+    ],
+    "correctAnswer": "Die Bereitstellung eines Schliessfachs gilt als Gebrauchsleihe.",
+    "explanation": "Die Gebrauchsleihe entbindet das Schwimmbad von der Haftung für Diebstähle."
+  },
+  {
+    "id": "mcq8",
+    "question": "Welchen Tipp gibt die Rechtsexpertin, um Wertgegenstände im Schwimmbad sicher aufzubewahren?",
+    "options": [
+      "Wertsachen im Auto lassen.",
+      "Wertsachen gut versteckt am Körper tragen.",
+      "Möglichst wenige Wertsachen mitnehmen und nach Möglichkeit an der Kasse abgeben.",
+      "Wertsachen unbeaufsichtigt auf der Liegewiese lassen."
+    ],
+    "correctAnswer": "Möglichst wenige Wertsachen mitnehmen und nach Möglichkeit an der Kasse abgeben.",
+    "explanation": "Dies minimiert das Risiko eines Diebstahls und erhöht die Chance auf Haftung des Schwimmbads."
+  },
+  {
+    "id": "tf5",
+    "question": "Laptops sind in der Regel von der Hausratversicherung im Falle eines Diebstahls auswärts abgedeckt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Laptops und andere elektronische Geräte sind oft von der Versicherung ausgeschlossen oder nur begrenzt abgedeckt."
+  },
+  {
+    "id": "tf6",
+    "question": "Die Rechtsexpertin rät davon ab, Wertsachen im Schwimmbad mitzunehmen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie empfiehlt, möglichst wenige Wertsachen mitzunehmen, um das Risiko eines Diebstahls zu minimieren."
+  }
+]

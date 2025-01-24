@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Warum verlangt die neue Verwaltung von der Tochter ein Mietzinsdepot?",
+    "options": [
+      "Weil sie die Miete zu spät bezahlt hat.",
+      "Weil die Wohnung renoviert werden muss.",
+      "Weil es eine übliche Praxis bei einem Verwaltungswechsel ist.",
+      "Es wird kein Grund im Beitrag genannt."
+    ],
+    "correctAnswer": "Es wird kein Grund im Beitrag genannt.",
+    "explanation": "Im Beitrag wird nicht explizit erwähnt, warum die neue Verwaltung ein Depot verlangt."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was bedeutet es, dass die Forderung eines Depots \"verhältnismässig\" sein muss?",
+    "options": [
+      "Das Depot darf maximal drei Monatsmieten betragen.",
+      "Das Depot muss im Verhältnis zum Mietpreis stehen.",
+      "Das Depot muss im Verhältnis zum Risiko stehen, das der Vermieter mit dem Mieter hat.",
+      "Das Depot muss vom Mieter ohne Schwierigkeiten bezahlt werden können."
+    ],
+    "correctAnswer": "Das Depot muss im Verhältnis zum Risiko stehen, das der Vermieter mit dem Mieter hat.",
+    "explanation": "Ein verhältnismässiges Depot steht im Zusammenhang mit dem Risiko, dass der Mieter seinen Verpflichtungen nicht nachkommt."
+  },
+  {
+    "id": "tf1",
+    "question": "Ein Vermieter darf jederzeit während des Mietverhältnisses ein Depot verlangen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Vermieter darf auch nachträglich ein Depot verlangen, muss aber die gesetzlichen Vorgaben beachten."
+  },
+  {
+    "id": "tf2",
+    "question": "Die Studentin muss das Depot sofort bezahlen, wenn die Verwaltung es verlangt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Die Studentin kann die Forderung anfechten, wenn sie sie für unzumutbar hält."
+  },
+  {
+    "id": "mcq3",
+    "question": "An wen kann sich die Studentin wenden, wenn sie mit der Forderung des Vermieters nicht einverstanden ist?",
+    "options": [
+      "An den Mieterverband.",
+      "An die Polizei.",
+      "An die Mietschlichtungsstelle.",
+      "An das Betreibungsamt."
+    ],
+    "correctAnswer": "An die Mietschlichtungsstelle.",
+    "explanation": "Die Mietschlichtungsstelle ist die richtige Anlaufstelle bei Streitigkeiten zwischen Mietern und Vermietern."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welchen Vorteil hat ein Verfahren bei der Mietschlichtungsstelle für die Mieterin?",
+    "options": [
+      "Es ist kostenlos.",
+      "Sie erhält einen Kündigungsschutz für drei Jahre, wenn sie gewinnt.",
+      "Der Vermieter muss die Verfahrenskosten übernehmen.",
+      "Sie kann die Miete während des Verfahrens reduzieren."
+    ],
+    "correctAnswer": "Sie erhält einen Kündigungsschutz für drei Jahre, wenn sie gewinnt.",
+    "explanation": "Der Kündigungsschutz ist ein wichtiger Vorteil, der Mieter vor einer Rachekündigung schützt."
+  },
+    {
+    "id": "tf3",
+    "question": "Nathalie Redmanns Tochter hatte Glück, dass sie bei Mietbeginn kein Depot hinterlegen musste.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Es ist nicht selbstverständlich, dass man bei Mietbeginn kein Depot hinterlegen muss."
+  },
+  {
+    "id": "tf4",
+    "question": "Ein Mietzinsdepot dient dem Vermieter als zusätzliche Einnahmequelle.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Depot dient als Sicherheit für den Vermieter, nicht als Einnahmequelle."
+  },
+        {
+    "id": "mcq5",
+    "question": "Welches Argument könnte die Studentin verwenden, um die Depotforderung anzufechten?",
+    "options": [
+      "Sie ist Studentin und hat nicht genügend Geld.",
+      "Sie hat die Miete immer pünktlich bezahlt.",
+      "Sie wohnt schon zwei Jahre in der Wohnung ohne Probleme.",
+      "Alle oben genannten Antworten."
+    ],
+    "correctAnswer": "Alle oben genannten Antworten.",
+    "explanation": "Alle genannten Punkte könnten Argumente gegen die Zumutbarkeit der Forderung sein."
+  },
+  {
+    "id": "mcq6",
+    "question": "Was ist die Aufgabe der Mietschlichtungsstelle?",
+    "options": [
+      "Sie entscheidet, ob der Vermieter die Wohnung kündigen darf.",
+      "Sie legt die Höhe des Mietzinsdepots fest.",
+      "Sie prüft, ob die Forderung des Vermieters rechtmässig ist.",
+      "Sie vermittelt zwischen Mieter und Vermieter."
+    ],
+    "correctAnswer": "Sie prüft, ob die Forderung des Vermieters rechtmässig ist.",
+    "explanation": "Die Mietschlichtungsstelle prüft die Rechtmässigkeit der Forderung und versucht zu vermitteln."
+  },
+      {
+    "id": "tf5",
+    "question": "Ein Verfahren bei der Mietschlichtungsstelle ist in der Regel kostenpflichtig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Das Verfahren ist in der Regel kostenlos."
+  },
+  {
+    "id": "tf6",
+    "question": "Der Kündigungsschutz nach einem gewonnenen Verfahren bei der Mietschlichtungsstelle beträgt drei Jahre.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Der Kündigungsschutz von drei Jahren schützt den Mieter vor einer Rachekündigung."
+  },
+{
+    "id": "mcq7",
+    "question": "Was ist ein Mietzinsdepot?",
+    "options": [
+      "Eine zusätzliche Monatsmiete, die bei Vertragsabschluss fällig wird.",
+      "Eine Kaution, die als Sicherheit für den Vermieter dient.",
+      "Eine Gebühr für die Verwaltung der Wohnung.",
+      "Eine Versicherung für Schäden in der Wohnung."
+    ],
+    "correctAnswer": "Eine Kaution, die als Sicherheit für den Vermieter dient.",
+    "explanation": "Das Depot dient als Sicherheit für den Vermieter, falls der Mieter seinen Verpflichtungen nicht nachkommt."
+  },
+{
+    "id": "mcq8",
+    "question": "In welchem Fall darf ein Vermieter das Mietzinsdepot verwenden?",
+    "options": [
+      "Für die Bezahlung von Nebenkosten.",
+      "Für die Renovierung der Wohnung.",
+      "Für die Deckung von Mietrückständen.",
+      "Für die Begleichung von Verwaltungskosten."
+    ],
+    "correctAnswer": "Für die Deckung von Mietrückständen.",
+    "explanation": "Das Depot darf nur für die Deckung von Mietrückständen oder Schäden in der Wohnung verwendet werden."
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Wann muss der Lohn in der Schweiz laut Gesetz spätestens ausbezahlt sein?",
+    "options": [
+      "Am letzten Tag des Monats",
+      "Am 15. des Folgemonats",
+      "Am 20. des Folgemonats",
+      "Am Ende des Folgemonats"
+    ],
+    "correctAnswer": "Am letzten Tag des Monats",
+    "explanation": "Das Gesetz schreibt vor, dass der Lohn bis zum letzten Tag des Monats bezahlt werden muss."
+  },
+  {
+    "id": "mcq2",
+    "question": "Was kann eine Ausnahme von der gesetzlichen Regelung zur Lohnzahlung darstellen?",
+    "options": [
+      "Ein Arbeitsvertrag",
+      "Ein Gesamtarbeitsvertrag (GAV)",
+      "Die Grösse des Unternehmens",
+      "Die Anzahl der Mitarbeitenden"
+    ],
+    "correctAnswer": "Ein Gesamtarbeitsvertrag (GAV)",
+    "explanation": "Im GAV können längere Zahlungsfristen vereinbart werden."
+  },
+  {
+    "id": "tf1",
+    "question": "Es ist in der Schweiz unter keinen Umständen erlaubt, den Lohn später als am 15. des Folgemonats auszuzahlen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch wenn im GAV oder Arbeitsvertrag etwas anderes vereinbart wurde, ist eine Lohnzahlung nach dem 15. des Folgemonats nicht zulässig."
+  },
+  {
+    "id": "tf2",
+    "question": "Der Arbeitgeber im Beitrag begründet die späte Lohnzahlung mit der Komplexität der Stundenabrechnung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Er gibt an, dass er zuerst die Stunden genau abrechnen müsse."
+  },
+    {
+    "id": "mcq3",
+    "question": "Welche Lösung schlägt die Rechtsexpertin für die Problematik der späten Lohnzahlung bei Stundenlöhnen vor?",
+    "options": [
+      "Den Lohn erst nach der vollständigen Abrechnung auszahlen.",
+      "Den Lohn schätzen und die Differenz im Folgemonat ausgleichen.",
+      "Den Lohn wöchentlich auszahlen.",
+      "Den Lohn im Voraus auszahlen."
+    ],
+    "correctAnswer": "Den Lohn schätzen und die Differenz im Folgemonat ausgleichen.",
+    "explanation": "So wird sichergestellt, dass die Angestellten am Ende des Monats nicht ohne Lohn dastehen."
+  },
+  {
+    "id": "mcq4",
+    "question": "Was sollte man tun, wenn der Lohn gar nicht ausbezahlt wird?",
+    "options": [
+      "Den Arbeitgeber mündlich mahnen.",
+      "Den Arbeitgeber schriftlich mahnen.",
+      "Die Arbeit niederlegen.",
+      "Eine Beschwerde bei der Gewerkschaft einreichen."
+    ],
+    "correctAnswer": "Den Arbeitgeber schriftlich mahnen.",
+    "explanation": "Eine schriftliche Mahnung ist der erste Schritt, um die Lohnzahlung einzufordern."
+  },
+    {
+    "id": "tf3",
+    "question": "Die Hörerin im Beitrag ist die einzige Person im Betrieb, die Probleme mit der späten Lohnzahlung hat.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Auch andere Angestellte im Stundenlohn sind betroffen."
+  },
+      {
+    "id": "tf4",
+    "question": "Die Rechtsexpertin im Beitrag heisst Raphaela Reichlin.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Sie wird im Beitrag als Rechtsexpertin genannt."
+  },
+    {
+    "id": "mcq5",
+    "question": "In welchem Monat spielt die Geschichte im Radiobeitrag?",
+    "options": [
+      "Januar",
+      "Februar",
+      "März",
+      "April"
+    ],
+    "correctAnswer": "Februar",
+    "explanation": "Es wird explizit erwähnt, dass es Ende Februar ist."
+  },
+  {
+    "id": "mcq6",
+    "question": "Welches Problem schildert die Hörerin?",
+    "options": [
+      "Ihr Lohn wird zu früh ausbezahlt.",
+      "Ihr Lohn wird zu spät ausbezahlt.",
+      "Ihr Lohn wird nicht korrekt berechnet.",
+      "Ihr Lohn wird gar nicht ausbezahlt."
+    ],
+    "correctAnswer": "Ihr Lohn wird zu spät ausbezahlt.",
+    "explanation": "Sie beklagt sich darüber, dass der Lohn erst Ende des Folgemonats kommt."
+  },
+    {
+    "id": "tf5",
+    "question": "Der Chef der Hörerin behauptet, er könne den Lohn nicht früher zahlen, weil er zuerst die Stunden abrechnen muss.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das ist seine Begründung für die späte Lohnzahlung."
+  },
+    {
+    "id": "tf6",
+    "question": "Laut Bundesgericht ist eine Lohnzahlung nach dem 15. des Folgemonats in keinem Fall gültig.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Das Bundesgericht hat entschieden, dass eine solche Regelung ungültig ist."
+  },
+      {
+    "id": "tf7",
+    "question": "Im Beitrag wird empfohlen, bei Problemen mit der Lohnzahlung sofort die Arbeit niederzulegen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Empfohlen wird eine schriftliche Mahnung."
+  },
+        {
+    "id": "tf8",
+    "question": "Im Beitrag wird die Sendung 'Espresso' von SRF erwähnt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die Hörerin hat sich an die Sendung 'Espresso' gewandt."
+  }
+
+]

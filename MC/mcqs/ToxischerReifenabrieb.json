@@ -1,0 +1,156 @@
+[
+  {
+    "id": "mcq1",
+    "question": "Was ist laut Bericht die Hauptquelle von Mikroplastik in der Schweiz?",
+    "options": [
+      "Reifenabrieb",
+      "Plastikverpackungen",
+      "Textilien",
+      "Kosmetikprodukte"
+    ],
+    "correctAnswer": "Reifenabrieb",
+    "explanation": "Der Bericht der EMPA zeigt, dass Reifenabrieb für 90% des Mikroplastiks verantwortlich ist."
+  },
+  {
+    "id": "mcq2",
+    "question": "Wie gelangt der Reifenabrieb in die Umwelt?",
+    "options": [
+      "Über die Luft",
+      "Über das Abwasser",
+      "Über den Boden",
+      "Alle genannten Möglichkeiten"
+    ],
+    "correctAnswer": "Alle genannten Möglichkeiten",
+    "explanation": "Reifenabrieb kann über die Luft, das Abwasser und den Boden in die Umwelt gelangen."
+  },
+  {
+    "id": "tf1",
+    "question": "Mikroplastik von Reifen ist ungefährlich für Mensch und Umwelt.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Mikroplastik kann über die Nahrungskette oder Atemwege in den menschlichen Körper gelangen und gesundheitsschädlich sein. Auch für Lebewesen in Gewässern ist es schädlich."
+  },
+  {
+    "id": "tf2",
+    "question": "Das Gewicht des Autos hat keinen Einfluss auf die Menge des Reifenabriebs.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Schwerere Autos verursachen mehr Reifenabrieb."
+  },
+  {
+    "id": "mcq3",
+    "question": "Welche Massnahme wird im Beitrag NICHT zur Reduzierung von Reifenabrieb genannt?",
+    "options": [
+      "Leichtere Autos kaufen",
+      "Gleichmässig fahren",
+      "Reifen regelmässig waschen",
+      "Absetzbecken ausbauen"
+    ],
+    "correctAnswer": "Reifen regelmässig waschen",
+    "explanation": "Das Waschen der Reifen wird im Beitrag nicht als Massnahme genannt."
+  },
+  {
+    "id": "mcq4",
+    "question": "Welcher Anteil des Mikroplastiks landet gemäss Bericht in Gewässern?",
+    "options": [
+      "10%",
+      "30%",
+      "60%",
+      "90%"
+    ],
+    "correctAnswer": "30%",
+    "explanation": "Laut Bericht landen ca. 30% des Mikroplastiks in Gewässern."
+  },
+    {
+    "id": "mcq5",
+    "question": "Welcher Anteil des Mikroplastiks landet gemäss Bericht in Böden?",
+    "options": [
+      "10%",
+      "30%",
+      "45%",
+      "90%"
+    ],
+    "correctAnswer": "45%",
+    "explanation": "Laut Bericht landen ca. 45% des Mikroplastiks in Böden."
+  },
+  {
+    "id": "tf3",
+    "question": "Die EU arbeitet an neuen Schadstoffnormen für Reifenabrieb.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Die EU plant die Einführung neuer Schadstoffnormen, die auch den Reifenabrieb berücksichtigen."
+  },
+  {
+    "id": "tf4",
+    "question": "Es gibt bereits eine standardisierte Messmethode für Reifenabrieb.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Falsch",
+    "explanation": "Es gibt noch keine standardisierte und international anerkannte Messmethode für Reifenabrieb."
+  },
+  {
+    "id": "mcq6",
+    "question": "In welchem Bereich liegt der Grossteil des Reifenabriebs?",
+    "options": [
+      "Nanometerbereich",
+      "Mikrometerbereich",
+      "Millimeterbereich",
+      "Zentimeterbereich"
+    ],
+    "correctAnswer": "Millimeterbereich",
+    "explanation": "Der Grossteil des Abriebs ist im Millimeterbereich und landet in der Umwelt."
+  },
+  {
+    "id": "mcq7",
+    "question": "Wie lange dauert es voraussichtlich, bis die EU Grenzwerte für Reifenabrieb festlegt?",
+    "options": [
+      "1 Jahr",
+      "3 Jahre",
+      "5 Jahre",
+      "10 Jahre"
+    ],
+    "correctAnswer": "5 Jahre",
+    "explanation": "Experten schätzen, dass es noch ca. 5 Jahre dauert, bis die EU Grenzwerte festlegt."
+  },
+  {
+    "id": "tf5",
+    "question": "Der Reifenabrieb gelangt über die Abwasserreinigung ins Meer.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ein Teil des Reifenabriebs wird zwar in Kläranlagen zurückgehalten, ein anderer Teil gelangt aber dennoch über das Abwasser ins Meer."
+  },
+  {
+    "id": "tf6",
+    "question": "Reifen mit geringerem Abrieb sind in der Entwicklung.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Es gibt bereits Reifen mit geringerem Abrieb, die bis zu einem Drittel weniger Mikroplastik produzieren."
+  },
+    {
+    "id": "tf7",
+    "question": "Ozonschutzmittel in Reifen sind schädlich für Wasserlebewesen.",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correctAnswer": "Richtig",
+    "explanation": "Ozonschutzmittel in Reifen haben sich als schädlich für Wasserlebewesen erwiesen."
+  }
+]
