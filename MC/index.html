@@ -36,7 +36,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin: 20px 0;
             position: relative;
-            min-height: 400px;
+            min-height: 300px;
             overflow: hidden;
         }
 
@@ -48,63 +48,49 @@
             box-sizing: border-box;
             transition: transform 0.5s ease-in-out;
             transform: translateX(100%);
+            display: flex;
+            flex-direction: column;
         }
 
         .question-slide.active {
             transform: translateX(0);
         }
 
-        .question-slide.prev {
-            transform: translateX(-100%);
-        }
-
         #optionsContainer {
-            height: 250px;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            margin-top: 20px;
+            gap: 10px;
+            margin: 15px 0;
         }
 
         .option {
-            flex: 1;
+            flex: 1 1 auto;
+            min-height: 60px;
             display: flex;
             align-items: center;
             padding: 15px;
-            margin: 5px 0;
             background: #f8f8f8;
             border: 2px solid #ddd;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.2s ease;
+            word-break: break-word;
         }
 
-        .option:hover {
-            background: #f0f0f0;
-        }
-
-        .correct {
-            background: #e8f5e9 !important;
-            border-color: #4CAF50 !important;
-            animation: correctAnim 0.5s ease;
-        }
-
-        .incorrect {
-            background: #ffebee !important;
-            border-color: #f44336 !important;
-            animation: incorrectAnim 0.5s ease;
+        .option.tf-option {
+            min-height: 80px;
+            justify-content: center;
+            text-align: center;
         }
 
         .feedback {
-            height: 250px;
-            display: none;
-            align-items: center;
-            justify-content: center;
             padding: 15px;
             border-radius: 5px;
             background: #e3f2fd;
             border: 2px solid #90caf9;
-            margin-top: 20px;
+            margin-top: 15px;
+            word-break: break-word;
         }
 
         button {
@@ -250,7 +236,7 @@ function showQuestion(index) {
     const question = questions[index];
     const container = document.querySelector('.question-container');
     const currentSlide = document.getElementById('currentSlide');
-    
+
     // Create new slide
     const newSlide = document.createElement('div');
     newSlide.className = 'question-slide';
@@ -258,16 +244,11 @@ function showQuestion(index) {
         <div class="question">${question.question}</div>
         <div id="optionsContainer">
             ${question.options.map(opt => `
-                <div class="option">${opt}</div>
+                <div class="option ${question.options.length <= 2 ? 'tf-option' : ''}">${opt}</div>
             `).join('')}
         </div>
         <div id="feedback" class="feedback"></div>
     `;
-
-    // Add event listeners
-    newSlide.querySelectorAll('.option').forEach((opt, i) => {
-        opt.onclick = () => handleAnswer(question.options[i], question);
-    });
 
     // Animation
     if (currentSlide) {
@@ -281,6 +262,10 @@ function showQuestion(index) {
         newSlide.id = 'currentSlide';
     }, 10);
 
+    // Adjust layout for different question types
+    if (question.options.length <= 2) {
+        newSlide.querySelector('#optionsContainer').style.gap = '15px';    
+    
     // Remove old slide after animation
     setTimeout(() => {
         if (currentSlide) currentSlide.remove();
