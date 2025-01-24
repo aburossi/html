@@ -36,7 +36,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin: 20px 0;
             position: relative;
-            min-height: 300px;
+            min-height: 400px;
             overflow: hidden;
         }
 
@@ -56,6 +56,10 @@
             transform: translateX(0);
         }
 
+        .question-slide.prev {
+            transform: translateX(-100%);
+        }
+
         #optionsContainer {
             flex: 1;
             display: flex;
@@ -65,7 +69,7 @@
         }
 
         .option {
-            flex: 1 1 auto;
+            flex: 0 1 auto;
             min-height: 60px;
             display: flex;
             align-items: center;
@@ -82,6 +86,20 @@
             min-height: 80px;
             justify-content: center;
             text-align: center;
+            font-size: 1.1em;
+            padding: 20px;
+        }
+
+        .correct {
+            background: #e8f5e9 !important;
+            border-color: #4CAF50 !important;
+            animation: correctAnim 0.5s ease;
+        }
+
+        .incorrect {
+            background: #ffebee !important;
+            border-color: #f44336 !important;
+            animation: incorrectAnim 0.5s ease;
         }
 
         .feedback {
@@ -89,7 +107,7 @@
             border-radius: 5px;
             background: #e3f2fd;
             border: 2px solid #90caf9;
-            margin-top: 15px;
+            margin-top: auto;
             word-break: break-word;
         }
 
@@ -236,8 +254,7 @@ function showQuestion(index) {
     const question = questions[index];
     const container = document.querySelector('.question-container');
     const currentSlide = document.getElementById('currentSlide');
-
-    // Create new slide
+    
     const newSlide = document.createElement('div');
     newSlide.className = 'question-slide';
     newSlide.innerHTML = `
@@ -250,7 +267,6 @@ function showQuestion(index) {
         <div id="feedback" class="feedback"></div>
     `;
 
-    // Animation
     if (currentSlide) {
         currentSlide.classList.remove('active');
         currentSlide.classList.add('prev');
@@ -262,14 +278,13 @@ function showQuestion(index) {
         newSlide.id = 'currentSlide';
     }, 10);
 
-    // Adjust layout for different question types
-    if (question.options.length <= 2) {
-        newSlide.querySelector('#optionsContainer').style.gap = '15px';    
-    
-    // Remove old slide after animation
     setTimeout(() => {
         if (currentSlide) currentSlide.remove();
     }, 500);
+
+    newSlide.querySelectorAll('.option').forEach((opt, i) => {
+        opt.onclick = () => handleAnswer(question.options[i], question);
+    });
 }
 
 function handleAnswer(selectedAnswer, question) {
@@ -293,7 +308,7 @@ function handleAnswer(selectedAnswer, question) {
     });
 
     const feedback = document.getElementById('feedback');
-    feedback.style.display = 'flex';
+    feedback.style.display = 'block';
     
     if (selectedAnswer === question.correctAnswer) {
         score++;
