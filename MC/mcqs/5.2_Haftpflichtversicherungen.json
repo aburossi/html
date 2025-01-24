@@ -1,0 +1,222 @@
+[
+    {
+        "id": "mcq1",
+        "question": "Warum hat der Staat die Motorfahrzeughaftpflichtversicherung für obligatorisch erklärt?",
+        "options": [
+            "Um die Versicherungsgesellschaften zu unterstützen",
+            "Damit Geschädigte ihre berechtigten Ansprüche einfordern können",
+            "Um die Anzahl der Unfälle zu reduzieren",
+            "Um die Fahrzeugpreise zu senken"
+        ],
+        "correctAnswer": "Damit Geschädigte ihre berechtigten Ansprüche einfordern können",
+        "explanation": "Der Staat hat die Motorfahrzeughaftpflichtversicherung für obligatorisch erklärt, damit Geschädigte in allen Fällen ihre berechtigten Ansprüche einfordern können (Seite 150)."
+    },
+    {
+        "id": "mcq2",
+        "question": "Was ist ein Selbstbehalt für Junglenker in der Motorfahrzeughaftpflichtversicherung?",
+        "options": [
+            "500 Franken",
+            "1000 Franken",
+            "1500 Franken",
+            "Kein Selbstbehalt"
+        ],
+        "correctAnswer": "1000 Franken",
+        "explanation": "Junglenker, die noch nicht 25 Jahre alt sind, haben in der Regel einen Selbstbehalt von 1000 Franken (Seite 150)."
+    },
+    {
+        "id": "mcq3",
+        "question": "Was passiert, wenn der Unfallverursacher grob fahrlässig gehandelt hat?",
+        "options": [
+            "Die Versicherung zahlt nicht",
+            "Die Versicherung zahlt, darf aber später einen Teil zurückfordern",
+            "Der Unfallverursacher muss direkt an die Geschädigten zahlen",
+            "Die Versicherung zahlt den gesamten Schaden ohne Rückforderung"
+        ],
+        "correctAnswer": "Die Versicherung zahlt, darf aber später einen Teil zurückfordern",
+        "explanation": "Bei grober Fahrlässigkeit muss die Versicherung die Geschädigten auszahlen, darf aber später einen Teil des Geldes zurückfordern (Seite 150)."
+    },
+    {
+        "id": "mcq4",
+        "question": "Was ist ein Regressrecht?",
+        "options": [
+            "Das Recht des Versicherungsnehmers, Schäden nicht zu melden",
+            "Das Recht der Versicherung, Gelder zurückzufordern",
+            "Das Recht des Geschädigten, zusätzliche Entschädigung zu fordern",
+            "Das Recht des Staates, Versicherungen zu kontrollieren"
+        ],
+        "correctAnswer": "Das Recht der Versicherung, Gelder zurückzufordern",
+        "explanation": "Das Regressrecht ist das Recht der Versicherung, Gelder zurückzufordern, insbesondere bei grober Fahrlässigkeit (Seite 150)."
+    },
+    {
+        "id": "mcq5",
+        "question": "Was ist die Bonus-Malus-Regelung?",
+        "options": [
+            "Eine Regelung, die die Versicherungsprämien für alle erhöht",
+            "Eine Regelung, die unfallfreie Fahrer mit Prämienreduktionen belohnt",
+            "Eine Regelung, die nur für Neulenker gilt",
+            "Eine Regelung, die die Versicherungspflicht abschafft"
+        ],
+        "correctAnswer": "Eine Regelung, die unfallfreie Fahrer mit Prämienreduktionen belohnt",
+        "explanation": "Die Bonus-Malus-Regelung belohnt unfallfreie Fahrer mit Prämienreduktionen (Bonus) und bestraft Unfallverursacher mit höheren Prämien (Malus) (Seite 151)."
+    },
+    {
+        "id": "mcq6",
+        "question": "Was deckt die Privathaftpflichtversicherung?",
+        "options": [
+            "Nur Schäden an eigenen Sachen",
+            "Schäden, die man Dritten schuldhaft zufügt",
+            "Schäden durch Naturkatastrophen",
+            "Schäden an öffentlichem Eigentum"
+        ],
+        "correctAnswer": "Schäden, die man Dritten schuldhaft zufügt",
+        "explanation": "Die Privathaftpflichtversicherung deckt Schäden, die man Dritten schuldhaft zufügt, sofern keine Absicht oder grobe Fahrlässigkeit vorliegt (Seite 151)."
+    },
+    {
+        "id": "mcq7",
+        "question": "Was ist Kausalhaftung?",
+        "options": [
+            "Haftung für Schäden, die man absichtlich verursacht",
+            "Haftung für Schäden, die man ohne eigenes Verschulden verursacht",
+            "Haftung nur für Schäden an eigenen Sachen",
+            "Haftung für Schäden, die durch Naturkatastrophen verursacht werden"
+        ],
+        "correctAnswer": "Haftung für Schäden, die man ohne eigenes Verschulden verursacht",
+        "explanation": "Kausalhaftung bedeutet, dass man auch ohne eigenes Verschulden haftpflichtig werden kann, z.B. als Eltern, Arbeitgeber oder Tierhalter (Seite 151)."
+    },
+    {
+        "id": "mcq8",
+        "question": "Was ist ein Beispiel für Kausalhaftung als Eltern?",
+        "options": [
+            "Das Kind beschädigt das eigene Auto",
+            "Das Kind wirft einen Stein in die Fensterscheibe des Nachbarn",
+            "Das Kind verursacht einen Unfall mit dem Fahrrad",
+            "Das Kind verliert sein Handy"
+        ],
+        "correctAnswer": "Das Kind wirft einen Stein in die Fensterscheibe des Nachbarn",
+        "explanation": "Als Eltern haftet man für Schäden, die das Kind verursacht, z.B. wenn es einen Stein in die Fensterscheibe des Nachbarn wirft (Seite 151)."
+    },
+    {
+        "id": "mcq9",
+        "question": "Was ist eine Bonusschutzversicherung?",
+        "options": [
+            "Eine Versicherung, die den Bonus in der Haftpflichtversicherung schützt",
+            "Eine Versicherung, die den Malus reduziert",
+            "Eine Versicherung, die nur für Neulenker gilt",
+            "Eine Versicherung, die die Versicherungspflicht abschafft"
+        ],
+        "correctAnswer": "Eine Versicherung, die den Bonus in der Haftpflichtversicherung schützt",
+        "explanation": "Die Bonusschutzversicherung schützt den im Prämienstufensystem erworbenen Bonus in der Haftpflichtversicherung (Seite 151)."
+    },
+    {
+        "id": "mcq10",
+        "question": "Was ist ein Beispiel für eine zusätzliche Haftpflichtrisiko, das über die Privathaftpflicht abgedeckt wird?",
+        "options": [
+            "Schäden beim Schneeräumen",
+            "Schäden durch Naturkatastrophen",
+            "Schäden an öffentlichem Eigentum",
+            "Schäden durch Krieg"
+        ],
+        "correctAnswer": "Schäden beim Schneeräumen",
+        "explanation": "Schäden beim Schneeräumen sind ein zusätzliches Haftpflichtrisiko, das über die Privathaftpflichtversicherung abgedeckt wird (Seite 152)."
+    },
+    {
+        "id": "tf1",
+        "question": "Die Motorfahrzeughaftpflichtversicherung ist in der Schweiz obligatorisch.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Correct",
+        "explanation": "Die Motorfahrzeughaftpflichtversicherung ist in der Schweiz obligatorisch, damit Geschädigte ihre Ansprüche einfordern können (Seite 150)."
+    },
+    {
+        "id": "tf2",
+        "question": "Junglenker haben in der Regel einen Selbstbehalt von 500 Franken.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Wrong",
+        "explanation": "Junglenker haben in der Regel einen Selbstbehalt von 1000 Franken, nicht 500 Franken (Seite 150)."
+    },
+    {
+        "id": "tf3",
+        "question": "Bei grober Fahrlässigkeit darf die Versicherung das Geld nicht zurückfordern.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Wrong",
+        "explanation": "Bei grober Fahrlässigkeit darf die Versicherung das Geld später zurückfordern (Seite 150)."
+    },
+    {
+        "id": "tf4",
+        "question": "Die Bonus-Malus-Regelung belohnt unfallfreie Fahrer mit Prämienreduktionen.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Correct",
+        "explanation": "Die Bonus-Malus-Regelung belohnt unfallfreie Fahrer mit Prämienreduktionen (Bonus) (Seite 151)."
+    },
+    {
+        "id": "tf5",
+        "question": "Die Privathaftpflichtversicherung ist in der Schweiz obligatorisch.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Wrong",
+        "explanation": "Die Privathaftpflichtversicherung ist nicht obligatorisch, aber sehr zu empfehlen (Seite 152)."
+    },
+    {
+        "id": "tf6",
+        "question": "Kausalhaftung bedeutet, dass man nur für absichtlich verursachte Schäden haftet.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Wrong",
+        "explanation": "Kausalhaftung bedeutet, dass man auch ohne eigenes Verschulden haftpflichtig werden kann (Seite 151)."
+    },
+    {
+        "id": "tf7",
+        "question": "Als Eltern haftet man für Schäden, die das Kind verursacht.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Correct",
+        "explanation": "Als Eltern haftet man für Schäden, die das Kind verursacht, z.B. wenn es einen Stein in die Fensterscheibe des Nachbarn wirft (Seite 151)."
+    },
+    {
+        "id": "tf8",
+        "question": "Die Bonusschutzversicherung schützt den Malus in der Haftpflichtversicherung.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Wrong",
+        "explanation": "Die Bonusschutzversicherung schützt den Bonus, nicht den Malus, in der Haftpflichtversicherung (Seite 151)."
+    },
+    {
+        "id": "tf9",
+        "question": "Schäden beim Schneeräumen sind über die Privathaftpflichtversicherung abgedeckt.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Correct",
+        "explanation": "Schäden beim Schneeräumen sind ein zusätzliches Haftpflichtrisiko, das über die Privathaftpflichtversicherung abgedeckt wird (Seite 152)."
+    },
+    {
+        "id": "tf10",
+        "question": "Für Schäden, die mit einer Drohne verursacht werden, kommt die Haftpflichtversicherung auf.",
+        "options": [
+            "Correct",
+            "Wrong"
+        ],
+        "correctAnswer": "Correct",
+        "explanation": "Für Schäden, die mit einer Drohne verursacht werden, kommt die Haftpflichtversicherung auf (Seite 152)."
+    }
+]
