@@ -6,16 +6,27 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
             max-width: 800px;
             margin: auto;
             background-color: #f9f9f9;
         }
 
+        #startScreen {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #quizContainer {
+            display: none;
+        }
+
         .progress {
             text-align: center;
             margin: 20px 0;
             font-weight: bold;
+            color: #666;
         }
 
         .question-container {
@@ -24,28 +35,23 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin: 20px 0;
-            min-height: 300px;
         }
 
-        .question {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 5px;
+        .option {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f8f8;
             border: 2px solid #ddd;
-            transition: all 0.3s ease;
+            border-radius: 5px;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        label:hover {
+        .option:hover {
             background: #f0f0f0;
         }
 
-        input:checked + label {
+        .selected {
             border-color: #4CAF50;
             background: #f8fff8;
         }
@@ -79,14 +85,9 @@
             border: 1px solid #f44336;
         }
 
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         button {
             padding: 12px 25px;
-            margin: 0 10px;
+            margin: 20px 0;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -94,19 +95,15 @@
             transition: all 0.3s ease;
         }
 
-        #nextBtn {
+        #startBtn {
             background: #4CAF50;
             color: white;
         }
 
-        #prevBtn {
-            background: #757575;
-            color: white;
-        }
-
-        #retryBtn {
+        #nextBtn {
             background: #2196F3;
             color: white;
+            display: none;
         }
 
         .results {
@@ -136,18 +133,22 @@
     </style>
 </head>
 <body>
-    <h1>Verständnisfragen</h1>
-    <div class="progress">Frage <span id="current">1</span> von <span id="total">7</span></div>
-    
+    <div id="startScreen">
+        <h1 id="quizTitle"></h1>
+        <button id="startBtn" onclick="startQuiz()">Quiz starten</button>
+    </div>
+
     <div id="quizContainer">
+        <div class="progress">Frage <span id="current">1</span> von <span id="total">7</span></div>
+        
         <div class="question-container">
             <div class="question" id="questionText"></div>
             <div id="optionsContainer"></div>
             <div id="feedback" class="feedback"></div>
         </div>
+
         <div class="button-container">
-            <button id="prevBtn" onclick="previousQuestion()">Zurück</button>
-            <button id="nextBtn" onclick="nextStep()">Weiter</button>
+            <button id="nextBtn" onclick="nextQuestion()">Weiter</button>
         </div>
     </div>
 
@@ -156,7 +157,7 @@
             <h2>Ergebnis</h2>
             <p id="scoreText"></p>
             <p id="resultMessage"></p>
-            <button id="retryBtn" onclick="retryTest()">Test wiederholen</button>
+            <button onclick="location.reload()">Neues Quiz</button>
         </div>
     </div>
 
@@ -164,23 +165,29 @@
 let currentQuestion = 0;
 let score = 0;
 let questions = [];
+let quizTitle = "";
 
 async function initializeQuiz() {
-    const assignmentId = new URLSearchParams(window.location.search).get('assignmentId') || 'defaultAssignment';
-    questions = await fetchQuestions(assignmentId);
-    questions = shuffleArray(questions).slice(0, 7);
-    showQuestion(currentQuestion);
-    updateProgress();
-}
-
-async function fetchQuestions(assignmentId) {
+    const params = new URLSearchParams(window.location.search);
+    const assignmentId = params.get('assignmentId') || 'default';
+    
     try {
         const response = await fetch(`https://aburossi.github.io/html/multiboxMC/mcqs/${encodeURIComponent(assignmentId)}.json`);
-        return await response.json();
+        const data = await response.json();
+        questions = shuffleArray(data).slice(0, 7);
+        quizTitle = assignmentId.replace(/-/g, ' ');
+        document.getElementById('quizTitle').textContent = quizTitle;
     } catch (error) {
         console.error('Fehler beim Laden der Fragen:', error);
-        return [];
+        alert('Quiz konnte nicht geladen werden');
     }
+}
+
+function startQuiz() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('quizContainer').style.display = 'block';
+    showQuestion(currentQuestion);
+    updateProgress();
 }
 
 function showQuestion(index) {
@@ -190,36 +197,30 @@ function showQuestion(index) {
     optionsContainer.innerHTML = '';
 
     question.options.forEach(option => {
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = `
-            <input type="radio" name="answer" id="${option}" value="${option}" 
-                   onchange="handleAnswer(event, ${index})">
-            <label for="${option}">${option}</label>
-        `;
-        optionsContainer.appendChild(wrapper);
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option';
+        optionDiv.textContent = option;
+        optionDiv.onclick = () => handleAnswer(option, question);
+        optionsContainer.appendChild(optionDiv);
     });
-
-    document.getElementById('prevBtn').disabled = index === 0;
-    document.getElementById('nextBtn').disabled = true;
 }
 
-function handleAnswer(event, index) {
-    const selectedAnswer = event.target.value;
-    const question = questions[index];
-    const feedback = document.getElementById('feedback');
+function handleAnswer(selectedAnswer, question) {
+    const options = document.getElementsByClassName('option');
     
-    // Markieren der richtigen Antwort
-    document.querySelectorAll('label').forEach(label => {
-        if (label.textContent === question.correctAnswer) {
-            label.classList.add('correct');
+    // Disable all options after selection
+    Array.from(options).forEach(opt => {
+        opt.style.pointerEvents = 'none';
+        if (opt.textContent === question.correctAnswer) {
+            opt.classList.add('correct');
         }
-        if (label.textContent === selectedAnswer && selectedAnswer !== question.correctAnswer) {
-            label.classList.add('incorrect');
+        if (opt.textContent === selectedAnswer && selectedAnswer !== question.correctAnswer) {
+            opt.classList.add('incorrect');
         }
     });
 
-    // Feedback anzeigen
-    feedback.classList.remove('correct-feedback', 'incorrect-feedback');
+    // Show feedback
+    const feedback = document.getElementById('feedback');
     feedback.style.display = 'block';
     
     if (selectedAnswer === question.correctAnswer) {
@@ -231,10 +232,10 @@ function handleAnswer(event, index) {
         feedback.textContent = `✗ Falsch. ${question.explanation || ''}`;
     }
 
-    document.getElementById('nextBtn').disabled = false;
+    document.getElementById('nextBtn').style.display = 'block';
 }
 
-function nextStep() {
+function nextQuestion() {
     if (currentQuestion < questions.length - 1) {
         currentQuestion++;
         resetQuestionState();
@@ -245,20 +246,10 @@ function nextStep() {
     }
 }
 
-function previousQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        resetQuestionState();
-        showQuestion(currentQuestion);
-        updateProgress();
-    }
-}
-
 function resetQuestionState() {
     document.getElementById('feedback').style.display = 'none';
-    document.querySelectorAll('label').forEach(label => {
-        label.classList.remove('correct', 'incorrect');
-    });
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('optionsContainer').innerHTML = '';
 }
 
 function updateProgress() {
@@ -275,9 +266,9 @@ function showResults() {
         `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).`;
 
     const messages = {
-        90: "Herzlichen Glückwunsch! Sie haben das Thema perfekt verstanden!",
-        70: "Gute Arbeit! Sie haben den größten Teil des Stoffs verstanden.",
-        50: "Nicht schlecht, aber es gibt noch Verbesserungspotenzial.",
+        90: "Herzlichen Glückwunsch! Ausgezeichnetes Ergebnis!",
+        70: "Gute Arbeit! Sie haben den Stoff gut verstanden.",
+        50: "Nicht schlecht, aber noch etwas Übung könnte helfen.",
         0: "Bitte wiederholen Sie den Lernstoff und versuchen Sie es erneut."
     };
 
@@ -290,14 +281,6 @@ function showResults() {
     }
     
     document.getElementById('resultMessage').textContent = resultMessage;
-}
-
-function retryTest() {
-    currentQuestion = 0;
-    score = 0;
-    document.getElementById('resultContainer').classList.add('hidden');
-    document.getElementById('quizContainer').classList.remove('hidden');
-    initializeQuiz();
 }
 
 function shuffleArray(array) {
