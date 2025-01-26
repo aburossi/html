@@ -1,0 +1,273 @@
+{
+    "questions": [
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Erinnern",
+        "question": "<p>Was fordert die Umweltverantwortungsinitiative?</p>",
+        "options": [
+          {
+            "text": "Dass die Schweiz keine Ressourcen mehr nutzt.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative fordert, dass die Schweiz die Umwelt nur soweit belastet, wie die Natur sich erholen kann."
+          },
+          {
+            "text": "Dass die Schweiz die Umweltbelastung auf ein erholbares Maß reduziert.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Die Initiative fordert, dass die Belastung der Umwelt die Erneuerungsfähigkeit der Natur nicht überschreitet."
+          },
+          {
+            "text": "Dass die Schweiz keine wirtschaftlichen Einschränkungen vornimmt.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative würde wirtschaftliche Einschränkungen erfordern, um die Umweltbelastung zu reduzieren."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Erinnern",
+        "question": "<p>Welche Frist setzt die Initiative zur Umsetzung ihrer Ziele?</p>",
+        "options": [
+          {
+            "text": "10 Jahre",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Die Initiative setzt eine Frist von zehn Jahren zur Umsetzung ihrer Ziele."
+          },
+          {
+            "text": "15 Jahre",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative setzt eine Frist von zehn Jahren, nicht fünfzehn Jahren."
+          },
+          {
+            "text": "5 Jahre",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative gibt zehn Jahre vor, nicht fünf Jahre."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Erinnern",
+        "question": "<p>Was sind planetare Belastbarkeitsgrenzen?</p>",
+        "options": [
+          {
+            "text": "Rote Linien der Erde, die die Umweltbelastung anzeigen.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Planetare Belastbarkeitsgrenzen geben an, wie viel Belastung die Umwelt verkraften kann."
+          },
+          {
+            "text": "Ein Konzept, das die wirtschaftliche Belastung misst.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Planetare Belastbarkeitsgrenzen beziehen sich auf die Umwelt, nicht auf die Wirtschaft."
+          },
+          {
+            "text": "Eine Methode zur Förderung der Biodiversität.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Planetare Belastbarkeitsgrenzen haben nichts direkt mit der Förderung der Biodiversität zu tun."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Erinnern",
+        "question": "<p>Welche Umweltprobleme betreffen die Schweiz laut Initiative besonders?</p>",
+        "options": [
+          {
+            "text": "Klima, Biodiversität und Stickstoffbelastung.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Laut Initiative sind das Klima, die Biodiversität und die Stickstoffbelastung besonders betroffen."
+          },
+          {
+            "text": "Abholzung und Plastikverschmutzung.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative erwähnt Abholzung und Plastikverschmutzung nicht spezifisch."
+          },
+          {
+            "text": "Wasserverschmutzung und Erdrutsche.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Wasserverschmutzung und Erdrutsche werden nicht als die Hauptprobleme erwähnt."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Erinnern",
+        "question": "<p>Was empfiehlt der Bundesrat zur Umweltverantwortungsinitiative?</p>",
+        "options": [
+          {
+            "text": "Die Initiative abzulehnen.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Der Bundesrat empfiehlt, die Initiative abzulehnen."
+          },
+          {
+            "text": "Die Initiative anzunehmen.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Der Bundesrat ist gegen die Initiative."
+          },
+          {
+            "text": "Die Initiative teilweise umzusetzen.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Der Bundesrat lehnt die Initiative ab, ohne eine teilweise Umsetzung zu fordern."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Verstehen",
+        "question": "<p>Warum fordert das Initiativkomitee die Annahme der Initiative?</p>",
+        "options": [
+          {
+            "text": "Weil der Klimawandel auch die Schweiz stark betrifft.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Das Initiativkomitee argumentiert, dass der Klimawandel die Schweiz stark betrifft, z. B. durch Hitzetage und Unwetter."
+          },
+          {
+            "text": "Weil die Schweiz bereits die planetaren Belastbarkeitsgrenzen einhält.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Schweiz überschreitet die planetaren Belastbarkeitsgrenzen und deshalb fordert das Komitee die Initiative."
+          },
+          {
+            "text": "Weil es keine wirtschaftlichen Einschränkungen geben wird.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative würde wirtschaftliche Einschränkungen erfordern."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Verstehen",
+        "question": "<p>Welche Konsequenz hätte die Annahme der Initiative für die Schweizer Wirtschaft?</p>",
+        "options": [
+          {
+            "text": "Sie könnte geschwächt werden, da Unternehmen ins Ausland abwandern könnten.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Bundesrat und Parlament warnen, dass Schweizer Firmen ins Ausland abwandern könnten."
+          },
+          {
+            "text": "Die Schweizer Wirtschaft würde deutlich stärker wachsen.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Bundesrat und Parlament erwarten Einschränkungen für die Wirtschaft, keine stärkeren Wachstumsimpulse."
+          },
+          {
+            "text": "Es gäbe keinerlei Auswirkungen auf die Wirtschaft.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative hätte weitreichende Auswirkungen auf die Wirtschaft."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Verstehen",
+        "question": "<p>Wie argumentieren Gegner der Initiative in Bezug auf die Kosten für die Bevölkerung?</p>",
+        "options": [
+          {
+            "text": "Produkte und Dienstleistungen würden teurer und besonders Geringverdiener würden belastet.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Gegner der Initiative argumentieren, dass diese die Kosten für Produkte und Dienstleistungen erhöhen würde."
+          },
+          {
+            "text": "Die Initiative hätte keinerlei Einfluss auf die Preise.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Gegner sehen die Initiative als Kostentreiber, besonders für Geringverdiener."
+          },
+          {
+            "text": "Die Initiative würde Produkte und Dienstleistungen günstiger machen.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Gegner befürchten das Gegenteil: steigende Kosten."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Verstehen",
+        "question": "<p>Warum sieht das Initiativkomitee die Initiative als Chance?</p>",
+        "options": [
+          {
+            "text": "Weil sie nachhaltige Wirtschaft und zukunftsfähige Arbeitsplätze fördern könnte.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Das Komitee betont, dass die Initiative eine nachhaltige Wirtschaft und zukunftsfähige Arbeitsplätze fördern würde."
+          },
+          {
+            "text": "Weil keine Einschränkungen für den Konsum notwendig wären.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative erfordert Einschränkungen beim Konsum."
+          },
+          {
+            "text": "Weil die Schweiz dadurch international isoliert würde.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative zielt darauf ab, eine Vorreiterrolle einzunehmen, nicht auf Isolation."
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "bloom_level": "Verstehen",
+        "question": "<p>Wie will das Komitee sicherstellen, dass die Maßnahmen sozialverträglich sind?</p>",
+        "options": [
+          {
+            "text": "Durch Vorschriften, Verbote und Anreize, die sozialverträglich gestaltet werden.",
+            "is_correct": true,
+            "feedback": "✅ Richtig! Die Initiative verlangt sozialverträgliche Vorschriften, Verbote und Anreize, auch im Ausland."
+          },
+          {
+            "text": "Durch vollständige Vermeidung von Vorschriften und Verboten.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Die Initiative sieht Vorschriften und Verbote vor, jedoch sozialverträglich."
+          },
+          {
+            "text": "Durch finanzielle Subventionen für Großunternehmen.",
+            "is_correct": false,
+            "feedback": "❌ Falsch. Subventionen für Großunternehmen werden nicht als Maßnahme vorgeschlagen."
+          }
+        ]
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Erinnern",
+        "question": "<p>Die Umweltverantwortungsinitiative fordert, dass die Schweiz die Belastbarkeitsgrenzen einhält.</p>",
+        "correct_answer": true,
+        "feedback_correct": "Richtig! Die Initiative fordert, dass die Schweiz die Umweltbelastung auf ein erträgliches Maß begrenzt.",
+        "feedback_incorrect": "Falsch. Das Ziel der Initiative ist es, die planetaren Belastbarkeitsgrenzen einzuhalten."
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Erinnern",
+        "question": "<p>Die Frist zur Umsetzung der Umweltverantwortungsinitiative beträgt 20 Jahre.</p>",
+        "correct_answer": false,
+        "feedback_correct": "Richtig! Die Frist beträgt 10 Jahre, nicht 20 Jahre.",
+        "feedback_incorrect": "Falsch. Die Initiative gibt eine Frist von 10 Jahren vor."
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Erinnern",
+        "question": "<p>Die planetaren Belastbarkeitsgrenzen zeigen, wie viel die Wirtschaft wachsen kann.</p>",
+        "correct_answer": false,
+        "feedback_correct": "Richtig! Die planetaren Belastbarkeitsgrenzen beziehen sich auf die Umwelt, nicht auf die Wirtschaft.",
+        "feedback_incorrect": "Falsch. Diese Grenzen zeigen die Belastbarkeit der Umwelt, nicht das Wachstum der Wirtschaft."
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Verstehen",
+        "question": "<p>Die Initiative würde zu einem geringeren Ressourcenverbrauch und weniger Schadstoffausstoß führen.</p>",
+        "correct_answer": true,
+        "feedback_correct": "Richtig! Die Initiative zielt darauf ab, den Ressourcenverbrauch und Schadstoffausstoß drastisch zu reduzieren.",
+        "feedback_incorrect": "Falsch. Die Initiative fordert genau diese Reduzierung."
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Verstehen",
+        "question": "<p>Gegner der Initiative befürchten, dass Schweizer Firmen ins Ausland abwandern könnten.</p>",
+        "correct_answer": true,
+        "feedback_correct": "Richtig! Gegner argumentieren, dass die Initiative den Wirtschaftsstandort Schweiz schwächen könnte.",
+        "feedback_incorrect": "Falsch. Dies ist eine zentrale Befürchtung der Gegner der Initiative."
+      },
+      {
+        "type": "TrueFalse",
+        "bloom_level": "Verstehen",
+        "question": "<p>Das Initiativkomitee hält die Initiative für eine Chance, um die Schweiz nachhaltiger zu machen.</p>",
+        "correct_answer": true,
+        "feedback_correct": "Richtig! Das Komitee sieht die Initiative als eine Möglichkeit, eine nachhaltige Wirtschaft zu fördern.",
+        "feedback_incorrect": "Falsch. Das Komitee betont die Chance für eine nachhaltigere Zukunft."
+      }
+    ]
+  }
+  

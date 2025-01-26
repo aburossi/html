@@ -184,6 +184,29 @@
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+        /* Add to existing styles */
+        .true-false-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .true-false-options .option {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        .correct-feedback {
+            background: #e8f5e9;
+            border-color: #4CAF50;
+        }
+
+        .incorrect-feedback {
+            background: #ffebee;
+            border-color: #f44336;
+        }
     </style>
 </head>
 <body>
@@ -256,53 +279,85 @@ function startQuiz() {
 
 function showQuestion(index) {
     const question = questions[index];
-    document.getElementById('questionText').textContent = question.question;
+    const questionText = document.getElementById('questionText');
+    questionText.innerHTML = question.question; // Preserve HTML formatting
+    
     const optionsContainer = document.getElementById('optionsContainer');
-    optionsContainer.innerHTML = '';
+    optionsContainer.innerHTML = ''; // Clear previous options
 
-    question.options.forEach(option => {
-        const optionDiv = document.createElement('div');
-        optionDiv.className = 'option';
-        optionDiv.textContent = option;
-        optionDiv.onclick = () => handleAnswer(option, question);
-        optionsContainer.appendChild(optionDiv);
-    });
+    // Handle MultipleChoice questions
+    if (question.type === "MultipleChoice") {
+        question.options.forEach(option => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'option';
+            optionDiv.innerHTML = option.text; // Show option text with formatting
+            optionDiv.onclick = () => handleAnswer(option, question);
+            optionsContainer.appendChild(optionDiv);
+        });
+    }
+    // Handle TrueFalse questions
+    else if (question.type === "TrueFalse") {
+        const trueOption = document.createElement('div');
+        trueOption.className = 'option';
+        trueOption.textContent = "Wahr";
+        trueOption.onclick = () => handleAnswer(true, question);
+        
+        const falseOption = document.createElement('div');
+        falseOption.className = 'option';
+        falseOption.textContent = "Falsch";
+        falseOption.onclick = () => handleAnswer(false, question);
+
+        optionsContainer.appendChild(trueOption);
+        optionsContainer.appendChild(falseOption);
+    }
 }
 
 function handleAnswer(selectedAnswer, question) {
-    const options = document.getElementsByClassName('option');
-    
+    const options = document.querySelectorAll('.option');
+    let isCorrect = false;
+    let feedbackText = '';
+
+    // Determine correctness and feedback
+    if (question.type === "MultipleChoice") {
+        isCorrect = selectedAnswer.is_correct;
+        feedbackText = selectedAnswer.feedback;
+    } else if (question.type === "TrueFalse") {
+        isCorrect = selectedAnswer === question.correct_answer;
+        feedbackText = isCorrect ? question.feedback_correct : question.feedback_incorrect;
+    }
+
+    // Store user response
     userResponses[currentQuestion] = {
         question: question.question,
-        selected: selectedAnswer,
-        correct: selectedAnswer === question.correctAnswer,
-        explanation: question.explanation
+        selected: question.type === "MultipleChoice" ? selectedAnswer.text : (selectedAnswer ? "Wahr" : "Falsch"),
+        correct: isCorrect,
+        explanation: feedbackText
     };
 
-    Array.from(options).forEach(opt => {
+    // Visual feedback
+    options.forEach(opt => {
         opt.style.pointerEvents = 'none';
-        if (opt.textContent === question.correctAnswer) {
-            opt.classList.add('correct');
-        }
-        if (opt.textContent === selectedAnswer && selectedAnswer !== question.correctAnswer) {
-            opt.classList.add('incorrect');
+        if (question.type === "MultipleChoice") {
+            const correctOption = question.options.find(opt => opt.is_correct);
+            if (opt.innerHTML === correctOption.text) opt.classList.add('correct');
+            if (opt === selectedAnswer && !isCorrect) opt.classList.add('incorrect');
+        } else {
+            const correctAnswer = question.correct_answer ? "Wahr" : "Falsch";
+            if (opt.textContent === correctAnswer) opt.classList.add('correct');
+            if (opt.textContent !== correctAnswer && opt === selectedAnswer) opt.classList.add('incorrect');
         }
     });
 
+    // Show feedback
     const feedback = document.getElementById('feedback');
+    feedback.innerHTML = feedbackText;
+    feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
     feedback.style.display = 'block';
-    
-    if (selectedAnswer === question.correctAnswer) {
-        score++;
-        feedback.classList.add('correct-feedback');
-        feedback.textContent = "✓ Richtige Antwort!";
-    } else {
-        feedback.classList.add('incorrect-feedback');
-        feedback.textContent = `✗ Falsch. ${question.explanation || ''}`;
-    }
 
+    if (isCorrect) score++;
     document.getElementById('nextBtn').style.display = 'block';
 }
+
 
 function nextQuestion() {
     if (currentQuestion < questions.length - 1) {
