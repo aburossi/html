@@ -18,17 +18,24 @@
       height: auto;
       margin-bottom: 20px;
     }
+    a.source-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
   <div class="audio-container">
-    <h1 id="title">Loading...</h1>
-    <p id="artist"></p>
-    <img id="cover" class="cover" src="" alt="Cover Image" style="display: none;">
+    <h1 id="title">Audio</h1>
+    <img id="cover" class="cover" src="https://cdn.iconscout.com/icon/free/png-256/free-speaker-icon-download-in-svg-png-gif-file-formats--audio-sounds-volume-ui-elements-pack-user-interface-icons-470375.png" alt="Cover Image">
     <audio id="audio" controls style="width: 100%;">
       Your browser does not support the audio element.
     </audio>
-    <p id="description"></p>
+    <br>
+    <a id="sourceLink" class="source-link" href="#" target="_blank">View Original</a>
   </div>
 
   <script>
@@ -56,27 +63,27 @@
           return response.json();
         })
         .then(data => {
-          // Display track metadata
-          document.getElementById('title').textContent = data.title || 'Untitled Track';
-          document.getElementById('artist').textContent = data.artist || '';
-          if (data.description) {
-            document.getElementById('description').textContent = data.description;
-          }
+          // Set default title and cover if missing or empty
+          const title = data.title && data.title.trim() !== "" ? data.title : "Audio";
+          const cover = data.cover && data.cover.trim() !== "" ? data.cover : "https://cdn.iconscout.com/icon/free/png-256/free-speaker-icon-download-in-svg-png-gif-file-formats--audio-sounds-volume-ui-elements-pack-user-interface-icons-470375.png";
+          // Set default url if missing or empty: use source instead
+          const sourceUrl = data.url && data.url.trim() !== "" ? data.url : data.source;
 
-          // Display cover image if available
-          if (data.cover) {
-            const coverImg = document.getElementById('cover');
-            coverImg.src = data.cover;
-            coverImg.style.display = 'block';
-          }
-
+          document.getElementById('title').textContent = title;
+          document.getElementById('cover').src = cover;
+          
           // Set up the audio source
           const audioElement = document.getElementById('audio');
-          if (data.source) {
+          if (data.source && data.source.trim() !== "") {
             audioElement.src = data.source;
           } else {
             throw new Error('No audio source provided in JSON.');
           }
+
+          // Set up the source link
+          const sourceLinkElement = document.getElementById('sourceLink');
+          sourceLinkElement.href = sourceUrl;
+          sourceLinkElement.textContent = "View Original";
         })
         .catch(error => {
           console.error('Error:', error);
