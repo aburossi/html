@@ -45,10 +45,6 @@
       return params.get(param);
     }
 
-    // Default values if title or cover are missing
-    const defaultTitle = "Audio";
-    const defaultCover = "https://cdn.iconscout.com/icon/free/png-256/free-speaker-icon-download-in-svg-png-gif-file-formats--audio-sounds-volume-ui-elements-pack-user-interface-icons-470375.png";
-
     (function() {
       const audioId = getQueryParam('audioId');
       if (!audioId) {
@@ -62,48 +58,37 @@
       fetch(jsonUrl)
         .then(response => {
           if (!response.ok) {
-            // Trigger fallback if the JSON file is not found
-            throw new Error('JSON file not found, using local file.');
+            throw new Error('Failed to load JSON file: ' + jsonUrl);
           }
           return response.json();
         })
         .then(data => {
-          // Use values from JSON file with fallbacks if necessary
-          const title = data.title && data.title.trim() !== "" ? data.title : defaultTitle;
-          const cover = data.cover && data.cover.trim() !== "" ? data.cover : defaultCover;
-          // If url is empty, default to source
-          const sourceUrl = data.url && data.url.trim() !== "" ? data.url : data.source;
-
+          const defaultTitle = "Audio";
+          const defaultCover = "https://cdn.iconscout.com/icon/free/png-256/free-speaker-icon-download-in-svg-png-gif-file-formats--audio-sounds-volume-ui-elements-pack-user-interface-icons-470375.png";
+          
+          // Use provided title and cover; if missing, apply defaults
+          const title = (data.title && data.title.trim() !== "") ? data.title : defaultTitle;
+          const cover = (data.cover && data.cover.trim() !== "") ? data.cover : defaultCover;
+          // Use the URL provided; if empty, default to the source
+          const sourceUrl = (data.url && data.url.trim() !== "") ? data.url : data.source;
+          
           document.getElementById('title').textContent = title;
           document.getElementById('cover').src = cover;
-
-          const audioElement = document.getElementById('audio');
+          
+          // Set the audio source (the URL can be any fully qualified address—including your GitHub address)
           if (data.source && data.source.trim() !== "") {
-            audioElement.src = data.source;
+            document.getElementById('audio').src = data.source;
           } else {
             throw new Error('No audio source provided in JSON.');
           }
-
+          
           const sourceLinkElement = document.getElementById('sourceLink');
           sourceLinkElement.href = sourceUrl;
           sourceLinkElement.textContent = "View Original";
         })
         .catch(error => {
-          // Fallback to local MP3 file in folder 'audio'
-          console.warn('Falling back to local file. Error:', error.message);
-          const localSource = 'audio/' + audioId + '.mp3';
-
-          // Set default title and cover
-          document.getElementById('title').textContent = defaultTitle;
-          document.getElementById('cover').src = defaultCover;
-
-          // Use the local file as the audio source
-          document.getElementById('audio').src = localSource;
-
-          // Update the "View Original" link to point to the local file
-          const sourceLinkElement = document.getElementById('sourceLink');
-          sourceLinkElement.href = localSource;
-          sourceLinkElement.textContent = "View Original (Local)";
+          console.error('Error:', error);
+          document.body.innerHTML = '<p>Error loading audio: ' + error.message + '</p>';
         });
     })();
   </script>
