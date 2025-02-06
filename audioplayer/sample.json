@@ -1,4 +1,10 @@
 {
-    "url": "https://download-media.srf.ch/world/audio/Espresso_radio/2025/01/Espresso_radio_AUDI20250116_RS_0045_edc61084d240416fa3c54016e43e4fae.mp3"
+    "id": "sample",
+    "title": "Sample Audio Track",
+    "artist": "Artist Name",
+    "source": "https://download-media.srf.ch/world/audio/Espresso_radio/2025/01/Espresso_radio_AUDI20250116_RS_0045_edc61084d240416fa3c54016e43e4fae.mp3",
+    "cover": "https://example.com/images/sample.jpg",
+    "duration": "03:45",
+    "description": "This is a sample audio track."
   }
   

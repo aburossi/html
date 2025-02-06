@@ -1,74 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Audio Player</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
       text-align: center;
+      margin: 20px;
     }
-    audio {
-      margin-top: 20px;
+    .audio-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    img.cover {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <!-- Audio Player -->
-  <audio id="audioPlayer" controls preload="auto" crossorigin="anonymous">
-    <source src="" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <div class="audio-container">
+    <h1 id="title">Loading...</h1>
+    <p id="artist"></p>
+    <img id="cover" class="cover" src="" alt="Cover Image" style="display: none;">
+    <audio id="audio" controls style="width: 100%;">
+      Your browser does not support the audio element.
+    </audio>
+    <p id="description"></p>
+  </div>
 
   <script>
-    const audioElement = document.getElementById('audioPlayer');
-
-    // Log any errors that occur on the audio element
-    audioElement.addEventListener('error', function(e) {
-      console.error("Audio element error:", e);
-      // If you see errors here, check the network request in your browser's DevTools.
-      // One common issue is if the MP3 URL forces a download (e.g., with a Content-Disposition header),
-      // the browser might not stream it via the <audio> element.
-    });
-
-    // Function to load audio URL from a JSON file based on the "audioId" query parameter
-    function loadAudioFromJSON() {
-      // Get the URL parameter "audioId"
+    // Utility function to retrieve a query parameter by name
+    function getQueryParam(param) {
       const params = new URLSearchParams(window.location.search);
-      const audioId = params.get('audioId');
+      return params.get(param);
+    }
 
-      // Determine the JSON file to load; if none provided, you can set a default (e.g., "default.json")
-      const jsonFile = audioId ? `${audioId}.json` : 'default.json';
+    (function() {
+      const audioId = getQueryParam('audioId');
+      if (!audioId) {
+        document.body.innerHTML = '<p>Error: No audioId provided in the URL.</p>';
+        return;
+      }
 
-      fetch(jsonFile)
+      // Construct the URL to the JSON file (assuming JSON files are in the 'mp3' folder)
+      const jsonUrl = 'mp3/' + audioId + '.json';
+
+      fetch(jsonUrl)
         .then(response => {
           if (!response.ok) {
-            throw new Error(`Network error: ${response.statusText}`);
+            throw new Error('Failed to load JSON file: ' + jsonUrl);
           }
           return response.json();
         })
         .then(data => {
-          if (data.url) {
-            console.log("Fetched audio URL:", data.url);
-            // IMPORTANT:
-            // If the MP3 URL forces a download (e.g., sends a header "Content-Disposition: attachment"),
-            // the browser may not play it in the <audio> element.
-            // To resolve this, ensure the URL points to a streamable audio file or adjust the server settings.
-            const sourceElement = audioElement.querySelector('source');
-            sourceElement.src = data.url;
-            audioElement.load();  // Reload the audio element with the new source
+          // Display track metadata
+          document.getElementById('title').textContent = data.title || 'Untitled Track';
+          document.getElementById('artist').textContent = data.artist || '';
+          if (data.description) {
+            document.getElementById('description').textContent = data.description;
+          }
+
+          // Display cover image if available
+          if (data.cover) {
+            const coverImg = document.getElementById('cover');
+            coverImg.src = data.cover;
+            coverImg.style.display = 'block';
+          }
+
+          // Set up the audio source
+          const audioElement = document.getElementById('audio');
+          if (data.source) {
+            audioElement.src = data.source;
           } else {
-            console.error("JSON file does not contain a 'url' property.");
+            throw new Error('No audio source provided in JSON.');
           }
         })
         .catch(error => {
-          console.error("Error fetching or parsing JSON:", error);
+          console.error('Error:', error);
+          document.body.innerHTML = '<p>Error loading audio: ' + error.message + '</p>';
         });
-    }
-
-    // Load the audio source when the page loads
-    loadAudioFromJSON();
+    })();
   </script>
 </body>
 </html>
