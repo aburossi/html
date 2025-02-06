@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Audio Player</title>
   <style>
-    /* Basic styling for the audio player */
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
@@ -18,12 +17,21 @@
 <body>
   <!-- Audio Player -->
   <audio id="audioPlayer" controls preload="auto" crossorigin="anonymous">
-    <!-- The source element will be updated via JavaScript -->
     <source src="" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
   <script>
+    const audioElement = document.getElementById('audioPlayer');
+
+    // Log any errors that occur on the audio element
+    audioElement.addEventListener('error', function(e) {
+      console.error("Audio element error:", e);
+      // If you see errors here, check the network request in your browser's DevTools.
+      // One common issue is if the MP3 URL forces a download (e.g., with a Content-Disposition header),
+      // the browser might not stream it via the <audio> element.
+    });
+
     // Function to load audio URL from a JSON file based on the "audioId" query parameter
     function loadAudioFromJSON() {
       // Get the URL parameter "audioId"
@@ -33,7 +41,6 @@
       // Determine the JSON file to load; if none provided, you can set a default (e.g., "default.json")
       const jsonFile = audioId ? `${audioId}.json` : 'default.json';
 
-      // Fetch the JSON file from the same directory
       fetch(jsonFile)
         .then(response => {
           if (!response.ok) {
@@ -43,12 +50,14 @@
         })
         .then(data => {
           if (data.url) {
-            // Update the <source> element with the URL from the JSON file
-            const audioElement = document.getElementById('audioPlayer');
+            console.log("Fetched audio URL:", data.url);
+            // IMPORTANT:
+            // If the MP3 URL forces a download (e.g., sends a header "Content-Disposition: attachment"),
+            // the browser may not play it in the <audio> element.
+            // To resolve this, ensure the URL points to a streamable audio file or adjust the server settings.
             const sourceElement = audioElement.querySelector('source');
             sourceElement.src = data.url;
             audioElement.load();  // Reload the audio element with the new source
-            console.log(`Loaded audio URL: ${data.url}`);
           } else {
             console.error("JSON file does not contain a 'url' property.");
           }
