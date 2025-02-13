@@ -3,27 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aspekte der Allgemeinbildung – Rollender Zylinder</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Aspekte der Allgemeinbildung – Carousel with Thumbnails</title>
+  <style>
+    :root {
+      /* Increased dimensions for the top carousel slides */
+      --faceWidth: 250px;
+      --faceHeight: 300px;
+    }
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    /* Top Header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+    }
+    .aspect-list {
+      flex: 1;
+    }
+    .aspect-list ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .aspect-list li {
+      padding: 10px;
+      background: #eaeaea;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .aspect-list li:hover {
+      background: #d4d4d4;
+    }
+    .aspect-list li.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .controls button {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background: #0056b3;
+    }
+    .speed-control {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .speed-control span {
+      min-width: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    /* Main Display and Carousel */
+    .main-display {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+    }
+    .carousel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .scene {
+      position: relative;
+      width: calc(var(--faceWidth) * 3);
+      height: var(--faceHeight);
+      perspective: 1000px;
+      margin-bottom: 20px;
+    }
+    #cylinder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .face {
+      position: absolute;
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: left 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #007bff;
+      color: white;
+      border: 2px solid #fff;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .face.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* Active (center) slide */
+    .face.active {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      z-index: 3;
+    }
+    /* Left slide */
+    .face.prev {
+      left: 0;
+      transform: translate(0, -50%);
+      opacity: 0.8;
+      z-index: 2;
+    }
+    /* Right slide */
+    .face.next {
+      left: 100%;
+      transform: translate(-100%, -50%);
+      opacity: 0.8;
+      z-index: 2;
+    }
+    /* Thumbnail row styles */
+    .thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .thumbnail {
+      width: 150px;
+      height: 180px;
+      background: #007bff;
+      color: white;
+      border: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.5s ease;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .aspect-list ul {
+        flex-direction: column;
+      }
+      .thumbnail {
+        width: 100px;
+        height: 120px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar with Aspekte list and controls -->
-    <aside class="sidebar">
+  <!-- Top Header with Aspekte list and controls -->
+  <div class="header">
+    <div class="aspect-list">
       <ul id="aspectList"></ul>
-      <div class="controls">
-        <button id="restartButton">Restart</button>
-        <div class="speed-control">
-          <label for="speedSlider">Geschwindigkeit (Sek./Slide):</label>
-          <input type="range" id="speedSlider" min="1" max="10" value="5">
-          <span id="speedValue">5</span>
-        </div>
+    </div>
+    <div class="controls">
+      <button id="restartButton">Reload</button>
+      <div class="speed-control">
+        <button id="decreaseSpeed">-</button>
+        <span id="speedValue">5</span>
+        <button id="increaseSpeed">+</button>
       </div>
-    </aside>
-    <!-- Main display with the 3D rolling cylinder -->
-    <main class="main-display">
+    </div>
+  </div>
+  <!-- Main display with Carousel and Thumbnail row -->
+  <main class="main-display">
+    <div class="carousel-container">
       <div class="scene">
-        <div class="cylinder" id="cylinder">
+        <div id="cylinder">
           <div class="face" data-face="0"></div>
           <div class="face" data-face="1"></div>
           <div class="face" data-face="2"></div>
@@ -34,8 +220,190 @@
           <div class="face" data-face="7"></div>
         </div>
       </div>
-    </main>
-  </div>
-  <script src="script.js"></script>
+      <div class="thumbnails"></div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      // Data: 8 Aspekte (name & definition)
+      const aspekte = [
+        { name: "Ethik", definition: "Systematische und kritische Reflexion der gelebten Moral, die Handlungsweisen hinterfragt und nach verallgemeinerbaren Begründungen sucht." },
+        { name: "Identität und Sozialisation", definition: "Wandlungsprozess, in dem Menschen eine Identität entwickeln, die ihnen Stabilität und Offenheit gegenüber ihrem Umfeld garantiert, indem sie Fragen nach ihrer Rolle und ihrem Selbstbild beantworten." },
+        { name: "Kultur", definition: "Gesamtheit der vom Menschen geschaffenen Ausdrucksformen, von der Alltagskultur bis zur Kunst, die unser Weltbild beeinflusst." },
+        { name: "Ökologie", definition: "Lehre von den Beziehungen und Wechselwirkungen zwischen Organismen und ihrer Umwelt, die Erkenntnisse verschiedener Wissenschaftszweige vernetzt." },
+        { name: "Politik", definition: "Strukturierter Prozess mit dem Ziel, Lösungen für gesellschaftliche Probleme zu finden und Lebensweisen vorzuschlagen." },
+        { name: "Recht", definition: "Komplexes, historisch gewachsenes soziales System, welches Verhaltensregeln in einer Gesellschaft festlegt." },
+        { name: "Technologie", definition: "Methoden und Verfahren, technische Mittel in einem bestimmten Anwendungsgebiet mit dem Ziel einzusetzen, Lebensgrundlagen zu sichern, Arbeit zu erleichtern oder Informations- und Kommunikationseinrichtungen bereitzustellen." },
+        { name: "Wirtschaft", definition: "Analyse des Umgangs mit knappen Mitteln und unbegrenzten Bedürfnissen, wobei Produktion und Konsum im Zentrum stehen und nachhaltige Entwicklung besondere Beachtung findet." }
+      ];
+
+      let currentIndex = 0;
+      let intervalID = null;
+      let speedInSeconds = 5;
+      let slideDuration = speedInSeconds * 1000; // duration in milliseconds
+
+      // DOM Elements
+      const aspectList = document.getElementById("aspectList");
+      const restartButton = document.getElementById("restartButton");
+      const speedValueDisplay = document.getElementById("speedValue");
+      const decreaseSpeedBtn = document.getElementById("decreaseSpeed");
+      const increaseSpeedBtn = document.getElementById("increaseSpeed");
+      const thumbnailsContainer = document.querySelector(".thumbnails");
+
+      // Populate the Aspekte list in the header
+      function initializeAspectList() {
+        aspekte.forEach((aspect, index) => {
+          const li = document.createElement("li");
+          li.textContent = aspect.name;
+          li.addEventListener("click", () => {
+            stopLoop();
+            currentIndex = index;
+            showSlide(index);
+          });
+          aspectList.appendChild(li);
+        });
+      }
+
+      // Highlight the active aspect
+      function updateActiveAspect(index) {
+        Array.from(aspectList.getElementsByTagName("li")).forEach(li => li.classList.remove("active"));
+        const listItem = aspectList.getElementsByTagName("li")[index];
+        if (listItem) listItem.classList.add("active");
+      }
+
+      // Update the main carousel (top three slides)
+      function showSlide(index) {
+        // Clear classes and content for all faces
+        document.querySelectorAll(".face").forEach(face => {
+          face.classList.remove("active", "prev", "next", "hidden");
+          face.classList.add("hidden");
+          face.innerHTML = "";
+        });
+
+        // Active slide
+        const currentFace = document.querySelector(`.face[data-face="${index}"]`);
+        if (currentFace) {
+          currentFace.innerHTML = `<h2>${aspekte[index].name}</h2>
+                                   <p>${aspekte[index].definition}</p>`;
+          currentFace.classList.remove("hidden");
+          currentFace.classList.add("active");
+        }
+
+        // Previous slide (circular)
+        const prevIndex = (index - 1 + aspekte.length) % aspekte.length;
+        const prevFace = document.querySelector(`.face[data-face="${prevIndex}"]`);
+        if (prevFace) {
+          prevFace.innerHTML = `<h2>${aspekte[prevIndex].name}</h2>
+                                <p>${aspekte[prevIndex].definition}</p>`;
+          prevFace.classList.remove("hidden");
+          prevFace.classList.add("prev");
+        }
+
+        // Next slide (circular)
+        const nextIndex = (index + 1) % aspekte.length;
+        const nextFace = document.querySelector(`.face[data-face="${nextIndex}"]`);
+        if (nextFace) {
+          nextFace.innerHTML = `<h2>${aspekte[nextIndex].name}</h2>
+                                <p>${aspekte[nextIndex].definition}</p>`;
+          nextFace.classList.remove("hidden");
+          nextFace.classList.add("next");
+        }
+
+        updateActiveAspect(index);
+        updateThumbnails(index);
+      }
+
+      // Update the thumbnails row with the "other" slides
+      function updateThumbnails(activeIndex) {
+        thumbnailsContainer.innerHTML = "";
+        const total = aspekte.length;
+        // Define main indices shown on top
+        const mainIndices = [
+          activeIndex,
+          (activeIndex - 1 + total) % total,
+          (activeIndex + 1) % total
+        ];
+        // Loop over all slides; only add those not in the main carousel
+        for (let i = 0; i < total; i++) {
+          if (mainIndices.includes(i)) continue;
+          // Calculate minimal circular distance from active slide
+          let diff = (i - activeIndex + total) % total;
+          if (diff > total / 2) diff = total - diff;
+          // Map the distance to an opacity value:
+          // Closer (diff==2) => higher opacity; further (diff==4) => lower.
+          let thumbOpacity = 0.4;
+          if (diff === 2) thumbOpacity = 0.8;
+          else if (diff === 3) thumbOpacity = 0.6;
+          const thumb = document.createElement("div");
+          thumb.classList.add("thumbnail");
+          thumb.style.opacity = thumbOpacity;
+          thumb.innerHTML = `<h4>${aspekte[i].name}</h4>`;
+          // Clicking a thumbnail jumps to that slide
+          thumb.addEventListener("click", () => {
+            stopLoop();
+            currentIndex = i;
+            showSlide(i);
+          });
+          thumbnailsContainer.appendChild(thumb);
+        }
+      }
+
+      // Autoplay loop for the main carousel
+      function startLoop() {
+        stopLoop();
+        intervalID = setInterval(() => {
+          showSlide(currentIndex);
+          currentIndex = (currentIndex + 1) % aspekte.length;
+        }, slideDuration);
+      }
+
+      function stopLoop() {
+        if (intervalID !== null) {
+          clearInterval(intervalID);
+          intervalID = null;
+        }
+      }
+
+      // Reload button resets to the first slide
+      restartButton.addEventListener("click", () => {
+        currentIndex = 0;
+        showSlide(currentIndex);
+        startLoop();
+      });
+
+      // Decrease speed button (-)
+      decreaseSpeedBtn.addEventListener("click", () => {
+        if (speedInSeconds > 1) {
+          speedInSeconds--;
+          speedValueDisplay.textContent = speedInSeconds;
+          slideDuration = speedInSeconds * 1000;
+          if (intervalID !== null) {
+            startLoop();
+          }
+        }
+      });
+
+      // Increase speed button (+)
+      increaseSpeedBtn.addEventListener("click", () => {
+        if (speedInSeconds < 10) {
+          speedInSeconds++;
+          speedValueDisplay.textContent = speedInSeconds;
+          slideDuration = speedInSeconds * 1000;
+          if (intervalID !== null) {
+            startLoop();
+          }
+        }
+      });
+
+      // Initialization
+      function init() {
+        initializeAspectList();
+        showSlide(currentIndex);
+        startLoop();
+      }
+      init();
+    })();
+  </script>
 </body>
 </html>

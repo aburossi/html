@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspekte der Allgemeinbildung – Flip Cards</title>
+  <style>
+    /* Base styles and responsive typography */
+    html {
+      font-size: calc(16px + 0.3vw);
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    /* Responsive grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* Flip card container */
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      height: 300px;
+      perspective: 1000px;
+      transition: opacity 0.3s ease;
+    }
+    /* When a card is clicked, add a faded class to reduce opacity */
+    .flip-card.faded {
+      opacity: 0.3;
+    }
+    /* Inner container: holds both sides */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    /* When the card has the "flipped" class, rotate it */
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    /* Front and back sides */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .flip-card-front {
+      background: #007bff;
+      color: white;
+    }
+    .flip-card-back {
+      background: #28a745;
+      color: white;
+      transform: rotateY(180deg);
+    }
+    .flip-card h2 {
+      margin-bottom: 10px;
+    }
+    /* Make definition and example text 20% smaller */
+    .flip-card-front p,
+    .flip-card-back p {
+      font-size: 80%;
+    }
+    /* Reload button */
+    .reload-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      border: none;
+      background: #28a745;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .reload-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aspekte der Allgemeinbildung</h1>
+  <div class="grid" id="aspectGrid"></div>
+  <!-- Reload button using a symbol -->
+  <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
+
+  <script>
+    const aspekte = [
+      {
+        name: "Ethik",
+        definition: `Ethische Betrachtung ist die <strong>systematische und kritische Reflexion der gelebten Moral</strong>. Sie hinterfragt Handlungsweisen und sucht nach verallgemeinerbaren Begründungen.`,
+        example: `Die Entscheidung, ob man ein gefundenes Portemonnaie anonym beim Fundbüro abgibt oder den Inhalt für sich behält, spiegelt <strong>ethische Überlegungen</strong> wider, bei denen man <strong>moralische Intuitionen</strong> und Handlungsweisen aufgrund <strong>ethischer Grundsätze</strong> überprüft.`
+      },
+      {
+        name: "Identität und Sozialisation",
+        definition: `<strong>Identität und Sozialisation beschreiben den Wandlungsprozess</strong>, in dem Menschen eine Identität entwickeln, die ihnen Stabilität und Offenheit gegenüber ihrem Umfeld garantiert, indem sie Fragen nach ihrer Rolle und ihrem Selbstbild beantworten.`,
+        example: `Die Wahl des <strong>Kleidungsstils</strong> oder der <strong>Musikrichtung</strong>, die man hört, kann ein Ausdruck der persönlichen Identität sein und zeigt, wie man sich von anderen abgrenzt oder einer bestimmten <strong>sozialen Gruppe</strong> zugehörig fühlt.`
+      },
+      {
+        name: "Kultur",
+        definition: `<strong>Kultur umfasst die Gesamtheit der vom Menschen geschaffenen Ausdrucksformen</strong>, von der Alltagskultur bis zur Kunst, und beeinflusst unser Weltbild.`,
+        example: `Der Besuch eines <strong>Museums</strong> oder das Ansehen eines <strong>Films</strong> sind Erfahrungen, die unsere Wahrnehmungen und Interpretationen der Welt prägen und uns mit verschiedenen <strong>kulturellen Ausdrucksformen</strong> in Berührung bringen.`
+      },
+      {
+        name: "Ökologie",
+        definition: `<strong>Ökologie ist die Lehre von den Beziehungen und Wechselwirkungen zwischen Organismen und ihrer Umwelt</strong>, die Erkenntnisse verschiedener Wissenschaftszweige vernetzt.`,
+        example: `Die Entscheidung, öffentliche Verkehrsmittel statt des eigenen Autos zu nutzen, ist ein Beispiel für <strong>ökologisches Handeln</strong>, das darauf abzielt, die <strong>Umweltbelastung</strong> zu reduzieren.`
+      },
+      {
+        name: "Politik",
+        definition: `<strong>Politik ist ein strukturierter Prozess mit dem Ziel, Lösungen für Probleme in einer Gesellschaft zu finden</strong> und Lebensweisen vorzuschlagen.`,
+        example: `Die Teilnahme an einer <strong>Wahl</strong> oder die Unterzeichnung einer <strong>Petition</strong> sind Möglichkeiten, sich politisch zu beteiligen und die <strong>Gestaltung der Gesellschaft</strong> mitzubestimmen.`
+      },
+      {
+        name: "Recht",
+        definition: `<strong>Das Recht ist ein komplexes, historisch gewachsenes soziales System, welches Verhaltensregeln in einer Gesellschaft festlegt</strong>.`,
+        example: `Das Einhalten der <strong>Verkehrsregeln</strong> ist ein Beispiel dafür, wie <strong>rechtliche Normen</strong> unser Verhalten im Alltag bestimmen und zur <strong>Sicherheit</strong> aller beitragen.`
+      },
+      {
+        name: "Technologie",
+        definition: `<strong>Technologie umfasst Methoden und Verfahren, technische Mittel in einem bestimmten Anwendungsgebiet mit dem Ziel einzusetzen</strong>, Lebensgrundlagen zu sichern, Arbeit zu erleichtern oder Informations- und Kommunikationseinrichtungen bereitzustellen.`,
+        example: `Die Nutzung eines <strong>Smartphones</strong> zur <strong>Kommunikation</strong>, Information oder Navigation ist ein Beispiel für die Anwendung von <strong>Technologie</strong> im Alltag.`
+      },
+      {
+        name: "Wirtschaft",
+        definition: `<strong>Wirtschaft analysiert den Umgang mit knappen Mitteln und unbegrenzten Bedürfnissen</strong>, wobei Produktion und Konsum im Zentrum stehen und das Konzept einer <strong>nachhaltigen Entwicklung</strong> besondere Beachtung findet.`,
+        example: `Die Entscheidung, ein Produkt im <strong>Ausverkauf</strong> zu kaufen oder auf ein teureres, <strong>nachhaltig produziertes Produkt</strong> zu sparen, ist ein Beispiel für eine <strong>wirtschaftliche Überlegung</strong> im Alltag.`
+      }
+    ];
+
+    const grid = document.getElementById("aspectGrid");
+    const reloadBtn = document.getElementById("reloadBtn");
+
+    function buildGrid() {
+      grid.innerHTML = "";
+      aspekte.forEach((aspect, index) => {
+        const card = document.createElement("div");
+        card.className = "flip-card";
+        card.dataset.index = index;
+        card.innerHTML = `
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h2>${aspect.name}</h2>
+              <p>${aspect.definition}</p>
+            </div>
+            <div class="flip-card-back">
+              <h2>${aspect.name}</h2>
+              <p>${aspect.example}</p>
+            </div>
+          </div>
+        `;
+        // On click, add the "faded" class if not already present.
+        card.addEventListener("click", () => {
+          if (!card.classList.contains("faded")) {
+            card.classList.add("faded");
+          }
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    // Build the grid initially
+    buildGrid();
+
+    // Automatically flip all cards every 8 seconds.
+    setInterval(() => {
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.classList.toggle('flipped');
+      });
+    }, 8000);
+
+    // Reload button rebuilds the grid.
+    reloadBtn.addEventListener("click", buildGrid);
+  </script>
+</body>
+</html>

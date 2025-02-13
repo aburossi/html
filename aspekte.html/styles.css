@@ -110,13 +110,13 @@
     perspective: 800px;
   }
   
-  /* Cylinder container */
+  /* Cylinder container with animation */
   .cylinder {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s ease;
+    transition: transform 1s ease; /* This provides the smooth animation */
   }
   
   /* Each face of the cylinder */

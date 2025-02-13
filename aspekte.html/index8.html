@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspekte der Allgemeinbildung – Rollender Zylinder</title>
+  <style>
+    :root {
+      --faceWidth: 200px;
+      --faceHeight: 250px;
+      --numFaces: 8;
+      --angleStep: 45deg;
+      --radius: 250px; /* Adjust to fit your design */
+    }
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    /* Top Control Bar */
+    .sidebar {
+      width: 100%;
+      background: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      justify-content: center; /* Center aspects */
+    }
+    .sidebar li {
+      padding: 5px 10px;
+      background: #eaeaea;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .sidebar li:hover {
+      background: #d4d4d4;
+    }
+    .sidebar li.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center; /* Center controls */
+    }
+    .controls button,
+    .speed-control button {
+      padding: 5px 10px;
+      font-size: 1rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .controls button:hover,
+    .speed-control button:hover {
+      background: #0056b3;
+    }
+    .speed-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Main Display and 3D Scene */
+    .main-display {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+      perspective: 800px;
+    }
+    .scene {
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      position: relative;
+      perspective: 800px;
+    }
+    /* Cylinder container */
+    .cylinder {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    }
+    /* Each face of the cylinder */
+    .face {
+      position: absolute;
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      left: 0;
+      top: 0;
+      background: #007bff;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      border: 2px solid #fff;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .face.empty {
+      background: rgba(200, 200, 200, 0.6);
+      color: transparent;
+      border-color: rgba(200, 200, 200, 0.6);
+    }
+    /* Heading styling: top of the card with a line below and custom color */
+    .face h2 {
+      width: 100%;
+      margin: 10px 0 5px 0;
+      padding-bottom: 5px;
+      text-align: center;
+      border-bottom: 1px solid white;
+      color: #ffc107;
+    }
+    /* Make strong text also use the custom color */
+    .face strong {
+      color: #ffc107;
+    }
+    /* Definition text 20% smaller */
+    .face p {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 0.8em;
+    }
+    /* Position each face around the Y axis (static positions) */
+    .face[data-face="0"] { transform: rotateY(0deg) translateZ(var(--radius)); }
+    .face[data-face="1"] { transform: rotateY(45deg) translateZ(var(--radius)); }
+    .face[data-face="2"] { transform: rotateY(90deg) translateZ(var(--radius)); }
+    .face[data-face="3"] { transform: rotateY(135deg) translateZ(var(--radius)); }
+    .face[data-face="4"] { transform: rotateY(180deg) translateZ(var(--radius)); }
+    .face[data-face="5"] { transform: rotateY(225deg) translateZ(var(--radius)); }
+    .face[data-face="6"] { transform: rotateY(270deg) translateZ(var(--radius)); }
+    .face[data-face="7"] { transform: rotateY(315deg) translateZ(var(--radius)); }
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .sidebar {
+        flex-direction: column;
+        align-items: center;
+      }
+      .main-display {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top control bar with Aspekte list and controls -->
+    <aside class="sidebar">
+      <ul id="aspectList"></ul>
+      <div class="controls">
+        <button id="restartButton" title="Restart">&#x21bb;</button>
+        <div class="speed-control">
+          <button id="decreaseSpeed">-</button>
+          <span id="speedValue">5</span>
+          <button id="increaseSpeed">+</button>
+        </div>
+      </div>
+    </aside>
+    <!-- Main display with the 3D rolling cylinder -->
+    <main class="main-display">
+      <div class="scene">
+        <div class="cylinder" id="cylinder">
+          <!-- Eight faces remain in the HTML. Only four will be used at a time. -->
+          <div class="face" data-face="0"></div>
+          <div class="face" data-face="1"></div>
+          <div class="face" data-face="2"></div>
+          <div class="face" data-face="3"></div>
+          <div class="face" data-face="4"></div>
+          <div class="face" data-face="5"></div>
+          <div class="face" data-face="6"></div>
+          <div class="face" data-face="7"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      // Data: 8 Aspekte (name & definition) with bolded keywords
+      const aspekte = [
+        { 
+          name: "Ethik", 
+          definition: "Systematische und <strong>kritische Reflexion</strong> der gelebten <strong>Moral</strong>, die Handlungsweisen hinterfragt und nach verallgemeinerbaren Begründungen sucht." 
+        },
+        { 
+          name: "Identität und Sozialisation", 
+          definition: "Wandlungsprozess, in dem Menschen eine <strong>Identität</strong> entwickeln, die ihnen <strong>Stabilität</strong> und <strong>Offenheit</strong> gegenüber ihrem Umfeld garantiert, indem sie Fragen nach ihrer Rolle und ihrem Selbstbild beantworten." 
+        },
+        { 
+          name: "Kultur", 
+          definition: "Gesamtheit der vom Menschen geschaffenen <strong>Ausdrucksformen</strong>, von der <strong>Alltagskultur</strong> bis zur <strong>Kunst</strong>, die unser Weltbild beeinflusst." 
+        },
+        { 
+          name: "Ökologie", 
+          definition: "Lehre von den <strong>Beziehungen</strong> und <strong>Wechselwirkungen</strong> zwischen Organismen und ihrer Umwelt, die Erkenntnisse verschiedener Wissenschaftszweige vernetzt." 
+        },
+        { 
+          name: "Politik", 
+          definition: "Strukturierter Prozess mit dem Ziel, <strong>gesellschaftliche Probleme</strong> zu lösen und Lebensweisen vorzuschlagen." 
+        },
+        { 
+          name: "Recht", 
+          definition: "Komplexes, historisch gewachsenes <strong>soziales System</strong>, welches <strong>Verhaltensregeln</strong> in einer Gesellschaft festlegt." 
+        },
+        { 
+          name: "Technologie", 
+          definition: "Methoden und Verfahren, <strong>technische Mittel</strong> in einem bestimmten Anwendungsgebiet einzusetzen, um <strong>Lebensgrundlagen</strong> zu sichern, Arbeit zu erleichtern oder Informations- und Kommunikationseinrichtungen bereitzustellen." 
+        },
+        { 
+          name: "Wirtschaft", 
+          definition: "Analyse des Umgangs mit <strong>knappen Mitteln</strong> und unbegrenzten Bedürfnissen, wobei <strong>Produktion</strong> und <strong>Konsum</strong> im Zentrum stehen und <strong>nachhaltige Entwicklung</strong> besondere Beachtung findet." 
+        }
+      ];
+
+      let currentIndex = 0;
+      let intervalID = null;
+      let speedSeconds = 5;
+      let slideDuration = speedSeconds * 1000;
+
+      // DOM Elements
+      const cylinder = document.getElementById("cylinder");
+      const aspectList = document.getElementById("aspectList");
+      const restartButton = document.getElementById("restartButton");
+      const decreaseSpeedButton = document.getElementById("decreaseSpeed");
+      const increaseSpeedButton = document.getElementById("increaseSpeed");
+      const speedValue = document.getElementById("speedValue");
+
+      // Populate the top aspect list
+      function initializeSidebar() {
+        aspekte.forEach((aspect, index) => {
+          const li = document.createElement("li");
+          li.textContent = aspect.name;
+          li.addEventListener("click", () => {
+            stopLoop();
+            currentIndex = index;
+            showSlide(currentIndex);
+          });
+          aspectList.appendChild(li);
+        });
+      }
+
+      // Highlight the active aspect in the list
+      function updateActiveSidebar(index) {
+        Array.from(aspectList.getElementsByTagName("li")).forEach(li => li.classList.remove("active"));
+        const listItem = aspectList.getElementsByTagName("li")[index];
+        if (listItem) listItem.classList.add("active");
+      }
+
+      // Show four faces:
+      // - Left preview: face at (currentIndex - 1) mod length (opacity 0.6)
+      // - Center left: face at currentIndex (opacity 1)
+      // - Center right: face at (currentIndex + 1) mod length (opacity 1)
+      // - Right preview: face at (currentIndex + 2) mod length (opacity 0.6)
+      // Also, rotate the cylinder by an extra 22.5° to center the two central faces.
+      function showSlide(index) {
+        // Compute cylinder rotation: shift by currentIndex*45 plus extra 22.5°
+        const angle = (index * 45) + 22.5;
+        cylinder.style.transform = `rotateY(-${angle}deg)`;
+
+        updateActiveSidebar(index);
+
+        // Clear all faces
+        document.querySelectorAll(".face").forEach(face => {
+          face.innerHTML = "";
+          face.style.opacity = "0";
+        });
+
+        // Determine indices for the four visible faces
+        const leftPreviewIndex = (index - 1 + aspekte.length) % aspekte.length;
+        const centerLeftIndex = index;
+        const centerRightIndex = (index + 1) % aspekte.length;
+        const rightPreviewIndex = (index + 2) % aspekte.length;
+
+        // For each, select the corresponding face element by its data-face (they are fixed in the HTML)
+        const leftPreviewFace = document.querySelector(`.face[data-face="${leftPreviewIndex}"]`);
+        if (leftPreviewFace) {
+          leftPreviewFace.innerHTML = `<h2>${aspekte[leftPreviewIndex].name}</h2>
+                                       <p>${aspekte[leftPreviewIndex].definition}</p>`;
+          leftPreviewFace.style.opacity = "0.6";
+        }
+        const centerLeftFace = document.querySelector(`.face[data-face="${centerLeftIndex}"]`);
+        if (centerLeftFace) {
+          centerLeftFace.innerHTML = `<h2>${aspekte[centerLeftIndex].name}</h2>
+                                      <p>${aspekte[centerLeftIndex].definition}</p>`;
+          centerLeftFace.style.opacity = "1";
+        }
+        const centerRightFace = document.querySelector(`.face[data-face="${centerRightIndex}"]`);
+        if (centerRightFace) {
+          centerRightFace.innerHTML = `<h2>${aspekte[centerRightIndex].name}</h2>
+                                       <p>${aspekte[centerRightIndex].definition}</p>`;
+          centerRightFace.style.opacity = "1";
+        }
+        const rightPreviewFace = document.querySelector(`.face[data-face="${rightPreviewIndex}"]`);
+        if (rightPreviewFace) {
+          rightPreviewFace.innerHTML = `<h2>${aspekte[rightPreviewIndex].name}</h2>
+                                        <p>${aspekte[rightPreviewIndex].definition}</p>`;
+          rightPreviewFace.style.opacity = "0.6";
+        }
+      }
+
+      // Autoplay loop: advance one slide at a time
+      function startLoop() {
+        stopLoop();
+        intervalID = setInterval(() => {
+          showSlide(currentIndex);
+          currentIndex = (currentIndex + 1) % aspekte.length;
+        }, slideDuration);
+      }
+
+      function stopLoop() {
+        if (intervalID !== null) {
+          clearInterval(intervalID);
+          intervalID = null;
+        }
+      }
+
+      // Restart: reset to the first slide and restart the loop
+      restartButton.addEventListener("click", () => {
+        currentIndex = 0;
+        showSlide(currentIndex);
+        startLoop();
+      });
+
+      // Decrease speed (faster transitions) down to a minimum of 1 second per slide
+      decreaseSpeedButton.addEventListener("click", () => {
+        if (speedSeconds > 1) {
+          speedSeconds--;
+          updateSpeed();
+        }
+      });
+
+      // Increase speed (slower transitions) up to a maximum of 10 seconds per slide
+      increaseSpeedButton.addEventListener("click", () => {
+        if (speedSeconds < 10) {
+          speedSeconds++;
+          updateSpeed();
+        }
+      });
+
+      function updateSpeed() {
+        speedValue.textContent = speedSeconds;
+        slideDuration = speedSeconds * 1000;
+        if (intervalID !== null) {
+          startLoop();
+        }
+      }
+
+      function init() {
+        initializeSidebar();
+        showSlide(currentIndex);
+        startLoop();
+      }
+      init();
+    })();
+  </script>
+</body>
+</html>

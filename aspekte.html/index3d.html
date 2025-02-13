@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspekte der Allgemeinbildung – Rotierendes Octaedro</title>
+  <style>
+    :root {
+      --faceWidth: 200px;
+      /* For an equilateral triangle, height = width * (√3/2) ≈ 200 * 0.866 = 173px */
+      --faceHeight: 173px;
+      /* Adjust radius to suit the size of the faces */
+      --radius: 150px;
+    }
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    /* Top Control Bar */
+    .sidebar {
+      width: 100%;
+      background: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+    }
+    .sidebar li {
+      padding: 5px 10px;
+      background: #eaeaea;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .sidebar li:hover {
+      background: #d4d4d4;
+    }
+    .sidebar li.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+    }
+    .controls button {
+      padding: 5px 10px;
+      font-size: 1rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background: #0056b3;
+    }
+    .speed-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Main Display and 3D Scene */
+    .main-display {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+      perspective: 800px;
+    }
+    .scene {
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    /* Octahedron container holds the 8 faces.
+       Its rotation is controlled to bring one face to the front. */
+    .octahedron {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+    }
+    /* Each face styled as a triangular card.
+       The clip-path has been inset to avoid cutting off text. */
+    .face {
+      position: absolute;
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      background: #007bff;
+      color: white;
+      border: 2px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      backface-visibility: hidden;
+      /* Inset the triangle slightly so inner text isn’t clipped */
+      clip-path: polygon(50% 10%, 10% 90%, 90% 90%);
+    }
+    .face h2 {
+      width: 100%;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      border-bottom: 1px solid white;
+      color: #ffc107;
+    }
+    .face p {
+      font-size: 0.8em;
+      text-align: left;
+    }
+    .face strong {
+      color: #ffc107;
+    }
+    /* Arrange faces as a regular octahedron.
+       Two square pyramids sharing a base using the “magic” angle 35.264°. 
+       Upper pyramid (faces 0–3): */
+    .face[data-face="0"] { 
+      transform: rotateY(45deg) rotateX(35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="1"] { 
+      transform: rotateY(135deg) rotateX(35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="2"] { 
+      transform: rotateY(225deg) rotateX(35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="3"] { 
+      transform: rotateY(315deg) rotateX(35.264deg) translateZ(var(--radius));
+    }
+    /* Lower pyramid (faces 4–7): */
+    .face[data-face="4"] { 
+      transform: rotateY(45deg) rotateX(-35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="5"] { 
+      transform: rotateY(135deg) rotateX(-35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="6"] { 
+      transform: rotateY(225deg) rotateX(-35.264deg) translateZ(var(--radius));
+    }
+    .face[data-face="7"] { 
+      transform: rotateY(315deg) rotateX(-35.264deg) translateZ(var(--radius));
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top control bar with aspect list and controls -->
+    <aside class="sidebar">
+      <ul id="aspectList"></ul>
+      <div class="controls">
+        <button id="restartButton" title="Restart">&#x21bb;</button>
+        <div class="speed-control">
+          <button id="decreaseSpeed">-</button>
+          <span id="speedValue">5</span>
+          <button id="increaseSpeed">+</button>
+        </div>
+      </div>
+    </aside>
+    <!-- Main display with the 3D octahedron -->
+    <main class="main-display">
+      <div class="scene">
+        <div class="octahedron" id="octahedron">
+          <div class="face" data-face="0"></div>
+          <div class="face" data-face="1"></div>
+          <div class="face" data-face="2"></div>
+          <div class="face" data-face="3"></div>
+          <div class="face" data-face="4"></div>
+          <div class="face" data-face="5"></div>
+          <div class="face" data-face="6"></div>
+          <div class="face" data-face="7"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      // Data: 8 Aspekte with title and definition (keywords in <strong> tags)
+      const aspekte = [
+        { 
+          name: "Ethik", 
+          definition: "Systematische und <strong>kritische Reflexion</strong> der gelebten <strong>Moral</strong>."
+        },
+        { 
+          name: "Identität", 
+          definition: "Entwicklung einer <strong>Identität</strong> für <strong>Stabilität</strong> und <strong>Offenheit</strong>."
+        },
+        { 
+          name: "Kultur", 
+          definition: "Ausdrucksformen von <strong>Alltagskultur</strong> bis zur <strong>Kunst</strong>."
+        },
+        { 
+          name: "Ökologie", 
+          definition: "Beziehungen und <strong>Wechselwirkungen</strong> in der <strong>Umwelt</strong>."
+        },
+        { 
+          name: "Politik", 
+          definition: "Prozess zur Lösung von <strong>gesellschaftlichen Problemen</strong>."
+        },
+        { 
+          name: "Recht", 
+          definition: "Festlegung von <strong>Verhaltensregeln</strong> in der <strong>Gesellschaft</strong>."
+        },
+        { 
+          name: "Technologie", 
+          definition: "Einsatz von <strong>technischen Mitteln</strong> zur Sicherung der <strong>Lebensgrundlagen</strong>."
+        },
+        { 
+          name: "Wirtschaft", 
+          definition: "Analyse von <strong>knappen Mitteln</strong>, <strong>Produktion</strong> und <strong>Konsum</strong>."
+        }
+      ];
+
+      let currentIndex = 0;
+      let intervalID = null;
+      let speedSeconds = 5;
+      let slideDuration = speedSeconds * 1000;
+
+      // Pre‑computed rotations for the octahedron container.
+      // These are the inverse transforms so that the face with content faces front.
+      const rotations = [
+        'rotateX(-35.264deg) rotateY(-45deg)',   // Face 0
+        'rotateX(-35.264deg) rotateY(-135deg)',  // Face 1
+        'rotateX(-35.264deg) rotateY(-225deg)',  // Face 2
+        'rotateX(-35.264deg) rotateY(-315deg)',  // Face 3
+        'rotateX(35.264deg) rotateY(-45deg)',    // Face 4
+        'rotateX(35.264deg) rotateY(-135deg)',   // Face 5
+        'rotateX(35.264deg) rotateY(-225deg)',   // Face 6
+        'rotateX(35.264deg) rotateY(-315deg)'    // Face 7
+      ];
+
+      const octahedron = document.getElementById("octahedron");
+      const aspectList = document.getElementById("aspectList");
+      const restartButton = document.getElementById("restartButton");
+      const decreaseSpeedButton = document.getElementById("decreaseSpeed");
+      const increaseSpeedButton = document.getElementById("increaseSpeed");
+      const speedValue = document.getElementById("speedValue");
+
+      // Initialize top bar list and assign content to each face.
+      function initialize() {
+        aspekte.forEach((aspect, index) => {
+          // Populate the top bar list
+          const li = document.createElement("li");
+          li.textContent = aspect.name;
+          li.addEventListener("click", () => {
+            stopLoop();
+            currentIndex = index;
+            showSlide(currentIndex);
+          });
+          aspectList.appendChild(li);
+          // Set content on the corresponding face (already clipped to a triangle)
+          const face = document.querySelector(`.face[data-face="${index}"]`);
+          if (face) {
+            face.innerHTML = `<h2>${aspect.name}</h2><p>${aspect.definition}</p>`;
+          }
+        });
+      }
+
+      function updateActiveSidebar(index) {
+        Array.from(aspectList.getElementsByTagName("li")).forEach(li => li.classList.remove("active"));
+        const listItem = aspectList.getElementsByTagName("li")[index];
+        if (listItem) listItem.classList.add("active");
+      }
+
+      // Rotate the octahedron so that the chosen face is at the front.
+      function showSlide(index) {
+        octahedron.style.transform = rotations[index];
+        updateActiveSidebar(index);
+      }
+
+      function startLoop() {
+        stopLoop();
+        intervalID = setInterval(() => {
+          showSlide(currentIndex);
+          currentIndex = (currentIndex + 1) % aspekte.length;
+        }, slideDuration);
+      }
+
+      function stopLoop() {
+        if (intervalID !== null) {
+          clearInterval(intervalID);
+          intervalID = null;
+        }
+      }
+
+      restartButton.addEventListener("click", () => {
+        currentIndex = 0;
+        showSlide(currentIndex);
+        startLoop();
+      });
+
+      decreaseSpeedButton.addEventListener("click", () => {
+        if (speedSeconds > 1) {
+          speedSeconds--;
+          updateSpeed();
+        }
+      });
+
+      increaseSpeedButton.addEventListener("click", () => {
+        if (speedSeconds < 10) {
+          speedSeconds++;
+          updateSpeed();
+        }
+      });
+
+      function updateSpeed() {
+        speedValue.textContent = speedSeconds;
+        slideDuration = speedSeconds * 1000;
+        if (intervalID !== null) {
+          startLoop();
+        }
+      }
+
+      function init() {
+        initialize();
+        showSlide(currentIndex);
+        startLoop();
+      }
+      init();
+    })();
+  </script>
+</body>
+</html>

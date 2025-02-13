@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspekte der Allgemeinbildung – Zufällige Auswahl (Ergebnis bleibt)</title>
+  <style>
+    :root {
+      --faceWidth: 200px;
+      --faceHeight: 250px;
+      --radius: 250px;
+    }
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    /* Sidebar with Aspect List and Controls */
+    .sidebar {
+      width: 100%;
+      background: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      padding: 5px 10px;
+      background: #eaeaea;
+      border-radius: 4px;
+    }
+    .sidebar li.eliminated {
+      color: red;
+      font-weight: bold;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+    .controls button {
+      padding: 5px 10px;
+      font-size: 1rem;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background: #0056b3;
+    }
+    /* Main Display and 3D Scene */
+    .main-display {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+      perspective: 800px;
+    }
+    .scene {
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      position: relative;
+      perspective: 800px;
+    }
+    .cylinder {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .face {
+      position: absolute;
+      width: var(--faceWidth);
+      height: var(--faceHeight);
+      left: 0;
+      top: 0;
+      background: #007bff;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      border: 2px solid #fff;
+      backface-visibility: hidden;
+      transition: opacity 0.5s ease;
+    }
+    .face h2 {
+      margin-bottom: 5px;
+      border-bottom: 1px solid white;
+      color: #ffc107;
+    }
+    .face p {
+      font-size: 0.9em;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar with aspect list and control buttons -->
+    <aside class="sidebar">
+      <ul id="aspectList"></ul>
+      <div class="controls">
+        <button id="randomizeButton">Zufällig wählen</button>
+        <button id="reloadButton">Reload</button>
+      </div>
+    </aside>
+    <!-- Main display with the 3D carousel -->
+    <main class="main-display">
+      <div class="scene">
+        <div class="cylinder" id="cylinder"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      // The original aspects with an added eliminated flag.
+      const originalAspekte = [
+        { 
+          name: "Ethik", 
+          definition: "Systematische und <strong>kritische Reflexion</strong> der gelebten <strong>Moral</strong>.", 
+          eliminated: false 
+        },
+        { 
+          name: "Identität und Sozialisation", 
+          definition: "Wandlungsprozess, in dem Menschen eine <strong>Identität</strong> entwickeln.", 
+          eliminated: false 
+        },
+        { 
+          name: "Kultur", 
+          definition: "Gesamtheit der vom Menschen geschaffenen <strong>Ausdrucksformen</strong>.", 
+          eliminated: false 
+        },
+        { 
+          name: "Ökologie", 
+          definition: "Lehre von den <strong>Beziehungen</strong> zwischen Organismen und ihrer Umwelt.", 
+          eliminated: false 
+        },
+        { 
+          name: "Politik", 
+          definition: "Strukturierter Prozess zur Lösung <strong>gesellschaftlicher Probleme</strong>.", 
+          eliminated: false 
+        },
+        { 
+          name: "Recht", 
+          definition: "Komplexes, historisch gewachsenes <strong>soziales System</strong> von Verhaltensregeln.", 
+          eliminated: false 
+        },
+        { 
+          name: "Technologie", 
+          definition: "Methoden und Verfahren, <strong>technische Mittel</strong> einzusetzen.", 
+          eliminated: false 
+        },
+        { 
+          name: "Wirtschaft", 
+          definition: "Analyse des Umgangs mit <strong>knappen Mitteln</strong> und unbegrenzten Bedürfnissen.", 
+          eliminated: false 
+        }
+      ];
+      
+      const cylinder = document.getElementById("cylinder");
+      const aspectList = document.getElementById("aspectList");
+      const randomizeButton = document.getElementById("randomizeButton");
+      const reloadButton = document.getElementById("reloadButton");
+      
+      let isAnimating = false;
+      let resultDisplayed = false;  // true if a selected slide is currently shown
+      
+      // Build the sidebar: show all aspects; eliminated ones appear in red.
+      function buildSidebar() {
+        aspectList.innerHTML = "";
+        originalAspekte.forEach((aspect, index) => {
+          const li = document.createElement("li");
+          li.textContent = aspect.name;
+          li.dataset.index = index;
+          if(aspect.eliminated) {
+            li.classList.add("eliminated");
+          }
+          aspectList.appendChild(li);
+        });
+      }
+      
+      // Build the cylinder using only non‑eliminated aspects.
+      function buildCylinder() {
+        cylinder.innerHTML = "";
+        const available = originalAspekte.filter(a => !a.eliminated);
+        const count = available.length;
+        if(count === 0) {
+          cylinder.innerHTML = "<div style='text-align:center'>Keine Aspekte mehr verfügbar.</div>";
+          return;
+        }
+        const angleStep = 360 / count;
+        available.forEach((aspect, index) => {
+          const face = document.createElement("div");
+          face.className = "face";
+          face.dataset.index = index;
+          face.innerHTML = `<h2>${aspect.name}</h2>
+                            <p>${aspect.definition}</p>`;
+          face.style.transform = `rotateY(${index * angleStep}deg) translateZ(var(--radius))`;
+          face.style.opacity = "1";
+          cylinder.appendChild(face);
+        });
+        // Reset cylinder rotation.
+        cylinder.style.transition = "none";
+        cylinder.style.transform = "rotateY(0deg)";
+      }
+      
+      // Randomly select an aspect and animate the spin.
+      function randomizeSelection() {
+        if(isAnimating) return;
+        
+        // If a result is already displayed, rebuild the carousel for a new spin.
+        if(resultDisplayed) {
+          buildCylinder();
+          resultDisplayed = false;
+        }
+        
+        const available = originalAspekte.filter(a => !a.eliminated);
+        const count = available.length;
+        if(count === 0) return;
+        
+        isAnimating = true;
+        const angleStep = 360 / count;
+        const randomIndex = Math.floor(Math.random() * count);
+        const extraRotations = 360 * 5; // five full spins for effect
+        const targetAngle = randomIndex * angleStep;
+        const totalRotation = extraRotations + targetAngle;
+        
+        cylinder.style.transition = "transform 3s ease-out";
+        cylinder.style.transform = `rotateY(-${totalRotation}deg)`;
+        
+        cylinder.addEventListener("transitionend", function handler() {
+          // Mark the chosen aspect as eliminated.
+          const selectedAspect = available[randomIndex];
+          selectedAspect.eliminated = true;
+          
+          // Update sidebar so that the chosen aspect appears in red.
+          buildSidebar();
+          
+          // Hide all non‑selected faces.
+          const faces = cylinder.querySelectorAll(".face");
+          faces.forEach((face) => {
+            face.style.opacity = (parseInt(face.dataset.index, 10) === randomIndex) ? "1" : "0";
+          });
+          
+          // Leave the selected slide displayed.
+          resultDisplayed = true;
+          isAnimating = false;
+          
+          // Disable the button if no aspects remain.
+          if(originalAspekte.filter(a => !a.eliminated).length === 0) {
+            randomizeButton.disabled = true;
+          }
+          
+          cylinder.removeEventListener("transitionend", handler);
+        });
+      }
+      
+      // The Reload button rebuilds the carousel (clearing any result state).
+      function reloadCarousel() {
+        buildCylinder();
+        resultDisplayed = false;
+        if(originalAspekte.filter(a => !a.eliminated).length > 0) {
+          randomizeButton.disabled = false;
+        }
+      }
+      
+      // Initial build.
+      buildSidebar();
+      buildCylinder();
+      
+      // Event listeners.
+      randomizeButton.addEventListener("click", randomizeSelection);
+      reloadButton.addEventListener("click", reloadCarousel);
+    })();
+  </script>
+</body>
+</html>

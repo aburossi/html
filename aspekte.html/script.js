@@ -45,7 +45,7 @@
   
     // Show a slide by rotating the cylinder and updating the front face
     function showSlide(index) {
-      // Rotate the cylinder so that the face with data-face=index is front (rotateY in multiples of 45deg)
+      // Rotate the cylinder so that the face with data-face=index is front (multiples of 45deg)
       const angle = index * 45;
       cylinder.style.transform = `rotateY(-${angle}deg)`;
       updateActiveSidebar(index);
