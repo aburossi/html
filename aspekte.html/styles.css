@@ -1,0 +1,184 @@
+:root {
+    --faceWidth: 200px;
+    --faceHeight: 250px;
+    --numFaces: 8;
+    --angle: calc(360deg / var(--numFaces)); /* 45deg */
+    --radius: 250px; /* Adjust to fit your design */
+  }
+  
+  /* Reset and Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #f4f4f4;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #eaeaea;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .sidebar li:hover {
+    background: #d4d4d4;
+  }
+  
+  .sidebar li.active {
+    background: #ccc;
+    font-weight: bold;
+  }
+  
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .controls button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .controls button:hover {
+    background: #0056b3;
+  }
+  
+  .speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .speed-control label {
+    font-size: 1rem;
+  }
+  
+  .speed-control input[type="range"] {
+    cursor: pointer;
+  }
+  
+  /* Main Display and 3D Scene */
+  .main-display {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fafafa;
+    perspective: 800px;
+  }
+  
+  .scene {
+    width: var(--faceWidth);
+    height: var(--faceHeight);
+    position: relative;
+    perspective: 800px;
+  }
+  
+  /* Cylinder container */
+  .cylinder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+  }
+  
+  /* Each face of the cylinder */
+  .face {
+    position: absolute;
+    width: var(--faceWidth);
+    height: var(--faceHeight);
+    left: 0;
+    top: 0;
+    background: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+  }
+  
+  .face.empty {
+    background: rgba(200, 200, 200, 0.6);
+    color: transparent;
+    border-color: rgba(200, 200, 200, 0.6);
+  }
+  
+  /* Position each face around the Y axis */
+  .face:nth-child(1) {
+    transform: rotateY(0deg) translateZ(var(--radius));
+  }
+  .face:nth-child(2) {
+    transform: rotateY(45deg) translateZ(var(--radius));
+  }
+  .face:nth-child(3) {
+    transform: rotateY(90deg) translateZ(var(--radius));
+  }
+  .face:nth-child(4) {
+    transform: rotateY(135deg) translateZ(var(--radius));
+  }
+  .face:nth-child(5) {
+    transform: rotateY(180deg) translateZ(var(--radius));
+  }
+  .face:nth-child(6) {
+    transform: rotateY(225deg) translateZ(var(--radius));
+  }
+  .face:nth-child(7) {
+    transform: rotateY(270deg) translateZ(var(--radius));
+  }
+  .face:nth-child(8) {
+    transform: rotateY(315deg) translateZ(var(--radius));
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ccc;
+    }
+    .main-display {
+      padding: 10px;
+    }
+  }
+  

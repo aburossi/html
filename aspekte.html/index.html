@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspekte der Allgemeinbildung – Rollender Zylinder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar with Aspekte list and controls -->
+    <aside class="sidebar">
+      <ul id="aspectList"></ul>
+      <div class="controls">
+        <button id="restartButton">Restart</button>
+        <div class="speed-control">
+          <label for="speedSlider">Geschwindigkeit (Sek./Slide):</label>
+          <input type="range" id="speedSlider" min="1" max="10" value="5">
+          <span id="speedValue">5</span>
+        </div>
+      </div>
+    </aside>
+    <!-- Main display with the 3D rolling cylinder -->
+    <main class="main-display">
+      <div class="scene">
+        <div class="cylinder" id="cylinder">
+          <div class="face" data-face="0"></div>
+          <div class="face" data-face="1"></div>
+          <div class="face" data-face="2"></div>
+          <div class="face" data-face="3"></div>
+          <div class="face" data-face="4"></div>
+          <div class="face" data-face="5"></div>
+          <div class="face" data-face="6"></div>
+          <div class="face" data-face="7"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
