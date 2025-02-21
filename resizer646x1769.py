@@ -14,17 +14,17 @@ def main():
     root = tk.Tk()
     root.title("Crop & Resize Tool (646x1769)")
 
-    # Step 1: Choose an image
+    # Step 1: Choose an image (including webp files)
     file_path = filedialog.askopenfilename(
         title="Select an image",
-        filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.bmp;*.gif")]
+        filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.bmp;*.gif;*.webp")]
     )
     if not file_path:
         print("No file selected. Exiting.")
         root.destroy()
         return
 
-    # Load the image at full resolution
+    # Load the image at full resolution (Pillow supports WebP if installed with webp support)
     orig_image = Image.open(file_path)
     orig_w, orig_h = orig_image.size
 
@@ -59,8 +59,6 @@ def main():
     # ===========================
     # Crop Rectangle ("Schablone")
     # ===========================
-    # We track the rectangle by its center and height so we can maintain the aspect ratio.
-
     # Set an initial rectangle height (at least 50, at most full image height)
     initial_rect_height = min(max(orig_h // 2, 50), orig_h)
     initial_rect_width = int(initial_rect_height * ASPECT_RATIO)
@@ -73,12 +71,12 @@ def main():
         "height": initial_rect_height
     }
 
-    # Create the rectangle on the canvas (coordinates will be updated below)
+    # Create the rectangle on the canvas (its coordinates will be updated)
     rect_id = canvas.create_rectangle(0, 0, 0, 0, outline="red", width=2)
 
     def clamp_rect():
         """
-        Ensure the rectangle stays within the image boundaries by clamping its center.
+        Ensure the rectangle stays within the image boundaries.
         """
         half_w = rect_data["width"] / 2
         half_h = rect_data["height"] / 2
@@ -99,7 +97,7 @@ def main():
 
     def update_rect():
         """
-        Update the canvas rectangle coordinates based on rect_data.
+        Update the canvas rectangle based on rect_data.
         """
         half_w = rect_data["width"] / 2
         half_h = rect_data["height"] / 2
@@ -118,7 +116,6 @@ def main():
         clamp_rect()
         update_rect()
 
-    # Initialize rectangle size and position
     clamp_rect()
     update_rect()
 
@@ -131,7 +128,6 @@ def main():
         # Translate widget coordinates to canvas coordinates
         cx = canvas.canvasx(event.x)
         cy = canvas.canvasy(event.y)
-        # If the click is inside the rectangle, start dragging
         items = canvas.find_overlapping(cx, cy, cx, cy)
         if rect_id in items:
             drag_data["dragging"] = True
@@ -144,7 +140,6 @@ def main():
             cy = canvas.canvasy(event.y)
             dx = cx - drag_data["x"]
             dy = cy - drag_data["y"]
-            # Update the rectangle center by the drag distance
             rect_data["center_x"] += dx
             rect_data["center_y"] += dy
             drag_data["x"] = cx
@@ -182,7 +177,8 @@ def main():
     def save_crop():
         """
         Crop the area defined by the rectangle from the original image,
-        resize it to 646×1769, and save it in an "images" subfolder.
+        resize it to 646×1769, and save it as JPEG in an "images" subfolder
+        located in the same folder as this code.
         """
         coords = canvas.coords(rect_id)  # [x1, y1, x2, y2]
         x1, y1, x2, y2 = map(int, coords)
@@ -190,7 +186,7 @@ def main():
             print("Invalid rectangle dimensions. Aborting.")
             return
 
-        # Crop from the original image (full resolution)
+        # Crop from the original full-resolution image
         cropped = orig_image.crop((x1, y1, x2, y2))
 
         # Resize using LANCZOS resampling
@@ -200,16 +196,17 @@ def main():
             resample_method = Image.LANCZOS
         cropped_resized = cropped.resize((FINAL_W, FINAL_H), resample=resample_method)
 
-        # Save in an "images" subfolder next to the original file
-        dir_path = os.path.dirname(os.path.abspath(file_path))
-        save_dir = os.path.join(dir_path, "images")
+        # Save in a subfolder "images" in the same folder as the code
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        save_dir = os.path.join(script_dir, "images")
         os.makedirs(save_dir, exist_ok=True)
 
+        # Always save as a JPG file
         base_name = os.path.basename(file_path)
-        name, ext = os.path.splitext(base_name)
-        save_path = os.path.join(save_dir, f"{name}_cropped{ext}")
+        name, _ = os.path.splitext(base_name)
+        save_path = os.path.join(save_dir, f"{name}_cropped.jpg")
 
-        cropped_resized.save(save_path)
+        cropped_resized.save(save_path, "JPEG")
         print("Cropped image saved to:", save_path)
 
     save_btn = tk.Button(root, text="Save Crop", command=save_crop)
