@@ -67,41 +67,49 @@
   <div class="grid" id="aspectGrid"></div>
   <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
 
-  <script>
-    const aspekte = [
-      { 
-        name: "Ethik", 
-        definition: "Systematische und <strong>kritische Reflexion</strong> der gelebten <strong>Moral</strong>." 
-      },
-      { 
-        name: "Identität und Sozialisation", 
-        definition: "Wandlungsprozess, in dem Menschen eine <strong>Identität</strong> entwickeln." 
-      },
-      { 
-        name: "Kultur", 
-        definition: "Gesamtheit der vom Menschen geschaffenen <strong>Ausdrucksformen</strong>." 
-      },
-      { 
-        name: "Ökologie", 
-        definition: "Lehre von den <strong>Beziehungen</strong> zwischen Organismen und ihrer Umwelt." 
-      },
-      { 
-        name: "Politik", 
-        definition: "Strukturierter Prozess zur Lösung <strong>gesellschaftlicher Probleme</strong>." 
-      },
-      { 
-        name: "Recht", 
-        definition: "Komplexes, historisch gewachsenes <strong>soziales System</strong> von Verhaltensregeln." 
-      },
-      { 
-        name: "Technologie", 
-        definition: "Methoden und Verfahren, <strong>technische Mittel</strong> einzusetzen." 
-      },
-      { 
-        name: "Wirtschaft", 
-        definition: "Analyse des Umgangs mit <strong>knappen Mitteln</strong> und unbegrenzten Bedürfnissen." 
-      }
-    ];
+  const aspekte = [
+    { 
+      name: "Identität & Sozialisation", 
+      definition: "Prozess, in dem Individuen ihre <strong>Identität</strong> entwickeln und in <strong>gesellschaftliche Strukturen</strong> eingebunden werden.",
+      beispiel: "Die Nachricht hat mit Identität zu tun, weil..."
+    },
+    { 
+      name: "Politik", 
+      definition: "Umfasst <strong>staatliche Entscheidungen</strong>, <strong>Machtstrukturen</strong> und <strong>internationale Beziehungen</strong>.",
+      beispiel: "Die Nachricht hat mit Politik zu tun, weil..."
+    },
+    { 
+      name: "Technologie", 
+      definition: "Einsatz moderner <strong>Innovationen</strong> und <strong>technischer Hilfsmittel</strong>.",
+      beispiel: "Die Nachricht zeigt den Einfluss der Technologie, da..."
+    },
+    { 
+      name: "Kultur", 
+      definition: "Beschreibt <strong>Bräuche</strong>, <strong>Traditionen</strong> und <strong>künstlerische Ausdrucksformen</strong> einer Gesellschaft.",
+      beispiel: "Die Nachricht betrifft Kultur, weil..."
+    },
+    { 
+      name: "Recht", 
+      definition: "Bezieht sich auf <strong>Gesetze</strong>, <strong>Gerechtigkeit</strong> und <strong>juristische Rahmenbedingungen</strong>.",
+      beispiel: "Ich würde die rechtlichen Aspekte vertiefen, da..."
+    },
+    { 
+      name: "Ökologie", 
+      definition: "Beschäftigt sich mit <strong>Umwelt</strong>, <strong>Natur</strong> und <strong>nachhaltigem Umgang</strong> mit Ressourcen.",
+      beispiel: "Diese Nachricht kann man unter dem Aspekt der Ökologie betrachten, da..."
+    },
+    { 
+      name: "Ethik", 
+      definition: "Fragt nach <strong>moralischen Werten</strong> und dem, was als <strong>richtig oder falsch</strong> gilt.",
+      beispiel: "Die Nachricht könnte unter ethischen Gesichtspunkten betrachtet werden, weil..."
+    },
+    { 
+      name: "Wirtschaft", 
+      definition: "Bezieht sich auf <strong>Produktion</strong>, <strong>Handel</strong> und <strong>finanzielle Zusammenhänge</strong>.",
+      beispiel: "Ich würde die wirtschaftlichen Aspekte vertiefen, weil..."
+    }
+  ];
+
 
     const grid = document.getElementById("aspectGrid");
     const reloadBtn = document.getElementById("reloadBtn");
@@ -115,6 +123,7 @@
         card.innerHTML = `
           <h2>${aspect.name}</h2>
           <p>${aspect.definition}</p>
+          <p>${aspect.beispiel}</p>
         `;
         card.addEventListener("click", () => {
           // Fade out the card on click
