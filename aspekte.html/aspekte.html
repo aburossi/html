@@ -46,6 +46,10 @@
       margin-bottom: 10px;
       color: #ffc107;
     }
+    /* Ensure that all bolded text matches the heading color */
+    .card strong {
+      color: #ffc107;
+    }
     .reload-btn {
       margin-top: 30px;
       padding: 10px 20px;
@@ -123,7 +127,7 @@
         card.innerHTML = `
           <h2>${aspect.name}</h2>
           <p>${aspect.definition}</p>
-          <p>${aspect.beispiel}</p>
+          <p><em>${aspect.beispiel}</em></p>
         `;
         card.addEventListener("click", () => {
           // Fade out the card on click
