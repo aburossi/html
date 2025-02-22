@@ -29,8 +29,8 @@
       /* Each card will be at least 250px wide, then stretch to fill space. */
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      width: 90%;        /* Occupies 90% of the available width */
-      max-width: 1200px; /* Constrains the maximum width on large screens */
+      width: 90%;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .card {
@@ -67,49 +67,49 @@
   <div class="grid" id="aspectGrid"></div>
   <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
 
-  const aspekte = [
-    { 
-      name: "Identität & Sozialisation", 
-      definition: "Prozess, in dem Individuen ihre <strong>Identität</strong> entwickeln und in <strong>gesellschaftliche Strukturen</strong> eingebunden werden.",
-      beispiel: "Die Nachricht hat mit Identität zu tun, weil..."
-    },
-    { 
-      name: "Politik", 
-      definition: "Umfasst <strong>staatliche Entscheidungen</strong>, <strong>Machtstrukturen</strong> und <strong>internationale Beziehungen</strong>.",
-      beispiel: "Die Nachricht hat mit Politik zu tun, weil..."
-    },
-    { 
-      name: "Technologie", 
-      definition: "Einsatz moderner <strong>Innovationen</strong> und <strong>technischer Hilfsmittel</strong>.",
-      beispiel: "Die Nachricht zeigt den Einfluss der Technologie, da..."
-    },
-    { 
-      name: "Kultur", 
-      definition: "Beschreibt <strong>Bräuche</strong>, <strong>Traditionen</strong> und <strong>künstlerische Ausdrucksformen</strong> einer Gesellschaft.",
-      beispiel: "Die Nachricht betrifft Kultur, weil..."
-    },
-    { 
-      name: "Recht", 
-      definition: "Bezieht sich auf <strong>Gesetze</strong>, <strong>Gerechtigkeit</strong> und <strong>juristische Rahmenbedingungen</strong>.",
-      beispiel: "Ich würde die rechtlichen Aspekte vertiefen, da..."
-    },
-    { 
-      name: "Ökologie", 
-      definition: "Beschäftigt sich mit <strong>Umwelt</strong>, <strong>Natur</strong> und <strong>nachhaltigem Umgang</strong> mit Ressourcen.",
-      beispiel: "Diese Nachricht kann man unter dem Aspekt der Ökologie betrachten, da..."
-    },
-    { 
-      name: "Ethik", 
-      definition: "Fragt nach <strong>moralischen Werten</strong> und dem, was als <strong>richtig oder falsch</strong> gilt.",
-      beispiel: "Die Nachricht könnte unter ethischen Gesichtspunkten betrachtet werden, weil..."
-    },
-    { 
-      name: "Wirtschaft", 
-      definition: "Bezieht sich auf <strong>Produktion</strong>, <strong>Handel</strong> und <strong>finanzielle Zusammenhänge</strong>.",
-      beispiel: "Ich würde die wirtschaftlichen Aspekte vertiefen, weil..."
-    }
-  ];
-
+  <script>
+    const aspekte = [
+      { 
+        name: "Identität & Sozialisation", 
+        definition: "Prozess, in dem Individuen ihre <strong>Identität</strong> entwickeln und in <strong>gesellschaftliche Strukturen</strong> eingebunden werden.",
+        beispiel: "Die Nachricht hat mit Identität zu tun, weil..."
+      },
+      { 
+        name: "Politik", 
+        definition: "Umfasst <strong>staatliche Entscheidungen</strong>, <strong>Machtstrukturen</strong> und <strong>internationale Beziehungen</strong>.",
+        beispiel: "Die Nachricht hat mit Politik zu tun, weil..."
+      },
+      { 
+        name: "Technologie", 
+        definition: "Einsatz moderner <strong>Innovationen</strong> und <strong>technischer Hilfsmittel</strong>.",
+        beispiel: "Die Nachricht zeigt den Einfluss der Technologie, da..."
+      },
+      { 
+        name: "Kultur", 
+        definition: "Beschreibt <strong>Bräuche</strong>, <strong>Traditionen</strong> und <strong>künstlerische Ausdrucksformen</strong> einer Gesellschaft.",
+        beispiel: "Die Nachricht betrifft Kultur, weil..."
+      },
+      { 
+        name: "Recht", 
+        definition: "Bezieht sich auf <strong>Gesetze</strong>, <strong>Gerechtigkeit</strong> und <strong>juristische Rahmenbedingungen</strong>.",
+        beispiel: "Ich würde die rechtlichen Aspekte vertiefen, da..."
+      },
+      { 
+        name: "Ökologie", 
+        definition: "Beschäftigt sich mit <strong>Umwelt</strong>, <strong>Natur</strong> und <strong>nachhaltigem Umgang</strong> mit Ressourcen.",
+        beispiel: "Diese Nachricht kann man unter dem Aspekt der Ökologie betrachten, da..."
+      },
+      { 
+        name: "Ethik", 
+        definition: "Fragt nach <strong>moralischen Werten</strong> und dem, was als <strong>richtig oder falsch</strong> gilt.",
+        beispiel: "Die Nachricht könnte unter ethischen Gesichtspunkten betrachtet werden, weil..."
+      },
+      { 
+        name: "Wirtschaft", 
+        definition: "Bezieht sich auf <strong>Produktion</strong>, <strong>Handel</strong> und <strong>finanzielle Zusammenhänge</strong>.",
+        beispiel: "Ich würde die wirtschaftlichen Aspekte vertiefen, weil..."
+      }
+    ];
 
     const grid = document.getElementById("aspectGrid");
     const reloadBtn = document.getElementById("reloadBtn");
