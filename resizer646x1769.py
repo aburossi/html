@@ -42,8 +42,8 @@ def main():
         frame,
         xscrollcommand=h_scroll.set,
         yscrollcommand=v_scroll.set,
-        width=800,   # visible canvas width
-        height=600,  # visible canvas height
+        width=400,   # smaller canvas width
+        height=300,  # smaller canvas height
         bg="white"
     )
     canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
