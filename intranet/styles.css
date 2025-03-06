@@ -1,0 +1,187 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+/* Header styles */
+.header-row {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.header-cell {
+    flex: 1;
+    padding: 15px;
+    font-weight: bold;
+    border-right: 1px solid #000;
+    background-color: #fff;
+}
+
+.header-cell:last-child {
+    flex: 2;
+}
+
+/* Content rows */
+.content-row {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.content-cell {
+    padding: 15px;
+    border-right: 1px solid #000;
+    background-color: #fff;
+}
+
+/* First column */
+.stabstelle, .justice, .support {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Second column */
+.schulleitung, .compliance, .innovation {
+    flex: 1;
+}
+
+/* Third column */
+.abteilung-info {
+    flex: 2;
+    padding: 0;
+}
+
+/* Stabstelle section */
+.q-symbol, .justice-symbol, .support-symbol {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Schulleitung section */
+.schulleitung h3 {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #95c11e;
+    text-decoration: underline;
+}
+
+/* Compliance section */
+.compliance-list p {
+    margin-bottom: 10px;
+}
+
+/* Innovation section */
+.innovation {
+    display: flex;
+    align-items: center;
+}
+
+.video-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.innovation-content h3 {
+    margin-bottom: 10px;
+    color: #95c11e;
+}
+
+/* Abteilung section */
+.abteilung-header {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+}
+
+.abteilung-content {
+    display: flex;
+}
+
+.links-section, .files-section {
+    flex: 1;
+    border-right: 1px solid #000;
+}
+
+.termine-section {
+    flex: 1;
+}
+
+.section-header {
+    padding: 10px;
+    background-color: #95c11e;
+    color: #000;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.termine-header {
+    padding: 10px;
+    background-color: #e94e97;
+    color: #000;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.links-list, .files-list, .termine-list {
+    padding: 10px;
+}
+
+.link-item, .file-item, .termin-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.globe-icon, .folder-icon, .calendar-icon {
+    margin-right: 10px;
+    width: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.link-text, .file-text, .termin-text {
+    text-decoration: none;
+    color: #000;
+}
+
+.link-text:hover, .file-text:hover, .termin-text:hover {
+    color: #95c11e;
+    text-decoration: underline;
+}
+
+/* Footer section */
+.footer-row {
+    display: flex;
+}
+
+.fachgruppe {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    border-right: 1px solid #000;
+    background-color: #e8f4d9;
+    color: #000;
+}
+
+.zmt {
+    background-color: #95c11e;
+    color: #000;
+}
