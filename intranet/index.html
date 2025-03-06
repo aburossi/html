@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dummy-Website basierend auf Skizze</title>
+  <style>
+    /* Einfache Grundstruktur zur Veranschaulichung */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #f2f2f2;
+      padding: 1rem;
+    }
+    .header-left, .header-right {
+      width: 48%;
+    }
+    .header-left h1 {
+      margin-top: 0;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      margin: 0.3rem 0;
+    }
+
+    main {
+      display: flex;
+      padding: 1rem;
+    }
+    aside {
+      width: 25%;
+      margin-right: 1rem;
+      background-color: #fafafa;
+      padding: 1rem;
+    }
+    aside section {
+      margin-bottom: 1rem;
+    }
+    .content {
+      width: 75%;
+      background-color: #fff;
+      padding: 1rem;
+    }
+    .abschnitt-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .abschnitt {
+      background-color: #f9f9f9;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Rektorat / Schulleitung</h1>
+    <ul>
+      <li>Hinterlegte Handnisse</li>
+      <li>Bereiche Schnellkurven</li>
+      <li>Option XYZ</li>
+    </ul>
+    <p><strong>Bild / Logo hier:</strong></p>
+    <img src="platzhalter.jpg" alt="Platzhalter-Bild" style="max-width:100px;">
+  </div>
+
+  <div class="header-right">
+    <h2>Bereiche für die Abteilung</h2>
+    <nav>
+      <ul>
+        <li>Abteilung A</li>
+        <li>Regelungen</li>
+        <li>Organisation</li>
+        <li>SysPool-Feld</li>
+        <li>Wiki</li>
+        <li>Kontakt</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <section>
+      <h3>Thema A</h3>
+      <p>Datenschutz & Richtlinien</p>
+    </section>
+    <section>
+      <h3>Thema B</h3>
+      <p>Netzplan / Wartung</p>
+    </section>
+    <section>
+      <h3>Thema C</h3>
+      <p>Compliance / Auditing</p>
+    </section>
+    <section>
+      <h3>Innovation</h3>
+      <p>Vorschläge / Projekte</p>
+    </section>
+    <section>
+      <h3>Information</h3>
+      <p><strong>Picts / Bilder:</strong></p>
+      <p>Platz für Bilder und Hinweise.</p>
+    </section>
+  </aside>
+
+  <div class="content">
+    <h2>Überschrift Hauptbereich</h2>
+    <p>Hier könnte ein Einleitungstext oder eine Beschreibung für die Hauptinhalte stehen.</p>
+    
+    <div class="abschnitt-container">
+      <div class="abschnitt" id="abt-1">
+        <h4>Abt. 1</h4>
+        <p>Inhalt oder Dokumente</p>
+      </div>
+      <div class="abschnitt" id="abt-2">
+        <h4>Abt. 2</h4>
+        <p>Inhalt oder Dokumente</p>
+      </div>
+      <div class="abschnitt" id="abt-3">
+        <h4>Abt. 3</h4>
+        <p>Inhalt oder Dokumente</p>
+      </div>
+      <div class="abschnitt" id="abt-4">
+        <h4>Abt. 4</h4>
+        <p>Inhalt oder Dokumente</p>
+      </div>
+      <div class="abschnitt" id="abt-5">
+        <h4>Abt. 5</h4>
+        <p>Inhalt oder Dokumente</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
