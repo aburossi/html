@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allgemeinbildung Klasse XY</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: transparent;
+        }
+        
+        h1 {
+            margin: 2rem 0;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            gap: 3rem;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .activity {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .activity:hover {
+            transform: scale(1.05);
+        }
+        
+        .bubble {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .activity:nth-child(1) .bubble {
+            background-color: #3498db;
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .activity:nth-child(2) .bubble {
+            background-color: #e74c3c;
+            box-shadow: 0 8px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .activity:nth-child(3) .bubble {
+            background-color: #2ecc71;
+            box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .bubble:hover {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bubble-text {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .bubble:hover .bubble-text {
+            opacity: 1;
+        }
+        
+        .slides-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 2rem auto;
+            height: 540px;
+            position: relative;
+        }
+        
+        .slides-placeholder {
+            width: 100%;
+            height: 100%;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        /* Animation for bubbles */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .activity:nth-child(1) {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .activity:nth-child(2) {
+            animation: float 5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .activity:nth-child(3) {
+            animation: float 4.5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                gap: 2rem;
+            }
+            
+            .activity {
+                width: 150px;
+                height: 150px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .slides-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Allgemeinbildung Klasse XY</h1>
+    
+    <div class="container">
+        <a href="#lehrmittel" class="activity">
+            <div class="bubble">
+                Lehrmittel
+                <div class="bubble-text">
+                    Hier finden Sie alle Lehrmaterialien und Bücher für den Unterricht. Arbeitsblätter, Literatur und Hilfsmittel für Schüler und Lehrer.
+                </div>
+            </div>
+        </a>
+        
+        <a href="#abunews" class="activity">
+            <div class="bubble">
+                ABUnews
+                <div class="bubble-text">
+                    Aktuelle Nachrichten und Informationen für den ABU-Unterricht. Regelmäßige Updates zu relevanten Themen und Ereignissen.
+                </div>
+            </div>
+        </a>
+        
+        <a href="#abulernen" class="activity">
+            <div class="bubble">
+                ABUlernen
+                <div class="bubble-text">
+                    Lernplattform mit interaktiven Übungen und Materialien für das selbstständige Lernen im Allgemeinbildenden Unterricht.
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="slides-container">
+        <iframe width="100%" height="520" src="https://docs.google.com/presentation/d/e/2PACX-1vSI3SGziSnTZqmAbBi9TOSznP23WgNVoe4ibzfbU8sNVbOLwRdLwfZcL5lkvPQ5FAo2Voqrdj0I5kkd/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" webkitallowfullscreen="webkitallowfullscreen">
+    </div>
+</body>
+</html>
