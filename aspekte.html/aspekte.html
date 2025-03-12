@@ -5,78 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aspekte der Allgemeinbildung</title>
   <style>
-    /* Responsive base font-size using clamp */
-    html {
-      font-size: clamp(16px, 1.5vw, 20px);
+    /* ---------------------------------------
+       CONFIGURABLE SECTION HEIGHTS
+       Adjust these if you need more/less space
+    ----------------------------------------- */
+    :root {
+      --container-height: 600px;
+      --header-height: 40px;
+      --instruction-height: 60px;
+      --footer-height: 50px;
     }
-    body {
+
+    /* Resets */
+    html, body {
       margin: 0;
       padding: 0;
+    }
+    body {
       background: #f7f7f7;
-      height: 100vh;
+    }
+
+    /* 
+       Main container:
+       Exactly 600px tall, 
+       using grid rows for header, instructions, main grid, and footer.
+    */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      height: var(--container-height);
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: 
+        var(--header-height) 
+        var(--instruction-height)
+        1fr
+        var(--footer-height);
+      row-gap: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+      background: #f7f7f7;
+    }
+
+    /* Header row */
+    .header {
+      text-align: center;
+      color: #333;
+      font-size: 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    /* Container limited to 600px in height */
-    .container {
-      height: 600px;
-      width: 90%;
-      max-width: 1200px;
-      padding: 20px;
-      box-sizing: border-box;
-      background: #f7f7f7;
-      display: flex;
-      flex-direction: column;
-    }
-    .header {
-      flex: 0 0 auto;
-      text-align: center;
-      color: #333;
-      margin: 0;
-    }
+
+    /* Instructions row */
     .instruction {
-      flex: 0 0 auto;
       text-align: center;
       color: #333;
-      margin: 10px 0;
+      font-size: 0.9rem;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
     }
-    /* The grid takes up the remaining space and is divided into 2 rows of 4 columns */
+
+    /* 
+       The main grid:
+       2 rows x 4 columns.
+       Occupies the 1fr row in the container.
+    */
     .grid {
-      flex: 1 1 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      gap: 20px;
-      overflow: hidden;
+      gap: 10px;
     }
+
+    /* Cards */
     .card {
       background: #007bff;
       color: white;
-      padding: 20px;
+      padding: 10px;
       border-radius: 8px;
       cursor: pointer;
       transition: opacity 0.3s ease;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+      /* Center the card text vertically */
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
+
     .card h2 {
       margin-bottom: 10px;
       color: #ffc107;
+      font-size: 1rem;
+    }
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
     }
     .card strong {
       color: #ffc107;
     }
+
+    /* Footer row */
     .footer {
-      flex: 0 0 auto;
       text-align: center;
-      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
     .reload-btn {
-      padding: 10px 20px;
-      font-size: 1.5rem;
+      padding: 6px 16px;
+      font-size: 1rem;
       border: none;
       background: #28a745;
       color: white;
@@ -91,15 +135,27 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="header">Aspekte der Allgemeinbildung</h1>
+    <!-- Header -->
+    <div class="header">
+      <h1 style="margin: 0;">Aspekte der Allgemeinbildung</h1>
+    </div>
+
+    <!-- Instruction -->
     <p class="instruction">
-      Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell. <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>? <strong>Begründen Sie!</strong>
+      Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell. 
+      <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>? 
+      <strong>Begründen Sie!</strong>
     </p>
+
+    <!-- Grid of Aspects -->
     <div class="grid" id="aspectGrid"></div>
+
+    <!-- Footer with Reload Button -->
     <div class="footer">
       <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
     </div>
   </div>
+
   <script>
     const aspekte = [
       { 
@@ -166,7 +222,10 @@
       });
     }
 
+    // Initial build
     buildGrid();
+
+    // Reload button resets all aspects
     reloadBtn.addEventListener("click", buildGrid);
   </script>
 </body>
