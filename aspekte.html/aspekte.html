@@ -5,41 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aspekte der Allgemeinbildung</title>
   <style>
-    /* Use clamp to ensure a readable, responsive base font-size */
+    /* Responsive base font-size using clamp */
     html {
       font-size: clamp(16px, 1.5vw, 20px);
     }
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background: #f7f7f7;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
-    h1 {
-      margin-bottom: 10px;
-      color: #333;
-      text-align: center;
-    }
-    p.instruction {
-      max-width: 1200px;
+    /* Container limited to 600px in height */
+    .container {
+      height: 600px;
       width: 90%;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      color: #333;
-      text-align: center;
+      max-width: 1200px;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #f7f7f7;
+      display: flex;
+      flex-direction: column;
     }
-    /* Force a fixed 4-column grid with a minimum width to ensure readability */
+    .header {
+      flex: 0 0 auto;
+      text-align: center;
+      color: #333;
+      margin: 0;
+    }
+    .instruction {
+      flex: 0 0 auto;
+      text-align: center;
+      color: #333;
+      margin: 10px 0;
+    }
+    /* The grid takes up the remaining space and is divided into 2 rows of 4 columns */
     .grid {
+      flex: 1 1 auto;
       display: grid;
-      grid-template-columns: repeat(4, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
       gap: 20px;
-      width: 90%;
-      min-width: 1000px; /* 4 x 250px = 1000px minimum */
-      max-width: 1200px;
-      margin: 0 auto;
+      overflow: hidden;
     }
     .card {
       background: #007bff;
@@ -49,17 +58,23 @@
       cursor: pointer;
       transition: opacity 0.3s ease;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .card h2 {
       margin-bottom: 10px;
       color: #ffc107;
     }
-    /* Ensure that all bolded text matches the heading color */
     .card strong {
       color: #ffc107;
     }
+    .footer {
+      flex: 0 0 auto;
+      text-align: center;
+      margin-top: 10px;
+    }
     .reload-btn {
-      margin-top: 30px;
       padding: 10px 20px;
       font-size: 1.5rem;
       border: none;
@@ -75,13 +90,16 @@
   </style>
 </head>
 <body>
-  <h1>Aspekte der Allgemeinbildung</h1>
-  <p class="instruction">
-    Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell. <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>? <strong>Begründen Sie!</strong>
-  </p>
-  <div class="grid" id="aspectGrid"></div>
-  <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
-
+  <div class="container">
+    <h1 class="header">Aspekte der Allgemeinbildung</h1>
+    <p class="instruction">
+      Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell. <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>? <strong>Begründen Sie!</strong>
+    </p>
+    <div class="grid" id="aspectGrid"></div>
+    <div class="footer">
+      <button class="reload-btn" id="reloadBtn" title="Reload">↻</button>
+    </div>
+  </div>
   <script>
     const aspekte = [
       { 
@@ -141,7 +159,6 @@
           <p><em>${aspect.beispiel}</em></p>
         `;
         card.addEventListener("click", () => {
-          // Fade out the card on click
           card.style.opacity = "0.3";
           card.style.pointerEvents = "none";
         });
@@ -149,10 +166,7 @@
       });
     }
 
-    // Initial build
     buildGrid();
-
-    // Reload button resets all aspects
     reloadBtn.addEventListener("click", buildGrid);
   </script>
 </body>
