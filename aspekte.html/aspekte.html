@@ -10,7 +10,7 @@
        Adjust these if you need more/less space
     ----------------------------------------- */
     :root {
-      --container-height: 600px;
+      --container-height: 800px;  /* total page height */
       --header-height: 40px;
       --instruction-height: 60px;
       --footer-height: 50px;
@@ -20,16 +20,10 @@
     html, body {
       margin: 0;
       padding: 0;
-    }
-    body {
       background: #f7f7f7;
     }
 
-    /* 
-       Main container:
-       Exactly 600px tall, 
-       using grid rows for header, instructions, main grid, and footer.
-    */
+    /* Main container: 800px tall, using grid for layout */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -37,14 +31,13 @@
       margin: 0 auto;
       display: grid;
       grid-template-rows: 
-        var(--header-height) 
-        var(--instruction-height)
-        1fr
-        var(--footer-height);
+        var(--header-height)    /* row 1: header */
+        var(--instruction-height) /* row 2: instructions */
+        1fr                     /* row 3: main grid (2x4) */
+        var(--footer-height);   /* row 4: footer */
       row-gap: 10px;
       box-sizing: border-box;
       padding: 10px;
-      background: #f7f7f7;
     }
 
     /* Header row */
@@ -69,11 +62,7 @@
       padding: 0 10px;
     }
 
-    /* 
-       The main grid:
-       2 rows x 4 columns.
-       Occupies the 1fr row in the container.
-    */
+    /* The main grid: 2 rows x 4 columns */
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -85,26 +74,29 @@
     .card {
       background: #007bff;
       color: white;
-      padding: 10px;
+      padding: 8px;
       border-radius: 8px;
       cursor: pointer;
       transition: opacity 0.3s ease;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-      /* Center the card text vertically */
+      /* Ensure text remains inside the card and is scrollable if too large */
       display: flex;
       flex-direction: column;
       justify-content: center;
+      overflow-y: auto;
     }
 
     .card h2 {
-      margin-bottom: 10px;
+      margin: 0 0 8px 0;
       color: #ffc107;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
     .card p {
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      line-height: 1.3;
+      overflow-wrap: break-word; /* allows text to wrap mid-word if necessary */
     }
     .card strong {
       color: #ffc107;
@@ -117,7 +109,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .reload-btn {
       padding: 6px 16px;
       font-size: 1rem;
@@ -142,8 +133,8 @@
 
     <!-- Instruction -->
     <p class="instruction">
-      Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell. 
-      <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>? 
+      Formulieren Sie für <strong>möglichst viele Aspekte der Allgemeinbildung</strong> eine Verbindung zu ABUaktuell.
+      <strong>Welche Aspekte</strong> könnten damit <strong>vertieft werden</strong>?
       <strong>Begründen Sie!</strong>
     </p>
 
@@ -158,43 +149,43 @@
 
   <script>
     const aspekte = [
-      { 
-        name: "Identität & Sozialisation", 
+      {
+        name: "Identität & Sozialisation",
         definition: "Prozess, in dem Individuen ihre <strong>Identität</strong> entwickeln und in <strong>gesellschaftliche Strukturen</strong> eingebunden werden.",
         beispiel: "Die Nachricht hat mit Identität zu tun, weil..."
       },
-      { 
-        name: "Politik", 
+      {
+        name: "Politik",
         definition: "Umfasst <strong>staatliche Entscheidungen</strong>, <strong>Machtstrukturen</strong> und <strong>internationale Beziehungen</strong>.",
         beispiel: "Die Nachricht hat mit Politik zu tun, weil..."
       },
-      { 
-        name: "Technologie", 
+      {
+        name: "Technologie",
         definition: "Einsatz moderner <strong>Innovationen</strong> und <strong>technischer Hilfsmittel</strong>.",
         beispiel: "Die Nachricht zeigt den Einfluss der Technologie, da..."
       },
-      { 
-        name: "Kultur", 
+      {
+        name: "Kultur",
         definition: "Beschreibt <strong>Bräuche</strong>, <strong>Traditionen</strong> und <strong>künstlerische Ausdrucksformen</strong> einer Gesellschaft.",
         beispiel: "Die Nachricht betrifft Kultur, weil..."
       },
-      { 
-        name: "Recht", 
+      {
+        name: "Recht",
         definition: "Bezieht sich auf <strong>Gesetze</strong>, <strong>Gerechtigkeit</strong> und <strong>juristische Rahmenbedingungen</strong>.",
         beispiel: "Ich würde die rechtlichen Aspekte vertiefen, da..."
       },
-      { 
-        name: "Ökologie", 
+      {
+        name: "Ökologie",
         definition: "Beschäftigt sich mit <strong>Umwelt</strong>, <strong>Natur</strong> und <strong>nachhaltigem Umgang</strong> mit Ressourcen.",
         beispiel: "Diese Nachricht kann man unter dem Aspekt der Ökologie betrachten, da..."
       },
-      { 
-        name: "Ethik", 
+      {
+        name: "Ethik",
         definition: "Fragt nach <strong>moralischen Werten</strong> und dem, was als <strong>richtig oder falsch</strong> gilt.",
         beispiel: "Die Nachricht könnte unter ethischen Gesichtspunkten betrachtet werden, weil..."
       },
-      { 
-        name: "Wirtschaft", 
+      {
+        name: "Wirtschaft",
         definition: "Bezieht sich auf <strong>Produktion</strong>, <strong>Handel</strong> und <strong>finanzielle Zusammenhänge</strong>.",
         beispiel: "Ich würde die wirtschaftlichen Aspekte vertiefen, weil..."
       }
