@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aspekte der Allgemeinbildung</title>
   <style>
-    /* Use a small base font-size that scales slightly with viewport width. */
+    /* Use clamp to ensure a readable, responsive base font-size */
     html {
-      font-size: calc(16px + 0.3vw);
+      font-size: clamp(16px, 1.5vw, 20px);
     }
     body {
       font-family: Arial, sans-serif;
@@ -31,13 +31,13 @@
       color: #333;
       text-align: center;
     }
-    /* Responsive grid with auto-fitting columns. */
+    /* Force a fixed 4-column grid with a minimum width to ensure readability */
     .grid {
       display: grid;
-      /* Each card will be at least 250px wide, then stretch to fill space. */
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, minmax(250px, 1fr));
       gap: 20px;
       width: 90%;
+      min-width: 1000px; /* 4 x 250px = 1000px minimum */
       max-width: 1200px;
       margin: 0 auto;
     }
