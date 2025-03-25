@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allgemeinbildung PR24c | Holographic Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: rgba(0, 162, 255, 0.8);
+            --primary-red: rgba(255, 50, 100, 0.8);
+            --primary-green: rgba(0, 230, 150, 0.8);
+            --glow-blue: 0 0 15px rgba(0, 162, 255, 0.6);
+            --glow-red: 0 0 15px rgba(255, 50, 100, 0.6);
+            --glow-green: 0 0 15px rgba(0, 230, 150, 0.6);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a1a;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 80, 120, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(120, 0, 60, 0.15) 0%, transparent 30%);
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 2rem 0;
+            font-size: 2.8rem;
+            text-align: center;
+            color: transparent;
+            background: linear-gradient(90deg, #00f2ff, #00a2ff, #0062ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            gap: 3rem;
+            padding: 0 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+        }
+
+        .hologram-bubble {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+        }
+
+        .activity:nth-child(1) .hologram-bubble {
+            background-color: var(--primary-blue);
+            box-shadow: var(--glow-blue), inset 0 0 30px rgba(0, 100, 255, 0.3);
+        }
+
+        .activity:nth-child(2) .hologram-bubble {
+            background-color: var(--primary-red);
+            box-shadow: var(--glow-red), inset 0 0 30px rgba(255, 0, 80, 0.3);
+        }
+
+        .activity:nth-child(3) .hologram-bubble {
+            background-color: var(--primary-green);
+            box-shadow: var(--glow-green), inset 0 0 30px rgba(0, 200, 100, 0.3);
+        }
+
+        .hologram-bubble::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent, transparent, transparent,
+                rgba(255, 255, 255, 0.1), transparent, transparent, transparent
+            );
+            transform: rotate(30deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(30deg) translate(-30%, -30%); }
+            100% { transform: rotate(30deg) translate(30%, 30%); }
+        }
+
+        .hologram-bubble:hover {
+            transform: scale(1.1) rotateY(10deg);
+            filter: brightness(1.2);
+        }
+
+        .hologram-text {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: rgba(10, 10, 30, 0.9);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .hologram-bubble:hover .hologram-text {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slides-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 2rem auto;
+            height: 540px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(0, 200, 255, 0.2);
+            background: rgba(10, 20, 30, 0.7);
+        }
+
+        .slides-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00f2ff, #00a2ff, #0062ff);
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+            z-index: 2;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Animation for bubbles */
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(5deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        .activity:nth-child(1) {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .activity:nth-child(2) {
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .activity:nth-child(3) {
+            animation: float 6.5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        /* Particle effects */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(0, 200, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                gap: 2rem;
+            }
+
+            .activity {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .slides-container {
+                height: 400px;
+            }
+        }
+
+        /* Cyber button effect */
+        a {
+            text-decoration: none;
+        }
+
+        .cyberpunk-check {
+            display: none;
+        }
+
+        .cyberpunk-check:checked + .hologram-bubble {
+            animation: pulse 0.5s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="particles" id="particles-js"></div>
+
+    <h1>ALLGEMEINBILDUNG PR24c</h1>
+
+    <div class="container">
+        <!-- Lehrmittel circle -->
+        <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" target="_self" class="activity">
+            <input type="checkbox" class="cyberpunk-check" id="cyberbtn1">
+            <label for="cyberbtn1" class="hologram-bubble">
+                LEHRMITTEL
+                <div class="hologram-text">
+                    Begleitmaterialien für das Lehrmittel Allgemeinbildung mit Aufgaben, Vertiefungen und Repetitionsfragen.
+                </div>
+            </label>
+        </a>
+
+        <!-- ABUnews circle -->
+        <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" target="_self" class="activity">
+            <input type="checkbox" class="cyberpunk-check" id="cyberbtn2">
+            <label for="cyberbtn2" class="hologram-bubble">
+                ABUNEWS
+                <div class="hologram-text">
+                    Aktuelle Nachrichten mit regelmässigen Updates zu relevanten Themen und Ereignissen für den ABU-Unterricht.
+                </div>
+            </label>
+        </a>
+
+        <!-- ABUlernen circle -->
+        <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" target="_self" class="activity">
+            <input type="checkbox" class="cyberpunk-check" id="cyberbtn3">
+            <label for="cyberbtn3" class="hologram-bubble">
+                ABULERNEN
+                <div class="hologram-text">
+                    Interaktiven Übungen und Materialien für das selbstständige Lernen im Allgemeinbildenden Unterricht.
+                </div>
+            </label>
+        </a>
+    </div>
+
+    <div class="slides-container">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
+    </div>
+
+    <script>
+        // Create floating particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles-js');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 20 + 10;
+                const colorVal = Math.floor(Math.random() * 100) + 155;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Random color - blue, cyan, or magenta
+                const colors = ['0, 200, 255', '0, 255, 200', '200, 0, 255'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `rgba(${color}, ${Math.random() * 0.5 + 0.3})`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add click effect to bubbles
+            const bubbles = document.querySelectorAll('.hologram-bubble');
+            bubbles.forEach(bubble => {
+                bubble.addEventListener('click', function() {
+                    this.style.animation = 'pulse 0.5s';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
