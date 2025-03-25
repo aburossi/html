@@ -3,342 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEURAL KNOWLEDGE MATRIX | PR24c</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>MATRIX KNOWLEDGE TERMINAL | PR24c</title>
     <style>
         :root {
-            --matrix-green: #00ff88;
-            --neon-blue: #00f7ff;
-            --neon-pink: #ff00f7;
-            --neon-purple: #b300ff;
+            --matrix-green: #00ff41;
             --glow: 0 0 10px;
+            --terminal-bg: rgba(0, 20, 0, 0.85);
         }
 
         body {
             margin: 0;
             padding: 0;
             background: #000;
-            color: white;
-            font-family: 'Rajdhani', 'Orbitron', sans-serif;
+            color: var(--matrix-green);
+            font-family: 'Courier New', monospace;
             overflow-x: hidden;
             min-height: 100vh;
-            perspective: 1000px;
+            line-height: 1.4;
         }
 
-        /* Cyber Grid Background */
-        #cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(0, 255, 170, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 170, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -2;
-            opacity: 0.6;
-        }
-
-        /* Main Container */
-        #matrix-interface {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 5vh;
-            overflow: hidden;
-        }
-
-        /* Holographic Title */
-        .hologram-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: transparent;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            text-shadow: var(--glow) var(--neon-blue);
-            margin-bottom: 5vh;
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 10;
-            animation: titleGlow 3s infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 10px var(--neon-blue); }
-            100% { text-shadow: 0 0 20px var(--neon-pink); }
-        }
-
-        /* Holographic Nodes */
-        .holo-node {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 200, 255, 0.2), transparent 70%);
-            border: 2px solid var(--neon-color);
-            box-shadow: 
-                inset 0 0 20px var(--neon-color),
-                0 0 30px var(--neon-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 10;
-            margin: 20px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .holo-node:nth-child(1) { --neon-color: var(--neon-blue); animation-delay: 0s; }
-        .holo-node:nth-child(2) { --neon-color: var(--neon-pink); animation-delay: 1s; }
-        .holo-node:nth-child(3) { --neon-color: var(--neon-purple); animation-delay: 2s; }
-
-        .holo-node h3 {
-            font-size: 1.8rem;
-            margin: 0;
-            color: white;
-            text-shadow: 0 0 10px currentColor;
-        }
-
-        .holo-node p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin: 10px 20px 0;
-        }
-
-        .holo-node::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 50%;
-            border: 2px dashed var(--neon-color);
-            opacity: 0;
-            transition: opacity 0.3s;
-            animation: rotate 20s linear infinite;
-        }
-
-        .holo-node:hover {
-            transform: scale(1.1);
-            box-shadow: 
-                inset 0 0 30px var(--neon-color),
-                0 0 50px var(--neon-color);
-        }
-
-        .holo-node:hover::before {
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Holographic Terminal */
-        .holo-terminal {
-            width: 90%;
-            max-width: 1000px;
-            height: 60vh;
-            margin: 5vh auto;
-            background: rgba(0, 10, 20, 0.7);
-            border: 1px solid var(--matrix-green);
-            box-shadow: 
-                inset 0 0 20px rgba(0, 255, 170, 0.3),
-                0 0 40px rgba(0, 255, 170, 0.2);
-            position: relative;
-            overflow: hidden;
-            z-index: 5;
-        }
-
-        .holo-terminal::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
-            animation: scanline 3s linear infinite;
-        }
-
-        @keyframes scanline {
-            0% { top: 0; }
-            100% { top: 100%; }
-        }
-
-        /* 3D Hologram Effect */
-        #hologram-canvas {
+        /* Matrix Rain Background */
+        #matrix-rain {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
-        /* Audio Toggle */
-        #audio-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--neon-blue);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 100;
-            border-radius: 5px;
+        /* Main Terminal */
+        .matrix-terminal {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 
+                inset 0 0 30px rgba(0, 255, 65, 0.2),
+                0 0 50px rgba(0, 255, 65, 0.3);
+            background: var(--terminal-bg);
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Terminal Header */
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--matrix-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            font-size: 1.8rem;
+            text-shadow: var(--glow) var(--matrix-green);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .terminal-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Matrix Panels (Content Cards) */
+        .matrix-panel {
+            border: 1px solid var(--matrix-green);
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 10, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .matrix-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 255, 65, 0.05),
+                transparent
+            );
+            pointer-events: none;
+        }
+
+        .matrix-panel h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            color: var(--matrix-green);
+            text-shadow: var(--glow) var(--matrix-green);
+        }
+
+        .matrix-panel p {
+            margin: 10px 0;
+        }
+
+        .matrix-panel a {
+            color: var(--matrix-green);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--matrix-green);
+            transition: all 0.2s ease;
+        }
+
+        .matrix-panel a:hover {
+            text-shadow: var(--glow) var(--matrix-green);
+            border-bottom: 1px solid var(--matrix-green);
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            color: #0ff;
+            z-index: -1;
+            animation: glitch 3s infinite;
+        }
+
+        .glitch::after {
+            color: #f0f;
+            z-index: -2;
+            animation: glitch 2s infinite reverse;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Terminal Cursor */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--matrix-green);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hologram-title {
-                font-size: 2.5rem;
+            .terminal-title {
+                font-size: 1.4rem;
             }
-            .holo-node {
-                width: 150px;
-                height: 150px;
+            .matrix-panel {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Cyber Grid Background -->
-    <div id="cyber-grid"></div>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-rain"></canvas>
 
-    <!-- 3D Hologram Effect -->
-    <canvas id="hologram-canvas"></canvas>
-
-    <!-- Main Interface -->
-    <div id="matrix-interface">
-        <h1 class="hologram-title">KNOWLEDGE MATRIX</h1>
-
-        <!-- Holographic Nodes -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; z-index: 10;">
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" class="holo-node" target="_self">
-                <h3>LEHRMITTEL</h3>
-                <p>Begleitmaterialien mit Aufgaben und Vertiefungen</p>
-            </a>
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" class="holo-node" target="_self">
-                <h3>ABUNEWS</h3>
-                <p>Aktuelle Nachrichten für den Unterricht</p>
-            </a>
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" class="holo-node" target="_self">
-                <h3>ABULERNEN</h3>
-                <p>Interaktive Übungen für selbstständiges Lernen</p>
-            </a>
+    <!-- Main Terminal -->
+    <div class="matrix-terminal">
+        <div class="terminal-header">
+            <div>
+                <h1 class="terminal-title glitch" data-text="KNOWLEDGE MATRIX">KNOWLEDGE MATRIX</h1>
+                <div class="terminal-subtitle">PR24c TERMINAL<span class="cursor"></span></div>
+            </div>
+            <div class="terminal-subtitle">USER: <span style="color:#0f0">ADMIN</span></div>
         </div>
 
-        <!-- Holographic Terminal -->
-        <div class="holo-terminal">
-            <iframe width="100%" height="100%" src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+        <!-- Matrix Panels (Replacing Circles) -->
+        <div class="matrix-panel">
+            <h3>> LEHRMITTEL</h3>
+            <p>> Begleitmaterialien für das Lehrmittel Allgemeinbildung mit Aufgaben, Vertiefungen und Repetitionsfragen.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <div class="matrix-panel">
+            <h3>> ABUNEWS</h3>
+            <p>> Aktuelle Nachrichten mit regelmässigen Updates zu relevanten Themen und Ereignissen für den ABU-Unterricht.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <div class="matrix-panel">
+            <h3>> ABULERNEN</h3>
+            <p>> Interaktive Übungen und Materialien für das selbstständige Lernen im Allgemeinbildenden Unterricht.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <!-- Embedded Presentation -->
+        <div class="matrix-panel" style="padding:0; overflow:hidden;">
+            <iframe 
+                width="100%" 
+                height="500" 
+                src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000" 
+                frameborder="0"
+                style="border:none;"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Terminal Footer -->
+        <div class="terminal-subtitle" style="margin-top:30px; text-align:right;">
+            SYSTEM STATUS: <span style="color:#0f0">ONLINE</span>
         </div>
     </div>
 
-    <!-- Audio Toggle -->
-    <button id="audio-toggle">🔊 SOUND ON</button>
-
-    <!-- Audio Elements -->
-    <audio id="hover-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-click-ui-2209.mp3"></audio>
-    <audio id="bg-music" loop src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3"></audio>
-
     <script>
-        // 3D Hologram Effect
-        const canvas = document.getElementById('hologram-canvas');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        // Create holographic grid
-        const geometry = new THREE.BoxGeometry(10, 10, 10);
-        const material = new THREE.MeshBasicMaterial({ 
-            color: 0x00ff88,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.1
-        });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
 
-        camera.position.z = 20;
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = [];
 
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            cube.rotation.x += 0.005;
-            cube.rotation.y += 0.01;
-            renderer.render(scene, camera);
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
         }
-        animate();
 
-        // Particle.js Background
-        particlesJS('cyber-grid', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#00ff88" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#00ff88", opacity: 0.2, width: 1 },
-                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" }
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
                 }
+                rainDrops[i]++;
             }
-        });
+        };
 
-        // Audio Control
-        const audioToggle = document.getElementById('audio-toggle');
-        const bgMusic = document.getElementById('bg-music');
-        const hoverSound = document.getElementById('hover-sound');
-        let audioEnabled = false;
-
-        audioToggle.addEventListener('click', () => {
-            audioEnabled = !audioEnabled;
-            audioToggle.textContent = audioEnabled ? "🔊 SOUND ON" : "🔇 SOUND OFF";
-            if (audioEnabled) {
-                bgMusic.play();
-            } else {
-                bgMusic.pause();
-            }
-        });
-
-        // Hover sound effect
-        document.querySelectorAll('.holo-node').forEach(node => {
-            node.addEventListener('mouseenter', () => {
-                if (audioEnabled) {
-                    hoverSound.currentTime = 0;
-                    hoverSound.play();
-                }
-            });
-        });
+        setInterval(draw, 30);
 
         // Window resize handler
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Typewriter effect for headers
+        const titles = document.querySelectorAll('.terminal-title');
+        titles.forEach(title => {
+            const text = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 100);
         });
     </script>
 </body>
