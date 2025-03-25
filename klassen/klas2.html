@@ -3,164 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allgemeinbildung PR24c | Neural Interface</title>
+    <title>NEURAL KNOWLEDGE MATRIX | PR24c</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
         :root {
-            --neuron-blue: #00f0ff;
-            --neuron-purple: #b800ff;
-            --neuron-pink: #ff00b8;
-            --synapse-glow: 0 0 10px currentColor;
+            --matrix-green: #00ff88;
+            --neon-blue: #00f7ff;
+            --neon-pink: #ff00f7;
+            --neon-purple: #b300ff;
+            --glow: 0 0 10px;
         }
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background: #000;
             color: white;
-            font-family: 'Courier New', monospace;
-            min-height: 100vh;
+            font-family: 'Rajdhani', 'Orbitron', sans-serif;
             overflow-x: hidden;
+            min-height: 100vh;
+            perspective: 1000px;
         }
 
-        .neural-network {
+        /* Cyber Grid Background */
+        #cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 255, 170, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 170, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            opacity: 0.6;
+        }
+
+        /* Main Container */
+        #matrix-interface {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            padding-bottom: 60vh; /* Space for iframe */
-        }
-
-        .title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--neuron-blue);
-            text-shadow: 0 0 10px var(--neuron-blue);
-            margin: 30px 0 50px;
-        }
-
-        /* Neurons Container */
-        .neurons-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 80px;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 5vh;
+            overflow: hidden;
         }
 
-        .neuron {
+        /* Holographic Title */
+        .hologram-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: transparent;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: var(--glow) var(--neon-blue);
+            margin-bottom: 5vh;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 10;
+            animation: titleGlow 3s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px var(--neon-blue); }
+            100% { text-shadow: 0 0 20px var(--neon-pink); }
+        }
+
+        /* Holographic Nodes */
+        .holo-node {
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: radial-gradient(circle, var(--neuron-color), #000);
-            box-shadow: var(--synapse-glow);
+            background: radial-gradient(circle, rgba(0, 200, 255, 0.2), transparent 70%);
+            border: 2px solid var(--neon-color);
+            box-shadow: 
+                inset 0 0 20px var(--neon-color),
+                0 0 30px var(--neon-color);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            cursor: pointer;
             transition: all 0.4s ease;
             position: relative;
             z-index: 10;
+            margin: 20px;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .neuron h3 {
+        .holo-node:nth-child(1) { --neon-color: var(--neon-blue); animation-delay: 0s; }
+        .holo-node:nth-child(2) { --neon-color: var(--neon-pink); animation-delay: 1s; }
+        .holo-node:nth-child(3) { --neon-color: var(--neon-purple); animation-delay: 2s; }
+
+        .holo-node h3 {
+            font-size: 1.8rem;
             margin: 0;
-            font-size: 1.5rem;
+            color: white;
+            text-shadow: 0 0 10px currentColor;
         }
 
-        .neuron p {
+        .holo-node p {
             font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 10px 0 0;
+            opacity: 0.8;
+            margin: 10px 20px 0;
         }
 
-        /* Neuron Colors */
-        .neuron:nth-child(1) {
-            --neuron-color: var(--neuron-blue);
-        }
-        .neuron:nth-child(2) {
-            --neuron-color: var(--neuron-purple);
-        }
-        .neuron:nth-child(3) {
-            --neuron-color: var(--neuron-pink);
-        }
-
-        .neuron:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px currentColor;
-        }
-
-        /* Synapses (connecting lines) - Optional decorative element */
-        .synapse {
+        .holo-node::before {
+            content: '';
             position: absolute;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--synapse-color), transparent);
-            opacity: 0.3;
-            z-index: 1;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px dashed var(--neon-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: rotate 20s linear infinite;
         }
 
-        /* Slides Container */
-        .slides-container {
+        .holo-node:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                inset 0 0 30px var(--neon-color),
+                0 0 50px var(--neon-color);
+        }
+
+        .holo-node:hover::before {
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Holographic Terminal */
+        .holo-terminal {
             width: 90%;
-            max-width: 960px;
+            max-width: 1000px;
             height: 60vh;
-            margin: 0 auto 50px;
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            margin: 5vh auto;
+            background: rgba(0, 10, 20, 0.7);
+            border: 1px solid var(--matrix-green);
+            box-shadow: 
+                inset 0 0 20px rgba(0, 255, 170, 0.3),
+                0 0 40px rgba(0, 255, 170, 0.2);
             position: relative;
+            overflow: hidden;
             z-index: 5;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: rgba(0, 0, 0, 0.7);
+        .holo-terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+            animation: scanline 3s linear infinite;
         }
 
-        /* Responsive Adjustments */
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* 3D Hologram Effect */
+        #hologram-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        /* Audio Toggle */
+        #audio-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-blue);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 100;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .neurons-container {
-                gap: 20px;
+            .hologram-title {
+                font-size: 2.5rem;
             }
-            .neuron {
+            .holo-node {
                 width: 150px;
                 height: 150px;
-            }
-            .title {
-                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="neural-network">
-        <div class="title">ALLGEMEINBILDUNG PR24c</div>
+    <!-- Cyber Grid Background -->
+    <div id="cyber-grid"></div>
 
-        <div class="neurons-container">
-            <!-- Neuron 1 -->
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" class="neuron" target="_self">
+    <!-- 3D Hologram Effect -->
+    <canvas id="hologram-canvas"></canvas>
+
+    <!-- Main Interface -->
+    <div id="matrix-interface">
+        <h1 class="hologram-title">KNOWLEDGE MATRIX</h1>
+
+        <!-- Holographic Nodes -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; z-index: 10;">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" class="holo-node" target="_self">
                 <h3>LEHRMITTEL</h3>
                 <p>Begleitmaterialien mit Aufgaben und Vertiefungen</p>
             </a>
-
-            <!-- Neuron 2 -->
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" class="neuron" target="_self">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" class="holo-node" target="_self">
                 <h3>ABUNEWS</h3>
                 <p>Aktuelle Nachrichten für den Unterricht</p>
             </a>
-
-            <!-- Neuron 3 -->
-            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" class="neuron" target="_self">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" class="holo-node" target="_self">
                 <h3>ABULERNEN</h3>
                 <p>Interaktive Übungen für selbstständiges Lernen</p>
             </a>
         </div>
 
-        <!-- Slides Container (now scrollable) -->
-        <div class="slides-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000"></iframe>
+        <!-- Holographic Terminal -->
+        <div class="holo-terminal">
+            <iframe width="100%" height="100%" src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+
+    <!-- Audio Toggle -->
+    <button id="audio-toggle">🔊 SOUND ON</button>
+
+    <!-- Audio Elements -->
+    <audio id="hover-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-click-ui-2209.mp3"></audio>
+    <audio id="bg-music" loop src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3"></audio>
+
+    <script>
+        // 3D Hologram Effect
+        const canvas = document.getElementById('hologram-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Create holographic grid
+        const geometry = new THREE.BoxGeometry(10, 10, 10);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x00ff88,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.1
+        });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 20;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.005;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Particle.js Background
+        particlesJS('cyber-grid', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ff88" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ff88", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+
+        // Audio Control
+        const audioToggle = document.getElementById('audio-toggle');
+        const bgMusic = document.getElementById('bg-music');
+        const hoverSound = document.getElementById('hover-sound');
+        let audioEnabled = false;
+
+        audioToggle.addEventListener('click', () => {
+            audioEnabled = !audioEnabled;
+            audioToggle.textContent = audioEnabled ? "🔊 SOUND ON" : "🔇 SOUND OFF";
+            if (audioEnabled) {
+                bgMusic.play();
+            } else {
+                bgMusic.pause();
+            }
+        });
+
+        // Hover sound effect
+        document.querySelectorAll('.holo-node').forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                if (audioEnabled) {
+                    hoverSound.currentTime = 0;
+                    hoverSound.play();
+                }
+            });
+        });
+
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
 </html>
