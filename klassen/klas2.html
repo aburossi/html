@@ -3,78 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PR24c | Glass Nodes</title>
+    <title>Allgemeinbildung PR24c | Neural Interface</title>
     <style>
-        body {
-            margin: 0;
-            background: url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2232&auto=format') no-repeat center/cover;
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        :root {
+            --neuron-blue: #00f0ff;
+            --neuron-purple: #b800ff;
+            --neuron-pink: #ff00b8;
+            --synapse-glow: 0 0 10px currentColor;
         }
 
-        .glass-node {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: white;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .neural-network {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding-bottom: 60vh; /* Space for iframe */
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--neuron-blue);
+            text-shadow: 0 0 10px var(--neuron-blue);
+            margin: 30px 0 50px;
+        }
+
+        /* Neurons Container */
+        .neurons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .neuron {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--neuron-color), #000);
+            box-shadow: var(--synapse-glow);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            margin: 20px;
-            transition: all 0.3s ease;
-            color: white;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 10;
         }
 
-        .glass-node:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .glass-node h3 {
+        .neuron h3 {
             margin: 0;
             font-size: 1.5rem;
-            font-weight: 600;
         }
 
-        .glass-node p {
+        .neuron p {
             font-size: 0.9rem;
             opacity: 0.9;
+            margin: 10px 0 0;
         }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 800px;
+        /* Neuron Colors */
+        .neuron:nth-child(1) {
+            --neuron-color: var(--neuron-blue);
+        }
+        .neuron:nth-child(2) {
+            --neuron-color: var(--neuron-purple);
+        }
+        .neuron:nth-child(3) {
+            --neuron-color: var(--neuron-pink);
+        }
+
+        .neuron:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        /* Synapses (connecting lines) - Optional decorative element */
+        .synapse {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--synapse-color), transparent);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        /* Slides Container */
+        .slides-container {
+            width: 90%;
+            max-width: 960px;
+            height: 60vh;
+            margin: 0 auto 50px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            position: relative;
+            z-index: 5;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .neurons-container {
+                gap: 20px;
+            }
+            .neuron {
+                width: 150px;
+                height: 150px;
+            }
+            .title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="LINK_1" class="glass-node" target="_self">
-            <h3>Lehrmittel</h3>
-            <p>Aufgaben, Vertiefungen und Repetitionsfragen</p>
-        </a>
-        <a href="LINK_2" class="glass-node" target="_self">
-            <h3>ABUnews</h3>
-            <p>Aktuelle Nachrichten für den Unterricht</p>
-        </a>
-        <a href="LINK_3" class="glass-node" target="_self">
-            <h3>ABUlernen</h3>
-            <p>Interaktive Übungen für selbstständiges Lernen</p>
-        </a>
+    <div class="neural-network">
+        <div class="title">ALLGEMEINBILDUNG PR24c</div>
+
+        <div class="neurons-container">
+            <!-- Neuron 1 -->
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" class="neuron" target="_self">
+                <h3>LEHRMITTEL</h3>
+                <p>Begleitmaterialien mit Aufgaben und Vertiefungen</p>
+            </a>
+
+            <!-- Neuron 2 -->
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" class="neuron" target="_self">
+                <h3>ABUNEWS</h3>
+                <p>Aktuelle Nachrichten für den Unterricht</p>
+            </a>
+
+            <!-- Neuron 3 -->
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" class="neuron" target="_self">
+                <h3>ABULERNEN</h3>
+                <p>Interaktive Übungen für selbstständiges Lernen</p>
+            </a>
+        </div>
+
+        <!-- Slides Container (now scrollable) -->
+        <div class="slides-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000"></iframe>
+        </div>
     </div>
 </body>
 </html>
