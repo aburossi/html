@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opossum Search</title>
+    <style>
+        /* Basic reset and body styling for centering */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative; /* Needed for absolute footer positioning */
+            padding-bottom: 60px; /* Space for the footer */
+        }
+
+        /* Main container for logo, search bar, button */
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 584px; /* Max width similar to Google */
+        }
+
+        /* Opossum Logo */
+        .logo {
+            max-width: 272px; /* Similar size to Google logo */
+            height: auto;
+            margin-bottom: 28px;
+        }
+
+        /* Search form styling */
+        .search-form {
+            display: flex;
+            align-items: center;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 5px 8px 5px 20px; /* More padding left for icon space */
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1); /* Subtle shadow */
+        }
+
+        .search-form:hover,
+        .search-form:focus-within {
+            box-shadow: 0 2px 8px rgba(32, 33, 36, 0.15);
+            border-color: rgba(223, 225, 229, 0); /* Hide border on hover/focus */
+        }
+
+        /* Search input field */
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            padding: 10px 0; /* Adjusted padding */
+            font-size: 16px;
+            background-color: transparent;
+            margin-left: 5px; /* Space after potential icon area */
+        }
+
+        /* Search button styling */
+        .search-button {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0 4px; /* Use margin instead of padding */
+            padding: 0 16px;
+            height: 36px;
+            min-width: 54px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            line-height: 36px; /* Vertically center text */
+        }
+
+        .search-button:hover {
+            border-color: #dadce0;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background-color: #f1f3f4;
+            color: #202124;
+        }
+
+        /* Footer styling */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f2f2f2;
+            padding: 15px 30px;
+            border-top: 1px solid #e4e4e4;
+            text-align: center;
+            font-size: 14px;
+            color: #70757a;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <!-- Opossum Logo -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Opossum_2.jpg/292px-Opossum_2.jpg" alt="Opossum Logo" class="logo">
+
+        <!-- Search Form -->
+        <form id="searchForm" class="search-form" onsubmit="handleSearch(event)">
+            <input type="text" id="searchInput" class="search-input" name="q" aria-label="Search query" placeholder="Search the web (with opossums!)">
+            <button type="submit" class="search-button">Opossum Search</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Powered by opossum search
+    </footer>
+
+    <script>
+        function handleSearch(event) {
+            // Prevent the form from submitting the traditional way
+            event.preventDefault();
+
+            // Get the search input element
+            const searchInput = document.getElementById('searchInput');
+            // Get the trimmed value from the input
+            const query = searchInput.value.trim();
+
+            // Only proceed if the query is not empty
+            if (query) {
+                // Append " opossum" to the query
+                const modifiedQuery = query + " opossum";
+
+                // Encode the modified query for use in a URL
+                const encodedQuery = encodeURIComponent(modifiedQuery);
+
+                // Construct the Google search URL
+                const googleUrl = 'https://www.google.com/search?q=' + encodedQuery;
+
+                // Redirect the user to the Google search results page
+                window.location.href = googleUrl;
+            }
+            // Optional: Clear input or provide feedback if query is empty
+            // else {
+            //     searchInput.focus(); // Keep focus on input if empty
+            // }
+        }
+    </script>
+
+</body>
+</html>
+
+
+Explanation:
+
+HTML Structure:
+
+Basic HTML5 document structure (<!DOCTYPE html>, <html>, <head>, <body>).
+
+<meta charset="UTF-8">: Specifies character encoding (though we avoid Unicode).
+
+<meta name="viewport"...>: For basic responsiveness on mobile devices.
+
+<title>Opossum Search</title>: Sets the browser tab title.
+
+A div with class search-container holds the logo and search form for centering.
+
+The <img> tag displays the specified opossum image, with alt text for accessibility.
+
+A <form> element (id="searchForm") contains the search <input> (id="searchInput") and the <button type="submit">. The onsubmit="handleSearch(event)" attribute calls our JavaScript function when the form is submitted.
+
+A <footer> element contains the required "Powered by opossum search" text.
+
+CSS Styling (within <style> tags in <head>):
+
+Styles are included directly in the <head> to meet the single-file requirement.
+
+body: Uses Flexbox (display: flex, flex-direction: column, align-items: center, justify-content: center) to center the main content vertically and horizontally. min-height: 100vh ensures it takes at least the full viewport height. position: relative and padding-bottom are added to prevent content from overlapping the absolutely positioned footer.
+
+.search-container: Centers its children (logo, form) vertically using Flexbox. max-width limits its size on wider screens, mimicking Google's layout.
+
+.logo: Sets the size and bottom margin for the opossum image.
+
+.search-form: Styles the search bar container with rounded corners, border, padding, and a subtle shadow, similar to Google. :hover and :focus-within pseudo-classes enhance the shadow slightly for interaction feedback.
+
+.search-input: Styles the text input field to be borderless, take up available space (flex-grow: 1), and have appropriate font size and padding.
+
+.search-button: Styles the button to look like Google's search buttons (background color, border, padding, font size, hover effects).
+
+footer: Styles the footer to be fixed at the bottom (position: absolute, bottom: 0), span the full width, have a light background, and specific text styling. box-sizing: border-box ensures padding doesn't increase the total width/height beyond 100%.
+
+JavaScript (within <script> tags before </body>):
+
+The script is placed at the end of the <body> so that the HTML elements (form, input) exist when the script potentially runs.
+
+handleSearch(event) function:
+
+event.preventDefault();: Stops the browser's default form submission behavior (which would just reload the page with query parameters).
+
+Gets the search input element by its ID.
+
+Retrieves the user's typed value and uses .trim() to remove leading/trailing whitespace.
+
+Checks if the query is not empty.
+
+Creates modifiedQuery by concatenating the original query with " opossum".
+
+Uses encodeURIComponent() to safely encode the modifiedQuery for use in a URL (handles spaces and special characters).
+
+Constructs the final googleUrl.
+
+window.location.href = googleUrl;: Redirects the browser to the generated Google search results page.
+
+No Unicode: All text content (title, placeholder, button text, footer text) and CSS properties (font-family) use standard ASCII characters only.
+
+To use this, save the code as an HTML file (e.g., opossum_search.html) and open it in your web browser.
