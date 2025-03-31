@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLGEMEINBILDUNG PR24c</title>
+    <style>
+        :root {
+            --matrix-green: #00ff41;
+            --glow: 0 0 10px;
+            --terminal-bg: rgba(0, 20, 0, 0.85);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: var(--matrix-green);
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.4;
+        }
+
+        /* Matrix Rain Background */
+        #matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Main Terminal */
+        .matrix-terminal {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 
+                inset 0 0 30px rgba(0, 255, 65, 0.2),
+                0 0 50px rgba(0, 255, 65, 0.3);
+            background: var(--terminal-bg);
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Terminal Header */
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--matrix-green);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-title {
+            font-size: 1.8rem;
+            text-shadow: var(--glow) var(--matrix-green);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .terminal-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Matrix Panels (Content Cards) */
+        .matrix-panel {
+            border: 1px solid var(--matrix-green);
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 10, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .matrix-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 255, 65, 0.05),
+                transparent
+            );
+            pointer-events: none;
+        }
+
+        .matrix-panel h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            color: var(--matrix-green);
+            text-shadow: var(--glow) var(--matrix-green);
+        }
+
+        .matrix-panel p {
+            margin: 10px 0;
+        }
+
+        .matrix-panel a {
+            color: var(--matrix-green);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--matrix-green);
+            transition: all 0.2s ease;
+        }
+
+        .matrix-panel a:hover {
+            text-shadow: var(--glow) var(--matrix-green);
+            border-bottom: 1px solid var(--matrix-green);
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            color: #0ff;
+            z-index: -1;
+            animation: glitch 3s infinite;
+        }
+
+        .glitch::after {
+            color: #f0f;
+            z-index: -2;
+            animation: glitch 2s infinite reverse;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Terminal Cursor */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--matrix-green);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .terminal-title {
+                font-size: 1.4rem;
+            }
+            .matrix-panel {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-rain"></canvas>
+
+    <!-- Main Terminal -->
+    <div class="matrix-terminal">
+        <div class="terminal-header">
+            <div>
+                <h1 class="terminal-title glitch" data-text=ALLGEMEINBILDUNG PR24c">ALLGEMEINBILDUNG PR24c</h1>
+                <div class="terminal-subtitle">PR24c TERMINAL<span class="cursor"></span></div>
+            </div>
+            <div class="terminal-subtitle">USER: <span style="color:#0f0">ADMIN</span></div>
+        </div>
+
+        <!-- Matrix Panels (Replacing Circles) -->
+        <div class="matrix-panel">
+            <h3>> LEHRMITTEL</h3>
+            <p>> Begleitmaterialien für das Lehrmittel Allgemeinbildung mit Aufgaben, Vertiefungen und Repetitionsfragen.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111365485184830" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <div class="matrix-panel">
+            <h3>> ABUNEWS</h3>
+            <p>> Aktuelle Nachrichten mit regelmässigen Updates zu relevanten Themen und Ereignissen für den ABU-Unterricht.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111166403965265" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <div class="matrix-panel">
+            <h3>> ABULERNEN</h3>
+            <p>> Interaktive Übungen und Materialien für das selbstständige Lernen im Allgemeinbildenden Unterricht.</p>
+            <p>> <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/111349730046456" target="_self">ACCESS RESOURCE</a></p>
+        </div>
+
+        <!-- Embedded Presentation -->
+        <div class="matrix-panel" style="padding:0; overflow:hidden;">
+            <iframe 
+                width="100%" 
+                height="500" 
+                src="https://docs.google.com/presentation/d/e/2PACX-1vSaStD-aMVJWPdQziAn3IX7b7n2iW_PrBY7DW79RijHgF9IrjE05iAYDKHvGPvfY2m5v1TYpD7__HV9/embed?start=false&loop=false&delayms=3000" 
+                frameborder="0"
+                style="border:none;"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Terminal Footer -->
+        <div class="terminal-subtitle" style="margin-top:30px; text-align:right;">
+            SYSTEM STATUS: <span style="color:#0f0">ONLINE</span>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Typewriter effect for headers
+        const titles = document.querySelectorAll('.terminal-title');
+        titles.forEach(title => {
+            const text = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
