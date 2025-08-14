@@ -15,7 +15,7 @@
             --card-background: #ffffff;
             --text-color: #333;
             --light-text-color: #f1f1f1;
-            --shadow-color: rgba(0, 0, 0, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.07);
             --border-color: #e2e8f0;
         }
 
@@ -24,7 +24,7 @@
             background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
-            padding: 2rem;
+            padding: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -38,21 +38,21 @@
         .quick-links-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .quick-link {
             background: var(--card-background);
             color: var(--primary-color);
             text-decoration: none;
-            padding: 1.5rem 1rem;
-            border-radius: 12px;
+            padding: 1rem;
+            border-radius: 10px;
             text-align: center;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 6px var(--shadow-color);
+            box-shadow: 0 3px 5px var(--shadow-color);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -60,61 +60,61 @@
         }
 
         .quick-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--shadow-color);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px var(--shadow-color);
             color: var(--secondary-color);
         }
 
         .quick-link .icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
         h1 {
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 2.5rem;
-            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
         }
 
         /* Zweispaltiges Layout */
         .content-columns {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: flex-start;
         }
 
         .gesellschaft-column {
-            flex: 2; /* Mehr Platz für die 8 Aspekte */
+            flex: 2;
         }
 
         .sprache-column {
-            flex: 1; /* Weniger Platz für den Textbereich */
+            flex: 1;
             background-color: var(--card-background);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px var(--shadow-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--text-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
         }
 
         /* Grid für Gesellschafts-Aspekte */
         .aspect-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
         }
 
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 200px;
+            height: 160px; /* Höhe reduziert */
             perspective: 1000px;
             cursor: pointer;
         }
@@ -126,8 +126,8 @@
             text-align: center;
             transition: transform 0.6s;
             transform-style: preserve-3d;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            border-radius: 15px;
+            box-shadow: 0 3px 8px var(--shadow-color);
+            border-radius: 12px;
         }
 
         .flip-card:hover .flip-card-inner {
@@ -140,12 +140,12 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 15px;
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 1rem;
+            padding: 0.8rem;
             box-sizing: border-box;
         }
 
@@ -158,38 +158,39 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--light-text-color);
             transform: rotateY(180deg);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .flip-card-front .icon {
-            font-size: 3rem;
+            font-size: 2.5rem; /* Icon verkleinert */
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .flip-card-front h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Schrift verkleinert */
             margin: 0;
         }
 
         /* Stile für die Sprach-Spalte */
         .sprache-column h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--primary-color);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
         .sprache-column p, .sprache-column li {
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
         .sprache-column ul {
             padding-left: 20px;
             list-style-type: '✓  ';
+            margin-top: 0.5rem;
         }
          .sprache-column li {
-            padding-left: 10px;
-            margin-bottom: 0.5rem;
+            padding-left: 8px;
+            margin-bottom: 0.4rem;
         }
     </style>
 </head>
@@ -199,7 +200,7 @@
 
         <!-- Quick-Links Sektion -->
         <div class="quick-links-container">
-            <a href="javascript:parent.gotonode(112205731015136)" class="quick-link">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/112205731015136" class="quick-link">
                 <i class="fas fa-users icon"></i>
                 <span>Meine Klasse</span>
             </a>
@@ -284,9 +285,9 @@
                 <h3>Drei Teilkompetenzen</h3>
                 <p>Im ABU entwickeln und fördern wir Sprachkompetenz in drei Bereichen:</p>
                 <ul>
-                    <li><strong>Rezeptive Kompetenz:</strong> Die Fähigkeit, verbale (gesprochen, geschrieben) und nonverbale Kommunikation (Körpersprache, Bilder) zu verstehen.</li>
-                    <li><strong>Produktive Kompetenz:</strong> Die Fähigkeit, sich verbal und nonverbal wirksam und adressatengerecht auszudrücken.</li>
-                    <li><strong>Normative Kompetenz:</strong> Die Fähigkeit, Normen und Konventionen (z.B. Grammatik, Höflichkeit) situationsbezogen zu beachten.</li>
+                    <li><strong>Rezeptive Kompetenz:</strong> Die Fähigkeit, verbale und nonverbale Kommunikation zu verstehen.</li>
+                    <li><strong>Produktive Kompetenz:</strong> Die Fähigkeit, sich wirksam und adressatengerecht auszudrücken.</li>
+                    <li><strong>Normative Kompetenz:</strong> Die Fähigkeit, Normen und Konventionen situationsbezogen zu beachten.</li>
                 </ul>
 
                 <h3>Bildungsziele</h3>
