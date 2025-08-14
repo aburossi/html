@@ -205,7 +205,7 @@
 
 
         /* --- Responsive Design --- */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) { /* Changed from 900px to 1024px */
             .creative-layout-container {
                 display: flex;
                 flex-direction: column;
@@ -290,7 +290,7 @@
         const gesellschaftCards = Array.from(document.querySelectorAll('.gesellschaft-card'));
 
         function checkLayout() {
-            if (window.innerWidth <= 900) {
+            if (window.innerWidth <= 1024) { // Changed from 900px to 1024px
                 if (!document.getElementById('frameworkWrapper')) {
                     const frameworkWrapper = document.createElement('div');
                     frameworkWrapper.id = 'frameworkWrapper';
