@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Übersicht ABU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #005a9e;
+            --secondary-color: #3498db;
+            --background-color: #f4f7f9;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --light-text-color: #f1f1f1;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .main-container {
+            width: 1280px;
+        }
+        
+        /* Quick-Links Boxen */
+        .quick-links-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .quick-link {
+            background: var(--card-background);
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--shadow-color);
+            color: var(--secondary-color);
+        }
+
+        .quick-link .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+        }
+
+        /* Zweispaltiges Layout */
+        .content-columns {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .gesellschaft-column {
+            flex: 2; /* Mehr Platz für die 8 Aspekte */
+        }
+
+        .sprache-column {
+            flex: 1; /* Weniger Platz für den Textbereich */
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Grid für Gesellschafts-Aspekte */
+        .aspect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            border-radius: 15px;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .flip-card-front {
+            background-color: var(--card-background);
+            color: var(--text-color);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text-color);
+            transform: rotateY(180deg);
+            font-size: 0.9rem;
+        }
+        
+        .flip-card-front .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-front h4 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Stile für die Sprach-Spalte */
+        .sprache-column h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .sprache-column p, .sprache-column li {
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        .sprache-column ul {
+            padding-left: 20px;
+            list-style-type: '✓  ';
+        }
+         .sprache-column li {
+            padding-left: 10px;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <!-- Quick-Links Sektion -->
+        <div class="quick-links-container">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582" class="quick-link">
+                <i class="fas fa-users icon"></i>
+                <span>Meine Klasse</span>
+            </a>
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/112205730985280" class="quick-link">
+                <i class="fas fa-folder-open icon"></i>
+                <span>Projekte</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-graduation-cap icon"></i>
+                <span>Noten</span>
+            </a>
+            <a href="#" class="quick-link">
+                <i class="fas fa-info-circle icon"></i>
+                <span>Infos & Termine</span>
+            </a>
+        </div>
+
+        <h1>Lernbereiche ABU</h1>
+
+        <div class="content-columns">
+            <!-- LINKE SPALTE: GESELLSCHAFT -->
+            <div class="gesellschaft-column">
+                <h2>Lernbereich: Gesellschaft (8 Aspekte)</h2>
+                <div class="aspect-grid">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-balance-scale icon"></i><h4>Ethik</h4></div>
+                            <div class="flip-card-back"><p>Die systematische und kritische Reflexion der gelebten Moral. Ethik hinterfragt Handlungsweisen und sucht nach verallgemeinerbaren Begründungen.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-id-card icon"></i><h4>Identität & Sozialisation</h4></div>
+                            <div class="flip-card-back"><p>Der Mensch ist gefordert, eine Identität zu entwickeln, die ihm Stabilität und Offenheit garantiert. Sie beantwortet die Frage: Wer bin ich und wer will ich werden?</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-palette icon"></i><h4>Kultur</h4></div>
+                            <div class="flip-card-back"><p>Kultur betrifft alles, was vom Menschen geschaffen wurde. Sie umfasst die ganze Breite der Ausdrucksformen von der Alltagskultur bis zur Kunst und prägt unser Weltbild.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-leaf icon"></i><h4>Ökologie</h4></div>
+                            <div class="flip-card-back"><p>Die Lehre von den Beziehungen zwischen Organismen und ihrer Umwelt. Sie befasst sich mit den Herausforderungen einer nachhaltigen Entwicklung.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-landmark-dome icon"></i><h4>Politik</h4></div>
+                            <div class="flip-card-back"><p>Ein strukturierter Prozess, um Lösungen für Probleme in einer Gesellschaft zu finden. In einer Demokratie kommt sie durch die aktive Teilnahme der Bürger zustande.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-gavel icon"></i><h4>Recht</h4></div>
+                            <div class="flip-card-back"><p>Ein komplexes System, das Verhaltensregeln in einer Gesellschaft festlegt. Es regelt die Beziehungen der Individuen untereinander und zum Staat.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-microchip icon"></i><h4>Technologie</h4></div>
+                            <div class="flip-card-back"><p>Umfasst Methoden und Verfahren, um technische Mittel produktiv zu nutzen. Technischer Fortschritt eröffnet Chancen, birgt aber auch Risiken.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><i class="fas fa-chart-line icon"></i><h4>Wirtschaft</h4></div>
+                            <div class="flip-card-back"><p>Analysiert den Umgang mit knappen Mitteln und unbegrenzten Bedürfnissen. Produktion und Konsum stehen im Zentrum, mit Augenmerk auf Nachhaltigkeit.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECHTE SPALTE: SPRACHE & KOMMUNIKATION -->
+            <div class="sprache-column">
+                <h2>Lernbereich: Sprache & Kommunikation</h2>
+                <h3>Leitgedanken</h3>
+                <p>Sprache ist das zentrale Medium, mit dem wir die Welt wahrnehmen, Wissen aufbauen und unsere Erfahrungen reflektieren. Sie ist grundlegend für die Bildung unserer Identität und für die Entwicklung von Selbst- und Sozialkompetenz.</p>
+                
+                <h3>Drei Teilkompetenzen</h3>
+                <p>Im ABU entwickeln und fördern wir Sprachkompetenz in drei Bereichen:</p>
+                <ul>
+                    <li><strong>Rezeptive Kompetenz:</strong> Die Fähigkeit, verbale (gesprochen, geschrieben) und nonverbale Kommunikation (Körpersprache, Bilder) zu verstehen.</li>
+                    <li><strong>Produktive Kompetenz:</strong> Die Fähigkeit, sich verbal und nonverbal wirksam und adressatengerecht auszudrücken.</li>
+                    <li><strong>Normative Kompetenz:</strong> Die Fähigkeit, Normen und Konventionen (z.B. Grammatik, Höflichkeit) situationsbezogen zu beachten.</li>
+                </ul>
+
+                <h3>Bildungsziele</h3>
+                <p>Das Ziel ist, dass Sie...</p>
+                 <ul>
+                    <li>...verbale und nonverbale Äusserungen in Alltag und Beruf verstehen.</li>
+                    <li>...situations- und adressatenbezogen wirksam kommunizieren.</li>
+                    <li>...sprachliche Normen und Konventionen korrekt anwenden können.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
