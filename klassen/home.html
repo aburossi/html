@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Übersicht ABU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            /* Palette for Sprache & Kommunikation (Core) */
+            --sprache-primary: #005a9e;
+            --sprache-secondary: #3498db;
+            
+            /* Palette for Gesellschaft (Framework) */
+            --gesellschaft-primary: #00796b; /* Teal */
+            --gesellschaft-secondary: #4db6ac;
+
+            --background-color: #f0f2f5;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --light-text-color: #f1f1f1;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --highlight-shadow: rgba(0, 90, 158, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .quick-links-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-link {
+            background: var(--card-background);
+            color: var(--sprache-primary);
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px var(--shadow-color);
+            color: var(--sprache-secondary);
+        }
+
+        .quick-link .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--sprache-primary);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        /* --- Creative Layout --- */
+        .creative-layout-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 180px);
+            gap: 1rem;
+            align-items: stretch;
+            justify-items: stretch;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- Flip Card General Styles --- */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            border-radius: 15px;
+        }
+
+        .flip-card:hover .flip-card-inner,
+        .flip-card.hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .flip-card-front {
+            background-color: var(--card-background);
+            color: var(--text-color);
+        }
+        
+        .flip-card-back {
+             color: var(--light-text-color);
+             transform: rotateY(180deg);
+             font-size: 0.85rem;
+             line-height: 1.45;
+        }
+
+        .flip-card-front .icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .flip-card-front h4 {
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* --- Card Specific Styles --- */
+        
+        /* 1. Gesellschaft Cards (Framework) */
+        .gesellschaft-card .flip-card-front .icon {
+            color: var(--gesellschaft-primary);
+        }
+        .gesellschaft-card:hover .flip-card-front .icon {
+            color: var(--gesellschaft-secondary);
+        }
+        .gesellschaft-card .flip-card-back {
+            background: linear-gradient(135deg, var(--gesellschaft-primary), var(--gesellschaft-secondary));
+        }
+
+        /* 2. Sprache Card (Center) */
+        .sprache-card {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+        .sprache-card .flip-card-inner {
+             box-shadow: 0 8px 25px var(--highlight-shadow);
+             border: 2px solid var(--sprache-primary);
+        }
+        .sprache-card .flip-card-front .icon {
+            color: var(--sprache-primary);
+        }
+        .sprache-card:hover .flip-card-front .icon {
+            color: var(--sprache-secondary);
+        }
+        .sprache-card .flip-card-back {
+            background: linear-gradient(135deg, var(--sprache-primary), var(--sprache-secondary));
+        }
+
+
+        /* --- Grid Placement for Gesellschaft Cards --- */
+        .creative-layout-container > .gesellschaft-card:nth-of-type(1) { grid-area: 1 / 1; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(2) { grid-area: 1 / 2; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(3) { grid-area: 1 / 3; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(4) { grid-area: 2 / 1; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(5) { grid-area: 2 / 3; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(6) { grid-area: 3 / 1; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(7) { grid-area: 3 / 2; }
+        .creative-layout-container > .gesellschaft-card:nth-of-type(8) { grid-area: 3 / 3; }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) { /* Changed from 900px to 1024px */
+            .creative-layout-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .sprache-card {
+                order: -1; /* Move to the top */
+            }
+            .framework-cards-wrapper {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+                width: 100%;
+            }
+            .flip-card {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quick-links-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quick-links-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="quick-links-container">
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/112205731015136" class="quick-link"><i class="fas fa-users icon"></i><span>Meine Klasse</span></a>
+            <a href="https://olat.bbw.ch/auth/RepositoryEntry/816021582/CourseNode/112205730985280" class="quick-link"><i class="fas fa-folder-open icon"></i><span>Projekte</span></a>
+            <a href="#" class="quick-link"><i class="fas fa-graduation-cap icon"></i><span>Noten</span></a>
+            <a href="#" class="quick-link"><i class="fas fa-info-circle icon"></i><span>Infos & Termine</span></a>
+        </div>
+
+        <h1>Lernbereiche ABU</h1>
+
+        <div class="creative-layout-container" id="layoutContainer">
+            
+            <!-- Gesellschaft Cards -->
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-balance-scale icon"></i><h4>Ethik</h4></div><div class="flip-card-back"><p>Die systematische und kritische Reflexion der gelebten Moral. Ethik hinterfragt Handlungsweisen und sucht nach verallgemeinerbaren Begründungen.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-id-card icon"></i><h4>Identität</h4></div><div class="flip-card-back"><p>Der Mensch ist gefordert, eine Identität zu entwickeln, die ihm Stabilität und Offenheit garantiert. Sie beantwortet die Frage: Wer bin ich und wer will ich werden?</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-palette icon"></i><h4>Kultur</h4></div><div class="flip-card-back"><p>Kultur betrifft alles, was vom Menschen geschaffen wurde. Sie umfasst die ganze Breite der Ausdrucksformen von der Alltagskultur bis zur Kunst und prägt unser Weltbild.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-leaf icon"></i><h4>Ökologie</h4></div><div class="flip-card-back"><p>Die Lehre von den Beziehungen zwischen Organismen und ihrer Umwelt. Sie befasst sich mit den Herausforderungen einer nachhaltigen Entwicklung.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-landmark-dome icon"></i><h4>Politik</h4></div><div class="flip-card-back"><p>Ein strukturierter Prozess, um Lösungen für Probleme in einer Gesellschaft zu finden. In einer Demokratie kommt sie durch die aktive Teilnahme der Bürger zustande.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-gavel icon"></i><h4>Recht</h4></div><div class="flip-card-back"><p>Ein komplexes System, das Verhaltensregeln in einer Gesellschaft festlegt. Es regelt die Beziehungen der Individuen untereinander und zum Staat.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-microchip icon"></i><h4>Technologie</h4></div><div class="flip-card-back"><p>Umfasst Methoden und Verfahren, um technische Mittel produktiv zu nutzen. Technischer Fortschritt eröffnet Chancen, birgt aber auch Risiken.</p></div></div></div>
+            <div class="flip-card gesellschaft-card" ontouchstart="this.classList.toggle('hover');"><div class="flip-card-inner"><div class="flip-card-front"><i class="fas fa-chart-line icon"></i><h4>Wirtschaft</h4></div><div class="flip-card-back"><p>Analysiert den Umgang mit knappen Mitteln und unbegrenzten Bedürfnissen. Produktion und Konsum stehen im Zentrum, mit Augenmerk auf Nachhaltigkeit.</p></div></div></div>
+            
+            <!-- Sprache & Kommunikation Card (Centerpiece) -->
+            <div class="flip-card sprache-card" ontouchstart="this.classList.toggle('hover');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-comments icon"></i>
+                        <h4>Sprache & Kommunikation</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Sprache ist das zentrale Medium, mit dem wir die Welt wahrnehmen, Wissen aufbauen und unsere Erfahrungen reflektieren. Sie ist grundlegend für die Bildung unserer Identität und für die Entwicklung von Selbst- und Sozialkompetenz.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        // This script handles the responsive layout change.
+        const layoutContainer = document.getElementById('layoutContainer');
+        const spracheCard = document.querySelector('.sprache-card');
+        const gesellschaftCards = Array.from(document.querySelectorAll('.gesellschaft-card'));
+
+        function checkLayout() {
+            if (window.innerWidth <= 1024) { // Changed from 900px to 1024px
+                if (!document.getElementById('frameworkWrapper')) {
+                    const frameworkWrapper = document.createElement('div');
+                    frameworkWrapper.id = 'frameworkWrapper';
+                    frameworkWrapper.className = 'framework-cards-wrapper';
+                    gesellschaftCards.forEach(card => frameworkWrapper.appendChild(card));
+                    layoutContainer.appendChild(frameworkWrapper);
+                }
+            } else {
+                const frameworkWrapper = document.getElementById('frameworkWrapper');
+                if (frameworkWrapper) {
+                    gesellschaftCards.forEach(card => layoutContainer.insertBefore(card, spracheCard));
+                    frameworkWrapper.remove();
+                }
+            }
+        }
+
+        window.addEventListener('resize', checkLayout);
+        document.addEventListener('DOMContentLoaded', checkLayout);
+    </script>
+
+</body>
+</html>
