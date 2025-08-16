@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video-Aufgabe: Mindmap in neuem Tab</title>
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles to mimic your existing slide system */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Sans Pro', sans-serif; background-color: #f1f5f9; color: #1e293b; overflow: hidden; }
+        .slide { 
+            width: 1280px; height: 720px; position: absolute; top: 50%; left: 50%; 
+            transform-origin: center center; overflow: hidden; background-color: #f8fafc; 
+            display: flex; flex-direction: column; 
+        }
+        .header { padding: 25px 50px 15px; }
+        .title { font-size: 24px; font-weight: 700; color: #0f766e; margin-bottom: 15px; position: relative; }
+        .title::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 80px; height: 4px; background-color: #0f766e; }
+        .content { flex-grow: 1; padding: 0 50px 40px; display: flex; flex-direction: column; min-height: 0; }
+        
+        /* Card styles for content blocks */
+        .task-container {
+            background-color: white; border-radius: 10px; padding: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Specific styles for this layout */
+        .task-header { display: flex; align-items: center; margin-bottom: 8px; }
+        .task-icon { background-color: #e6f7f5; color: #0f766e; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0; }
+        .task-text { font-size: 14px; line-height: 1.4; color: #334155; }
+        
+        .mindmap-prompt { font-size: 12px; line-height: 1.4; color: #334155; margin-bottom: 16px; background-color: #f0f9ff; border-left: 4px solid #0f766e; padding: 8px 12px; border-radius: 6px; font-weight: 500; }
+        
+        /* Button-like style for the <a> tag */
+        .link-as-btn {
+            background-color: #0d9488; color: white; font-weight: 600; padding: 10px 20px;
+            border-radius: 8px; text-decoration: none; cursor: pointer; transition: background-color 0.2s, opacity 0.2s;
+            display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center;
+        }
+        .link-as-btn:hover { background-color: #0f766e; }
+
+        /* NEW: Loading state for the button */
+        .link-as-btn.is-loading {
+            background-color: #94a3b8; /* slate-400 */
+            cursor: not-allowed;
+            pointer-events: none; /* Prevents clicking */
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Slide Content -->
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Verständnisfragen zum Video: Die Macht der Algorithmen</h1>
+        </div>
+        <div class="content">
+            <div class="flex gap-6 flex-grow min-h-0">
+                
+                <!-- LEFT COLUMN: Video and Mindmap Link -->
+                <div class="w-1/2 flex flex-col gap-4">
+                    <div class="task-container flex-grow flex flex-col">
+                        <div class="task-header">
+                            <div class="task-icon"><i class="fas fa-video"></i></div>
+                            <p class="task-text">
+                                Schauen Sie sich den Video-Beitrag aufmerksam an und nutzen Sie die Mindmap, um Ihre Gedanken zu strukturieren.
+                            </p>
+                        </div>
+                        <div class="mt-2 flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/pPl321nI2Vw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
+                        </div>
+                        
+                        <div class="mt-auto pt-4">
+                            <p class="mindmap-prompt">Ergänzen Sie Ihre Mindmap zum Thema 'Algorithmen' mit einem neuen Ast. Fügen Sie dort die Aspekte 'Chancen' und 'Gefahren' hinzu, basierend auf dem Video.</p>
+                            <!-- MODIFIED <a> TAG with loading state -->
+                            <a id="mindmap-link-btn" href="#" target="_blank" class="link-as-btn is-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span class="btn-text">Mindmap wird generiert...</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Questions & Answers Iframe -->
+                <div class="w-1/2 flex flex-col">
+                    <iframe 
+                        src="https://allgemeinbildung.github.io/textbox/answers.html?assignmentId=Die%20Macht%20der%20Algorithmen&subIds=C.%20Verst%C3%A4ndnisfragen%20zum%20Video&question1=**Was%20ist%20ein%20Algorithmus%20laut%20dem%20Beitrag%3F**&question2=**Welche%20konkreten%20Gefahren%20werden%20im%20Video%20gezeigt%3F**&question3=**Wie%20k%C3%B6nnen%20Algorithmen%20positiv%20genutzt%20werden%3F**"
+                        style="border:0px #ffffff none; flex-grow: 1; width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);"
+                        scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIDDEN CONTAINER FOR MINDMAP DEFINITION -->
+    <div id="hidden-mindmap-container" style="display: none;">
+        <div class="mermaid">
+        mindmap
+            root((Algorithmen))
+                Chancen
+                Gefahren
+                Regulierung
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        function scaleAndCenterSlide() {
+            const slide = document.querySelector('.slide');
+            if (!slide) return;
+            const slideWidth = 1280, slideHeight = 720;
+            const scale = Math.min(window.innerWidth / slideWidth, window.innerHeight / slideHeight);
+            slide.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        }
+        window.addEventListener('resize', scaleAndCenterSlide);
+    </script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            scaleAndCenterSlide();
+            mermaid.initialize({ startOnLoad: false });
+
+            const mindmapDefinition = document.querySelector('#hidden-mindmap-container .mermaid').textContent;
+            const mindmapLink = document.getElementById('mindmap-link-btn');
+            const uniqueId = 'mermaid-graph-' + Date.now();
+
+            mermaid.render(uniqueId, mindmapDefinition, (svgCode) => {
+                const encodedSvg = btoa(svgCode);
+                const dataUrl = `data:image/svg+xml;base64,${encodedSvg}`;
+                
+                // --- THIS IS THE FIX ---
+                // Update the link and its appearance now that it's ready
+                mindmapLink.href = dataUrl;
+                mindmapLink.classList.remove('is-loading');
+                mindmapLink.querySelector('i').classList.replace('fa-spinner', 'fa-project-diagram');
+                mindmapLink.querySelector('i').classList.remove('fa-spin');
+                mindmapLink.querySelector('.btn-text').textContent = 'Mindmap in neuem Tab öffnen';
+            });
+        });
+    </script>
+</body>
+</html>
