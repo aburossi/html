@@ -1,0 +1,5 @@
+/*!
+ * Inline Spoilers for Obsidian
+ * https://github.com/logonoff/obsidian-inline-spoilers
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */.inline_spoilers-spoiler{background-color:var(--interactive-accent)!important;color:transparent!important;text-decoration:none!important}.inline_spoilers-revealed .inline_spoilers-spoiler{background-color:hsla(var(--color-accent-hsl),.075)!important;color:var(--text-accent)!important;text-decoration:unset!important}
